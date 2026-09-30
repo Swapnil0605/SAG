@@ -11,13 +11,12 @@ import {
 } from 'lucide-react';
 import {
   HUDScanHeading,
-  ScaleStretchText,
   ScrollReveal,
 } from './effects/TextScrollEffects';
 
 // If you have an external Google Form, Microsoft Form, or Typeform URL, you can put it here.
 // When left empty, clicking the CTA smoothly opens the briefing form modal directly on the page.
-const EXTERNAL_FORM_URL = '';
+const EXTERNAL_FORM_URL: string = '';
 
 export const ContactSection: React.FC = () => {
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
