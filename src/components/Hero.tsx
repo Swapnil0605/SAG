@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, FileText, ChevronDown } from 'lucide-react';
+import { ArrowRight, ShieldCheck, ChevronDown } from 'lucide-react';
 import {
   HeroKineticTitle,
   ScaleStretchText,
@@ -10,7 +10,7 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] w-full overflow-hidden bg-black flex flex-col justify-center pt-28 pb-16 border-b border-neutral-800/80"
+      className="relative min-h-[92vh] w-full overflow-hidden bg-black flex flex-col justify-center pt-28 pb-16"
     >
       {/* Background Video - Firmly pinned full bleed without scroll displacement */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -25,8 +25,9 @@ export const Hero: React.FC = () => {
           <source src="/video/hero.mp4" type="video/mp4" />
           <source src="/video/datacore.mp4" type="video/mp4" />
         </video>
-        {/* Soft, light gradient overlays so video is clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+        {/* Deep, seamless gradient overlays that blend softly with the next section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+        <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-b from-transparent via-black/90 to-black z-[2]" />
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
@@ -74,22 +75,21 @@ export const Hero: React.FC = () => {
           </p>
         </ScrollReveal>
 
-        {/* Dual Primary Call-to-Actions with Scroll Reveal */}
+        {/* Call-to-Actions with Common Simple Words */}
         <ScrollReveal delay={0.25} yOffset={25}>
           <div className="flex flex-wrap items-center gap-4 mb-16">
             <a
               href="#products"
-              className="inline-flex items-center gap-2.5 bg-red-600 hover:bg-red-500 text-white font-semibold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 shadow-xl shadow-red-600/50 hover:shadow-red-600/70 group cursor-pointer"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 shadow-xl shadow-red-600/40 hover:shadow-red-600/60 group cursor-pointer"
             >
-              <span>Explore Systems Portfolio</span>
+              <span>Explore</span>
               <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white font-semibold text-sm px-6 py-3.5 rounded-xl border border-neutral-700 hover:border-neutral-500 transition-all duration-200 shadow-lg backdrop-blur-md cursor-pointer"
+              href="#vision"
+              className="inline-flex items-center gap-2 bg-neutral-900/80 hover:bg-neutral-800 text-white font-semibold text-sm px-6 py-3.5 rounded-xl border border-neutral-700 hover:border-neutral-500 transition-all duration-200 backdrop-blur-md cursor-pointer"
             >
-              <FileText className="w-4 h-4 text-cyan-400" />
-              <span>Request Technical Briefing</span>
+              <span>Learn More</span>
             </a>
           </div>
         </ScrollReveal>

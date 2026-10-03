@@ -46,7 +46,7 @@ export const TechnologyRoadmap: React.FC = () => {
   return (
     <section
       id="roadmap"
-      className="relative bg-black text-slate-100 py-20 md:py-28 border-b border-neutral-800/80 overflow-hidden"
+      className="relative bg-black text-slate-100 pt-20 md:pt-24 pb-10 md:pb-12 overflow-hidden"
     >
       {/* Background Synapse Video - Firmly pinned full bleed */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -60,9 +60,11 @@ export const TechnologyRoadmap: React.FC = () => {
           <source src="/video/synapse.mp4" type="video/mp4" />
           <source src="/video/datacore.mp4" type="video/mp4" />
         </video>
-        {/* Soft, light gradient overlays so video is clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
-        <div className="absolute inset-0 bg-black/25" />
+        {/* Deep, seamless gradient overlays that blend softly with adjacent sections */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
+        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black via-black/95 to-transparent z-[2]" />
+        <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-black via-black/95 to-transparent z-[2]" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Blueprint grid background */}

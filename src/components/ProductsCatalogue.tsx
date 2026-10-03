@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  ArrowUpRight,
   ChevronRight,
   X,
   CheckCircle2,
@@ -13,6 +14,9 @@ import {
 export interface Product {
   id: string;
   name: string;
+  fleetTag: string;
+  titleMain: string;
+  titleAccent: string;
   category: 'strike' | 'isr' | 'cuas';
   categoryLabel: string;
   roleBadge: string;
@@ -20,6 +24,13 @@ export interface Product {
   description: string;
   image: string;
   gallery: string[];
+  accentTheme: {
+    tagColor: string;
+    accentWordColor: string;
+    glowBg: string;
+    borderColor: string;
+    cardBg: string;
+  };
   keySpecs: {
     label: string;
     value: string;
@@ -46,18 +57,26 @@ export const products: Product[] = [
   {
     id: 'razor-p1',
     name: 'SAG RAZOR P1',
+    fleetTag: 'FLEET 01',
+    titleMain: 'SAG RAZOR',
+    titleAccent: 'P1',
     category: 'strike',
     categoryLabel: 'FPV Combat Drone',
     roleBadge: 'KAMIKAZE STRIKE',
     tagline: 'Precision strike drone for contested electromagnetic zones.',
     description:
       'Indigenous FPV combat drone engineered for terminal precision strike missions, delivering rapid response, high-impact kinetic defeat of armored targets, and battlefield dominance.',
-    image: '/images/products/sag-razor-p1-1.png',
+    image: '/images/products/sag-razor-p1.png',
     gallery: [
-      '/images/products/sag-razor-p1-1.png',
-      '/images/products/sag-razor-p1-2.png',
-      '/images/products/sag-razor-p1-3.png',
+      '/images/products/sag-razor-p1.png',
     ],
+    accentTheme: {
+      tagColor: 'text-red-500',
+      accentWordColor: 'text-red-500',
+      glowBg: 'rgba(239, 68, 68, 0.28)',
+      borderColor: 'hover:border-red-500/60',
+      cardBg: 'from-[#140b0e] via-[#0d0e14] to-[#07080a]',
+    },
     keySpecs: [
       { label: 'RANGE', value: '20 km' },
       { label: 'ENDURANCE', value: 'Up to 50 min' },
@@ -89,21 +108,29 @@ export const products: Product[] = [
   {
     id: 'razor-ofc',
     name: 'SAG RAZOR OFC (Fiber-Optic FPV)',
+    fleetTag: 'FLEET 02',
+    titleMain: 'RAZOR',
+    titleAccent: 'OFC',
     category: 'strike',
     categoryLabel: 'Fiber-Optic Guided FPV',
     roleBadge: '100% UNJAMMABLE TETHER',
     tagline: 'Zero-RF emission physical fiber datalink for contested EW environments.',
     description:
       'Engineered for absolute survivability against hostile electronic warfare. Deploying a high-tensile micro-fiber cable spool during flight completely eliminates RF jamming, spoofing, and direction finding while streaming uncompressed lossless 1080p video.',
-    image: '/images/fiber-optic-fpv-drone.jpg',
+    image: '/images/products/razor-ofc.png',
     gallery: [
+      '/images/products/razor-ofc.png',
       '/images/fiber-optic-fpv-drone.jpg',
       '/images/fiber-optic-fpv-drone-flight.webp',
       '/images/fiber-optic-fpv-drone-alt.jpg',
-      '/images/products/razor-ofc-1.png',
-      '/images/products/razor-ofc-2.png',
-      '/images/products/razor-ofc-3.png',
     ],
+    accentTheme: {
+      tagColor: 'text-cyan-400',
+      accentWordColor: 'text-cyan-400',
+      glowBg: 'rgba(6, 182, 212, 0.28)',
+      borderColor: 'hover:border-cyan-500/60',
+      cardBg: 'from-[#081524] via-[#09101a] to-[#06080e]',
+    },
     keySpecs: [
       { label: 'FIBER SPOOL', value: 'Up to 10 km' },
       { label: 'ENDURANCE', value: 'Up to 50 min' },
@@ -135,16 +162,26 @@ export const products: Product[] = [
   {
     id: 'scout-x',
     name: 'SCOUT-X',
+    fleetTag: 'FLEET 03',
+    titleMain: 'SCOUT',
+    titleAccent: '-X',
     category: 'isr',
     categoryLabel: 'Persistent ISR Quadcopter',
     roleBadge: 'PERSISTENT BORDER ISR',
     tagline: 'GNSS-denied multi-mission border surveillance and route reconnaissance.',
     description:
       'A persistent quadcopter platform delivering real-time border surveillance, route reconnaissance, and counter-infiltration intelligence with dual-mode free flight and tethered power station operations.',
-    image: '/images/products/scout-x-render.png',
+    image: '/images/products/scout-x.png',
     gallery: [
-      '/images/products/scout-x-render.png',
+      '/images/products/scout-x.png',
     ],
+    accentTheme: {
+      tagColor: 'text-sky-400',
+      accentWordColor: 'text-sky-400',
+      glowBg: 'rgba(56, 189, 248, 0.25)',
+      borderColor: 'hover:border-sky-500/60',
+      cardBg: 'from-[#081420] via-[#090d16] to-[#06070a]',
+    },
     keySpecs: [
       { label: 'RANGE', value: '20 km' },
       { label: 'ENDURANCE', value: '90m free / 24h+' },
@@ -176,6 +213,9 @@ export const products: Product[] = [
   {
     id: 'aeron-a1',
     name: 'AERON A1',
+    fleetTag: 'FLEET 04',
+    titleMain: 'AERON',
+    titleAccent: 'A1',
     category: 'isr',
     categoryLabel: 'Hybrid VTOL MALE Platform',
     roleBadge: 'LONG-ENDURANCE VTOL',
@@ -186,6 +226,13 @@ export const products: Product[] = [
     gallery: [
       '/images/products/aeron-a1.png',
     ],
+    accentTheme: {
+      tagColor: 'text-cyan-400',
+      accentWordColor: 'text-cyan-400',
+      glowBg: 'rgba(6, 182, 212, 0.25)',
+      borderColor: 'hover:border-cyan-500/60',
+      cardBg: 'from-[#0b131e] via-[#090d14] to-[#060709]',
+    },
     keySpecs: [
       { label: 'RANGE', value: '50 – 100 km' },
       { label: 'ENDURANCE', value: 'Up to 120 min' },
@@ -217,17 +264,26 @@ export const products: Product[] = [
   {
     id: 'doom-mk1',
     name: 'DOOM MK-1',
+    fleetTag: 'FLEET 05',
+    titleMain: 'DOOM',
+    titleAccent: 'MK-1',
     category: 'cuas',
     categoryLabel: 'Short-Range Surface-to-Air Missile',
     roleBadge: 'SURFACE-TO-AIR DEFENCE',
     tagline: 'Kinetic neutralizer engineered for rapid defeat of UAVs and loitering munitions.',
     description:
       'An indigenous short-range surface-to-air missile system engineered for rapid response and battlefield precision air defence against enemy drone swarms, loitering munitions, and low-flying aerial threats.',
-    image: '/images/products/doom-mk1-1.png',
+    image: '/images/products/doom-mk1.png',
     gallery: [
-      '/images/products/doom-mk1-1.png',
-      '/images/products/doom-mk1-2.png',
+      '/images/products/doom-mk1.png',
     ],
+    accentTheme: {
+      tagColor: 'text-red-500',
+      accentWordColor: 'text-red-500',
+      glowBg: 'rgba(220, 38, 38, 0.28)',
+      borderColor: 'hover:border-red-600/70',
+      cardBg: 'from-[#18090d] via-[#100a0e] to-[#070709]',
+    },
     keySpecs: [
       { label: 'ENGAGEMENT', value: '2 – 5 km' },
       { label: 'ALTITUDE', value: '50 – 5,000 m' },
@@ -256,17 +312,26 @@ export const products: Product[] = [
   {
     id: 'velocity-mk1',
     name: 'SAG VELOCITY',
+    fleetTag: 'FLEET 06',
+    titleMain: 'SAG',
+    titleAccent: 'VELOCITY',
     category: 'cuas',
     categoryLabel: 'Counter Drone Interceptor UAV',
     roleBadge: 'KINETIC C-UAS INTERCEPTOR',
     tagline: 'High-speed autonomous VTOL interceptor designed to hunt and neutralize hostile drones.',
     description:
       'Counter Drone Interceptor UAV technology for mission-critical security. Designed to launch instantly and neutralize incoming enemy loitering munitions, FPV strikers, and reconnaissance UAVs through AI-based optical tracking and proximity detonation.',
-    image: '/images/products/sag-velocity-1.png',
+    image: '/images/products/sag-velocity.png',
     gallery: [
-      '/images/products/sag-velocity-1.png',
-      '/images/products/sag-velocity-2.png',
+      '/images/products/sag-velocity.png',
     ],
+    accentTheme: {
+      tagColor: 'text-cyan-400',
+      accentWordColor: 'text-cyan-400',
+      glowBg: 'rgba(6, 182, 212, 0.25)',
+      borderColor: 'hover:border-cyan-500/60',
+      cardBg: 'from-[#09151e] via-[#090e15] to-[#06070a]',
+    },
     keySpecs: [
       { label: 'TAKE-OFF WEIGHT', value: '5 kg' },
       { label: 'WARHEAD', value: '1 kg Proximity' },
@@ -306,7 +371,10 @@ export const ProductsCatalogue: React.FC = () => {
   };
 
   return (
-    <section id="products" className="relative bg-black text-slate-100 py-20 md:py-28 border-b border-neutral-800/80 overflow-hidden">
+    <section id="products" className="relative bg-black text-slate-100 py-24 md:py-32 overflow-hidden">
+      {/* Soft gradient blend from previous section */}
+      <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black to-transparent pointer-events-none z-[1]" />
+
       {/* Blueprint grid background */}
       <div className="absolute inset-0 blueprint-grid opacity-15 pointer-events-none" />
 
@@ -465,70 +533,79 @@ export const ProductsCatalogue: React.FC = () => {
         </div>
       </ScrollReveal>
 
-        {/* Product Cards Grid - Dark Tactical Aesthetic with Authentic Renders */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Product Cards Grid - Minimalist Fleet Showcase (3D Pop-Out & Heroic Hover Lift) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {products.map((product, pIdx) => (
-            <ScrollReveal key={product.id} delay={pIdx * 0.08} yOffset={35} className="h-full">
-              <div className="bg-[#0d0d10]/90 border border-neutral-800 rounded-3xl p-6 flex flex-col justify-between hover:border-neutral-700 hover:shadow-2xl transition-all duration-300 group shadow-md backdrop-blur-md h-full">
-                <div>
-                  {/* Product Image Stage */}
-                  <div className="relative w-full aspect-[16/11] rounded-2xl overflow-hidden bg-black border border-neutral-800 mb-5 group-hover:border-neutral-700 transition-colors">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
+            <ScrollReveal key={product.id} delay={pIdx * 0.08} yOffset={35} className="h-full overflow-visible">
+              <div
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${product.name} specifications`}
+                onClick={() => handleOpenModal(product)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleOpenModal(product);
+                  }
+                }}
+                className="relative flex flex-col justify-between w-full h-[430px] sm:h-[460px] p-6 sm:p-7 group cursor-pointer overflow-visible select-none z-10 hover:z-30 transition-all duration-500"
+              >
+                {/* 1. Card Base Frame (Background, Glow, Grid & Border - clipped cleanly to card boundary) */}
+                <div
+                  className={`absolute inset-0 rounded-[32px] bg-gradient-to-b ${product.accentTheme.cardBg} border border-neutral-800/80 ${product.accentTheme.borderColor} shadow-xl group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)] transition-all duration-500 overflow-hidden backdrop-blur-sm pointer-events-none`}
+                >
+                  {/* Top ambient glow on hover */}
+                  <div
+                    className="absolute -top-16 left-1/2 -translate-x-1/2 w-52 h-28 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                    style={{ backgroundColor: product.accentTheme.glowBg }}
+                  />
 
-                    {/* Role Badge Top Left */}
-                    <div className="absolute top-3 left-3 bg-black/90 backdrop-blur-md text-cyan-300 text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg border border-neutral-700 shadow-xs uppercase tracking-wider">
-                      {product.roleBadge}
-                    </div>
+                  {/* Subtle tactical grid background */}
+                  <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none opacity-40 group-hover:opacity-75 transition-opacity" />
+                </div>
 
-                    {/* Category Pill Bottom Left */}
-                    <div className="absolute bottom-3 left-3 text-[11px] font-mono font-semibold text-slate-300 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                      <span>{product.categoryLabel}</span>
-                    </div>
+                {/* 2. Top Header: FLEET tag + Bold Product Name */}
+                <div className="relative z-10 flex items-start justify-between pointer-events-none">
+                  <div>
+                    <span className={`text-xs font-mono font-bold tracking-[0.25em] ${product.accentTheme.tagColor} block mb-2`}>
+                      {product.fleetTag}
+                    </span>
+                    <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
+                      <span>{product.titleMain} </span>
+                      <span className={product.accentTheme.accentWordColor}>{product.titleAccent}</span>
+                    </h3>
                   </div>
 
-                  {/* Product Name & Tagline */}
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors flex items-center justify-between">
-                    <span>{product.name}</span>
-                  </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed mb-5 min-h-[36px]">
-                    {product.tagline}
-                  </p>
-
-                  {/* 4-Stat Structured Metric Box */}
-                  <div className="grid grid-cols-2 gap-2.5 p-3.5 bg-black/90 border border-neutral-800 rounded-2xl mb-6">
-                    {product.keySpecs.map((spec, sIdx) => (
-                      <div key={sIdx} className="text-left">
-                        <span className="text-[10px] font-mono uppercase text-cyan-400/90 block tracking-tight">
-                          {spec.label}
-                        </span>
-                        <span className="text-xs font-mono font-bold text-white block truncate">
-                          {spec.value}
-                        </span>
-                      </div>
-                    ))}
+                  {/* Corner Redirect Indicator */}
+                  <div className="w-9 h-9 rounded-full border border-neutral-700/60 bg-black/40 flex items-center justify-center text-neutral-400 group-hover:text-white group-hover:border-cyan-400/80 group-hover:bg-cyan-500/10 transition-all duration-300 flex-shrink-0">
+                    <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </div>
 
-                {/* Action Button: Technical Briefing */}
-                <button
-                  type="button"
-                  onClick={() => handleOpenModal(product)}
-                  className="w-full py-2.5 px-4 rounded-xl bg-neutral-900 hover:bg-red-600 text-neutral-200 hover:text-white text-xs font-mono font-bold transition-all duration-200 flex items-center justify-center gap-2 border border-neutral-800 hover:border-red-600 cursor-pointer shadow-xs"
-                >
-                  <span>TECHNICAL DATASHEET</span>
-                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                {/* 3. Heroic Product Platform Render - Overflows OUT of the Card on Hover */}
+                <div className="relative z-20 w-full flex-1 flex flex-col items-center justify-center px-2 py-4 my-auto overflow-visible pointer-events-none">
+                  {/* Soft Ground Contact Shadow (compresses and fades as platform elevates) */}
+                  <div className="absolute bottom-4 w-4/5 h-4 bg-black/95 blur-lg rounded-full transition-all duration-700 ease-out group-hover:scale-90 group-hover:opacity-25" />
+
+                  {/* Platform Image - Breaking out of the card limits in 3D */}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full max-h-[220px] sm:max-h-[250px] object-contain scale-110 sm:scale-125 transition-all duration-700 ease-out group-hover:-translate-y-7 group-hover:scale-[1.42] sm:group-hover:scale-[1.48] filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] group-hover:drop-shadow-[0_30px_50px_rgba(0,0,0,0.98)]"
+                    style={{
+                      transitionProperty: 'transform, translate, scale, rotate, filter',
+                      transitionDuration: '.7s',
+                    }}
+                  />
+                </div>
               </div>
             </ScrollReveal>
           ))}
         </div>
       </div>
+
+      {/* Seamless bottom blend into subsequent section */}
+      <div className="absolute bottom-0 inset-x-0 h-44 bg-gradient-to-b from-transparent via-black/80 to-black pointer-events-none z-[1]" />
 
       {/* Technical Datasheet Modal (High-Tech, Clean, Stealth) */}
       {selectedProduct && (

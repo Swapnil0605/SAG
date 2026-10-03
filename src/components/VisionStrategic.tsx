@@ -9,9 +9,10 @@ import {
 export const VisionStrategic: React.FC = () => {
   return (
     <section
-      id="vision"
-      className="relative bg-black text-slate-100 py-20 md:py-28 border-b border-neutral-800/80 overflow-hidden"
+      id="about"
+      className="relative bg-black text-slate-100 py-24 md:py-32 overflow-hidden"
     >
+      <div id="vision" className="absolute -top-24 pointer-events-none" />
       {/* High-Altitude Supersonic Contrail Background - Firmly pinned full bleed */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
@@ -19,9 +20,11 @@ export const VisionStrategic: React.FC = () => {
           alt="High-Altitude Supersonic Contrail"
           className="w-full h-full object-cover object-center opacity-80"
         />
-        {/* Soft, light gradient overlays so image is clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
-        <div className="absolute inset-0 bg-black/25" />
+        {/* Deep, seamless gradient overlays that blend softly with adjacent sections */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
+        <div className="absolute top-0 inset-x-0 h-48 bg-gradient-to-b from-black via-black/95 to-transparent z-[2]" />
+        <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-black via-black/95 to-transparent z-[2]" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Blueprint grid background */}

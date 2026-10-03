@@ -10,7 +10,7 @@ export const Leadership: React.FC = () => {
   return (
     <section
       id="leadership"
-      className="relative bg-black text-slate-100 py-20 md:py-28 border-b border-neutral-800/80 overflow-hidden"
+      className="relative bg-black text-slate-100 pt-10 md:pt-14 pb-20 md:pb-24 overflow-hidden"
     >
       {/* Military Airplane Bunker Background - Firmly pinned full bleed */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -19,9 +19,11 @@ export const Leadership: React.FC = () => {
           alt="Aerospace Hangar Bunker"
           className="w-full h-full object-cover object-center opacity-80"
         />
-        {/* Soft, light gradient overlays so bunker hangar is clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
-        <div className="absolute inset-0 bg-black/25" />
+        {/* Deep, seamless gradient overlays that blend softly with adjacent sections */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
+        <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-black via-black/95 to-transparent z-[2]" />
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-black via-black/95 to-transparent z-[2]" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Blueprint grid background */}

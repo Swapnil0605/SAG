@@ -171,10 +171,7 @@ export const Footer: React.FC = () => {
             <span>© {currentYear} SAG Defence and Aerospace Pvt Ltd. All rights reserved.</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <span className="text-[14.8px] text-red-500 font-bold tracking-military">
-              DEFEND • DETER • LEAD
-            </span>
+          <div className="flex items-center">
             <button
               type="button"
               onClick={scrollToTop}

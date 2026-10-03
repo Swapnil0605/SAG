@@ -1,4 +1,4 @@
-/* LoadingScreen.css - Aerospace Defence Loading Screen Styling */
+/* LoadingScreen.css - Cinematic Cutout Video Loader with Upward Screen Reveal */
 
 .loading-screen-container {
   position: fixed;
@@ -9,21 +9,22 @@
   background-color: #000000;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s ease;
+  transform: translateY(0%);
+  transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
   user-select: none;
   pointer-events: all;
+  cursor: pointer;
+  will-change: transform;
 }
 
-.loading-screen-container.fading-out {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+/* When loading completes, the screen slides straight UP to reveal the website */
+.loading-screen-container.slide-up {
+  transform: translateY(-100%);
 }
 
-/* Fullscreen Video Layer */
+/* Fullscreen Video Underneath */
 .loading-video-wrapper {
   position: absolute;
   inset: 0;
@@ -39,42 +40,90 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  animation: sag-video-slow-pan 12s ease-in-out infinite alternate;
 }
 
-/* UI Content Layers */
-.loading-ui-bottom {
-  position: relative;
-  z-index: 10;
+@keyframes sag-video-slow-pan {
+  0% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+/* SVG Cutout Layer that masks the video into SAG letters */
+.loading-cutout-layer {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 34rem;
-  padding: 0 1.5rem 2.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* Tactical Progress Bar */
-.loading-progress-track {
-  width: 100%;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 9999px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-.loading-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #dc2626 0%, #38bdf8 100%);
-  border-radius: 9999px;
-  transition: width 0.15s ease-out;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.8);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* SAG Typography Animation - Dynamic camera push */
+.sag-text-group {
+  transform-origin: 960px 540px;
+  animation: sag-camera-push 3.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes sag-camera-push {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.6;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+/* Dynamic outline contour pulse (Cyan to Sovereign Crimson Red) */
+.sag-outline-glow {
+  transform-origin: 960px 540px;
+  animation: 
+    sag-camera-push 3.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards,
+    sag-glow-pulse 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes sag-glow-pulse {
+  0% {
+    stroke: rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
+  }
+  50% {
+    stroke: rgba(56, 189, 248, 0.6);
+    filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.5));
+  }
+  100% {
+    stroke: rgba(220, 38, 38, 0.65);
+    filter: drop-shadow(0 0 22px rgba(220, 38, 38, 0.55));
+  }
+}
+
+/* On screen slide-up, zoom into SAG slightly for cinematic depth */
+.loading-screen-container.slide-up .sag-text-group,
+.loading-screen-container.slide-up .sag-outline-glow {
+  transform: scale(1.15) translateY(-30px);
+  transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .loading-progress-fill {
-    transition: none;
+  .loading-screen-container {
+    transition: opacity 0.5s ease;
+  }
+  .loading-screen-container.slide-up {
+    transform: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .sag-text-group,
+  .sag-outline-glow,
+  .loading-video-element {
+    animation: none;
   }
 }

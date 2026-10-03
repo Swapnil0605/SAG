@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Globe,
   Send,
   CheckCircle,
   X,
-  ArrowUpRight,
 } from 'lucide-react';
-import {
-  HUDScanHeading,
-  ScrollReveal,
-} from './effects/TextScrollEffects';
+import { ScrollReveal } from './effects/TextScrollEffects';
 
 // If you have an external Google Form, Microsoft Form, or Typeform URL, you can put it here.
 // When left empty, clicking the CTA smoothly opens the briefing form modal directly on the page.
@@ -79,188 +71,74 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative bg-black text-slate-100 pt-16 pb-12 md:pt-20 md:pb-14 border-b border-neutral-800/80 overflow-hidden"
+      className="relative bg-black text-slate-100 min-h-[75vh] md:min-h-[85vh] py-24 md:py-32 flex items-center justify-center overflow-hidden"
     >
-      {/* Background1 Video from Required Info - Firmly pinned full-bleed without drift */}
+      {/* Background Video spanning the whole screen / full section */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-75"
+          className="w-full h-full object-cover opacity-80"
         >
           <source src="/video/background1.mp4" type="video/mp4" />
         </video>
-        {/* Soft, light gradient overlays so Background1 video is clearly visible while text & form remain legible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
-        <div className="absolute inset-0 bg-black/25" />
+        {/* Seamless stealth gradient overlays for typography contrast and smooth blending */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-black/90" />
+        <div className="absolute top-0 inset-x-0 h-48 bg-gradient-to-b from-black via-black/95 to-transparent z-[2]" />
+        <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-black via-black/95 to-transparent z-[2]" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* Blueprint grid background */}
+      {/* Blueprint grid subtle overlay */}
       <div className="absolute inset-0 blueprint-grid opacity-15 pointer-events-none z-[1]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Official Contact Card Details with Scroll Reveal */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
-            <ScrollReveal yOffset={25}>
-              <div>
-                <div className="flex items-center gap-3.5 mb-6">
-                  <div className="p-1.5 rounded-xl bg-white border border-neutral-200 shadow-md">
-                    <img
-                      src="/sag-logo-light.png"
-                      alt="SAG Defence and Aerospace"
-                      className="h-10 w-auto object-contain"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xs font-mono uppercase text-red-500 font-bold tracking-wider block">
-                      SAG DEFENCE &amp; AEROSPACE
-                    </span>
-                    <span className="text-[10px] text-cyan-400 font-mono">
-                      ADVANCED SOVEREIGN SYSTEMS DIVISION
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                  <span className="text-xs font-semibold tracking-military uppercase text-cyan-400 font-mono">
-                    OFFICIAL DEFENCE CHANNEL
-                  </span>
-                </div>
-
-                {/* HUD Scan Reveal on Section Heading */}
-                <div className="mb-6">
-                  <HUDScanHeading
-                    tag="h2"
-                    className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white"
-                  >
-                    Connect with SAG Defence.
-                  </HUDScanHeading>
-                </div>
-
-                <p className="text-sm text-slate-300 leading-relaxed mb-8">
-                  For classified technical briefings, live flight trials, procurement inquiries, or defense partnerships, connect directly with our engineering directorate.
-                </p>
-
-                {/* Direct Info List */}
-                <div className="space-y-5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-red-500 shadow-xs">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono uppercase text-neutral-400 block">Direct Line</span>
-                      <a href="tel:+919113867676" className="text-sm font-bold text-white hover:text-red-400 transition-colors">
-                        +91 9113867676
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-red-500 shadow-xs">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono uppercase text-neutral-400 block">Technical Directorate</span>
-                      <a href="mailto:cto@sagdefaero.com" className="text-sm font-bold text-white hover:text-red-400 transition-colors">
-                        cto@sagdefaero.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-cyan-400 shadow-xs">
-                      <MapPin className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono uppercase text-neutral-400 block">R&amp;D Facility &amp; Headquarters</span>
-                      <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
-                        Kambipura village karubele road, karubele taluk, kengeri,<br />
-                        Karnataka 560074, India
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 text-cyan-400 shadow-xs">
-                      <Globe className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono uppercase text-neutral-400 block">Official Portal</span>
-                      <a href="https://www.sagdefaero.com" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-neutral-200 hover:text-cyan-400 transition-colors">
-                        www.sagdefaero.com
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 4 Pillars Badge */}
-              <div className="mt-10 pt-6 border-t border-neutral-800 grid grid-cols-2 gap-3 text-[11px] font-mono uppercase text-neutral-400">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
-                  <span>DEFENCE</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                  <span>AEROSPACE</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                  <span>TECHNOLOGY</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
-                  <span>ATMANIRBHAR BHARAT</span>
-                </div>
-              </div>
-            </ScrollReveal>
+      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center">
+        <ScrollReveal yOffset={25}>
+          {/* Top Tag matching website theme */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/70 border border-neutral-800 backdrop-blur-md mb-6 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+            <span className="text-xs font-mono font-semibold tracking-military uppercase text-cyan-400">
+              GET IN TOUCH
+            </span>
           </div>
 
-          {/* Right Column: Simple Minimal CTA */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            <ScrollReveal delay={0.2} yOffset={25}>
-              <div className="bg-[#0d0d10]/90 border border-neutral-800 rounded-3xl p-8 sm:p-12 shadow-2xl backdrop-blur-md">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                  <span className="text-xs font-mono uppercase text-cyan-400 font-semibold tracking-wider">
-                    TECHNICAL BRIEFING
-                  </span>
-                </div>
+          {/* Main Title */}
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-5 drop-shadow-2xl">
+            Stay Connected
+          </h2>
 
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
-                  Request a Technical Briefing.
-                </h3>
+          {/* Subtitle Description */}
+          <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed mb-10 drop-shadow-md">
+            Stay updated with technical briefings, live flight trials, and sovereign defence opportunities at SAG Defence and Aerospace.
+          </p>
 
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-lg">
-                  Submit your mission requirements to connect with our engineering team for platform datasheets and flight trials.
-                </p>
+          {/* Two CTA Action Buttons with matching brand colors */}
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 mb-12">
+            <button
+              type="button"
+              onClick={handleCtaClick}
+              className="bg-red-600 hover:bg-red-500 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-xl shadow-red-600/30 hover:shadow-red-600/50 transition-all duration-200 hover:scale-105 cursor-pointer"
+            >
+              Enquire Now
+            </button>
 
-                <div className="flex flex-wrap items-center gap-4">
-                  <button
-                    type="button"
-                    onClick={handleCtaClick}
-                    className="inline-flex items-center gap-2.5 bg-red-600 hover:bg-red-500 text-white font-semibold text-sm px-7 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-red-600/30 hover:shadow-red-600/50 cursor-pointer group"
-                  >
-                    <span>Request Briefing</span>
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </button>
-
-                  <a
-                    href="tel:+919113867676"
-                    className="inline-flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white text-sm font-medium px-5 py-3.5 rounded-xl border border-neutral-800 transition-colors"
-                  >
-                    <Phone className="w-4 h-4 text-cyan-400" />
-                    <span>+91 9113867676</span>
-                  </a>
-                </div>
-              </div>
-            </ScrollReveal>
+            <a
+              href="tel:+919113867676"
+              className="bg-black/60 hover:bg-neutral-900 text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-xl border border-neutral-700/90 transition-all duration-200 hover:scale-105 backdrop-blur-md cursor-pointer"
+            >
+              Contact Us
+            </a>
           </div>
-        </div>
+
+          {/* Sovereign Motto Accent */}
+          <div className="flex items-center justify-center">
+            <span className="text-sm sm:text-base text-red-500 font-bold tracking-military uppercase drop-shadow-md">
+              DEFEND • DETER • LEAD
+            </span>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Briefing Request Modal Popup */}
