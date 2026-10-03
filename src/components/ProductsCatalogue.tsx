@@ -591,6 +591,12 @@ export const ProductsCatalogue: React.FC = () => {
                   <img
                     src={product.image}
                     alt={product.name}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.includes('SCOUT-X.png') && target.src.includes('scout-x.png')) {
+                        target.src = '/images/products/SCOUT-X.png';
+                      }
+                    }}
                     className="w-full max-h-[220px] sm:max-h-[250px] object-contain scale-110 sm:scale-125 transition-all duration-700 ease-out group-hover:-translate-y-7 group-hover:scale-[1.42] sm:group-hover:scale-[1.48] filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] group-hover:drop-shadow-[0_30px_50px_rgba(0,0,0,0.98)]"
                     style={{
                       transitionProperty: 'transform, translate, scale, rotate, filter',
@@ -642,6 +648,12 @@ export const ProductsCatalogue: React.FC = () => {
                   <img
                     src={modalActiveImage || selectedProduct.image}
                     alt={selectedProduct.name}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.includes('SCOUT-X.png') && target.src.includes('scout-x.png')) {
+                        target.src = '/images/products/SCOUT-X.png';
+                      }
+                    }}
                     className="w-full h-full object-contain bg-black"
                   />
                   <div className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase">
