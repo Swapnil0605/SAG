@@ -10,6 +10,7 @@ import TechnologyRoadmap from './components/TechnologyRoadmap';
 import Leadership from './components/Leadership';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 
 export const App: React.FC = () => {
   const [, setAppReady] = useState(false);
@@ -44,6 +45,9 @@ export const App: React.FC = () => {
 
       {/* 7. Footer with Sanskrit Motto & Sovereign Declaration */}
       <Footer />
+
+      {/* 8. Floating WhatsApp Action Button in Bottom-Right Corner */}
+      <WhatsAppButton />
     </div>
   );
 };

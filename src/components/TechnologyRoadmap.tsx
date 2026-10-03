@@ -70,7 +70,7 @@ export const TechnologyRoadmap: React.FC = () => {
       {/* Blueprint grid background */}
       <div className="absolute inset-0 blueprint-grid opacity-20 pointer-events-none z-[1]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Section Title with Sliced / Split Reveal */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>

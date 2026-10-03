@@ -78,3 +78,43 @@
   border-right: 2px solid rgba(56, 189, 248, 0.8);
   pointer-events: none;
 }
+
+/* Aerodynamic Hero Jet Floating & Bouncing Animation */
+@keyframes heroJetBounce {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-14px) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.3deg);
+  }
+  75% {
+    transform: translateY(-20px) rotate(-0.4deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes heroShadowPulse {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(0.85) translateY(6px);
+    opacity: 0.25;
+  }
+}
+
+.animate-hero-jet {
+  animation: heroJetBounce 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hero-shadow {
+  animation: heroShadowPulse 4.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}

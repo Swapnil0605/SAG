@@ -94,7 +94,7 @@ export const ContactSection: React.FC = () => {
       {/* Blueprint grid subtle overlay */}
       <div className="absolute inset-0 blueprint-grid opacity-15 pointer-events-none z-[1]" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
         <ScrollReveal yOffset={25}>
           {/* Top Tag matching website theme */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/70 border border-neutral-800 backdrop-blur-md mb-6 shadow-xs">
@@ -272,7 +272,7 @@ export const ContactSection: React.FC = () => {
                     <option value="AERON A1 (VTOL Hybrid ISR Platform)">AERON A1 (VTOL Hybrid ISR Platform)</option>
                     <option value="DOOM MK-1 (Short-Range SAM Missile)">DOOM MK-1 (Short-Range SAM Missile)</option>
                     <option value="SAG VELOCITY (Counter Drone Interceptor)">SAG VELOCITY (Counter Drone Interceptor)</option>
-                    <option value="Mach 1+ Supersonic Loitering Munition Programme">Mach 1+ Supersonic Loitering Munition Programme</option>
+                    <option value="Project Yamraj (Mach 1+ Supersonic Loitering Munition)">Project Yamraj (Mach 1+ Supersonic Loitering Munition)</option>
                     <option value="Defence Corridor Strategic Partnership">Defence Corridor Strategic Partnership</option>
                   </select>
                 </div>

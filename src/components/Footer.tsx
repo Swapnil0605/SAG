@@ -26,14 +26,14 @@ export const Footer: React.FC = () => {
       {/* Blueprint grid subtle */}
       <div className="absolute inset-0 blueprint-grid opacity-15 pointer-events-none z-[1]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 pt-10 pb-6">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 pt-10 pb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-8 border-b border-neutral-800/80">
           {/* Col 1 & 2: Brand & Sanskrit Motto */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3.5">
               <div className="p-1.5 rounded-xl bg-white border border-neutral-200 shadow-md">
                 <img
-                  src="/sag-logo-light.png"
+                  src="/sag-logo-new.png"
                   alt="SAG Defence & Aerospace Logo"
                   className="h-10 w-auto object-contain"
                 />
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-[13.12px] text-slate-400 leading-relaxed max-w-sm pt-2">
-              Pioneering indigenous supersonic unmanned strike systems, high-altitude tactical ISR, and air defence technologies built for a self-reliant India.
+              Creating world-class defence and aerospace products from Bharat for the world through indigenous engineering, disciplined innovation, and uncompromising reliability.
             </p>
 
             <div className="pt-2 flex items-center gap-3 text-[13.12px] font-mono">
@@ -153,13 +153,23 @@ export const Footer: React.FC = () => {
             <div className="space-y-3 text-[13.12px] text-slate-400">
               <p className="leading-relaxed">
                 SAG Defence and Aerospace Pvt Ltd<br />
-                Kambipura village karubele road,<br />
-                Kengeri, Bengaluru,<br />
-                Karnataka 560074, India
+                Ground Floor, 43, above Arvind Book House,<br />
+                near BMTC Bus Stop, BHCS Layout,<br />
+                Chandra Layout, Bengaluru,<br />
+                Karnataka 560040, India
               </p>
               <div className="pt-2 text-[13.12px] font-mono space-y-1">
-                <p className="text-slate-200">Direct: +91 9113867676</p>
-                <p className="text-red-400 font-medium">cto@sagdefaero.com</p>
+                <p className="text-slate-200">
+                  Direct:{' '}
+                  <a href="tel:+919113867676" className="hover:text-cyan-400 transition-colors">
+                    +91 9113867676
+                  </a>
+                </p>
+                <p>
+                  <a href="mailto:contactus@sagdefaero.com" className="text-red-400 font-medium hover:underline">
+                    contactus@sagdefaero.com
+                  </a>
+                </p>
               </div>
             </div>
           </div>

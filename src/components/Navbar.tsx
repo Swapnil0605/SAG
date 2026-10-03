@@ -34,12 +34,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
           : 'bg-gradient-to-b from-black/95 via-black/80 to-transparent py-4'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
+      <nav className="max-w-[1400px] mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand Logo Only */}
         <a href="#home" className="flex items-center group">
           <div className="relative flex items-center py-1.5 px-3 rounded-xl bg-white border border-neutral-200 group-hover:border-red-500/80 transition-all duration-300 shadow-sm shadow-black/40">
             <img
-              src="/sag-logo-light.png"
+              src="/sag-logo-new.png"
               alt="SAG Defence and Aerospace"
               className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />

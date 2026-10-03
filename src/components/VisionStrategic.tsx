@@ -30,7 +30,7 @@ export const VisionStrategic: React.FC = () => {
       {/* Blueprint grid background */}
       <div className="absolute inset-0 blueprint-grid opacity-20 pointer-events-none z-[1]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Section Header with Sliced / Split Reveal */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
@@ -38,7 +38,7 @@ export const VisionStrategic: React.FC = () => {
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
                 <span className="text-xs font-semibold tracking-military uppercase text-cyan-300 font-mono drop-shadow-sm">
-                  STRATEGIC DOCTRINE // ATMANIRBHAR BHARAT
+                  FROM BHARAT TO THE WORLD // STRATEGIC DOCTRINE
                 </span>
               </div>
             </ScrollReveal>
@@ -54,7 +54,7 @@ export const VisionStrategic: React.FC = () => {
 
           <ScrollReveal delay={0.2} yOffset={25}>
             <p className="text-sm sm:text-base text-slate-200 max-w-md leading-relaxed drop-shadow-sm">
-              Conventional subsonic loitering drones face high attrition against modern multi-layered air defence systems. SAG is engineering sovereign supersonic unmanned systems to ensure rapid, decisive air dominance.
+              SAG Defence and Aerospace is engineering sovereign systems from Bharat for the world. Our flagship development programme, <span className="text-red-400 font-semibold">Project Yamraj</span>, pioneers an indigenous supersonic loitering munition for decisive air dominance.
             </p>
           </ScrollReveal>
         </div>
@@ -71,19 +71,19 @@ export const VisionStrategic: React.FC = () => {
             {
               title: 'DETER',
               subtitle: 'Precision Strike',
-              desc: 'FPV kamikaze and supersonic loitering systems delivering lethal terminal kinetics in contested airspace.',
+              desc: 'FPV combat systems and rapid loitering platforms delivering lethal terminal kinetics in contested airspace.',
               icon: Zap,
             },
             {
               title: 'LEAD',
-              subtitle: 'Supersonic Frontier',
-              desc: 'Propelling India to be the first nation fielding an indigenous supersonic loitering munition.',
+              subtitle: 'Project Yamraj',
+              desc: 'Flagship programme engineering an indigenous supersonic loitering munition to advance Bharat’s strike frontier.',
               icon: Award,
             },
             {
-              title: 'SELF-RELIANCE',
-              subtitle: 'Domestic Supply Chain',
-              desc: 'Design, avionics, airframe, and propulsion integrated directly into India’s sovereign defense corridor.',
+              title: 'WORLD-CLASS',
+              subtitle: 'Indigenous Quality',
+              desc: 'Building innovative, reliable products through indigenous engineering and uncompromising quality for the world.',
               icon: Crosshair,
             },
           ].map((pillar, idx) => {
@@ -140,7 +140,7 @@ export const VisionStrategic: React.FC = () => {
 
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-cyan-300 font-semibold self-start lg:self-auto">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span>SAG MACH 1+ PROGRAMME IN ACTIVE DEVELOPMENT</span>
+                <span>PROJECT YAMRAJ // SUPERSONIC MUNITION IN ACTIVE DEVELOPMENT</span>
               </div>
             </div>
 
@@ -178,7 +178,7 @@ export const VisionStrategic: React.FC = () => {
                 <div className="flex justify-between items-center text-xs font-mono mb-2">
                   <span className="text-white font-bold flex items-center gap-2">
                     <Gauge className="w-4 h-4 text-red-500" />
-                    SAG Sovereign Target Platform (Supersonic Class)
+                    Project Yamraj (Sovereign Supersonic Class)
                   </span>
                   <ScaleStretchText
                     scaleYFrom={1.3}

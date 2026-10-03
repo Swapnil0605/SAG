@@ -54,7 +54,7 @@ export const HeroKineticTitle: React.FC<HeroKineticTitleProps> = ({
           scrollTrigger: {
             trigger: el,
             start: 'top 85%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
           },
         }
       );
@@ -327,7 +327,7 @@ export const Perspective3DReveal: React.FC<Perspective3DRevealProps> = ({
           scrollTrigger: {
             trigger: el,
             start: 'top 85%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
           },
         }
       );
@@ -385,7 +385,7 @@ export const HUDScanHeading: React.FC<HUDScanHeadingProps> = ({
         scrollTrigger: {
           trigger: el,
           start: 'top 85%',
-          toggleActions: 'play none none none',
+          toggleActions: 'play reverse play reverse',
         },
       });
 
@@ -458,7 +458,7 @@ export const SanskritRadiantMotto: React.FC<SanskritRadiantProps> = ({
           scrollTrigger: {
             trigger: el,
             start: 'top 92%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
           },
         }
       );
@@ -522,7 +522,7 @@ export const SplitRevealText: React.FC<SplitRevealProps> = ({
           scrollTrigger: {
             trigger: el,
             start: 'top 88%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
           },
         }
       );
@@ -719,7 +719,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
           scrollTrigger: {
             trigger: el,
             start: 'top 88%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
           },
         }
       );
