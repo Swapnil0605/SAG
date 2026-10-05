@@ -1,7 +1,6 @@
 import React from 'react';
 import { Gauge, Shield, Zap, Crosshair, Award } from 'lucide-react';
 import {
-  SpeedStretchHeading,
   ScaleStretchText,
   ScrollReveal,
 } from './effects/TextScrollEffects';

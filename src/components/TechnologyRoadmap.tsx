@@ -1,7 +1,6 @@
 import React from 'react';
 import { CheckSquare } from 'lucide-react';
 import {
-  HorizontalStreamHeading,
   ParallaxText,
   ScaleStretchText,
   ScrollReveal,

@@ -8,7 +8,6 @@ import {
   RotateCw,
 } from 'lucide-react';
 import {
-  ScrubWordGlow,
   ScaleStretchText,
   ScrollReveal,
 } from './effects/TextScrollEffects';
