@@ -178,7 +178,7 @@ export const ScrubWordGlow: React.FC<ScrubWordGlowProps> = ({
       gsap.fromTo(
         words,
         {
-          opacity: 0.22,
+          opacity: 0.25,
           filter: 'blur(3px)',
           color: '#64748B',
           scale: 0.96,

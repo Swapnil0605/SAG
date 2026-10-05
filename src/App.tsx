@@ -7,7 +7,6 @@ import Hero from './components/Hero';
 import VisionStrategic from './components/VisionStrategic';
 import ProductsCatalogue from './components/ProductsCatalogue';
 import TechnologyRoadmap from './components/TechnologyRoadmap';
-import Leadership from './components/Leadership';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -36,10 +35,7 @@ export const App: React.FC = () => {
         {/* 4. Technology Development Roadmap (Synapse / Datacore Video Background) */}
         <TechnologyRoadmap />
 
-        {/* 5. Executive & Technical Leadership (Military Bunker Hangar Background) */}
-        <Leadership />
-
-        {/* 6. Official Contact & Technical Briefing Inquiries */}
+        {/* 5. Official Contact & Technical Briefing Inquiries */}
         <ContactSection />
       </main>
 

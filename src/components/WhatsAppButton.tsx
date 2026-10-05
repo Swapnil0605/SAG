@@ -15,7 +15,7 @@ export const WhatsAppButton: React.FC = () => {
     >
       {/* Tooltip Label */}
       <div
-        className={`mr-3 px-3.5 py-1.5 rounded-xl bg-black/90 border border-neutral-800 text-xs font-mono text-white shadow-xl backdrop-blur-md transition-all duration-300 pointer-events-none ${
+        className={`mr-3 px-3.5 py-1.5 rounded-xl bg-neutral-900/95 border border-neutral-800 text-xs font-mono text-slate-200 shadow-xl backdrop-blur-md transition-all duration-300 pointer-events-none ${
           isHovered
             ? 'opacity-100 translate-x-0'
             : 'opacity-0 translate-x-2'

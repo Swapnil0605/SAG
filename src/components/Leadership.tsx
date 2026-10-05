@@ -12,22 +12,19 @@ export const Leadership: React.FC = () => {
       id="leadership"
       className="relative bg-black text-slate-100 pt-10 md:pt-14 pb-20 md:pb-24 overflow-hidden"
     >
-      {/* Military Airplane Bunker Background - Firmly pinned full bleed */}
+      {/* Military Airplane Bunker Background - Clearly visible with soft dark contrast overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           src="/images/bg/airplane-bunker.jpg"
           alt="Aerospace Hangar Bunker"
-          className="w-full h-full object-cover object-center opacity-80"
+          className="w-full h-full object-cover object-center opacity-60 filter contrast-110 brightness-90"
         />
-        {/* Deep, seamless gradient overlays that blend softly with adjacent sections */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
-        <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-black via-black/95 to-transparent z-[2]" />
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-black via-black/95 to-transparent z-[2]" />
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Soft, reduced dark overlay so bunker architecture is clearly visible */}
+        <div className="absolute inset-0 bg-black/65" />
       </div>
 
       {/* Blueprint grid background */}
-      <div className="absolute inset-0 blueprint-grid opacity-20 pointer-events-none z-[1]" />
+      <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none z-[1]" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Section Header with Sliced / Split Reveal */}
@@ -36,7 +33,7 @@ export const Leadership: React.FC = () => {
             <ScrollReveal yOffset={15} blur={4}>
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                <span className="text-xs font-semibold tracking-military uppercase text-cyan-300 font-mono drop-shadow-sm">
+                <span className="text-xs font-semibold tracking-military uppercase text-sky-400 font-mono">
                   SOVEREIGN DEFENCE LEADERSHIP
                 </span>
               </div>
@@ -45,14 +42,14 @@ export const Leadership: React.FC = () => {
             {/* Perspective 3D Flip Reveal */}
             <Perspective3DReveal
               tag="h2"
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md"
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight"
             >
               Military Discipline. Aeronautical Rigor.
             </Perspective3DReveal>
           </div>
 
           <ScrollReveal delay={0.2} yOffset={20}>
-            <p className="text-sm sm:text-base text-slate-200 max-w-md leading-relaxed drop-shadow-sm">
+            <p className="text-sm sm:text-base text-slate-300 max-w-md leading-relaxed">
               A proven combination of veteran field-operational execution and specialized hands-on aerospace systems engineering, dedicated to building India&apos;s sovereign defense capability.
             </p>
           </ScrollReveal>
@@ -62,9 +59,9 @@ export const Leadership: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Arun Yamanappa Chimmalagi */}
           <ScrollReveal delay={0.1} yOffset={35} className="h-full">
-            <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-neutral-600 hover:shadow-2xl transition-all duration-300 shadow-xl backdrop-blur-md h-full">
+            <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-neutral-700 hover:shadow-xl transition-all duration-300 shadow-md backdrop-blur-md h-full">
               <div className="w-32 sm:w-40 flex-shrink-0">
-                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-black border border-neutral-800 shadow-inner">
+                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 shadow-inner">
                   <img
                     src="/images/team/arun-chimmalagi.png"
                     alt="Arun Yamanappa Chimmalagi"
@@ -89,7 +86,7 @@ export const Leadership: React.FC = () => {
                     </h3>
                   </ScaleStretchText>
 
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-200 mb-4 font-semibold">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-slate-200 mb-4 font-semibold">
                     <Shield className="w-3.5 h-3.5 text-red-500" />
                     <span>Indian Army (Para Military Force) Veteran</span>
                   </div>
@@ -114,7 +111,7 @@ export const Leadership: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-neutral-800 font-mono text-[11px] text-neutral-400 italic">
+                <div className="pt-3 border-t border-neutral-800 font-mono text-[11px] text-slate-400 italic">
                   “Military discipline applied to sovereign aerospace manufacturing.”
                 </div>
               </div>
@@ -123,15 +120,15 @@ export const Leadership: React.FC = () => {
 
           {/* Rahul G */}
           <ScrollReveal delay={0.25} yOffset={35} className="h-full">
-            <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-neutral-600 hover:shadow-2xl transition-all duration-300 shadow-xl backdrop-blur-md h-full">
+            <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-neutral-700 hover:shadow-xl transition-all duration-300 shadow-md backdrop-blur-md h-full">
               <div className="w-32 sm:w-40 flex-shrink-0">
-                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-black border border-neutral-800 shadow-inner">
+                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 shadow-inner">
                   <img
                     src="/images/team/rahul-g.png"
                     alt="Rahul G"
                     className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute top-2 left-2 bg-cyan-700 text-white text-[9px] font-mono font-bold px-2 py-0.5 rounded shadow-xs uppercase">
+                  <div className="absolute top-2 left-2 bg-sky-700 text-white text-[9px] font-mono font-bold px-2 py-0.5 rounded shadow-xs uppercase">
                     AERO ENG
                   </div>
                 </div>
@@ -139,7 +136,7 @@ export const Leadership: React.FC = () => {
 
               <div className="flex-1 flex flex-col justify-between">
                 <div>
-                  <span className="text-[10px] font-mono text-cyan-400 font-bold tracking-military uppercase block mb-1">
+                  <span className="text-[10px] font-mono text-sky-400 font-bold tracking-military uppercase block mb-1">
                     FOUNDER &amp; CHIEF TECHNICAL DIRECTOR
                   </span>
 
@@ -150,8 +147,8 @@ export const Leadership: React.FC = () => {
                     </h3>
                   </ScaleStretchText>
 
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-200 mb-4 font-semibold">
-                    <Cpu className="w-3.5 h-3.5 text-cyan-400" />
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-slate-200 mb-4 font-semibold">
+                    <Cpu className="w-3.5 h-3.5 text-sky-400" />
                     <span>Aeronautical Engineer &amp; UAV Flight-Test Lead</span>
                   </div>
 
@@ -161,21 +158,21 @@ export const Leadership: React.FC = () => {
 
                   <div className="space-y-2 mb-4">
                     <div className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
                       <span>Founder &amp; CEO, Yudha Tech Solutions (2023–2025)</span>
                     </div>
                     <div className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
                       <span>Designed and flight-tested dual-motor tailsitter &amp; VTOL aircraft</span>
                     </div>
                     <div className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
                       <span>B.E. Aeronautical Engineering (KLS GIT), lead systems architect</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-neutral-800 font-mono text-[11px] text-neutral-400 italic">
+                <div className="pt-3 border-t border-neutral-800 font-mono text-[11px] text-slate-400 italic">
                   “Engineering sovereign solutions for a stronger, self-reliant tomorrow.”
                 </div>
               </div>

@@ -71,47 +71,44 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative bg-black text-slate-100 min-h-[75vh] md:min-h-[85vh] py-24 md:py-32 flex items-center justify-center overflow-hidden"
+      className="relative bg-black text-slate-100 min-h-[70vh] md:min-h-[80vh] py-24 md:py-32 flex items-center justify-center overflow-hidden"
     >
-      {/* Background Video spanning the whole screen / full section */}
+      {/* Background Video - Clearly visible with soft dark contrast overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-80"
+          className="w-full h-full object-cover opacity-60"
         >
           <source src="/video/background1.mp4" type="video/mp4" />
         </video>
-        {/* Seamless stealth gradient overlays for typography contrast and smooth blending */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-black/90" />
-        <div className="absolute top-0 inset-x-0 h-48 bg-gradient-to-b from-black via-black/95 to-transparent z-[2]" />
-        <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-black via-black/95 to-transparent z-[2]" />
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Soft, reduced dark overlay so motion video is clearly visible */}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Blueprint grid subtle overlay */}
-      <div className="absolute inset-0 blueprint-grid opacity-15 pointer-events-none z-[1]" />
+      <div className="absolute inset-0 blueprint-grid opacity-25 pointer-events-none z-[1]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
         <ScrollReveal yOffset={25}>
-          {/* Top Tag matching website theme */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/70 border border-neutral-800 backdrop-blur-md mb-6 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-            <span className="text-xs font-mono font-semibold tracking-military uppercase text-cyan-400">
-              GET IN TOUCH
+          {/* Top Tag */}
+          <div className="mb-3">
+            <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-sky-400 block">
+              CONTACT US // REACH OUT
             </span>
           </div>
 
           {/* Main Title */}
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-5 drop-shadow-2xl">
-            Stay Connected
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-tight mb-5">
+            <span className="text-white drop-shadow-sm">GET IN </span>
+            <span className="text-sky-400 drop-shadow-sm">TOUCH</span>
           </h2>
 
           {/* Subtitle Description */}
-          <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed mb-10 drop-shadow-md">
-            Stay updated with technical briefings, live flight trials, and sovereign defence opportunities at SAG Defence and Aerospace.
+          <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed mb-10">
+            Have questions, partnership proposals, or product enquiries? Reach out to our team directly.
           </p>
 
           {/* Two CTA Action Buttons with matching brand colors */}
@@ -126,7 +123,7 @@ export const ContactSection: React.FC = () => {
 
             <a
               href="tel:+919113867676"
-              className="bg-black/60 hover:bg-neutral-900 text-white font-medium text-sm sm:text-base px-8 py-3.5 rounded-xl border border-neutral-700/90 transition-all duration-200 hover:scale-105 backdrop-blur-md cursor-pointer"
+              className="bg-neutral-900 hover:bg-neutral-800 text-white font-semibold text-sm sm:text-base px-8 py-3.5 rounded-xl border border-neutral-700 transition-all duration-200 hover:scale-105 shadow-sm cursor-pointer"
             >
               Contact Us
             </a>
@@ -134,7 +131,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Sovereign Motto Accent */}
           <div className="flex items-center justify-center">
-            <span className="text-sm sm:text-base text-red-500 font-bold tracking-military uppercase drop-shadow-md">
+            <span className="text-sm sm:text-base text-red-500 font-bold tracking-military uppercase">
               DEFEND • DETER • LEAD
             </span>
           </div>
@@ -143,7 +140,7 @@ export const ContactSection: React.FC = () => {
 
       {/* Briefing Request Modal Popup */}
       {isFormModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
           {/* Backdrop click to close */}
           <div
             className="fixed inset-0"
@@ -151,13 +148,13 @@ export const ContactSection: React.FC = () => {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0d0d10] border border-neutral-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+          <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0d0d10] border border-neutral-800 rounded-3xl p-6 sm:p-10 shadow-2xl text-slate-100">
             {/* Modal Header */}
             <div className="flex items-center justify-between pb-5 mb-6 border-b border-neutral-800">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                  <span className="text-xs font-mono uppercase text-cyan-400 font-semibold tracking-wider">
+                  <span className="text-xs font-mono uppercase text-sky-400 font-semibold tracking-wider">
                     TECHNICAL BRIEFING FORM
                   </span>
                 </div>
@@ -168,7 +165,7 @@ export const ContactSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsFormModalOpen(false)}
-                className="p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                className="p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
                 aria-label="Close form modal"
               >
                 <X className="w-5 h-5" />
@@ -187,7 +184,7 @@ export const ContactSection: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono uppercase text-neutral-400 mb-1.5 font-semibold">
+                    <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5 font-semibold">
                       Full Name *
                     </label>
                     <input
@@ -196,11 +193,11 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g., Col. R. Sharma / Dr. K. Rao"
-                      className="w-full bg-black border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-red-500 transition-colors shadow-xs"
+                      className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono uppercase text-neutral-400 mb-1.5 font-semibold">
+                    <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5 font-semibold">
                       Designation / Rank *
                     </label>
                     <input
@@ -209,14 +206,14 @@ export const ContactSection: React.FC = () => {
                       value={formData.designation}
                       onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
                       placeholder="e.g., Procurement Officer / Director"
-                      className="w-full bg-black border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-red-500 transition-colors shadow-xs"
+                      className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono uppercase text-neutral-400 mb-1.5 font-semibold">
+                    <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5 font-semibold">
                       Official Email *
                     </label>
                     <input
@@ -225,11 +222,11 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="officer@mod.gov.in / name@org.com"
-                      className="w-full bg-black border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-red-500 transition-colors shadow-xs"
+                      className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono uppercase text-neutral-400 mb-1.5 font-semibold">
+                    <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5 font-semibold">
                       Phone / Contact *
                     </label>
                     <input
@@ -238,13 +235,13 @@ export const ContactSection: React.FC = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 98XXXXXXXX"
-                      className="w-full bg-black border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-red-500 transition-colors shadow-xs"
+                      className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-neutral-400 mb-1.5 font-semibold">
+                  <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5 font-semibold">
                     Organization / Armed Forces Unit *
                   </label>
                   <input
@@ -253,18 +250,18 @@ export const ContactSection: React.FC = () => {
                     value={formData.organization}
                     onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                     placeholder="e.g., Indian Army / Indian Air Force / DRDO / Defence PSUs"
-                    className="w-full bg-black border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-red-500 transition-colors shadow-xs"
+                    className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-neutral-400 mb-1.5 font-semibold">
+                  <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5 font-semibold">
                     Platform of Interest / Inquiry Scope
                   </label>
                   <select
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-black border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500 transition-colors shadow-xs cursor-pointer"
+                    className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs cursor-pointer"
                   >
                     <option value="SAG RAZOR OFC (Fiber-Optic FPV Drone)">SAG RAZOR OFC (Fiber-Optic FPV Drone)</option>
                     <option value="SAG RAZOR P1 (FPV Combat Drone)">SAG RAZOR P1 (FPV Combat Drone)</option>
@@ -278,7 +275,7 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-neutral-400 mb-1.5 font-semibold">
+                  <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5 font-semibold">
                     Operational Context / Requirements
                   </label>
                   <textarea
@@ -286,7 +283,7 @@ export const ContactSection: React.FC = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Specify mission profile, environment, or evaluation timelines..."
-                    className="w-full bg-black border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-red-500 transition-colors resize-none shadow-xs"
+                    className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors resize-none shadow-xs"
                   />
                 </div>
 
@@ -294,7 +291,7 @@ export const ContactSection: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setIsFormModalOpen(false)}
-                    className="px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-300 text-xs font-semibold border border-neutral-800 transition-colors cursor-pointer"
+                    className="px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-slate-300 text-xs font-semibold border border-neutral-800 transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
