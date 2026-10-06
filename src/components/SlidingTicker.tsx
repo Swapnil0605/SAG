@@ -6,15 +6,15 @@ const PDF_STRATEGIC_HIGHLIGHTS = [
   'MACH 1+ SUPERSONIC CLASS',
   'DEFEND • DETER • LEAD',
   'ATMANIRBHAR BHARAT',
-  'GNSS-DENIED AUTONOMOUS NAVIGATION',
+  'GNSS DENIED AUTONOMOUS NAVIGATION',
   'FASTER • STRONGER • AHEAD',
-  'ZERO-RF OPTICAL TETHER',
+  'ZERO RF OPTICAL TETHER',
   'DISCIPLINED • FOCUSED • MISSION READY',
-  'AI-BASED TARGET LOCKING',
-  'WARTIME-SCALE PRODUCTION IN INDIA',
+  'AI TARGET LOCKING',
+  'WARTIME SCALE PRODUCTION IN INDIA',
   'MIL-STD-810G & MIL-STD-461E COMPLIANT',
   'CLOSER THREATS • STRONGER DEFENCE',
-  'SUB-2M TERMINAL PRECISION CEP',
+  'SUB 2M TERMINAL PRECISION CEP',
   'FASTER RESPONSE • SAFER SKIES',
   'PRECISION TECHNOLOGY • A STRONGER TOMORROW',
 ];
@@ -24,22 +24,29 @@ export const SlidingTicker: React.FC = () => {
     <div
       id="ticker"
       aria-label="SAG Defence strategic doctrines and sovereign capabilities ticker"
-      className="relative w-full overflow-hidden bg-[#07090e] border-y border-neutral-800 py-3.5 select-none z-20 group"
+      className="relative w-full overflow-hidden border-y border-neutral-800 py-3.5 select-none z-20 group"
+      style={{ backgroundColor: 'rgb(10, 13, 14)' }}
     >
       {/* Subtle top & bottom luminous hairline guides */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/30 to-transparent" />
 
       {/* Smooth left & right edge fades */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#07090e] via-[#07090e]/95 to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#07090e] via-[#07090e]/95 to-transparent z-10" />
+      <div
+        className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 z-10"
+        style={{ background: 'linear-gradient(to right, rgb(10, 13, 14), rgba(10, 13, 14, 0.95), transparent)' }}
+      />
+      <div
+        className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 z-10"
+        style={{ background: 'linear-gradient(to left, rgb(10, 13, 14), rgba(10, 13, 14, 0.95), transparent)' }}
+      />
 
       {/* Infinite Horizontal Sliding Ticker Track */}
       <div className="ticker-track flex w-max items-center">
         {[...PDF_STRATEGIC_HIGHLIGHTS, ...PDF_STRATEGIC_HIGHLIGHTS].map((text, idx) => (
           <div key={idx} className="flex items-center gap-6 sm:gap-8 mx-4 sm:mx-6">
             {/* Strategic Word / Motto */}
-            <span className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.2em] sm:tracking-[0.24em] text-slate-100 uppercase whitespace-nowrap transition-colors duration-200 hover:text-sky-300">
+            <span className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.2em] sm:tracking-[0.24em] text-slate-100 uppercase whitespace-nowrap transition-colors duration-200 hover:text-red-400">
               {text}
             </span>
 
@@ -47,7 +54,7 @@ export const SlidingTicker: React.FC = () => {
             <div className="flex items-center justify-center shrink-0">
               <div className="relative flex items-center justify-center">
                 <svg
-                  className="w-3.5 h-3.5 text-sky-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.9)]"
+                  className="w-3.5 h-3.5 text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.9)]"
                   viewBox="0 0 16 16"
                   fill="currentColor"
                   aria-hidden="true"
@@ -65,5 +72,3 @@ export const SlidingTicker: React.FC = () => {
 };
 
 export default SlidingTicker;
-
-

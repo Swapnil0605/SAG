@@ -23,6 +23,15 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
     setMounted(true);
   }, []);
 
+  // Ensure video attempts to play
+  useEffect(() => {
+    if (mounted && videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Autoplay policy or error, ignore
+      });
+    }
+  }, [mounted]);
+
   // Prevent background scroll while loader is visible
   useEffect(() => {
     if (!isRemoved) {
@@ -95,14 +104,14 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
         </video>
       </div>
 
-      {/* SVG Cutout Layer - Massive Animated SAG Letters showing video inside */}
+      {/* SVG Cutout Layer — Massive Animated SAG Letters showing video inside */}
       <svg
         className="loading-cutout-layer"
         viewBox="0 0 1920 1080"
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
-          <mask id="sag-video-cutout">
+          <mask id="sagvideocutout">
             <rect x="-30%" y="-30%" width="160%" height="160%" fill="#ffffff" />
             <g className="sag-text-group">
               <text
@@ -129,7 +138,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
           width="160%"
           height="160%"
           fill="#000000"
-          mask="url(#sag-video-cutout)"
+          mask="url(#sagvideocutout)"
         />
 
         {/* Animated glowing letter contour outline */}

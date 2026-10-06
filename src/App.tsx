@@ -1,11 +1,10 @@
-'use client';
-
 import React, { useState } from 'react';
-import LoadingScreen from './components/LoadingScreen';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import VisionStrategic from './components/VisionStrategic';
 import ProductsCatalogue from './components/ProductsCatalogue';
+import KpiMetricsSection from './components/KpiMetricsSection';
 import TechnologyRoadmap from './components/TechnologyRoadmap';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -15,7 +14,10 @@ export const App: React.FC = () => {
   const [, setAppReady] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-slate-100 font-sans selection:bg-red-600 selection:text-white relative overflow-x-hidden">
+    <div
+      className="min-h-screen text-slate-100 font-sans selection:bg-red-600 selection:text-white relative overflow-x-hidden"
+      style={{ backgroundColor: 'rgb(10, 13, 14)' }}
+    >
       {/* Full-Screen Aerospace Cinematic Video Loading Screen */}
       <LoadingScreen onLoaded={() => setAppReady(true)} />
 
@@ -26,16 +28,19 @@ export const App: React.FC = () => {
         {/* 1. Hero Section with Video Background and Tactical GSAP Entrance */}
         <Hero />
 
-        {/* 2. Strategic Vision, Speed Escalation (Mach 1+ Contrails Background) */}
+        {/* 2. Strategic Vision & Core Pillars */}
         <VisionStrategic />
 
         {/* 3. Comprehensive Products Systems Catalogue (All 6 platforms with renders) */}
         <ProductsCatalogue />
 
-        {/* 4. Technology Development Roadmap (Synapse / Datacore Video Background) */}
+        {/* 4. Sovereign Mission Performance KPIs (White Background) */}
+        <KpiMetricsSection />
+
+        {/* 5. Technology Development Roadmap (Synapse / Datacore Video Background) */}
         <TechnologyRoadmap />
 
-        {/* 5. Official Contact & Technical Briefing Inquiries */}
+        {/* 6. Official Contact & Technical Briefing Inquiries */}
         <ContactSection />
       </main>
 

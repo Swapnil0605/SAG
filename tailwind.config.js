@@ -19,8 +19,8 @@ export default {
           600: '#1E3863',
         },
         defence: {
-          dark: '#050C16',
-          card: '#081322',
+          dark: 'rgb(10, 13, 14)',
+          card: 'rgb(10, 13, 14)',
           border: 'rgba(255, 255, 255, 0.08)',
           red: '#DC2626',
           redGlow: 'rgba(220, 38, 38, 0.4)',

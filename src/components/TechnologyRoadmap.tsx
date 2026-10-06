@@ -12,51 +12,60 @@ export const TechnologyRoadmap: React.FC = () => {
       num: '01',
       title: 'Concept & Aerodynamics Freeze',
       duration: 'Phase 1',
-      description: 'Aerodynamic computational CFD modeling, supersonic wind tunnel simulations, preliminary design review (PDR), and partner propulsion MOUs.',
+      description: 'Aerodynamic computational CFD modeling, supersonic wind tunnel simulations, preliminary design review (PDR) and partner propulsion MOUs.',
     },
     {
       num: '02',
       title: 'Subsystem & Airframe Prototyping',
       duration: 'Phase 2',
-      description: 'High-temp carbon-composite airframe fabrication, high-G avionics ruggedization, optical/RF seeker integration, and payload bay qualification.',
+      description: 'High temperature carbon composite airframe fabrication, high G avionics ruggedization, optical and RF seeker integration and payload bay qualification.',
     },
     {
       num: '03',
       title: 'Integrated Ground Testing',
       duration: 'Phase 3',
-      description: 'Supersonic propulsion test-cell firings, thermal barrier testing, EMI/EMC compliance, and hardware-in-the-loop (HIL) control validation.',
+      description: 'Supersonic propulsion test cell firings, thermal barrier testing, EMI/EMC compliance and hardware in the loop (HIL) control validation.',
     },
     {
       num: '04',
       title: 'Captive & Free Flight Testing',
       duration: 'Phase 4',
-      description: 'Defence test-range live launches, captive-carry envelope expansion, seeker target locking at Mach 1+, and armed forces trial readiness.',
+      description: 'Defence test range live launches, captive carry envelope expansion, seeker target locking at Mach 1+ and armed forces trial readiness.',
     },
   ];
 
   return (
     <section
       id="roadmap"
-      className="relative bg-black text-slate-100 pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden"
+      className="relative text-slate-100 pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden"
+      style={{ backgroundColor: 'rgb(10, 13, 14)' }}
     >
-      {/* Background Synapse Video - Vivid visibility with significantly decreased overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover opacity-85"
-        >
-          <source src="/video/synapse.mp4" type="video/mp4" />
-          <source src="/video/datacore.mp4" type="video/mp4" />
-        </video>
-        {/* Decreased dark overlay so motion video is bright and distinct */}
-        <div className="absolute inset-0 bg-black/25" />
+      {/* Background Synapse Video – Fixed Background (contained to section) */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+        style={{
+          backgroundColor: 'rgb(10, 13, 14)',
+          clipPath: 'inset(0)',
+        }}
+      >
+        <div className="fixed inset-0 w-full h-full pointer-events-none">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-70 filter brightness-105"
+          >
+            <source src="/video/synapse.mp4" type="video/mp4" />
+            <source src="/video/datacore.mp4" type="video/mp4" />
+          </video>
+          {/* Soft RGB(10, 13, 14) overlay so video is clearly visible */}
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: 'rgba(10, 13, 14, 0.45)' }}
+          />
+        </div>
       </div>
-
-      {/* Blueprint grid background */}
-      <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none z-[1]" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Section Title with Bold Split Uppercase Reveal */}
@@ -64,7 +73,7 @@ export const TechnologyRoadmap: React.FC = () => {
           <div>
             <ScrollReveal yOffset={15} blur={4}>
               <div className="mb-3">
-                <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-sky-400 block">
+                <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-slate-300 block">
                   DEVELOPMENT ROADMAP // SOVEREIGN CAPABILITY
                 </span>
               </div>
@@ -74,15 +83,14 @@ export const TechnologyRoadmap: React.FC = () => {
             <ScrollReveal delay={0.1} yOffset={20}>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.95]">
                 <span className="text-white block drop-shadow-sm">FROM CONCEPT</span>
-                <span className="text-sky-400 block drop-shadow-sm mt-1">TO FLIGHT.</span>
+                <span className="text-white block drop-shadow-sm mt-1">TO FLIGHT.</span>
               </h2>
             </ScrollReveal>
           </div>
 
-
           <ScrollReveal delay={0.2} yOffset={20}>
             <p className="text-sm sm:text-base text-slate-300 max-w-md leading-relaxed">
-              A disciplined, phased engineering roadmap designed for flight safety, rigorous military validation, and scalable wartime manufacturing in India.
+              A disciplined, phased engineering roadmap designed for flight safety, rigorous military validation and scalable wartime manufacturing in India.
             </p>
           </ScrollReveal>
         </div>
@@ -97,7 +105,10 @@ export const TechnologyRoadmap: React.FC = () => {
                 yOffset={35}
                 className="h-full"
               >
-                <div className="bg-[#0d0d10]/75 border border-neutral-800/80 rounded-3xl p-7 flex flex-col justify-between hover:border-sky-500 hover:shadow-xl transition-all duration-300 relative group shadow-md backdrop-blur-md h-full">
+                <div
+                  className="border border-neutral-800/80 rounded-3xl p-7 flex flex-col justify-between hover:border-neutral-700 hover:shadow-xl transition-all duration-300 relative group shadow-md backdrop-blur-md h-full"
+                  style={{ backgroundColor: 'rgba(10, 13, 14, 0.85)' }}
+                >
                   <div>
                     <div className="mb-6">
                       {/* Parallax drift on milestone numbers */}
@@ -125,7 +136,7 @@ export const TechnologyRoadmap: React.FC = () => {
                   </div>
 
                   <div className="mt-8 pt-4 border-t border-neutral-800 flex items-center gap-2 text-[11px] font-mono text-slate-400">
-                    <CheckSquare className="w-3.5 h-3.5 text-sky-400" />
+                    <CheckSquare className="w-3.5 h-3.5 text-red-500" />
                     <span>Defence Corridor Partnered</span>
                   </div>
                 </div>
@@ -139,4 +150,3 @@ export const TechnologyRoadmap: React.FC = () => {
 };
 
 export default TechnologyRoadmap;
-

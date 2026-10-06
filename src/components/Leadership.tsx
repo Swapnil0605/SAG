@@ -10,21 +10,19 @@ export const Leadership: React.FC = () => {
   return (
     <section
       id="leadership"
-      className="relative bg-black text-slate-100 pt-10 md:pt-14 pb-20 md:pb-24 overflow-hidden"
+      className="relative text-slate-100 pt-10 md:pt-14 pb-20 md:pb-24 overflow-hidden"
+      style={{ backgroundColor: 'rgb(10, 13, 14)' }}
     >
-      {/* Military Airplane Bunker Background - Clearly visible with soft dark contrast overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* Military Airplane Bunker Background – Clearly visible with soft dark contrast overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ backgroundColor: 'rgb(10, 13, 14)' }}>
         <img
           src="/images/bg/airplane-bunker.jpg"
           alt="Aerospace Hangar Bunker"
-          className="w-full h-full object-cover object-center opacity-60 filter contrast-110 brightness-90"
+          className="w-full h-full object-cover object-center opacity-85 filter contrast-105 brightness-100"
         />
-        {/* Soft, reduced dark overlay so bunker architecture is clearly visible */}
-        <div className="absolute inset-0 bg-black/65" />
+        {/* Soft RGB(10, 13, 14) overlay so background is clearly visible */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10, 13, 14, 0.45)' }} />
       </div>
-
-      {/* Blueprint grid background */}
-      <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none z-[1]" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Section Header with Sliced / Split Reveal */}
@@ -33,7 +31,7 @@ export const Leadership: React.FC = () => {
             <ScrollReveal yOffset={15} blur={4}>
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                <span className="text-xs font-semibold tracking-military uppercase text-sky-400 font-mono">
+                <span className="text-xs font-semibold tracking-military uppercase text-slate-300 font-mono">
                   SOVEREIGN DEFENCE LEADERSHIP
                 </span>
               </div>
@@ -92,7 +90,7 @@ export const Leadership: React.FC = () => {
                   </div>
 
                   <p className="text-xs text-slate-300 leading-relaxed mb-4">
-                    Applies strict military operational discipline and large-scale industrial execution directly to sovereign defense manufacturing. Over 20+ years building and scaling infrastructure enterprises.
+                    Applies strict military operational discipline and large scale industrial execution directly to sovereign defense manufacturing. Over 20+ years building and scaling infrastructure enterprises.
                   </p>
 
                   <div className="space-y-2 mb-4">
@@ -106,7 +104,7 @@ export const Leadership: React.FC = () => {
                     </div>
                     <div className="flex items-start gap-2 text-xs text-slate-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span>Operational defense logistics, precision quality control, and supply resilience</span>
+                      <span>Operational defense logistics, precision quality control and supply resilience</span>
                     </div>
                   </div>
                 </div>
@@ -128,7 +126,7 @@ export const Leadership: React.FC = () => {
                     alt="Rahul G"
                     className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute top-2 left-2 bg-sky-700 text-white text-[9px] font-mono font-bold px-2 py-0.5 rounded shadow-xs uppercase">
+                  <div className="absolute top-2 left-2 bg-red-700 text-white text-[9px] font-mono font-bold px-2 py-0.5 rounded shadow-xs uppercase">
                     AERO ENG
                   </div>
                 </div>
@@ -136,7 +134,7 @@ export const Leadership: React.FC = () => {
 
               <div className="flex-1 flex flex-col justify-between">
                 <div>
-                  <span className="text-[10px] font-mono text-sky-400 font-bold tracking-military uppercase block mb-1">
+                  <span className="text-[10px] font-mono text-red-500 font-bold tracking-military uppercase block mb-1">
                     FOUNDER &amp; CHIEF TECHNICAL DIRECTOR
                   </span>
 
@@ -148,32 +146,32 @@ export const Leadership: React.FC = () => {
                   </ScaleStretchText>
 
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-slate-200 mb-4 font-semibold">
-                    <Cpu className="w-3.5 h-3.5 text-sky-400" />
-                    <span>Aeronautical Engineer &amp; UAV Flight-Test Lead</span>
+                    <Cpu className="w-3.5 h-3.5 text-red-500" />
+                    <span>Aeronautical Engineer &amp; UAV Flight Test Lead</span>
                   </div>
 
                   <p className="text-xs text-slate-300 leading-relaxed mb-4">
-                    Directs aerodynamic CFD modeling, high-speed composite airframes, telemetry avionics, and kinetic delivery integration. Over 7+ years pioneering autonomous UAV systems and flight testing.
+                    Directs aerodynamic CFD modeling, high speed composite airframes, telemetry avionics and kinetic delivery integration. Over 7+ years pioneering autonomous UAV systems and flight testing.
                   </p>
 
                   <div className="space-y-2 mb-4">
                     <div className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
-                      <span>Founder &amp; CEO, Yudha Tech Solutions (2023–2025)</span>
+                      <CheckCircle2 className="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>Founder &amp; CEO, Yudha Tech Solutions (2023 to 2025)</span>
                     </div>
                     <div className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
-                      <span>Designed and flight-tested dual-motor tailsitter &amp; VTOL aircraft</span>
+                      <CheckCircle2 className="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>Designed and flight tested dual-motor tailsitter &amp; VTOL aircraft</span>
                     </div>
                     <div className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5" />
                       <span>B.E. Aeronautical Engineering (KLS GIT), lead systems architect</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="pt-3 border-t border-neutral-800 font-mono text-[11px] text-slate-400 italic">
-                  “Engineering sovereign solutions for a stronger, self-reliant tomorrow.”
+                  “Engineering sovereign solutions for a stronger, self reliant tomorrow.”
                 </div>
               </div>
             </div>

@@ -1,11 +1,15 @@
-/* LoadingScreen.css - Cinematic Cutout Video Loader with Upward Screen Reveal */
+/* LoadingScreen.css — Cinematic Cutout Video Loader with Upward Screen Reveal */
 
-.loading-screen-container {
+.loading-screen-container,
+.loadingscreencontainer {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9999;
+  z-index: 999999;
   background-color: #000000;
   overflow: hidden;
   display: flex;
@@ -13,6 +17,7 @@
   align-items: center;
   transform: translateY(0%);
   transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-user-select: none;
   user-select: none;
   pointer-events: all;
   cursor: pointer;
@@ -20,14 +25,17 @@
 }
 
 /* When loading completes, the screen slides straight UP to reveal the website */
-.loading-screen-container.slide-up {
+.loading-screen-container.slide-up,
+.loadingscreencontainer.slideup {
   transform: translateY(-100%);
 }
 
 /* Fullscreen Video Underneath */
-.loading-video-wrapper {
+.loading-video-wrapper,
+.loadingvideowrapper {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -35,7 +43,8 @@
   z-index: 1;
 }
 
-.loading-video-element {
+.loading-video-element,
+.loadingvideoelement {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -47,23 +56,27 @@
   0% {
     transform: scale(1.0);
   }
+
   100% {
     transform: scale(1.06);
   }
 }
 
 /* SVG Cutout Layer that masks the video into SAG letters */
-.loading-cutout-layer {
+.loading-cutout-layer,
+.loadingcutoutlayer {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: 2;
   pointer-events: none;
 }
 
-/* SAG Typography Animation - Dynamic camera push */
-.sag-text-group {
+/* SAG Typography Animation — Dynamic camera push */
+.sag-text-group,
+.sagtextgroup {
   transform-origin: 960px 540px;
   animation: sag-camera-push 3.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
 }
@@ -73,9 +86,11 @@
     transform: scale(0.88);
     opacity: 0.6;
   }
+
   30% {
     opacity: 1;
   }
+
   100% {
     transform: scale(1.04);
     opacity: 1;
@@ -83,9 +98,10 @@
 }
 
 /* Dynamic outline contour pulse (Cyan to Sovereign Crimson Red) */
-.sag-outline-glow {
+.sag-outline-glow,
+.sagoutlineglow {
   transform-origin: 960px 540px;
-  animation: 
+  animation:
     sag-camera-push 3.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards,
     sag-glow-pulse 2.2s ease-in-out infinite alternate;
 }
@@ -95,10 +111,12 @@
     stroke: rgba(255, 255, 255, 0.2);
     filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
   }
+
   50% {
     stroke: rgba(56, 189, 248, 0.6);
     filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.5));
   }
+
   100% {
     stroke: rgba(220, 38, 38, 0.65);
     filter: drop-shadow(0 0 22px rgba(220, 38, 38, 0.55));
@@ -107,23 +125,65 @@
 
 /* On screen slide-up, zoom into SAG slightly for cinematic depth */
 .loading-screen-container.slide-up .sag-text-group,
-.loading-screen-container.slide-up .sag-outline-glow {
-  transform: scale(1.15) translateY(-30px);
+.loading-screen-container.slide-up .sag-outline-glow,
+.loadingscreencontainer.slideup .sagtextgroup,
+.loadingscreencontainer.slideup .sagoutlineglow {
+  transform: scale(1.15) translateY(30px);
   transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
+/* Skip prompt badge at bottom */
+.loading-skip-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  font-family: monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: loading-pulse 2s ease-in-out infinite;
+}
+
+@keyframes loading-pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .loading-screen-container {
+  .loading-screen-container,
+  .loadingscreencontainer {
     transition: opacity 0.5s ease;
   }
-  .loading-screen-container.slide-up {
+
+  .loading-screen-container.slide-up,
+  .loadingscreencontainer.slideup {
     transform: none;
     opacity: 0;
     visibility: hidden;
   }
+
   .sag-text-group,
   .sag-outline-glow,
-  .loading-video-element {
+  .loading-video-element,
+  .sagtextgroup,
+  .sagoutlineglow,
+  .loadingvideoelement {
     animation: none;
   }
 }

@@ -19,7 +19,7 @@ export const ContactSection: React.FC = () => {
     organization: '',
     email: '',
     phone: '',
-    subject: 'SAG RAZOR OFC (Fiber-Optic FPV Drone)',
+    subject: 'SAG RAZOR OFC (Fiber Optic FPV Drone)',
     message: '',
   });
 
@@ -62,7 +62,7 @@ export const ContactSection: React.FC = () => {
         organization: '',
         email: '',
         phone: '',
-        subject: 'SAG RAZOR OFC (Fiber-Optic FPV Drone)',
+        subject: 'SAG RAZOR OFC (Fiber Optic FPV Drone)',
         message: '',
       });
     }, 3500);
@@ -71,31 +71,29 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative bg-black text-slate-100 min-h-[70vh] md:min-h-[80vh] py-24 md:py-32 flex items-center justify-center overflow-hidden"
+      className="relative text-slate-100 min-h-[70vh] md:min-h-[80vh] py-24 md:py-32 flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: 'rgb(10, 13, 14)' }}
     >
-      {/* Background Video - Clearly visible with soft dark contrast overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* Background Video – Tinted to RGB(10, 13, 14) */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ backgroundColor: 'rgb(10, 13, 14)' }}>
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-80 filter brightness-105"
         >
           <source src="/video/background1.mp4" type="video/mp4" />
         </video>
-        {/* Soft, reduced dark overlay so motion video is clearly visible */}
-        <div className="absolute inset-0 bg-black/60" />
+        {/* Soft RGB(10, 13, 14) overlay so background video is clearly visible */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10, 13, 14, 0.45)' }} />
       </div>
-
-      {/* Blueprint grid subtle overlay */}
-      <div className="absolute inset-0 blueprint-grid opacity-25 pointer-events-none z-[1]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
         <ScrollReveal yOffset={25}>
           {/* Top Tag */}
           <div className="mb-3">
-            <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-sky-400 block">
+            <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-slate-300 block">
               CONTACT US // REACH OUT
             </span>
           </div>
@@ -103,7 +101,7 @@ export const ContactSection: React.FC = () => {
           {/* Main Title */}
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-tight mb-5">
             <span className="text-white drop-shadow-sm">GET IN </span>
-            <span className="text-sky-400 drop-shadow-sm">TOUCH</span>
+            <span className="text-white drop-shadow-sm">TOUCH</span>
           </h2>
 
           {/* Subtitle Description */}
@@ -154,7 +152,7 @@ export const ContactSection: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                  <span className="text-xs font-mono uppercase text-sky-400 font-semibold tracking-wider">
+                  <span className="text-xs font-mono uppercase text-slate-300 font-semibold tracking-wider">
                     TECHNICAL BRIEFING FORM
                   </span>
                 </div>
@@ -263,11 +261,11 @@ export const ContactSection: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs cursor-pointer"
                   >
-                    <option value="SAG RAZOR OFC (Fiber-Optic FPV Drone)">SAG RAZOR OFC (Fiber-Optic FPV Drone)</option>
+                    <option value="SAG RAZOR OFC (Fiber Optic FPV Drone)">SAG RAZOR OFC (Fiber Optic FPV Drone)</option>
                     <option value="SAG RAZOR P1 (FPV Combat Drone)">SAG RAZOR P1 (FPV Combat Drone)</option>
-                    <option value="SCOUT-X (Tactical ISR Quadcopter)">SCOUT-X (Tactical ISR Quadcopter)</option>
+                    <option value="SCOUT X (Tactical ISR Quadcopter)">SCOUT X (Tactical ISR Quadcopter)</option>
                     <option value="AERON A1 (VTOL Hybrid ISR Platform)">AERON A1 (VTOL Hybrid ISR Platform)</option>
-                    <option value="DOOM MK-1 (Short-Range SAM Missile)">DOOM MK-1 (Short-Range SAM Missile)</option>
+                    <option value="DOOM MK1 (Short Range SAM Missile)">DOOM MK1 (Short Range SAM Missile)</option>
                     <option value="SAG VELOCITY (Counter Drone Interceptor)">SAG VELOCITY (Counter Drone Interceptor)</option>
                     <option value="Project Yamraj (Mach 1+ Supersonic Loitering Munition)">Project Yamraj (Mach 1+ Supersonic Loitering Munition)</option>
                     <option value="Defence Corridor Strategic Partnership">Defence Corridor Strategic Partnership</option>
