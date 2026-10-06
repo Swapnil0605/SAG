@@ -39,20 +39,20 @@ export const TechnologyRoadmap: React.FC = () => {
       id="roadmap"
       className="relative bg-black text-slate-100 pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden"
     >
-      {/* Background Synapse Video - Clearly visible with soft dark contrast overlay */}
+      {/* Background Synapse Video - Vivid visibility with significantly decreased overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-85"
         >
           <source src="/video/synapse.mp4" type="video/mp4" />
           <source src="/video/datacore.mp4" type="video/mp4" />
         </video>
-        {/* Soft, reduced dark overlay so motion video is clearly visible */}
-        <div className="absolute inset-0 bg-black/60" />
+        {/* Decreased dark overlay so motion video is bright and distinct */}
+        <div className="absolute inset-0 bg-black/25" />
       </div>
 
       {/* Blueprint grid background */}
@@ -97,7 +97,7 @@ export const TechnologyRoadmap: React.FC = () => {
                 yOffset={35}
                 className="h-full"
               >
-                <div className="bg-[#0d0d10]/90 border border-neutral-800 rounded-3xl p-7 flex flex-col justify-between hover:border-sky-500 hover:shadow-xl transition-all duration-300 relative group shadow-md backdrop-blur-md h-full">
+                <div className="bg-[#0d0d10]/75 border border-neutral-800/80 rounded-3xl p-7 flex flex-col justify-between hover:border-sky-500 hover:shadow-xl transition-all duration-300 relative group shadow-md backdrop-blur-md h-full">
                   <div>
                     <div className="mb-6">
                       {/* Parallax drift on milestone numbers */}

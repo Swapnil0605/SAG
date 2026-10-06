@@ -15,14 +15,14 @@ export const VisionStrategic: React.FC = () => {
       {/* High-Altitude Supersonic Contrail Background - Fixed Parallax */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div
-          className="w-full h-full bg-cover bg-center bg-no-repeat opacity-65 filter contrast-110 brightness-90"
+          className="w-full h-full bg-cover bg-center bg-no-repeat opacity-80 filter contrast-110 brightness-95"
           style={{
             backgroundImage: "url('/images/bg/altitude-contrail.jpg')",
             backgroundAttachment: 'fixed',
           }}
         />
-        {/* Soft, reduced dark overlay so contrail & sky are clearly visible */}
-        <div className="absolute inset-0 bg-black/60" />
+        {/* Decreased dark overlay so contrail & sky are clearly visible */}
+        <div className="absolute inset-0 bg-black/35" />
       </div>
 
       {/* Blueprint grid background */}
