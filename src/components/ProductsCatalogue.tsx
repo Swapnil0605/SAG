@@ -515,10 +515,16 @@ export const ProductsCatalogue: React.FC = () => {
                   }`}
                 >
                   <ScrollReveal delay={0.1} yOffset={25}>
-                    {/* Tactical White Display Frame */}
-                    <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] bg-white rounded-xl border border-neutral-200/90 shadow-2xl p-6 sm:p-10 flex items-center justify-center overflow-hidden group">
+                    {/* Tactical Display Frame */}
+                    <div
+                      className={`relative w-full rounded-xl border border-neutral-200/90 shadow-2xl flex items-center justify-center overflow-hidden group transition-all duration-300 ${
+                        currentMode === '360'
+                          ? 'aspect-[16/10] sm:aspect-[16/10] p-0 bg-[#e5e5e5]'
+                          : 'aspect-[4/3] sm:aspect-[16/11] p-6 sm:p-10 bg-white'
+                      }`}
+                    >
                       {/* Top-Left Corner Bracket & SYS ID */}
-                      <div className="absolute top-4 left-4 flex items-center gap-1.5 z-20">
+                      <div className="absolute top-4 left-4 flex items-center gap-1.5 z-20 pointer-events-none">
                         <span className="w-3.5 h-3.5 border-t-2 border-l-2 border-red-500 inline-block" />
                         <span className="text-[11px] font-mono font-bold tracking-widest text-red-600 pl-1 select-none">
                           {item.sysId}
@@ -526,34 +532,36 @@ export const ProductsCatalogue: React.FC = () => {
                       </div>
 
                       {/* Top-Right Corner Bracket */}
-                      <span className="absolute top-4 right-4 w-3.5 h-3.5 border-t-2 border-r-2 border-red-500 z-20" />
+                      <span className="absolute top-4 right-4 w-3.5 h-3.5 border-t-2 border-r-2 border-red-500 z-20 pointer-events-none" />
 
                       {/* Bottom-Left Corner Bracket */}
-                      <span className="absolute bottom-4 left-4 w-3.5 h-3.5 border-b-2 border-l-2 border-red-500 z-20" />
+                      <span className="absolute bottom-4 left-4 w-3.5 h-3.5 border-b-2 border-l-2 border-red-500 z-20 pointer-events-none" />
 
                       {/* Bottom-Right Corner Bracket & Hindi Script */}
-                      <div className="absolute bottom-4 right-4 flex items-center gap-1.5 z-20">
-                        <span className="text-xs font-sans text-neutral-400 font-medium pr-1 select-none">
+                      <div className="absolute bottom-4 right-4 flex items-center gap-1.5 z-20 pointer-events-none">
+                        <span className="text-xs font-sans text-neutral-500 font-semibold pr-1 select-none drop-shadow-xs">
                           {item.hindiName}
                         </span>
                         <span className="w-3.5 h-3.5 border-b-2 border-r-2 border-red-500 inline-block" />
                       </div>
 
-                      {/* Realistic Soft Contact Ground Shadow */}
-                      <div className="absolute bottom-6 sm:bottom-8 w-4/5 h-4 bg-black/15 blur-lg rounded-full pointer-events-none" />
+                      {/* Realistic Soft Contact Ground Shadow (only in photo mode) */}
+                      {currentMode !== '360' && (
+                        <div className="absolute bottom-6 sm:bottom-8 w-4/5 h-4 bg-black/15 blur-lg rounded-full pointer-events-none" />
+                      )}
 
                       {/* Active Media: 360 Video or High-Res Image */}
                       {currentMode === '360' && item.video360 ? (
-                        <div className="relative w-full h-full flex items-center justify-center z-10">
+                        <div className="relative w-full h-full flex items-center justify-center z-10 overflow-hidden">
                           <video
                             src={item.video360}
                             autoPlay
                             loop
                             muted
                             playsInline
-                            className="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.22)]"
+                            className="w-full h-full object-cover"
                           />
-                          <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-black/75 text-[10px] font-mono font-bold text-red-400 flex items-center gap-1 shadow-md">
+                          <div className="absolute top-3.5 right-9 sm:right-10 px-2.5 py-1 rounded-full bg-black/80 text-[10px] font-mono font-bold text-red-400 flex items-center gap-1.5 shadow-lg border border-red-500/30 backdrop-blur-xs z-30">
                             <RotateCw className="w-2.5 h-2.5 animate-spin" />
                             <span>360° ACTIVE</span>
                           </div>
@@ -651,8 +659,9 @@ export const ProductsCatalogue: React.FC = () => {
                     <div className="flex items-baseline gap-3 sm:gap-4 flex-wrap">
                       <h3
                         className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-none ${
-                          isWhite ? 'text-neutral-950' : 'text-white'
+                          isWhite ? '' : 'text-white'
                         }`}
+                        style={isWhite ? { color: '#030389' } : undefined}
                       >
                         {item.title}
                       </h3>
@@ -668,8 +677,9 @@ export const ProductsCatalogue: React.FC = () => {
                     {/* Headline */}
                     <h4
                       className={`text-xl sm:text-2xl font-bold leading-snug mt-4 ${
-                        isWhite ? 'text-neutral-900' : 'text-white'
+                        isWhite ? '' : 'text-white'
                       }`}
+                      style={isWhite ? { color: '#030389' } : undefined}
                     >
                       {item.headline}
                     </h4>

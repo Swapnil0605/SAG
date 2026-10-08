@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
-  onNavigate?: (id: string) => void;
+  currentPage?: 'home' | 'about';
+  onNavigate?: (page: 'home' | 'about', hash?: string) => void;
 }
 
 interface ProductDropdownItem {
@@ -58,7 +59,10 @@ const PRODUCTS_LIST: ProductDropdownItem[] = [
   },
 ];
 
-export const Navbar: React.FC<NavbarProps> = () => {
+export const Navbar: React.FC<NavbarProps> = ({
+  currentPage = 'home',
+  onNavigate,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
@@ -95,7 +99,14 @@ export const Navbar: React.FC<NavbarProps> = () => {
     >
       <nav className="max-w-[1400px] mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand Logo without background */}
-        <a href="#home" className="flex items-center group">
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate?.('home', '#home');
+          }}
+          className="flex items-center group cursor-pointer"
+        >
           <img
             src="/sag-logo-new.png"
             alt="SAG Defence and Aerospace"
@@ -106,15 +117,31 @@ export const Navbar: React.FC<NavbarProps> = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <a
-            href="#home"
-            className="text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8"
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.('home', '#home');
+            }}
+            className={`text-[16px] transition-colors duration-200 tracking-wide underline-offset-8 cursor-pointer ${
+              currentPage === 'home'
+                ? 'font-bold text-neutral-950 underline decoration-red-600'
+                : 'font-semibold text-neutral-700 hover:text-neutral-950 hover:underline decoration-red-600'
+            }`}
           >
             Home
           </a>
 
           <a
-            href="#about"
-            className="text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8"
+            href="/about"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.('about');
+            }}
+            className={`text-[16px] transition-colors duration-200 tracking-wide underline-offset-8 cursor-pointer ${
+              currentPage === 'about'
+                ? 'font-bold text-neutral-950 underline decoration-red-600'
+                : 'font-semibold text-neutral-700 hover:text-neutral-950 hover:underline decoration-red-600'
+            }`}
           >
             About Us
           </a>
@@ -127,8 +154,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
           >
             <a
               href="#products"
-              onClick={() => setDesktopDropdownOpen(false)}
-              className="inline-flex items-center gap-1.5 text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8 py-2"
+              onClick={(e) => {
+                e.preventDefault();
+                setDesktopDropdownOpen(false);
+                onNavigate?.('home', '#products');
+              }}
+              className="inline-flex items-center gap-1.5 text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8 py-2 cursor-pointer"
             >
               <span>Products</span>
               <ChevronDown
@@ -151,8 +182,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
                       <a
                         key={prod.name}
                         href={prod.href}
-                        onClick={() => setDesktopDropdownOpen(false)}
-                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-50 border border-transparent hover:border-neutral-200 transition-all group"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setDesktopDropdownOpen(false);
+                          onNavigate?.('home', '#products');
+                        }}
+                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-50 border border-transparent hover:border-neutral-200 transition-all group cursor-pointer"
                       >
                         <div className="w-12 h-10 rounded-lg bg-neutral-100 border border-neutral-200 p-1 flex items-center justify-center flex-shrink-0 group-hover:border-red-300">
                           <img
@@ -179,8 +214,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
                   <div className="mt-2.5 pt-2.5 border-t border-neutral-100 flex items-center justify-end">
                     <a
                       href="#products"
-                      onClick={() => setDesktopDropdownOpen(false)}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setDesktopDropdownOpen(false);
+                        onNavigate?.('home', '#products');
+                      }}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                     >
                       <span>Explore Full Systems Catalogue</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -192,15 +231,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </div>
 
           <a
-            href="#roadmap"
-            className="text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8"
-          >
-            Roadmap
-          </a>
-
-          <a
             href="#contact"
-            className="text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.('home', '#contact');
+            }}
+            className="text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8 cursor-pointer"
           >
             Contact
           </a>
@@ -210,7 +246,11 @@ export const Navbar: React.FC<NavbarProps> = () => {
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#contact"
-            className="bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-md shadow-red-600/20"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.('home', '#contact');
+            }}
+            className="bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-md shadow-red-600/20 cursor-pointer"
           >
             Request Briefing
           </a>
@@ -235,18 +275,34 @@ export const Navbar: React.FC<NavbarProps> = () => {
         >
           <div className="flex flex-col space-y-3">
             <a
-              href="#home"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[16px] font-semibold text-neutral-800 hover:text-red-600 transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100"
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                onNavigate?.('home', '#home');
+              }}
+              className={`text-[16px] transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100 ${
+                currentPage === 'home'
+                  ? 'font-bold text-red-600'
+                  : 'font-semibold text-neutral-800 hover:text-red-600'
+              }`}
             >
               <span>Home</span>
               <ChevronRight className="w-4 h-4 text-neutral-400" />
             </a>
 
             <a
-              href="#about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[16px] font-semibold text-neutral-800 hover:text-red-600 transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100"
+              href="/about"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                onNavigate?.('about');
+              }}
+              className={`text-[16px] transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100 ${
+                currentPage === 'about'
+                  ? 'font-bold text-red-600'
+                  : 'font-semibold text-neutral-800 hover:text-red-600'
+              }`}
             >
               <span>About Us</span>
               <ChevronRight className="w-4 h-4 text-neutral-400" />
@@ -273,11 +329,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
                     <a
                       key={prod.name}
                       href={prod.href}
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.preventDefault();
                         setMobileMenuOpen(false);
                         setMobileProductsOpen(false);
+                        onNavigate?.('home', '#products');
                       }}
-                      className="flex items-center gap-2.5 py-1.5 text-neutral-700 hover:text-red-600 transition-colors group"
+                      className="flex items-center gap-2.5 py-1.5 text-neutral-700 hover:text-red-600 transition-colors group cursor-pointer"
                     >
                       <div className="w-8 h-8 rounded bg-white border border-neutral-200 p-0.5 flex-shrink-0 flex items-center justify-center">
                         <img
@@ -299,11 +357,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
                   <div className="pt-2 border-t border-neutral-200">
                     <a
                       href="#products"
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.preventDefault();
                         setMobileMenuOpen(false);
                         setMobileProductsOpen(false);
+                        onNavigate?.('home', '#products');
                       }}
-                      className="text-xs font-bold text-red-600 flex items-center gap-1 py-1"
+                      className="text-xs font-bold text-red-600 flex items-center gap-1 py-1 cursor-pointer"
                     >
                       <span>Explore Complete Catalogue</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -314,18 +374,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
             </div>
 
             <a
-              href="#roadmap"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[16px] font-semibold text-neutral-800 hover:text-red-600 transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100"
-            >
-              <span>Roadmap</span>
-              <ChevronRight className="w-4 h-4 text-neutral-400" />
-            </a>
-
-            <a
               href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[16px] font-semibold text-neutral-800 hover:text-red-600 transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                onNavigate?.('home', '#contact');
+              }}
+              className="text-[16px] font-semibold text-neutral-800 hover:text-red-600 transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100 cursor-pointer"
             >
               <span>Contact</span>
               <ChevronRight className="w-4 h-4 text-neutral-400" />
@@ -334,8 +389,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
             <div className="pt-3 flex flex-col gap-3">
               <a
                 href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-center bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold py-3 rounded-xl shadow-md"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false);
+                  onNavigate?.('home', '#contact');
+                }}
+                className="block text-center bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold py-3 rounded-xl shadow-md cursor-pointer"
               >
                 Request Briefing
               </a>

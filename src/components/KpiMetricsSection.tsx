@@ -46,7 +46,10 @@ export const KpiMetricsSection: React.FC = () => {
               <div className="flex flex-col group">
                 {/* Metric Value & Badges */}
                 <div className="flex items-center flex-wrap gap-2 sm:gap-2.5">
-                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-neutral-950 tracking-tight leading-none group-hover:text-red-600 transition-colors duration-300">
+                  <span
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black tracking-tight leading-none group-hover:text-red-600 transition-colors duration-300"
+                    style={{ color: '#030389' }}
+                  >
                     {kpi.value}
                   </span>
 
