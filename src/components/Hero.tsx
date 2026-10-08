@@ -26,10 +26,10 @@ export const Hero: React.FC = () => {
             </ScrollReveal>
           </div>
 
-          {/* Two-Column Split: Content on Left, Bouncing Fighter Jet on Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Two-Column Split: Content on Left, New Hero Image on Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Bold 3-Tier Headline, Short Description, Single Pill Button */}
-            <div className="lg:col-span-7 space-y-5">
+            <div className="lg:col-span-6 xl:col-span-6 space-y-5">
               <ScrollReveal delay={0.1} yOffset={20}>
                 {/* Massive 3-Tier Headline */}
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-black tracking-tight leading-[0.95] uppercase">
@@ -76,34 +76,27 @@ export const Hero: React.FC = () => {
               </ScrollReveal>
             </div>
 
-            {/* Right Column: Bouncing Plane Sticker */}
-            <div className="lg:col-span-5 relative flex flex-col items-center justify-center pt-4 lg:pt-0">
-              <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-none flex flex-col items-center justify-center group">
-                {/* Subtle Red Atmospheric Glow */}
-                <div className="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full bg-red-600/10 blur-3xl pointer-events-none z-10 group-hover:bg-red-500/20 transition-all duration-700" />
+            {/* Right Column: New Hero Image (opposite of tagline) */}
+            <div className="lg:col-span-6 xl:col-span-6 relative flex flex-col items-center justify-center pt-4 lg:pt-0">
+              <ScrollReveal delay={0.2} yOffset={20}>
+                <div className="relative w-full flex flex-col items-center justify-center group">
+                  {/* Subtle Atmosphere Accent */}
+                  <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-red-600/5 blur-3xl pointer-events-none -z-10 group-hover:bg-red-600/10 transition-all duration-700" />
 
-                {/* Bouncing Supersonic Fighter Jet Sticker */}
-                <div className="relative w-full flex items-center justify-center animate-hero-jet transition-transform duration-500 group-hover:scale-105 cursor-pointer">
-                  <picture>
-                    <source srcSet="/images/hero/hero2.webp" type="image/webp" />
-                    <img
-                      src="/images/hero/hero2.png"
-                      alt="SAG Supersonic Strike Jet Fighter"
-                      className="w-full max-w-[430px] sm:max-w-[470px] lg:max-w-[490px] xl:max-w-[500px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.22)] select-none"
-                      loading="eager"
-                    />
-                  </picture>
-
-                  {/* Tactical Telemetry HUD Badge on Hover */}
-                  <div className="absolute bottom-1 sm:bottom-2 right-4 sm:right-6 px-3 py-1.5 rounded-lg bg-neutral-950/95 border border-red-500/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[10px] sm:text-xs font-mono font-semibold text-red-400 flex items-center gap-2 shadow-xl pointer-events-none">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping" />
-                    <span>MACH 1+ SUPERSONIC PLATFORM</span>
+                  {/* Hero Squadron Formation Image */}
+                  <div className="relative w-full flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]">
+                    <picture className="w-full flex items-center justify-center">
+                      <source srcSet="/images/hero/hero-image.webp" type="image/webp" />
+                      <img
+                        src="/images/hero/hero-image.png"
+                        alt="SAG Supersonic Strike Jet Formation"
+                        className="w-full max-w-[540px] sm:max-w-[580px] lg:max-w-[620px] xl:max-w-[660px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.2)] select-none"
+                        loading="eager"
+                      />
+                    </picture>
                   </div>
                 </div>
-
-                {/* Aerodynamic Synchronized Breathing Shadow */}
-                <div className="w-3/5 sm:w-2/3 h-5 sm:h-7 rounded-full bg-black/15 blur-md mt-2 sm:mt-3 animate-hero-shadow pointer-events-none" />
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
