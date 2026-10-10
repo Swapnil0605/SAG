@@ -29,7 +29,7 @@ export const VisionStrategic: React.FC = () => {
         {/* Section Header with Sliced / Split Reveal */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <ScrollReveal yOffset={15} blur={4}>
+            <ScrollReveal direction="left" distance={40} blur={4}>
               <div className="mb-3">
                 <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-slate-300 block">
                   STRATEGIC DOCTRINE // BHARAT TO THE WORLD
@@ -38,7 +38,7 @@ export const VisionStrategic: React.FC = () => {
             </ScrollReveal>
 
             {/* Massive Bold Uppercase Section Heading matching sample */}
-            <ScrollReveal delay={0.1} yOffset={20}>
+            <ScrollReveal delay={0.1} direction="left" distance={60}>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.95]">
                 <span className="text-white block drop-shadow-sm">CLOSING THE</span>
                 <span className="text-white block drop-shadow-sm mt-1">SPEED GAP.</span>
@@ -46,7 +46,7 @@ export const VisionStrategic: React.FC = () => {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={0.2} yOffset={25}>
+          <ScrollReveal delay={0.2} direction="right" distance={60}>
             <p className="text-sm sm:text-base text-slate-300 max-w-md leading-relaxed font-normal">
               SAG Defence and Aerospace is engineering sovereign systems from Bharat for the world. Our flagship development programme, <span className="text-red-500 font-semibold">Project Yamraj</span>, pioneers an indigenous supersonic loitering munition for decisive air dominance.
             </p>

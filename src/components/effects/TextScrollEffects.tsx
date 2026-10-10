@@ -484,6 +484,8 @@ interface SplitRevealProps {
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'p';
   delay?: number;
   splitBy?: 'words' | 'chars';
+  direction?: 'up' | 'down' | 'left' | 'right';
+  distance?: number;
 }
 
 export const SplitRevealText: React.FC<SplitRevealProps> = ({
@@ -492,6 +494,8 @@ export const SplitRevealText: React.FC<SplitRevealProps> = ({
   tag: Tag = 'h2',
   delay = 0,
   splitBy = 'words',
+  direction = 'up',
+  distance = 50,
 }) => {
   const containerRef = useRef<HTMLElement>(null);
 
@@ -501,19 +505,42 @@ export const SplitRevealText: React.FC<SplitRevealProps> = ({
 
     const items = el.querySelectorAll('.split-unit');
 
+    let initialX: string | number = 0;
+    let initialY: string | number = 0;
+    let rotateX = 0;
+    let rotateY = 0;
+
+    if (direction === 'left') {
+      initialX = -distance;
+      rotateY = -25;
+    } else if (direction === 'right') {
+      initialX = distance;
+      rotateY = 25;
+    } else if (direction === 'down') {
+      initialY = '-100%';
+      rotateX = 25;
+    } else {
+      initialY = '100%';
+      rotateX = -25;
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         items,
         {
           opacity: 0,
-          y: '100%',
-          rotateX: -25,
+          x: initialX,
+          y: initialY,
+          rotateX,
+          rotateY,
           filter: 'blur(6px)',
         },
         {
           opacity: 1,
+          x: 0,
           y: '0%',
           rotateX: 0,
+          rotateY: 0,
           filter: 'blur(0px)',
           duration: 0.85,
           stagger: splitBy === 'chars' ? 0.025 : 0.07,
@@ -529,7 +556,7 @@ export const SplitRevealText: React.FC<SplitRevealProps> = ({
     }, el);
 
     return () => ctx.revert();
-  }, [delay, splitBy]);
+  }, [delay, splitBy, direction, distance]);
 
   const renderContent = () => {
     if (splitBy === 'chars') {
@@ -678,12 +705,15 @@ export const ScaleStretchText: React.FC<ScaleStretchProps> = ({
   );
 };
 
-interface ScrollRevealProps {
+export interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   duration?: number;
   yOffset?: number;
+  xOffset?: number;
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+  distance?: number;
   blur?: number;
 }
 
@@ -692,7 +722,10 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   className = '',
   delay = 0,
   duration = 0.85,
-  yOffset = 35,
+  yOffset,
+  xOffset,
+  direction = 'up',
+  distance,
   blur = 8,
 }) => {
   const revealRef = useRef<HTMLDivElement>(null);
@@ -701,16 +734,46 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     const el = revealRef.current;
     if (!el) return;
 
+    // Calculate initial X and Y offsets based on direction and explicit overrides
+    let startX = 0;
+    let startY = 0;
+    const effectiveDistance = distance ?? 55;
+
+    if (direction === 'left') {
+      startX = -(xOffset ?? effectiveDistance);
+      startY = yOffset ?? 0;
+    } else if (direction === 'right') {
+      startX = xOffset ?? effectiveDistance;
+      startY = yOffset ?? 0;
+    } else if (direction === 'down') {
+      startX = xOffset ?? 0;
+      startY = -(yOffset ?? effectiveDistance);
+    } else if (direction === 'none') {
+      startX = xOffset ?? 0;
+      startY = yOffset ?? 0;
+    } else {
+      // Default 'up'
+      if (xOffset !== undefined && yOffset === undefined) {
+        startX = xOffset;
+        startY = 0;
+      } else {
+        startX = xOffset ?? 0;
+        startY = yOffset ?? (distance ?? 35);
+      }
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
         {
           opacity: 0,
-          y: yOffset,
-          filter: `blur(${blur}px)`,
+          x: startX,
+          y: startY,
+          filter: blur > 0 ? `blur(${blur}px)` : 'none',
         },
         {
           opacity: 1,
+          x: 0,
           y: 0,
           filter: 'blur(0px)',
           duration,
@@ -726,10 +789,10 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     }, el);
 
     return () => ctx.revert();
-  }, [delay, duration, yOffset, blur]);
+  }, [delay, duration, yOffset, xOffset, direction, distance, blur]);
 
   return (
-    <div ref={revealRef} className={className}>
+    <div ref={revealRef} className={`will-change-transform ${className}`}>
       {children}
     </div>
   );

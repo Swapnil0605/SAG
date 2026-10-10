@@ -13,8 +13,8 @@ export const SloganSection: React.FC = () => {
       style={{ backgroundColor: '#ffffff' }}
     >
       <div className="relative z-10 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-14 text-center flex flex-col items-center">
-        {/* Top Kicker Label */}
-        <ScrollReveal yOffset={15} blur={4}>
+        {/* Top Kicker Label - Revealing from Left */}
+        <ScrollReveal direction="left" distance={45} blur={4}>
           <div className="mb-8 sm:mb-10 flex items-center justify-center">
             <span
               className="text-xs sm:text-[13px] font-mono font-bold tracking-[0.32em] uppercase"
@@ -25,71 +25,107 @@ export const SloganSection: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Editorial Slogan with Stylish Geometric Display Typography (Outfit) */}
-        <ScrollReveal delay={0.1} yOffset={25}>
-          <blockquote className="font-outfit text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[45px] leading-[1.62] sm:leading-[1.55] md:leading-[1.5] tracking-[-0.015em] max-w-[1260px] mx-auto font-light">
-            <span style={{ color: LOGO_GREEN_MUTED }}>
-              Advanced engineering plays a{' '}
-            </span>
-            <strong
-              style={{ color: LOGO_GREEN }}
-              className="font-black tracking-[-0.01em]"
+        {/* Editorial Slogan with Left & Right scroll reveals */}
+        <div className="w-full max-w-[1300px] mx-auto space-y-4 sm:space-y-6">
+          {/* First clause: reveals from LEFT */}
+          <ScrollReveal delay={0.1} direction="left" distance={70} blur={6}>
+            <p
+              className="font-outfit text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[45px] leading-[1.62] sm:leading-[1.55] md:leading-[1.48] tracking-[-0.015em] font-light"
+              style={{ textWrap: 'balance' }}
             >
-              pivotal
-            </strong>
-            <span style={{ color: LOGO_GREEN_MUTED }}>
-              {' '}role in bridging the gap between{' '}
-            </span>
-            <strong
-              style={{ color: LOGO_GREEN }}
-              className="font-black tracking-[-0.01em]"
-            >
-              conceptual innovation
-            </strong>
-            <span style={{ color: LOGO_GREEN_MUTED }}>
-              {' '}and{' '}
-            </span>
-            <strong
-              style={{ color: LOGO_GREEN }}
-              className="font-black tracking-[-0.01em]"
-            >
-              mission-ready capability
-            </strong>
-            <span style={{ color: LOGO_GREEN_MUTED }}>
-              , transforming{' '}
-            </span>
-            <strong
-              style={{ color: LOGO_GREEN }}
-              className="font-black tracking-[-0.01em]"
-            >
-              indigenous ideas
-            </strong>
-            <span style={{ color: LOGO_GREEN_MUTED }}>
-              {' '}into{' '}
-            </span>
-            <strong
-              style={{ color: LOGO_GREEN }}
-              className="font-black tracking-[-0.01em]"
-            >
-              reliable systems
-            </strong>
-            <span style={{ color: LOGO_GREEN_MUTED }}>
-              {' '}built for the demands of{' '}
-            </span>
-            <strong
-              style={{ color: LOGO_GREEN }}
-              className="font-black tracking-[-0.01em]"
-            >
-              tomorrow’s battlefield
-            </strong>
-            <span style={{ color: LOGO_GREEN_MUTED }}>
-              .
-            </span>
-          </blockquote>
-        </ScrollReveal>
+              <span className="block lg:inline">
+                <span style={{ color: LOGO_GREEN_MUTED }}>
+                  Advanced engineering plays a{' '}
+                </span>
+                <strong
+                  style={{ color: LOGO_GREEN }}
+                  className="font-black tracking-[-0.01em]"
+                >
+                  pivotal
+                </strong>
+                <span style={{ color: LOGO_GREEN_MUTED }}>
+                  {' '}role in bridging the gap{' '}
+                </span>
+              </span>
+              <span className="block lg:inline">
+                <span style={{ color: LOGO_GREEN_MUTED }}>
+                  between{' '}
+                </span>
+                <strong
+                  style={{ color: LOGO_GREEN }}
+                  className="font-black tracking-[-0.01em]"
+                >
+                  conceptual innovation
+                </strong>
+                <span style={{ color: LOGO_GREEN_MUTED }}>
+                  {' '}and{' '}
+                </span>
+                <span className="whitespace-nowrap">
+                  <strong
+                    style={{ color: LOGO_GREEN }}
+                    className="font-black tracking-[-0.01em]"
+                  >
+                    mission-ready capability
+                  </strong>
+                  <span style={{ color: LOGO_GREEN_MUTED }}>
+                    ,
+                  </span>
+                </span>
+              </span>
+            </p>
+          </ScrollReveal>
 
-        {/* Centered Accent Line underneath */}
-        <ScrollReveal delay={0.2} yOffset={15}>
+          {/* Second clause: reveals from RIGHT */}
+          <ScrollReveal delay={0.2} direction="right" distance={70} blur={6}>
+            <p
+              className="font-outfit text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[45px] leading-[1.62] sm:leading-[1.55] md:leading-[1.48] tracking-[-0.015em] font-light"
+              style={{ textWrap: 'balance' }}
+            >
+              <span className="block lg:inline">
+                <span style={{ color: LOGO_GREEN_MUTED }}>
+                  transforming{' '}
+                </span>
+                <strong
+                  style={{ color: LOGO_GREEN }}
+                  className="font-black tracking-[-0.01em]"
+                >
+                  indigenous ideas
+                </strong>
+                <span style={{ color: LOGO_GREEN_MUTED }}>
+                  {' '}into{' '}
+                </span>
+                <strong
+                  style={{ color: LOGO_GREEN }}
+                  className="font-black tracking-[-0.01em]"
+                >
+                  reliable systems
+                </strong>
+                <span style={{ color: LOGO_GREEN_MUTED }}>
+                  {' '}
+                </span>
+              </span>
+              <span className="block lg:inline">
+                <span style={{ color: LOGO_GREEN_MUTED }}>
+                  built for the demands of{' '}
+                </span>
+                <span className="whitespace-nowrap">
+                  <strong
+                    style={{ color: LOGO_GREEN }}
+                    className="font-black tracking-[-0.01em]"
+                  >
+                    tomorrow’s battlefield
+                  </strong>
+                  <span style={{ color: LOGO_GREEN_MUTED }}>
+                    .
+                  </span>
+                </span>
+              </span>
+            </p>
+          </ScrollReveal>
+        </div>
+
+        {/* Centered Accent Line underneath - Revealing from Right */}
+        <ScrollReveal delay={0.25} direction="right" distance={40} blur={2}>
           <div
             className="w-24 sm:w-28 h-[2.5px] rounded-full mx-auto mt-12 sm:mt-16"
             style={{ backgroundColor: LOGO_GREEN }}

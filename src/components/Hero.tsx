@@ -76,21 +76,21 @@ export const Hero: React.FC = () => {
               </ScrollReveal>
             </div>
 
-            {/* Right Column: New Hero Image (opposite of tagline) */}
+            {/* Right Column: Transparent 3-Jet Formation Flight Image */}
             <div className="lg:col-span-6 xl:col-span-6 relative flex flex-col items-center justify-center pt-4 lg:pt-0">
               <ScrollReveal delay={0.2} yOffset={20}>
                 <div className="relative w-full flex flex-col items-center justify-center group">
-                  {/* Subtle Atmosphere Accent */}
+                  {/* Subtle Atmosphere Accent Glow */}
                   <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-red-600/5 blur-3xl pointer-events-none -z-10 group-hover:bg-red-600/10 transition-all duration-700" />
 
-                  {/* Hero Squadron Formation Image */}
-                  <div className="relative w-full flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]">
+                  {/* Supersonic 3-Jet Formation Image */}
+                  <div className="relative w-full flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.03]">
                     <picture className="w-full flex items-center justify-center">
-                      <source srcSet="/images/hero/hero-image.webp" type="image/webp" />
+                      <source srcSet="/images/hero/hero-formation.webp" type="image/webp" />
                       <img
-                        src="/images/hero/hero-image.png"
-                        alt="SAG Supersonic Strike Jet Formation"
-                        className="w-full max-w-[540px] sm:max-w-[580px] lg:max-w-[620px] xl:max-w-[660px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.2)] select-none"
+                        src="/images/hero/hero-formation.png"
+                        alt="SAG Supersonic Fighter Jet Strike Formation"
+                        className="w-full max-w-[540px] sm:max-w-[600px] lg:max-w-[650px] xl:max-w-[700px] h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.18)] select-none"
                         loading="eager"
                       />
                     </picture>
