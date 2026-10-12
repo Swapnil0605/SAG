@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
-  currentPage?: 'home' | 'about';
-  onNavigate?: (page: 'home' | 'about', hash?: string) => void;
+  currentPage?: 'home' | 'about' | 'contact';
+  onNavigate?: (page: 'home' | 'about' | 'contact', hash?: string) => void;
 }
 
 interface ProductDropdownItem {
@@ -231,12 +231,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <a
-            href="#contact"
+            href="/contact"
             onClick={(e) => {
               e.preventDefault();
-              onNavigate?.('home', '#contact');
+              onNavigate?.('contact');
             }}
-            className="text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8 cursor-pointer"
+            className={`text-[16px] transition-colors duration-200 tracking-wide underline-offset-8 cursor-pointer ${
+              currentPage === 'contact'
+                ? 'font-bold text-neutral-950 underline decoration-red-600'
+                : 'font-semibold text-neutral-700 hover:text-neutral-950 hover:underline decoration-red-600'
+            }`}
           >
             Contact
           </a>
@@ -245,10 +249,10 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Right Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="#contact"
+            href="/contact"
             onClick={(e) => {
               e.preventDefault();
-              onNavigate?.('home', '#contact');
+              onNavigate?.('contact');
             }}
             className="bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-md shadow-red-600/20 cursor-pointer"
           >
@@ -374,13 +378,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             <a
-              href="#contact"
+              href="/contact"
               onClick={(e) => {
                 e.preventDefault();
                 setMobileMenuOpen(false);
-                onNavigate?.('home', '#contact');
+                onNavigate?.('contact');
               }}
-              className="text-[16px] font-semibold text-neutral-800 hover:text-red-600 transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100 cursor-pointer"
+              className={`text-[16px] transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100 cursor-pointer ${
+                currentPage === 'contact'
+                  ? 'font-bold text-red-600'
+                  : 'font-semibold text-neutral-800 hover:text-red-600'
+              }`}
             >
               <span>Contact</span>
               <ChevronRight className="w-4 h-4 text-neutral-400" />
@@ -388,11 +396,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <div className="pt-3 flex flex-col gap-3">
               <a
-                href="#contact"
+                href="/contact"
                 onClick={(e) => {
                   e.preventDefault();
                   setMobileMenuOpen(false);
-                  onNavigate?.('home', '#contact');
+                  onNavigate?.('contact');
                 }}
                 className="block text-center bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold py-3 rounded-xl shadow-md cursor-pointer"
               >

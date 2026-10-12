@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface FooterProps {
-  onNavigate?: (page: 'home' | 'about', hash?: string) => void;
+  onNavigate?: (page: 'home' | 'about' | 'contact', hash?: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
@@ -198,10 +198,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="/contact"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigate?.('home', '#contact');
+                    onNavigate?.('contact');
                   }}
                   className="hover:text-red-600 transition-colors cursor-pointer"
                 >

@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Shield,
   Target,
   Cpu,
   Award,
-  Zap,
-  Layers,
   CheckCircle2,
-  Flame,
-  Binary,
   Lightbulb,
+  ArrowRight,
+  ArrowDown,
 } from 'lucide-react';
 import {
   ScrollReveal,
   Perspective3DReveal,
 } from './effects/TextScrollEffects';
-import Carousel from './Carousel';
 import ContactSection from './ContactSection';
 
 interface AboutPageProps {
@@ -23,6 +20,9 @@ interface AboutPageProps {
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
+  const [activeCap, setActiveCap] = useState<number | null>(2);
+  const [hoveredPillar, setHoveredPillar] = useState<number | null>(null);
+
   return (
     <div
       className="min-h-screen text-slate-100 font-sans selection:bg-red-600 selection:text-white relative overflow-x-hidden"
@@ -211,7 +211,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
         style={{ backgroundColor: '#ffffff' }}
       >
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-neutral-900">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-red-600 block mb-2">
               TACTICAL CODE
             </span>
@@ -224,230 +224,329 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
             </p>
           </div>
 
-          {/* Desktop 4-Column Grid View (md and up) */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* 4 Architectural Pillars with Vertical Hover Growth */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start pb-4">
             {[
               {
+                code: '01',
+                label: 'PIL // 01',
                 title: 'DEFEND',
                 icon: Shield,
-                code: 'PIL-01',
-                description:
-                  'Safeguarding national borders, forward tactical perimeters, and high-value military assets against evolving kinetic and drone swarms.',
                 color: 'text-red-600',
-                border: 'hover:border-red-500 hover:shadow-red-500/10',
+                borderColor: 'border-red-600',
+                bgHover: 'bg-red-50/25',
+                doctrine: 'TACTICAL PERIMETER DEFENCE',
+                description:
+                  'Safeguarding national borders, forward tactical perimeters, and high-value military assets against evolving kinetic, loitering, and drone swarms.',
+                tenets: [
+                  'Layered Counter-UAS Protection',
+                  'Forward Edge Asset Hardening',
+                  'Autonomous Rapid Intercept',
+                ],
               },
               {
+                code: '02',
+                label: 'PIL // 02',
                 title: 'DETER',
                 icon: Target,
-                code: 'PIL-02',
-                description:
-                  'Deploying high-speed supersonic loitering munitions and long-range ISR platforms to impose unaffordable costs on hostile aggressors.',
                 color: 'text-amber-600',
-                border: 'hover:border-amber-500 hover:shadow-amber-500/10',
+                borderColor: 'border-amber-600',
+                bgHover: 'bg-amber-50/25',
+                doctrine: 'ASYMMETRIC KINETIC REACH',
+                description:
+                  'Deploying high-speed supersonic loitering munitions and long-range ISR platforms to impose unaffordable costs on hostile aggressors across contested theaters.',
+                tenets: [
+                  'Mach 1+ Supersonic Infiltration',
+                  'Zero Enemy Reaction Window',
+                  'Precision Standoff Striking',
+                ],
               },
               {
+                code: '03',
+                label: 'PIL // 03',
                 title: 'LEAD',
                 icon: Cpu,
-                code: 'PIL-03',
-                description:
-                  'Establishing technological leadership in supersonic flight dynamics, optical flow AI targeting, and jam-resistant telemetry.',
                 color: 'text-blue-600',
-                border: 'hover:border-blue-500 hover:shadow-blue-500/10',
+                borderColor: 'border-blue-600',
+                bgHover: 'bg-blue-50/25',
+                doctrine: 'TECHNOLOGICAL DOMINANCE',
+                description:
+                  'Establishing technological leadership in supersonic flight dynamics, optical flow AI targeting, and zero-emission jam-resistant fiber optic datalinks.',
+                tenets: [
+                  'Zero-RF Optical Fiber Telemetry',
+                  'GNSS-Denied Visual Odometry',
+                  'Real-Time Neural Edge AI Lock',
+                ],
               },
               {
+                code: '04',
+                label: 'PIL // 04',
                 title: 'SELF-RELIANCE',
                 icon: Award,
-                code: 'PIL-04',
-                description:
-                  'Championing true Atmanirbhar Bharat — complete indigenous control over airframe composites, firmware, and mission cryptographic keys.',
                 color: 'text-emerald-600',
-                border: 'hover:border-emerald-500 hover:shadow-emerald-500/10',
+                borderColor: 'border-emerald-600',
+                bgHover: 'bg-emerald-50/25',
+                doctrine: 'ATMANIRBHAR SOVEREIGNTY',
+                description:
+                  'Championing true Atmanirbhar Bharat — complete indigenous control over airframe composites, firmware algorithms, avionics, and cryptographic keys.',
+                tenets: [
+                  '100% Sovereign Indian Defence IP',
+                  'Zero Vulnerable Foreign Chips',
+                  'Domestic Tooling in Bengaluru',
+                ],
               },
             ].map((pillar, idx) => {
               const Icon = pillar.icon;
+              const isHovered = hoveredPillar === idx;
               return (
                 <div
-                  key={idx}
-                  className={`bg-white border border-neutral-200/90 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 ${pillar.border} group`}
+                  key={pillar.code}
+                  onMouseEnter={() => setHoveredPillar(idx)}
+                  onMouseLeave={() => setHoveredPillar(null)}
+                  onClick={() => setHoveredPillar(isHovered ? null : idx)}
+                  className={`relative flex flex-col justify-between rounded-3xl p-6 sm:p-7 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer select-none overflow-hidden ${
+                    isHovered
+                      ? `h-[520px] border-2 ${pillar.borderColor} ${pillar.bgHover} shadow-2xl shadow-red-500/10 scale-[1.01]`
+                      : 'h-[400px] bg-white border border-neutral-200/90 shadow-md hover:border-neutral-300'
+                  }`}
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="p-2.5 rounded-xl bg-neutral-50 border border-neutral-200 group-hover:scale-105 transition-transform shadow-sm">
+                  {/* Top glowing cap line when hovered */}
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-1.5 transition-all duration-300 ${
+                      isHovered
+                        ? 'bg-gradient-to-r from-red-600 via-orange-500 to-red-600 opacity-100'
+                        : 'bg-transparent opacity-0'
+                    }`}
+                  />
+
+                  {/* Pillar Header & Body */}
+                  <div className="flex flex-col flex-1 min-h-0">
+                    {/* Top Rail */}
+                    <div className="flex items-center justify-between mb-4 pb-3 border-b border-neutral-100">
+                      <div
+                        className={`p-2.5 rounded-xl border transition-all duration-300 shadow-sm ${
+                          isHovered
+                            ? 'bg-white border-neutral-200 scale-105'
+                            : 'bg-neutral-50 border-neutral-200'
+                        }`}
+                      >
                         <Icon className={`w-5 h-5 ${pillar.color}`} />
                       </div>
-                      <span className="text-[10px] font-mono font-bold text-neutral-500 tracking-wider bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">
-                        {pillar.code}
+
+                      <span
+                        className={`text-[11px] font-mono font-bold tracking-wider px-2 py-0.5 rounded border transition-colors ${
+                          isHovered
+                            ? 'bg-white border-red-200 text-red-600'
+                            : 'bg-neutral-100 border-neutral-200 text-neutral-500'
+                        }`}
+                      >
+                        {pillar.label}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-black uppercase text-neutral-950 mb-3 tracking-wide">
+                    {/* Subtitle / Doctrine */}
+                    <span
+                      className={`text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.2em] uppercase mb-1.5 transition-colors ${
+                        isHovered ? 'text-red-600' : 'text-neutral-400'
+                      }`}
+                    >
+                      {pillar.doctrine}
+                    </span>
+
+                    {/* Big Title */}
+                    <h3
+                      className={`text-2xl sm:text-3xl font-black uppercase tracking-tight mb-3 transition-colors ${
+                        isHovered ? 'text-neutral-950' : 'text-neutral-900'
+                      }`}
+                    >
                       {pillar.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                    {/* Core Description - ALWAYS VISIBLE ON EACH PILLAR */}
+                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal mb-3">
                       {pillar.description}
                     </p>
+
+                    {/* Expanded Content Revealed As Height Increases Vertically */}
+                    <div
+                      className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out ${
+                        isHovered
+                          ? 'grid-rows-[1fr] opacity-100 mt-2'
+                          : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                      }`}
+                    >
+                      <div className="overflow-hidden min-h-0">
+                        <div className="pt-3 border-t border-neutral-200/80 space-y-2">
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 block mb-1">
+                            TACTICAL MANDATES:
+                          </span>
+                          {pillar.tenets.map((tenet, tidx) => (
+                            <div
+                              key={tidx}
+                              className="flex items-center gap-2 text-xs font-mono text-neutral-700"
+                            >
+                              <CheckCircle2 className="w-3.5 h-3.5 text-red-600 flex-shrink-0" />
+                              <span className="truncate">{tenet}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="pt-4 mt-6 border-t border-neutral-100 flex items-center gap-1.5 text-[11px] font-mono text-neutral-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400 group-hover:bg-red-600 transition-colors" />
-                    <span>SOVEREIGN MANDATE</span>
+                  {/* Pillar Foundation / Base Bar */}
+                  <div className="pt-4 mt-auto border-t border-neutral-100 flex items-center justify-between text-[11px] font-mono text-neutral-400">
+                    <span className="flex items-center gap-1.5">
+                      <span
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                          isHovered ? 'bg-red-600 animate-pulse' : 'bg-neutral-300'
+                        }`}
+                      />
+                      <span className={isHovered ? 'text-neutral-800 font-bold' : ''}>
+                        SOVEREIGN MANDATE
+                      </span>
+                    </span>
+
+                    <span className="text-[10px] font-mono text-neutral-400">
+                      {isHovered ? 'STATUS // EXPANDED' : 'STATUS // BASE'}
+                    </span>
                   </div>
                 </div>
               );
             })}
-          </div>
-
-          {/* Mobile Carousel View (screens below md) */}
-          <div className="block md:hidden">
-            <div style={{ height: '560px', position: 'relative' }}>
-              <Carousel
-                items={[
-                  {
-                    title: 'DEFEND',
-                    description:
-                      'Safeguarding national borders, forward tactical perimeters, and high-value military assets against evolving kinetic and drone swarms.',
-                    icon: Shield,
-                    code: 'PIL-01',
-                    color: 'text-red-600',
-                    border: 'hover:border-red-500',
-                    image: '/images/bg/airplane-bunker.jpg',
-                    badge: 'SOVEREIGN MANDATE',
-                  },
-                  {
-                    title: 'DETER',
-                    description:
-                      'Deploying high-speed supersonic loitering munitions and long-range ISR platforms to impose unaffordable costs on hostile aggressors.',
-                    icon: Target,
-                    code: 'PIL-02',
-                    color: 'text-amber-600',
-                    border: 'hover:border-amber-500',
-                    image: '/images/bg/airplane-bunker.jpg',
-                    badge: 'SOVEREIGN MANDATE',
-                  },
-                  {
-                    title: 'LEAD',
-                    description:
-                      'Establishing technological leadership in supersonic flight dynamics, optical flow AI targeting, and jam-resistant telemetry.',
-                    icon: Cpu,
-                    code: 'PIL-03',
-                    color: 'text-blue-600',
-                    border: 'hover:border-blue-500',
-                    image: '/images/bg/airplane-bunker.jpg',
-                    badge: 'SOVEREIGN MANDATE',
-                  },
-                  {
-                    title: 'SELF-RELIANCE',
-                    description:
-                      'Championing true Atmanirbhar Bharat — complete indigenous control over airframe composites, firmware, and mission cryptographic keys.',
-                    icon: Award,
-                    code: 'PIL-04',
-                    color: 'text-emerald-600',
-                    border: 'hover:border-emerald-500',
-                    image: '/images/bg/airplane-bunker.jpg',
-                    badge: 'SOVEREIGN MANDATE',
-                  },
-                ]}
-                baseWidth={300}
-                aspectRatio={1.05}
-                effect="tilt"
-                indicator="dots"
-                frame={true}
-                arrows={false}
-                loop={false}
-                autoplay
-                autoplayDelay={4250}
-                pauseOnHover={false}
-                theme="light"
-                radius={10}
-                round
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Middle Content Body (Section 4: Aerospace Engineering Capabilities) */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-24 sm:space-y-32">
-
-        {/* =========================================================================
-            4. CORE ENGINEERING DISCIPLINES & RESEARCH CAPABILITIES
-            ========================================================================= */}
-        <section className="relative">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-red-500 block mb-2">
-              TECHNICAL COMPETENCE
+      {/* =========================================================================
+          4. CORE ENGINEERING DISCIPLINES & RESEARCH CAPABILITIES (WHITE BACKGROUND)
+          ========================================================================= */}
+      <section
+        className="relative w-full border-y border-neutral-200 py-16 sm:py-24 my-16 sm:my-24 overflow-hidden select-none"
+        style={{ backgroundColor: '#ffffff' }}
+      >
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-neutral-900">
+          {/* Header matching Energica reference */}
+          <div className="mb-10 sm:mb-14">
+            <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-[#C80000] block mb-3">
+              INFRASTRUCTURE MATRIX // TECHNICAL CAPABILITIES
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-4">
-              AEROSPACE ENGINEERING CAPABILITIES
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-[0.95]">
+              <span className="text-[#C80000] block">AEROSPACE</span>
+              <span className="text-neutral-300 block">CAPABILITIES.</span>
             </h2>
-            <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
-              Complete in-house control from concept to flight-tested platform
-              ensures maximum agility and operational security.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Expandable Accordion List matching reference */}
+          <div className="space-y-4">
             {[
               {
-                icon: Flame,
+                index: '01',
+                category: 'AERONAUTICAL FLUID DYNAMICS & THERMAL ANALYSIS',
                 title: 'AERODYNAMICS & CFD',
-                desc: 'Computational fluid dynamic modeling from low-speed loitering to supersonic shockwave propagation and boundary layer thermal control.',
-                tags: ['CFD Simulation', 'Supersonic Airfoils', 'Wind Tunnel'],
+                desc: 'Advanced computational fluid dynamics (CFD) modeling from low-speed loitering to Mach 1+ shockwave propagation and boundary layer thermal dissipation. Aerodynamically validated in supersonic wind-tunnel regimes for maximum lift-to-drag efficiency and extreme maneuverability.',
+                tags: ['Mach 1+ Shockwave CFD', 'Supersonic Airfoils', 'Wind Tunnel Validated', 'Boundary Layer Control'],
               },
               {
-                icon: Layers,
+                index: '02',
+                category: 'ADVANCED STRUCTURAL COMPOSITES & RADAR ABSORPTION',
                 title: 'COMPOSITE FABRICATION',
-                desc: 'High-strength, radar-absorbent autoclave carbon fiber composites engineered to endure high-G tactical maneuvers and extreme temperatures.',
-                tags: ['Pre-preg Carbon', 'Radar Absorbing', 'High-G Airframes'],
+                desc: 'High-strength, radar-absorbent autoclave carbon fiber composites engineered to endure high-G tactical maneuvers and extreme thermal gradients without structural fatigue. Developed with domestic aerospace tooling right in Bengaluru.',
+                tags: ['Pre-preg Autoclave Carbon', 'Radar Absorbing Materials (RAM)', '12G Airframe Integrity', 'Indigenous Tooling'],
               },
               {
-                icon: Binary,
+                index: '03',
+                category: 'HARDWARE-IN-THE-LOOP & ZERO-RF HARDENING',
                 title: 'SOVEREIGN AVIONICS',
-                desc: 'Hardware-in-the-loop validated flight computers, zero-emission fiber optic spools, and encrypted FHSS anti-jamming datalinks.',
-                tags: ['Zero-RF Fiber', 'FHSS Encrypted', 'HIL Testing'],
+                desc: 'Hardware-in-the-loop validated flight computers, zero-emission fiber optic spools, and encrypted FHSS anti-jamming datalinks. Full electromagnetic isolation guarantees zero RF emissions and complete immunity to EW jammers and GNSS spoofers.',
+                tags: ['Zero-RF Fiber Spool', 'FHSS Encrypted Datalinks', 'HIL Real-Time Validation', 'Anti-Jam Hardened'],
               },
               {
-                icon: Zap,
+                index: '04',
+                category: 'AUTONOMOUS VISION & GNSS-DENIED TARGET ACQUISITION',
                 title: 'AI TERMINAL GUIDANCE',
-                desc: 'Onboard edge-AI optical flow tracking, GNSS-denied visual inertial odometry, and autonomous target acquisition algorithms.',
-                tags: ['Optical Flow', 'GNSS-Denied', 'Neural Edge AI'],
+                desc: 'Onboard edge-AI optical flow tracking, GNSS-denied visual inertial odometry (VIO), and autonomous terminal target acquisition algorithms. Operates with millimeter precision without reliance on external satellite navigation.',
+                tags: ['Visual Inertial Odometry (VIO)', 'Neural Edge AI Computing', 'GNSS-Denied Navigation', 'Autonomous Terminal Lock'],
               },
             ].map((cap, idx) => {
-              const CapIcon = cap.icon;
+              const isOpen = activeCap === idx;
               return (
                 <div
-                  key={idx}
-                  className="bg-[#0d1012] border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between hover:border-neutral-700 transition-colors"
+                  key={cap.index}
+                  onMouseEnter={() => setActiveCap(idx)}
+                  onClick={() => setActiveCap(isOpen ? null : idx)}
+                  className={`rounded-2xl transition-all duration-300 cursor-pointer overflow-hidden ${
+                    isOpen
+                      ? 'bg-red-50/25 border-2 border-[#C80000] p-6 sm:p-8 shadow-md scale-[1.008]'
+                      : 'bg-neutral-50/70 hover:bg-white border border-neutral-200/90 hover:border-neutral-300 p-5 sm:p-6 group hover:shadow-sm'
+                  }`}
                 >
-                  <div>
-                    <div className="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 w-fit mb-5 text-red-500">
-                      <CapIcon className="w-5 h-5" />
+                  {/* Top Header Row */}
+                  <div className="flex items-center justify-between gap-4 select-none">
+                    <div className="flex items-center gap-3 sm:gap-6 min-w-0">
+                      <span
+                        className={`font-mono font-bold text-base sm:text-xl flex-shrink-0 transition-colors ${
+                          isOpen
+                            ? 'text-[#C80000]'
+                            : 'text-neutral-400 group-hover:text-[#C80000]'
+                        }`}
+                      >
+                        /{cap.index}
+                      </span>
+                      <h3
+                        className={`font-black text-xl sm:text-2xl md:text-3xl uppercase tracking-tight truncate transition-colors ${
+                          isOpen
+                            ? 'text-[#C80000]'
+                            : 'text-neutral-900 group-hover:text-[#C80000]'
+                        }`}
+                      >
+                        {cap.title}
+                      </h3>
                     </div>
-                    <h3 className="text-lg font-bold uppercase text-white mb-2">
-                      {cap.title}
-                    </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed mb-5">
-                      {cap.desc}
-                    </p>
+
+                    <div className="flex-shrink-0">
+                      {isOpen ? (
+                        <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 text-[#C80000] transition-transform duration-300" />
+                      ) : (
+                        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-400 group-hover:text-[#C80000] group-hover:translate-x-1 transition-all duration-300" />
+                      )}
+                    </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-neutral-800/80">
-                    {cap.tags.map((t, tidx) => (
-                      <span
-                        key={tidx}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-900 text-neutral-400 border border-neutral-800"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                  {/* Smooth Expanded Content Drawer with Enlarged Description */}
+                  <div
+                    className={`grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                    }`}
+                  >
+                    <div className="overflow-hidden min-h-0">
+                      <div className="mt-5 pt-5 border-t border-red-200/70">
+                        <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-[#C80000] block mb-3">
+                          {cap.category}
+                        </span>
+                        <p className="text-base sm:text-lg md:text-xl text-neutral-800 leading-relaxed font-medium max-w-3xl mb-6">
+                          {cap.desc}
+                        </p>
+
+                        <div className="flex flex-wrap items-center gap-2 pt-1">
+                          {cap.tags.map((tag, tidx) => (
+                            <span
+                              key={tidx}
+                              className="text-xs sm:text-sm font-mono px-3.5 py-1.5 rounded-lg bg-white border border-neutral-200 text-neutral-800 font-semibold shadow-xs"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
             })}
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {/* =========================================================================
           5. LEADERSHIP: RAHUL G (FULL-WIDTH WHITE BACKGROUND SECTION)
