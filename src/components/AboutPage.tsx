@@ -10,10 +10,6 @@ import {
   Flame,
   Binary,
   Lightbulb,
-  Gauge,
-  Radio,
-  AlertTriangle,
-  ShieldCheck,
 } from 'lucide-react';
 import {
   ScrollReveal,
@@ -205,173 +201,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
             </ScrollReveal>
           </div>
         </section>
-
-        {/* =========================================================================
-            3. THE ESCALATION REALITY: CLOSING THE SPEED GAP
-            ========================================================================= */}
-        <section className="relative">
-          <div className="bg-gradient-to-b from-[#0e1215] via-[#090c0e] to-[#07090a] border border-neutral-800/90 rounded-3xl p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-2xl">
-            {/* Header */}
-            <div className="max-w-3xl mb-10 sm:mb-12">
-              <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-red-500 block mb-3">
-                THE BATTLEFIELD REALITY
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-4">
-                WHY WE FOUNDED SAG DEFENCE
-              </h2>
-              <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-normal">
-                Modern contested airspace exposes severe limitations in conventional unmanned systems. SAG was founded to solve the two critical failure points in modern sky combat: <strong className="text-white font-semibold">subsonic intercept exposure</strong> and <strong className="text-white font-semibold">electronic warfare vulnerability</strong>.
-              </p>
-            </div>
-
-            {/* Tactical Contrast Panels */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-              {/* Left Panel: Conventional Limitations */}
-              <div className="bg-[#0b0e11]/90 border border-red-950/60 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-red-900/60 transition-all shadow-xl">
-                <div>
-                  <div className="flex items-center justify-between mb-4 pb-3 border-b border-red-950/50">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
-                      <span className="text-xs font-mono font-bold tracking-widest uppercase text-red-400">
-                        LEGACY THREAT WINDOW
-                      </span>
-                    </div>
-                    <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
-                      CONVENTIONAL DRONES
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-black text-white mb-6 tracking-tight">
-                    Subsonic Speed &amp; Wireless Vulnerability
-                  </h3>
-
-                  <div className="space-y-3.5">
-                    <div className="p-4 rounded-xl bg-red-950/15 border border-red-900/30 flex items-start gap-3.5">
-                      <div className="p-2 rounded-lg bg-red-950/40 text-red-400 flex-shrink-0 mt-0.5">
-                        <Gauge className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-neutral-200 mb-1">
-                          Slow Intercept Velocity (120–200 km/h)
-                        </h4>
-                        <p className="text-xs text-neutral-400 leading-relaxed">
-                          Low subsonic speeds grant point air defence and mobile autocannons ample engagement windows for kinetic interception.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-red-950/15 border border-red-900/30 flex items-start gap-3.5">
-                      <div className="p-2 rounded-lg bg-red-950/40 text-red-400 flex-shrink-0 mt-0.5">
-                        <Radio className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-neutral-200 mb-1">
-                          Wireless RF Jamming Susceptibility
-                        </h4>
-                        <p className="text-xs text-neutral-400 leading-relaxed">
-                          Over-the-air datalinks and satellite guidance fail in saturated GNSS-spoofed and directional EW jamming corridors.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-red-950/15 border border-red-900/30 flex items-start gap-3.5">
-                      <div className="p-2 rounded-lg bg-red-950/40 text-red-400 flex-shrink-0 mt-0.5">
-                        <AlertTriangle className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-neutral-200 mb-1">
-                          Foreign Component Dependencies
-                        </h4>
-                        <p className="text-xs text-neutral-400 leading-relaxed">
-                          Imported autopilot microchips and optical assemblies risk strategic supply cutoffs and covert hardware backdoors.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-red-950/50 flex items-center justify-between text-[11px] font-mono text-red-400/80">
-                  <span>VULNERABILITY: HIGH INTERCEPT PROBABILITY</span>
-                  <span className="text-red-500 font-bold">LEGACY DEFICIENCY</span>
-                </div>
-              </div>
-
-              {/* Right Panel: SAG Sovereign Standard */}
-              <div className="bg-[#0b0e11]/90 border border-emerald-950/60 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-emerald-900/60 transition-all shadow-xl">
-                <div>
-                  <div className="flex items-center justify-between mb-4 pb-3 border-b border-emerald-950/50">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-xs font-mono font-bold tracking-widest uppercase text-emerald-400">
-                        SAG SOVEREIGN DOCTRINE
-                      </span>
-                    </div>
-                    <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
-                      SOVEREIGN STANDARD
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-black text-white mb-6 tracking-tight">
-                    Supersonic Dash &amp; Jammer Immunity
-                  </h3>
-
-                  <div className="space-y-3.5">
-                    <div className="p-4 rounded-xl bg-emerald-950/15 border border-emerald-900/30 flex items-start gap-3.5">
-                      <div className="p-2 rounded-lg bg-emerald-950/40 text-emerald-400 flex-shrink-0 mt-0.5">
-                        <Zap className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-neutral-200 mb-1">
-                          Mach 1+ Supersonic Strike Velocity
-                        </h4>
-                        <p className="text-xs text-neutral-400 leading-relaxed">
-                          Compresses enemy reaction time to zero, piercing multi-layered A2/AD air defence bubbles before hostile tracking locks.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-emerald-950/15 border border-emerald-900/30 flex items-start gap-3.5">
-                      <div className="p-2 rounded-lg bg-emerald-950/40 text-emerald-400 flex-shrink-0 mt-0.5">
-                        <ShieldCheck className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-neutral-200 mb-1">
-                          Zero-RF Optical &amp; Edge AI Autonomy
-                        </h4>
-                        <p className="text-xs text-neutral-400 leading-relaxed">
-                          Physical fiber tethering and onboard computer-vision inertial odometry emit 0 RF signatures, completely immune to EW.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-emerald-950/15 border border-emerald-900/30 flex items-start gap-3.5">
-                      <div className="p-2 rounded-lg bg-emerald-950/40 text-emerald-400 flex-shrink-0 mt-0.5">
-                        <Award className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-neutral-200 mb-1">
-                          100% Sovereign Indian Intellectual Property
-                        </h4>
-                        <p className="text-xs text-neutral-400 leading-relaxed">
-                          End-to-end domestic ownership of aerodynamics, flight algorithms, telemetry, and encrypted mission cryptographic keys.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-emerald-950/50 flex items-center justify-between text-[11px] font-mono text-emerald-400/80">
-                  <span>RESILIENCE: ZERO EMISSIONS • UNJAMMABLE</span>
-                  <span className="text-emerald-400 font-bold">SOVEREIGNTY FIRST</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
 
       {/* =========================================================================
-          4. THE FOUR PILLARS OF SAG DOCTRINE (FULL-WIDTH WHITE BACKGROUND SECTION)
+          3. THE FOUR PILLARS OF SAG DOCTRINE (FULL-WIDTH WHITE BACKGROUND SECTION)
           ========================================================================= */}
       <section
         className="relative w-full border-y border-neutral-200 py-16 sm:py-24 my-16 sm:my-24 overflow-hidden select-none"
@@ -534,11 +367,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
         </div>
       </section>
 
-      {/* Middle Content Body (Section 5: Aerospace Engineering Capabilities) */}
+      {/* Middle Content Body (Section 4: Aerospace Engineering Capabilities) */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-24 sm:space-y-32">
 
         {/* =========================================================================
-            5. CORE ENGINEERING DISCIPLINES & RESEARCH CAPABILITIES
+            4. CORE ENGINEERING DISCIPLINES & RESEARCH CAPABILITIES
             ========================================================================= */}
         <section className="relative">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -617,7 +450,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
       </div>
 
       {/* =========================================================================
-          6. LEADERSHIP: RAHUL G (FULL-WIDTH WHITE BACKGROUND SECTION)
+          5. LEADERSHIP: RAHUL G (FULL-WIDTH WHITE BACKGROUND SECTION)
           ========================================================================= */}
       <section
         className="relative w-full border-y border-neutral-200 py-16 sm:py-24 my-16 sm:my-24 overflow-hidden select-none"
