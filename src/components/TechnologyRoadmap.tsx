@@ -10,27 +10,31 @@ export const TechnologyRoadmap: React.FC = () => {
   const phases = [
     {
       num: '01',
-      title: 'Concept & Aerodynamics Freeze',
-      duration: 'Phase 1',
-      description: 'Aerodynamic computational CFD modeling, supersonic wind tunnel simulations, preliminary design review (PDR) and partner propulsion MOUs.',
+      title: 'Designs ship as files',
+      footer: 'Days, Not Years',
+      description:
+        'When the threat changes, we update a file — not a factory. Fixes reach the field in days, not years.',
     },
     {
       num: '02',
-      title: 'Subsystem & Airframe Prototyping',
-      duration: 'Phase 2',
-      description: 'High temperature carbon composite airframe fabrication, high G avionics ruggedization, optical and RF seeker integration and payload bay qualification.',
+      title: 'Indian by design',
+      footer: 'Engineered in Bengaluru',
+      description:
+        'Engineered in Bengaluru, with indigenous content built in from the first prototype.',
     },
     {
       num: '03',
-      title: 'Integrated Ground Testing',
-      duration: 'Phase 3',
-      description: 'Supersonic propulsion test cell firings, thermal barrier testing, EMI/EMC compliance and hardware in the loop (HIL) control validation.',
+      title: 'We know the threat',
+      footer: 'Real-World Tested',
+      description:
+        'We build FPV drones ourselves — so our counter-drone systems are tested against the real thing.',
     },
     {
       num: '04',
-      title: 'Captive & Free Flight Testing',
-      duration: 'Phase 4',
-      description: 'Defence test range live launches, captive carry envelope expansion, seeker target locking at Mach 1+ and armed forces trial readiness.',
+      title: 'Humans stay in command',
+      footer: 'Critical Human Decision',
+      description:
+        'Our systems automate the dangerous work. Every critical decision stays with a trained operator.',
     },
   ];
 
@@ -69,28 +73,32 @@ export const TechnologyRoadmap: React.FC = () => {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Section Title with Bold Split Uppercase Reveal */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-16 gap-6">
+          <div className="shrink-0">
             <ScrollReveal yOffset={15} blur={4}>
               <div className="mb-3">
-                <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-slate-300 block">
-                  DEVELOPMENT ROADMAP // SOVEREIGN CAPABILITY
+                <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-red-500 block">
+                  HOW WE BUILD
                 </span>
               </div>
             </ScrollReveal>
 
-            {/* Massive Bold Uppercase Section Heading */}
+            {/* Exactly 2-Line Bold Uppercase Section Heading */}
             <ScrollReveal delay={0.1} yOffset={20}>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.95]">
-                <span className="text-white block drop-shadow-sm">FROM CONCEPT</span>
-                <span className="text-white block drop-shadow-sm mt-1">TO FLIGHT.</span>
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-6xl font-black uppercase tracking-tight leading-[1.02]">
+                <span className="text-white block drop-shadow-sm whitespace-nowrap">
+                  A STARTUP&apos;S SPEED.
+                </span>
+                <span className="text-white block drop-shadow-sm mt-1 sm:mt-1.5 whitespace-nowrap">
+                  A SOLDIER&apos;S STANDARDS.
+                </span>
               </h2>
             </ScrollReveal>
           </div>
 
           <ScrollReveal delay={0.2} yOffset={20}>
             <p className="text-sm sm:text-base text-slate-300 max-w-md leading-relaxed">
-              A disciplined, phased engineering roadmap designed for flight safety, rigorous military validation and scalable wartime manufacturing in India.
+              Engineering sovereign defence platforms with agile software speed and uncompromising military reliability.
             </p>
           </ScrollReveal>
         </div>
@@ -121,23 +129,19 @@ export const TechnologyRoadmap: React.FC = () => {
 
                     {/* Scale Stretch on Phase Title */}
                     <ScaleStretchText scaleYFrom={1.2} scaleYTo={1.0}>
-                      <h3 className="text-lg font-bold text-white mb-1 leading-snug">
+                      <h3 className="text-lg font-bold text-white mb-2 leading-snug">
                         {phase.title}
                       </h3>
                     </ScaleStretchText>
 
-                    <span className="text-xs font-mono text-red-400 font-semibold block mb-3">
-                      {phase.duration}
-                    </span>
-
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                       {phase.description}
                     </p>
                   </div>
 
                   <div className="mt-8 pt-4 border-t border-neutral-800 flex items-center gap-2 text-[11px] font-mono text-slate-400">
                     <CheckSquare className="w-3.5 h-3.5 text-red-500" />
-                    <span>Defence Corridor Partnered</span>
+                    <span>{phase.footer}</span>
                   </div>
                 </div>
               </ScrollReveal>

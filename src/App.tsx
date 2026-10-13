@@ -145,8 +145,8 @@ export const App: React.FC = () => {
             {/* 5. Technology Development Roadmap (Synapse / Datacore Video Background) */}
             <TechnologyRoadmap />
 
-            {/* Strategic Slogan Directive Banner (White Background with Logo Green Typography) */}
-            <SloganSection />
+            {/* Who We Serve Section (White Background) */}
+            <SloganSection onNavigateAbout={() => handleNavigate('about')} />
 
             {/* 6. Official Contact & Technical Briefing Inquiries */}
             <ContactSection />

@@ -1,136 +1,96 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from './effects/TextScrollEffects';
 
-export const SloganSection: React.FC = () => {
-  // Official green shade extracted from the SAG logo motto
-  const LOGO_GREEN = '#046a38';
-  const LOGO_GREEN_MUTED = 'rgba(4, 106, 56, 0.68)';
+interface SloganSectionProps {
+  onNavigateAbout?: () => void;
+}
+
+export const SloganSection: React.FC<SloganSectionProps> = ({ onNavigateAbout }) => {
+  const sectorsRow1 = [
+    'Indian Army',
+    'Indian Air Force',
+    'Navy & Coast Guard',
+  ];
+
+  const sectorsRow2 = [
+    'Homeland Security',
+    'Critical Infrastructure',
+    'Disaster Relief',
+  ];
 
   return (
     <section
-      aria-label="Sovereign Engineering Slogan"
-      className="relative w-full border-y border-neutral-200 py-24 sm:py-32 lg:py-40 overflow-hidden select-none"
-      style={{ backgroundColor: '#ffffff' }}
+      id="sectors"
+      aria-label="Who We Serve"
+      className="relative w-full border-y border-neutral-200 py-20 sm:py-24 lg:py-28 overflow-hidden bg-white select-none"
     >
-      <div className="relative z-10 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-14 text-center flex flex-col items-center">
-        {/* Top Kicker Label - Revealing from Left */}
-        <ScrollReveal direction="left" distance={45} blur={4}>
-          <div className="mb-8 sm:mb-10 flex items-center justify-center">
-            <span
-              className="text-xs sm:text-[13px] font-mono font-bold tracking-[0.32em] uppercase"
-              style={{ color: LOGO_GREEN }}
-            >
-              MISSION DIRECTIVE
-            </span>
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column: Kicker, Heading, Link */}
+          <div className="lg:col-span-6 space-y-5">
+            <ScrollReveal direction="left" distance={30} blur={4}>
+              <div>
+                <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-red-600 block mb-3">
+                  WHO WE SERVE
+                </span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1} direction="left" distance={40}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-950 tracking-tight leading-[1.1] max-w-lg">
+                From mountain posts to airbases to the sea.
+              </h2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2} direction="left" distance={40}>
+              <div className="pt-2">
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    if (onNavigateAbout) {
+                      e.preventDefault();
+                      onNavigateAbout();
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-neutral-950 underline underline-offset-8 decoration-2 decoration-neutral-900 hover:text-red-600 hover:decoration-red-600 transition-colors group cursor-pointer"
+                >
+                  <span>Our vision and the sectors we serve</span>
+                  <ArrowRight className="w-4 h-4 text-neutral-900 group-hover:text-red-600 group-hover:translate-x-1 transition-all" />
+                </a>
+              </div>
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
 
-        {/* Editorial Slogan with Left & Right scroll reveals */}
-        <div className="w-full max-w-[1300px] mx-auto space-y-4 sm:space-y-6">
-          {/* First clause: reveals from LEFT */}
-          <ScrollReveal delay={0.1} direction="left" distance={70} blur={6}>
-            <p
-              className="font-outfit text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[45px] leading-[1.62] sm:leading-[1.55] md:leading-[1.48] tracking-[-0.015em] font-light"
-              style={{ textWrap: 'balance' }}
-            >
-              <span className="block lg:inline">
-                <span style={{ color: LOGO_GREEN_MUTED }}>
-                  Advanced engineering plays a{' '}
-                </span>
-                <strong
-                  style={{ color: LOGO_GREEN }}
-                  className="font-black tracking-[-0.01em]"
-                >
-                  pivotal
-                </strong>
-                <span style={{ color: LOGO_GREEN_MUTED }}>
-                  {' '}role in bridging the gap{' '}
-                </span>
-              </span>
-              <span className="block lg:inline">
-                <span style={{ color: LOGO_GREEN_MUTED }}>
-                  between{' '}
-                </span>
-                <strong
-                  style={{ color: LOGO_GREEN }}
-                  className="font-black tracking-[-0.01em]"
-                >
-                  conceptual innovation
-                </strong>
-                <span style={{ color: LOGO_GREEN_MUTED }}>
-                  {' '}and{' '}
-                </span>
-                <span className="whitespace-nowrap">
-                  <strong
-                    style={{ color: LOGO_GREEN }}
-                    className="font-black tracking-[-0.01em]"
+          {/* Right Column: Pill Badges in 2 Clean Rows */}
+          <div className="lg:col-span-6 flex flex-col gap-3.5 sm:gap-4 lg:items-end">
+            <ScrollReveal delay={0.15} direction="right" distance={40}>
+              <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 lg:justify-end">
+                {sectorsRow1.map((sector) => (
+                  <span
+                    key={sector}
+                    className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full border-2 border-neutral-900 bg-white text-neutral-900 font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:bg-neutral-900 hover:text-white hover:scale-105 shadow-xs cursor-default"
                   >
-                    mission-ready capability
-                  </strong>
-                  <span style={{ color: LOGO_GREEN_MUTED }}>
-                    ,
+                    {sector}
                   </span>
-                </span>
-              </span>
-            </p>
-          </ScrollReveal>
+                ))}
+              </div>
+            </ScrollReveal>
 
-          {/* Second clause: reveals from RIGHT */}
-          <ScrollReveal delay={0.2} direction="right" distance={70} blur={6}>
-            <p
-              className="font-outfit text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[45px] leading-[1.62] sm:leading-[1.55] md:leading-[1.48] tracking-[-0.015em] font-light"
-              style={{ textWrap: 'balance' }}
-            >
-              <span className="block lg:inline">
-                <span style={{ color: LOGO_GREEN_MUTED }}>
-                  transforming{' '}
-                </span>
-                <strong
-                  style={{ color: LOGO_GREEN }}
-                  className="font-black tracking-[-0.01em]"
-                >
-                  indigenous ideas
-                </strong>
-                <span style={{ color: LOGO_GREEN_MUTED }}>
-                  {' '}into{' '}
-                </span>
-                <strong
-                  style={{ color: LOGO_GREEN }}
-                  className="font-black tracking-[-0.01em]"
-                >
-                  reliable systems
-                </strong>
-                <span style={{ color: LOGO_GREEN_MUTED }}>
-                  {' '}
-                </span>
-              </span>
-              <span className="block lg:inline">
-                <span style={{ color: LOGO_GREEN_MUTED }}>
-                  built for the demands of{' '}
-                </span>
-                <span className="whitespace-nowrap">
-                  <strong
-                    style={{ color: LOGO_GREEN }}
-                    className="font-black tracking-[-0.01em]"
+            <ScrollReveal delay={0.25} direction="right" distance={40}>
+              <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 lg:justify-end">
+                {sectorsRow2.map((sector) => (
+                  <span
+                    key={sector}
+                    className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full border-2 border-neutral-900 bg-white text-neutral-900 font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:bg-neutral-900 hover:text-white hover:scale-105 shadow-xs cursor-default"
                   >
-                    tomorrow’s battlefield
-                  </strong>
-                  <span style={{ color: LOGO_GREEN_MUTED }}>
-                    .
+                    {sector}
                   </span>
-                </span>
-              </span>
-            </p>
-          </ScrollReveal>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
-
-        {/* Centered Accent Line underneath - Revealing from Right */}
-        <ScrollReveal delay={0.25} direction="right" distance={40} blur={2}>
-          <div
-            className="w-24 sm:w-28 h-[2.5px] rounded-full mx-auto mt-12 sm:mt-16"
-            style={{ backgroundColor: LOGO_GREEN }}
-          />
-        </ScrollReveal>
       </div>
     </section>
   );

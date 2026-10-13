@@ -1,5 +1,4 @@
 import React from 'react';
-import { Shield, Zap, Crosshair, Award } from 'lucide-react';
 import {
   ScrollReveal,
 } from './effects/TextScrollEffects';
@@ -26,89 +25,65 @@ export const VisionStrategic: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6">
-        {/* Section Header with Sliced / Split Reveal */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="max-w-2xl">
-            <ScrollReveal direction="left" distance={40} blur={4}>
-              <div className="mb-3">
-                <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-slate-300 block">
-                  STRATEGIC DOCTRINE // BHARAT TO THE WORLD
-                </span>
-              </div>
-            </ScrollReveal>
-
-            {/* Massive Bold Uppercase Section Heading matching sample */}
-            <ScrollReveal delay={0.1} direction="left" distance={60}>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.95]">
-                <span className="text-white block drop-shadow-sm">CLOSING THE</span>
-                <span className="text-white block drop-shadow-sm mt-1">SPEED GAP.</span>
-              </h2>
-            </ScrollReveal>
+        {/* Top Tag */}
+        <ScrollReveal direction="left" distance={30} blur={4}>
+          <div className="mb-4">
+            <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-sky-400 block">
+              WHY WE EXIST
+            </span>
           </div>
+        </ScrollReveal>
 
-          <ScrollReveal delay={0.2} direction="right" distance={60}>
-            <p className="text-sm sm:text-base text-slate-300 max-w-md leading-relaxed font-normal">
-              SAG Defence and Aerospace is engineering sovereign systems from Bharat for the world. Our flagship development programme, <span className="text-red-500 font-semibold">Project Yamraj</span>, pioneers an indigenous supersonic loitering munition for decisive air dominance.
-            </p>
-          </ScrollReveal>
-        </div>
+        {/* Section Headline */}
+        <ScrollReveal delay={0.1} direction="left" distance={40}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-tight leading-[1.08] text-white max-w-4xl mb-14 sm:mb-20">
+            The battlefield changes in weeks. Defence technology still takes years.
+          </h2>
+        </ScrollReveal>
 
-        {/* 4 Core Pillars – DEFEND | DETER | LEAD | SELF-RELIANCE with Staggered Scroll Reveal */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16">
+        {/* 3 Columns with blue top dividing lines */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-14 sm:mb-18">
           {[
             {
-              title: 'DEFEND',
-              subtitle: 'Sovereign Borders',
-              desc: 'High altitude VTOL and quadcopter ISR providing continuous perimeter intelligence in GNSS denied zones.',
-              icon: Shield,
+              title: 'Drones are used up like ammunition.',
+              desc: 'They are lost every day to crashes, jamming and enemy fire — and their designs must change as fast as the enemy adapts.',
             },
             {
-              title: 'DETER',
-              subtitle: 'Precision Strike',
-              desc: 'FPV combat systems and rapid loitering platforms delivering lethal terminal kinetics in contested airspace.',
-              icon: Zap,
+              title: 'Cheap drones now kill expensive vehicles.',
+              desc: "Fibre-optic FPVs emit no radio signal, so jammers can't stop them, and cages alone don't keep up with the threat.",
             },
             {
-              title: 'LEAD',
-              subtitle: 'Project Yamraj',
-              desc: 'Flagship programme engineering an indigenous supersonic loitering munition to advance Bharat’s strike frontier.',
-              icon: Award,
+              title: 'Air defences are exposed.',
+              desc: "Costly radars and launchers are being hit by cheap drones — and firing expensive interceptors at them can't last.",
             },
-            {
-              title: 'WORLD CLASS',
-              subtitle: 'Indigenous Quality',
-              desc: 'Building innovative, reliable products through indigenous engineering and uncompromising quality for the world.',
-              icon: Crosshair,
-            },
-          ].map((pillar, idx) => {
-            const Icon = pillar.icon;
-            return (
-              <ScrollReveal
-                key={pillar.title}
-                delay={idx * 0.1}
-                yOffset={30}
-                className="h-full"
-              >
-                <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-3xl p-6 hover:border-red-500/80 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 shadow-md flex flex-col justify-between group h-full">
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-200 mb-4 group-hover:border-red-500/80 group-hover:bg-red-950/40 transition-colors">
-                      <Icon className="w-5 h-5 text-red-500 group-hover:text-red-400 transition-colors" />
-                    </div>
-                    <span className="text-xs font-mono font-bold tracking-military text-red-500 uppercase block mb-1">
-                      {pillar.title}
-                    </span>
-                    <h3 className="text-base font-bold text-white mb-2">
-                      {pillar.subtitle}
-                    </h3>
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                      {pillar.desc}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            );
-          })}
+          ].map((col, idx) => (
+            <ScrollReveal
+              key={col.title}
+              delay={idx * 0.12}
+              yOffset={25}
+              className="h-full"
+            >
+              <div className="flex flex-col h-full">
+                <div className="w-full h-[2px] bg-sky-400/80 mb-5 sm:mb-6" />
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 leading-snug">
+                  {col.title}
+                </h3>
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                  {col.desc}
+                </p>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
+
+        {/* Bottom Tagline */}
+        <ScrollReveal delay={0.25} yOffset={25}>
+          <div>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-blue-500 tracking-tight">
+              So we build differently.
+            </h3>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

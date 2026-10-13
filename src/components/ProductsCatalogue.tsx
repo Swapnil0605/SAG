@@ -57,6 +57,106 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    id: 'yamraj',
+    name: 'PROJECT YAMRAJ',
+    fleetTag: '01 · PROJECT YAMRAJ',
+    titleMain: 'PROJECT',
+    titleAccent: 'YAMRAJ',
+    category: 'strike',
+    categoryLabel: 'Supersonic Loitering Munition',
+    roleBadge: 'SUPERSONIC STRIKE',
+    tagline: 'Closing the speed gap — indigenous supersonic loitering munition.',
+    description:
+      'Our flagship programme: an indigenous supersonic loitering munition. Mach 1+ class, a rotating detonation engine and an all Indian design — built to reach targets before they can move.',
+    image: '/images/products/project-yamraj.webp',
+    gallery: ['/images/products/project-yamraj.webp'],
+    accentTheme: {
+      tagColor: 'text-red-400',
+      accentWordColor: 'text-red-500',
+      glowBg: 'rgba(239, 68, 68, 0.35)',
+      borderColor: 'border-red-500/40 hover:border-red-500',
+      cardBg: 'from-[#1c0a0f] via-[#10080d] to-[#070709]',
+      btnHover: 'group-hover:border-red-500 group-hover:bg-red-600',
+      dotBg: 'bg-red-500',
+      pillBg: 'bg-red-950/80 border-red-800 text-red-300',
+    },
+    keySpecs: [
+      { label: 'SPEED CLASS', value: 'Mach 1+ Class' },
+      { label: 'PROPULSION', value: 'Rotating Detonation Engine' },
+      { label: 'DESIGN', value: '100% Indian Sovereign' },
+      { label: 'STATUS', value: 'In Development' },
+    ],
+    specs: {
+      platformType: 'Supersonic Loitering Munition',
+      range: 'Strategic long-range strike perimeter',
+      speed: 'Mach 1+ Supersonic Intercept Sprint',
+      endurance: 'Extended high-altitude cruise & terminal sprint',
+      payload: 'Heavy-calibre penetrating kinetic warhead',
+      altitude: 'High-altitude flight envelope',
+      standards: 'MIL-STD-810H • MIL-STD-461G',
+      guidance: 'Multi-mode autonomous seeker & anti-jam GPS/INS',
+      datalink: 'Encrypted tactical datalink with terminal lock-on',
+      launch: 'Multi-platform canister / air / ground launch capable',
+      operatingTemp: '−40 °C to +60 °C',
+    },
+    highlights: [
+      'Mach 1+ supersonic dash capability to reach targets before they can move',
+      'Advanced rotating detonation engine for revolutionary thrust efficiency',
+      '100% indigenous Indian sovereign design and intellectual property',
+      'Engineered to defeat heavily defended time-sensitive targets',
+    ],
+  },
+  {
+    id: 'sag-kavach',
+    name: 'SAG KAVACH',
+    fleetTag: '03 · SAG KAVACH',
+    titleMain: 'SAG',
+    titleAccent: 'KAVACH',
+    category: 'cuas',
+    categoryLabel: 'Layered Counter-Drone Shield',
+    roleBadge: 'LAYERED CUAS PROTECTION',
+    tagline: 'A shield that sees, acts and checks.',
+    description:
+      'Layered counter-drone protection for Army convoys and air-defence sites. It spots the drone, blinds its camera with a laser out to 1 km, checks the result — and catches anything still coming with a net. It works even against fibre-optic drones that jammers can\'t touch.',
+    image: '/images/products/sag-kavach.webp',
+    gallery: ['/images/products/sag-kavach.webp'],
+    accentTheme: {
+      tagColor: 'text-sky-400',
+      accentWordColor: 'text-sky-400',
+      glowBg: 'rgba(14, 165, 233, 0.35)',
+      borderColor: 'border-sky-500/40 hover:border-sky-400',
+      cardBg: 'from-[#0a1520] via-[#080d14] to-[#05070a]',
+      btnHover: 'group-hover:border-sky-500 group-hover:bg-sky-600',
+      dotBg: 'bg-sky-400',
+      pillBg: 'bg-sky-950/80 border-sky-800 text-sky-300',
+    },
+    keySpecs: [
+      { label: 'LASER DAZZLE', value: '1 km reach' },
+      { label: 'NET CATCH ZONE', value: '200–300 m' },
+      { label: 'CONFIGURATIONS', value: '3 (Convoy, Truck, Site)' },
+      { label: 'EW IMMUNITY', value: 'Fibre-Optic & RF Immune' },
+    ],
+    specs: {
+      platformType: 'Vehicle & Site Layered Counter-Drone Protection Kit',
+      range: '1 km optical laser dazzle • 200–300 m kinetic net capture zone',
+      speed: 'Instantaneous 360° turret slewing & millisecond net launch',
+      endurance: 'Continuous 24/7 operating cycle via vehicle power',
+      payload: 'EO/IR laser dazzler turret + 24 pneumatic net cartridges',
+      altitude: '360° hemispheric protection dome',
+      standards: 'MIL-STD-810H • 24 V vehicle power standard',
+      guidance: 'Automated EO/IR tracking & AI laser dazzling director',
+      datalink: 'In-cab arm / monitor touch display and convoy network',
+      launch: 'Bolt-on retrofit kit for Stallion-class 4x4 trucks and static posts',
+      operatingTemp: '−30 °C to +55 °C',
+    },
+    highlights: [
+      'Blinds hostile drone optical cameras and seekers out to 1 km with laser dazzler',
+      'Pneumatic 24-net launcher catches drones between 200–300 m with zero explosives',
+      'Defeats fibre-optic FPV drones that bypass conventional radio jammers',
+      'Modular 3 configurations: Army convoy, logistics truck, and critical sites',
+    ],
+  },
+  {
     id: 'razor-p1',
     name: 'SAG RAZOR P1',
     fleetTag: 'FLEET 01',
@@ -222,20 +322,19 @@ export const products: Product[] = [
   },
   {
     id: 'doom-mk1',
-    name: 'DOOM MK1',
-    fleetTag: 'FLEET 04',
+    name: 'DOOM MK-1',
+    fleetTag: '02 · DOOM MK-1',
     titleMain: 'DOOM',
-    titleAccent: 'MK1',
+    titleAccent: 'MK-1',
     category: 'cuas',
-    categoryLabel: 'Short Range Surface to Air Missile',
+    categoryLabel: 'Short-Range Mobile Air Defence',
     roleBadge: 'SURFACE TO AIR DEFENCE',
-    tagline: 'Kinetic neutralizer engineered for rapid defeat of UAVs and loitering munitions.',
+    tagline: 'Air defence that moves with the troops.',
     description:
-      'An indigenous short range surface to air missile system engineered for rapid response and battlefield precision air defence against enemy drone swarms, loitering munitions, and low-flying aerial threats.',
-    image: '/images/products/doom-mk1.png',
-    video360: '/video/products/doom-mk1-360.mp4',
+      'A short-range air-defence missile system on a pickup-mounted, multi-canister launcher. From detection to launch in under 7 seconds — protecting airbases, forward posts, convoys and critical infrastructure from hostile drones.',
+    image: '/images/products/doom-mk1.webp',
     gallery: [
-      '/images/products/doom-mk1.png',
+      '/images/products/doom-mk1.webp',
     ],
     accentTheme: {
       tagColor: 'text-amber-400',
@@ -248,28 +347,28 @@ export const products: Product[] = [
       pillBg: 'bg-amber-950/80 border-amber-800 text-amber-300',
     },
     keySpecs: [
-      { label: 'ENGAGEMENT', value: '2 to 5 km' },
-      { label: 'ALTITUDE', value: '50 to 5,000 m' },
-      { label: 'ACCURACY', value: 'CEP < 2 m' },
-      { label: 'PROPULSION', value: 'Solid Rocket' },
+      { label: 'ENGAGEMENT', value: '2–5 km' },
+      { label: 'LAUNCH SPEED', value: '<7 s detection to launch' },
+      { label: 'CEILING', value: '5,000 m' },
+      { label: 'PLATFORM', value: 'Pickup-Mounted' },
     ],
     specs: {
-      platformType: 'Short Range Surface to Air Missile (SAM)',
-      range: '2 to 5 km (Extended short range air defence envelope)',
+      platformType: 'Pickup-Mounted Short-Range Air-Defence (SHORAD) Missile System',
+      range: '2 to 5 km engagement range against aerial threats',
       speed: 'Supersonic intercept sprint capability',
-      endurance: 'Rapid engagement cycle (reaction time < 3 seconds)',
-      payload: 'High fragmentation proximity & impact kinetic warhead',
+      endurance: 'Reaction time under 7 seconds from detection to launch',
+      payload: 'High fragmentation proximity & kinetic warhead',
       altitude: 'Engagement ceiling: 50 m to 5,000 m AMSL',
-      standards: 'MIL-STD-810G • Sealed All Weather Launch Canister',
+      standards: 'MIL-STD-810G • Sealed All-Weather Launch Canister',
       guidance: 'Integrated optical & RF terminal guidance seeker',
-      launch: 'Multi-canister launcher vehicle or hardened static station',
+      launch: 'Multi-canister launcher vehicle with high-mobility pickup chassis',
       operatingTemp: '−25 °C to +55 °C',
     },
     highlights: [
-      'Sub 2 meter circular error probable (CEP) for guaranteed kinetic kill',
-      'Optimized against low radar cross section (RCS) kamikaze drones',
-      'Solid-propellant rapid-ignition rocket motor with instant boost',
-      'Integrates into networked battlefield air defence command grids',
+      'Under 7 seconds reaction time from detection to missile launch',
+      '2–5 km engagement range protecting convoys, airbases, and forward posts',
+      'Solid-propellant rapid ignition rocket motor with instant boost',
+      'High-mobility pickup truck mounting keeps up with moving troop formations',
     ],
   },
   {
@@ -387,9 +486,9 @@ export const ProductsCatalogue: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [modalActiveImage, setModalActiveImage] = useState<string | null>(null);
   const [activeMediaModes, setActiveMediaModes] = useState<Record<string, 'image' | '360'>>({
-    'razor-p1': 'image',
-    'scout-x': 'image',
-    'aeron-a1': 'image',
+    'yamraj': 'image',
+    'doom-mk1': 'image',
+    'sag-kavach': 'image',
   });
   const [modalViewMode, setModalViewMode] = useState<'image' | '360'>('image');
 
@@ -401,67 +500,73 @@ export const ProductsCatalogue: React.FC = () => {
 
   const showcaseProducts = [
     {
-      id: 'razor-p1',
-      sysId: 'SYS 01',
-      hindiName: 'रेज़र पी१',
-      category: 'KAMIKAZE FPV STRIKE',
-      title: 'SAG RAZOR P1',
-      headline: 'Terminal kinetic precision strike in contested electromagnetic zones',
+      id: 'yamraj',
+      sysId: '01 · PROJECT YAMRAJ',
+      hindiName: 'प्रोजेक्ट यमराज',
+      category: '01 · PROJECT YAMRAJ',
+      title: 'PROJECT YAMRAJ',
+      headline: 'Closing the speed gap.',
       description:
-        'Indigenous FPV combat drone engineered for terminal precision strike missions, delivering rapid response, high-impact kinetic defeat of armored targets, and battlefield dominance.',
-      image: '/images/products/sag-razor-p1.png',
+        'Our flagship programme: an indigenous supersonic loitering munition. Mach 1+ class, a rotating detonation engine and an all Indian design — built to reach targets before they can move.',
+      image: '/images/products/project-yamraj.webp',
       video360: undefined,
+      inDevelopment: true,
+      exploreLabel: 'Explore Yamraj',
       specsGrid: [
-        { label: 'ROLE', value: 'One-way autonomous expendable strike' },
-        { label: 'PLATFORM', value: 'Ruggedized rapid deploy airframe' },
-        { label: 'GUIDANCE', value: 'Encrypted FHSS anti-jamming datalink' },
-        { label: 'DESIGN INTENT', value: 'Low cost, attritable, scalable sovereign production' },
+        { label: 'SPEED CLASS', value: 'Mach 1+ Class' },
+        { label: 'PROPULSION', value: 'Rotating Detonation Engine' },
+        { label: 'DESIGN ARCHITECTURE', value: 'All-Indian Sovereign Design' },
+        { label: 'ROLE / MISSION', value: 'Supersonic Loitering Strike' },
       ],
       bgTheme: 'black' as const,
       imagePosition: 'left' as const,
-      productRef: products.find((p) => p.id === 'razor-p1') || products[0],
+      productRef: products.find((p) => p.id === 'yamraj') || products[0],
     },
     {
-      id: 'scout-x',
-      sysId: 'SYS 02',
-      hindiName: 'स्काउट एक्स',
-      category: 'TACTICAL ISR QUADCOPTER',
-      title: 'SCOUT X',
-      headline: 'Autonomous anti-armour and ISR capability without a soldier in the line of fire',
+      id: 'doom-mk1',
+      sysId: '02 · DOOM MK-1',
+      hindiName: 'डूम एमके-१',
+      category: '02 · DOOM MK-1',
+      title: 'DOOM MK-1',
+      headline: 'Air defence that moves with the troops.',
       description:
-        'A persistent quadcopter platform delivering real-time border surveillance, route reconnaissance, and counter-infiltration intelligence with dual-mode free flight and tethered power station operations.',
-      image: '/images/products/scout-x.png',
-      video360: '/video/products/scout-x-360.mp4',
+        'A short-range air-defence missile system on a pickup-mounted, multi-canister launcher. From detection to launch in under 7 seconds — protecting airbases, forward posts, convoys and critical infrastructure from hostile drones.',
+      image: '/images/products/doom-mk1.webp',
+      video360: undefined,
+      inDevelopment: false,
+      exploreLabel: 'Explore Doom MK-1',
       specsGrid: [
-        { label: 'ROLE', value: 'Persistent tactical border surveillance' },
-        { label: 'MOBILITY', value: 'All-terrain, GNSS-denied capable' },
-        { label: 'AI CORE', value: 'Autonomous optical flow targeting and tracking' },
-        { label: 'ENDURANCE', value: '90m free-flight / 24h+ tethered station' },
+        { label: 'ENGAGEMENT RANGE', value: '2–5 km' },
+        { label: 'DETECTION TO LAUNCH', value: '<7 s' },
+        { label: 'CEILING', value: '5,000 m' },
+        { label: 'CONFIGURATION', value: 'Pickup-Mounted Multi-Canister' },
       ],
       bgTheme: 'white' as const,
       imagePosition: 'right' as const,
-      productRef: products.find((p) => p.id === 'scout-x') || products[1],
+      productRef: products.find((p) => p.id === 'doom-mk1') || products[1],
     },
     {
-      id: 'aeron-a1',
-      sysId: 'SYS 03',
-      hindiName: 'एरोन ए१',
-      category: 'HYBRID VTOL PLATFORM',
-      title: 'AERON A1',
-      headline: 'Runway-independent strategic surveillance and tactical communications relay',
+      id: 'sag-kavach',
+      sysId: '03 · SAG KAVACH',
+      hindiName: 'एसएजी कवच',
+      category: '03 · SAG KAVACH',
+      title: 'SAG KAVACH',
+      headline: 'A shield that sees, acts and checks.',
       description:
-        'Heavy-duty hybrid-electric VTOL aircraft designed for high-altitude border surveillance, tactical communications relay, and persistent multi-sensor intelligence without requiring runways.',
-      image: '/images/products/aeron-a1.png',
-      video360: '/video/products/aeron-360.mp4',
+        'Layered counter-drone protection for Army convoys and air-defence sites. It spots the drone, blinds its camera with a laser out to 1 km, checks the result — and catches anything still coming with a net. It works even against fibre-optic drones that jammers can\'t touch.',
+      image: '/images/products/sag-kavach.webp',
+      video360: undefined,
+      inDevelopment: true,
+      exploreLabel: 'Explore Kavach',
       specsGrid: [
-        { label: 'ROLE', value: 'Long-range persistent ISR & tactical comms relay' },
-        { label: 'VARIANTS', value: 'Manual (operator in loop) and Autonomous' },
-        { label: 'AI CORE', value: 'Indigenous onboard AI accelerator and tracker' },
-        { label: 'OPERATING ENVIRONMENT', value: 'LAC high-altitude, GNSS-denied and EW-contested' },
+        { label: 'LASER DAZZLE REACH', value: '1 km' },
+        { label: 'NET CATCH ZONE', value: '200–300 m' },
+        { label: 'CONFIGS', value: '3 (Convoy, Truck, Site)' },
+        { label: 'PROTECTION', value: 'Fibre-Optic & RF Immune' },
       ],
       bgTheme: 'black' as const,
       imagePosition: 'left' as const,
-      productRef: products.find((p) => p.id === 'aeron-a1') || products[2],
+      productRef: products.find((p) => p.id === 'sag-kavach') || products[2],
     },
   ];
 
@@ -486,21 +591,21 @@ export const ProductsCatalogue: React.FC = () => {
             }}
           >
             <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-              {/* Optional Section Header on First Product */}
+              {/* Section Header on First Product */}
               {index === 0 && (
                 <div className="mb-14 sm:mb-20">
                   <ScrollReveal yOffset={15} blur={4}>
                     <div className="mb-3">
-                      <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-slate-300 block">
-                        SOVEREIGN DEFENCE SYSTEMS PORTFOLIO
+                      <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-red-500 block">
+                        WHAT WE&apos;RE BUILDING
                       </span>
                     </div>
                   </ScrollReveal>
 
                   <ScrollReveal delay={0.1} yOffset={20}>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.95]">
-                      <span className="text-white block drop-shadow-sm">MISSION READY</span>
-                      <span className="text-white block drop-shadow-sm mt-1">PLATFORMS.</span>
+                      <span className="text-white block drop-shadow-sm">Three systems that change</span>
+                      <span className="text-white block drop-shadow-sm mt-1">how India defends itself.</span>
                     </h2>
                   </ScrollReveal>
                 </div>
@@ -517,16 +622,18 @@ export const ProductsCatalogue: React.FC = () => {
                   <ScrollReveal delay={0.1} yOffset={25}>
                     {/* Tactical Display Frame */}
                     <div
-                      className={`relative w-full rounded-xl border border-neutral-200/90 shadow-2xl flex items-center justify-center overflow-hidden group transition-all duration-300 ${
-                        currentMode === '360'
-                          ? 'aspect-[16/10] sm:aspect-[16/10] p-0 bg-[#e5e5e5]'
-                          : 'aspect-[4/3] sm:aspect-[16/11] p-6 sm:p-10 bg-white'
+                      className={`relative w-full rounded-2xl border ${
+                        isWhite ? 'border-neutral-200 shadow-xl' : 'border-neutral-800 shadow-2xl'
+                      } flex items-center justify-center overflow-hidden group transition-all duration-300 ${
+                        item.id === 'yamraj'
+                          ? 'aspect-[16/10] sm:aspect-[16/10] p-6 sm:p-10 bg-[#0c182b]'
+                          : 'aspect-[4/3] sm:aspect-[16/11] p-0 bg-neutral-900'
                       }`}
                     >
                       {/* Top-Left Corner Bracket & SYS ID */}
                       <div className="absolute top-4 left-4 flex items-center gap-1.5 z-20 pointer-events-none">
                         <span className="w-3.5 h-3.5 border-t-2 border-l-2 border-red-500 inline-block" />
-                        <span className="text-[11px] font-mono font-bold tracking-widest text-red-600 pl-1 select-none">
+                        <span className="text-[11px] font-mono font-bold tracking-widest text-red-500 pl-1 select-none">
                           {item.sysId}
                         </span>
                       </div>
@@ -539,68 +646,48 @@ export const ProductsCatalogue: React.FC = () => {
 
                       {/* Bottom-Right Corner Bracket & Hindi Script */}
                       <div className="absolute bottom-4 right-4 flex items-center gap-1.5 z-20 pointer-events-none">
-                        <span className="text-xs font-sans text-neutral-500 font-semibold pr-1 select-none drop-shadow-xs">
+                        <span className="text-xs font-sans text-neutral-400 font-semibold pr-1 select-none drop-shadow-xs">
                           {item.hindiName}
                         </span>
                         <span className="w-3.5 h-3.5 border-b-2 border-r-2 border-red-500 inline-block" />
                       </div>
 
-                      {/* Realistic Soft Contact Ground Shadow (only in photo mode) */}
-                      {currentMode !== '360' && (
-                        <div className="absolute bottom-6 sm:bottom-8 w-4/5 h-4 bg-black/15 blur-lg rounded-full pointer-events-none" />
-                      )}
-
-                      {/* Active Media: 360 Video or High-Res Image */}
-                      {currentMode === '360' && item.video360 ? (
-                        <div className="relative w-full h-full flex items-center justify-center z-10 overflow-hidden">
-                          <video
-                            src={item.video360}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute top-3.5 right-9 sm:right-10 px-2.5 py-1 rounded-full bg-black/80 text-[10px] font-mono font-bold text-red-400 flex items-center gap-1.5 shadow-lg border border-red-500/30 backdrop-blur-xs z-30">
-                            <RotateCw className="w-2.5 h-2.5 animate-spin" />
-                            <span>360° ACTIVE</span>
-                          </div>
-                        </div>
-                      ) : (
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.20)] transition-transform duration-500 group-hover:scale-105 z-10"
-                        />
-                      )}
+                      {/* Active Media */}
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className={`w-full h-full transition-transform duration-500 group-hover:scale-105 z-10 ${
+                          item.id === 'yamraj'
+                            ? 'object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)]'
+                            : 'object-cover'
+                        }`}
+                      />
                     </div>
 
-                    {/* View Switcher Thumbnails Row */}
-                    <div className="flex items-center gap-3 mt-4">
-                      {/* Photo Thumbnail */}
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setActiveMediaModes((prev) => ({ ...prev, [item.id]: 'image' }))
-                        }
-                        className={`relative w-20 h-16 sm:w-24 sm:h-20 rounded-lg overflow-hidden border-2 transition-all p-1 flex items-center justify-center cursor-pointer ${
-                          currentMode === 'image'
-                            ? 'border-red-500 ring-2 ring-red-500/30 bg-white shadow-sm'
-                            : isWhite
-                            ? 'border-neutral-300 bg-neutral-100 opacity-60 hover:opacity-100'
-                            : 'border-neutral-800 bg-[#12161a] opacity-60 hover:opacity-100'
-                        }`}
-                        title="View photo"
-                      >
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-contain"
-                        />
-                      </button>
+                    {/* View Switcher Thumbnails Row (if 360 video present) */}
+                    {item.video360 && (
+                      <div className="flex items-center gap-3 mt-4">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveMediaModes((prev) => ({ ...prev, [item.id]: 'image' }))
+                          }
+                          className={`relative w-20 h-16 sm:w-24 sm:h-20 rounded-lg overflow-hidden border-2 transition-all p-1 flex items-center justify-center cursor-pointer ${
+                            currentMode === 'image'
+                              ? 'border-red-500 ring-2 ring-red-500/30 bg-white shadow-sm'
+                              : isWhite
+                              ? 'border-neutral-300 bg-neutral-100 opacity-60 hover:opacity-100'
+                              : 'border-neutral-800 bg-[#12161a] opacity-60 hover:opacity-100'
+                          }`}
+                          title="View photo"
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-contain"
+                          />
+                        </button>
 
-                      {/* 360 Video Thumbnail (if present) */}
-                      {item.video360 && (
                         <button
                           type="button"
                           onClick={() =>
@@ -631,8 +718,8 @@ export const ProductsCatalogue: React.FC = () => {
                             360° VIEW
                           </span>
                         </button>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </ScrollReveal>
                 </div>
 
@@ -728,12 +815,17 @@ export const ProductsCatalogue: React.FC = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-wrap items-center gap-4 mt-8">
+                      {item.inDevelopment && (
+                        <span className="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase border border-sky-400/80 text-sky-400 bg-sky-950/20">
+                          IN DEVELOPMENT
+                        </span>
+                      )}
                       <button
                         type="button"
                         onClick={() => handleOpenModal(item.productRef)}
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-mono font-bold text-xs tracking-wider uppercase px-7 py-3.5 transition-all shadow-md shadow-red-600/25 cursor-pointer"
                       >
-                        <span>Full dossier</span>
+                        <span>{item.exploreLabel || 'Explore System'}</span>
                         <span>→</span>
                       </button>
                       <a

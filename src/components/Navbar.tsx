@@ -16,18 +16,32 @@ interface ProductDropdownItem {
 
 const PRODUCTS_LIST: ProductDropdownItem[] = [
   {
+    name: 'PROJECT YAMRAJ',
+    category: 'Supersonic Loitering Munition',
+    tag: 'SUPERSONIC',
+    href: '#products',
+    image: '/images/products/project-yamraj.webp',
+  },
+  {
+    name: 'DOOM MK-1',
+    category: 'Short Range Mobile Air Defence',
+    tag: 'SHORAD / SAM',
+    href: '#products',
+    image: '/images/products/doom-mk1.webp',
+  },
+  {
+    name: 'SAG KAVACH',
+    category: 'Layered Counter-Drone Shield',
+    tag: 'CUAS SHIELD',
+    href: '#products',
+    image: '/images/products/sag-kavach.webp',
+  },
+  {
     name: 'SAG RAZOR P1',
     category: 'Kamikaze FPV Strike Drone',
     tag: 'STRIKE',
     href: '#products',
     image: '/images/products/sag-razor-p1.png',
-  },
-  {
-    name: 'SAG RAZOR OFC',
-    category: 'Fiber Optic Jam Proof FPV',
-    tag: 'FIBER OPTIC',
-    href: '#products',
-    image: '/images/products/razor-ofc-1.png',
   },
   {
     name: 'SCOUT X',
@@ -42,20 +56,6 @@ const PRODUCTS_LIST: ProductDropdownItem[] = [
     tag: 'VTOL MALE',
     href: '#products',
     image: '/images/products/aeron-a1.png',
-  },
-  {
-    name: 'DOOM MK1',
-    category: 'Short Range Surface to Air Missile',
-    tag: 'SAM / CUAS',
-    href: '#products',
-    image: '/images/products/doom-mk1.png',
-  },
-  {
-    name: 'SAG VELOCITY',
-    category: 'High Speed Kinetic Interceptor',
-    tag: 'CUAS INTERCEPT',
-    href: '#products',
-    image: '/images/products/sag-velocity.png',
   },
 ];
 

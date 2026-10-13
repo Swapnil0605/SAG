@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
               <div className="flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-red-600" />
                 <span className="text-xs sm:text-[13px] font-mono font-bold tracking-military uppercase text-neutral-600">
-                  SAG DEFENCE &amp; AEROSPACE • <span className="text-red-600">SOVEREIGN INNOVATION</span>
+                  A DEFENCE DEEP-TECH STARTUP FROM BENGALURU
                 </span>
               </div>
             </ScrollReveal>
@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
 
           {/* Two-Column Split: Content on Left, New Hero Image on Right */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Column: Bold 3-Tier Headline, Short Description, Single Pill Button */}
+            {/* Left Column: Bold 3-Tier Headline, Short Description, Action Buttons */}
             <div className="lg:col-span-6 xl:col-span-6 space-y-5">
               <ScrollReveal delay={0.1} yOffset={20}>
                 {/* Massive 3-Tier Headline */}
@@ -57,20 +57,26 @@ export const Hero: React.FC = () => {
 
               {/* Short crisp subtitle */}
               <ScrollReveal delay={0.2} yOffset={20}>
-                <p className="text-base sm:text-lg text-neutral-600 max-w-lg leading-relaxed font-medium">
-                  Next generation indigenous aerospace and supersonic defence systems.
+                <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed font-normal">
+                  Warfare now changes in weeks. We build the systems that keep up — supersonic strike, rapid air defence and layered counter-drone shields. Designed, built and improved in India, at startup speed.
                 </p>
               </ScrollReveal>
 
-              {/* Single Important Pill Action Button */}
+              {/* Action Buttons */}
               <ScrollReveal delay={0.25} yOffset={25}>
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4">
                   <a
                     href="#products"
-                    className="inline-flex items-center justify-center gap-2.5 border-2 border-red-600 bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-8 py-3.5 rounded-full transition-all duration-300 shadow-md shadow-red-600/25 hover:shadow-lg hover:scale-105 group cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-red-600 bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-full transition-all duration-300 shadow-md shadow-red-600/25 hover:shadow-lg hover:scale-105 group cursor-pointer"
                   >
-                    <span>Explore Systems</span>
+                    <span>SEE WHAT WE&apos;RE BUILDING</span>
                     <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-all" />
+                  </a>
+                  <a
+                    href="#products"
+                    className="inline-flex items-center justify-center border-2 border-neutral-900 bg-white hover:bg-neutral-900 text-neutral-900 hover:text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-xs hover:shadow-md"
+                  >
+                    <span>ALL PRODUCTS</span>
                   </a>
                 </div>
               </ScrollReveal>
@@ -83,14 +89,14 @@ export const Hero: React.FC = () => {
                   {/* Subtle Atmosphere Accent Glow */}
                   <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-red-600/5 blur-3xl pointer-events-none -z-10 group-hover:bg-red-600/10 transition-all duration-700" />
 
-                  {/* Supersonic 3-Jet Formation Image */}
+                  {/* Supersonic Munition Hero Image */}
                   <div className="relative w-full flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.03]">
                     <picture className="w-full flex items-center justify-center">
-                      <source srcSet="/images/hero/hero-formation.webp" type="image/webp" />
+                      <source srcSet="/images/hero/hero-yamraj.webp" type="image/webp" />
                       <img
-                        src="/images/hero/hero-formation.png"
-                        alt="SAG Supersonic Fighter Jet Strike Formation"
-                        className="w-full max-w-[540px] sm:max-w-[600px] lg:max-w-[650px] xl:max-w-[700px] h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.18)] select-none"
+                        src="/images/hero/hero-yamraj.png"
+                        alt="SAG Supersonic Defence Munition - Project Yamraj"
+                        className="w-full max-w-[580px] sm:max-w-[660px] lg:max-w-[720px] xl:max-w-[800px] h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.20)] select-none"
                         loading="eager"
                       />
                     </picture>
