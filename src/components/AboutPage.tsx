@@ -5,7 +5,6 @@ import {
   ArrowRight,
   ArrowLeft,
   ArrowDown,
-  ArrowUpRight,
   Shield,
   Plane,
   Anchor,
@@ -725,7 +724,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
                           setActiveSector(isActive ? null : idx);
                         }
                       }}
-                      className={`group relative h-[460px] sm:h-[500px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 flex flex-col justify-between p-6 sm:p-7 select-none border-2 ${
+                      className={`group relative h-[460px] sm:h-[500px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 flex flex-col justify-end p-6 sm:p-7 select-none border-2 ${
                         isActive
                           ? 'border-[#030389] shadow-2xl shadow-[#030389]/25 scale-[1.01]'
                           : 'border-transparent hover:border-[#030389] shadow-lg hover:shadow-2xl'
@@ -743,21 +742,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
                         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/75 via-neutral-950/20 to-transparent group-hover:from-neutral-950 group-hover:via-neutral-950/90 group-hover:to-black/40 transition-all duration-500" />
                       </div>
 
-                      {/* Top Row: Action Arrow Button matching Image 1 */}
-                      <div className="relative z-10 flex items-center justify-end">
-                        <div
-                          className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                            isActive
-                              ? 'bg-[#030389] text-white shadow-lg shadow-[#030389]/40 border border-[#030389]'
-                              : 'bg-black/45 backdrop-blur-md border border-white/20 text-white/80 group-hover:bg-[#030389] group-hover:border-[#030389] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#030389]/40'
-                          }`}
-                        >
-                          <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                        </div>
-                      </div>
-
                       {/* Bottom Content Area: Image visible initially, text reveals smoothly on hover */}
-                      <div className="relative z-10 mt-auto">
+                      <div className="relative z-10">
                         {/* Sector Badge */}
                         <div
                           className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-xs text-xs font-mono font-black tracking-wider uppercase mb-2 shadow-xs"
