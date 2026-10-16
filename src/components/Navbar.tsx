@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
-  currentPage?: 'home' | 'about' | 'contact';
-  onNavigate?: (page: 'home' | 'about' | 'contact', hash?: string) => void;
+  currentPage?: 'home' | 'about' | 'contact' | 'products';
+  onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => void;
 }
 
 interface ProductDropdownItem {
@@ -153,13 +153,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             onMouseLeave={handleMouseLeave}
           >
             <a
-              href="#products"
+              href="/products"
               onClick={(e) => {
                 e.preventDefault();
                 setDesktopDropdownOpen(false);
-                onNavigate?.('home', '#products');
+                onNavigate?.('products');
               }}
-              className="inline-flex items-center gap-1.5 text-[16px] font-semibold text-neutral-700 hover:text-neutral-950 transition-colors duration-200 tracking-wide hover:underline decoration-red-600 underline-offset-8 py-2 cursor-pointer"
+              className={`inline-flex items-center gap-1.5 text-[16px] transition-colors duration-200 tracking-wide underline-offset-8 py-2 cursor-pointer ${
+                currentPage === 'products'
+                  ? 'font-bold text-neutral-950 underline decoration-red-600'
+                  : 'font-semibold text-neutral-700 hover:text-neutral-950 hover:underline decoration-red-600'
+              }`}
             >
               <span>Products</span>
               <ChevronDown
@@ -181,11 +185,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                     {PRODUCTS_LIST.map((prod) => (
                       <a
                         key={prod.name}
-                        href={prod.href}
+                        href="/products"
                         onClick={(e) => {
                           e.preventDefault();
                           setDesktopDropdownOpen(false);
-                          onNavigate?.('home', '#products');
+                          onNavigate?.('products');
                         }}
                         className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-50 border border-transparent hover:border-neutral-200 transition-all group cursor-pointer"
                       >
@@ -211,17 +215,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </div>
 
                   {/* Dropdown Footer CTA */}
-                  <div className="mt-2.5 pt-2.5 border-t border-neutral-100 flex items-center justify-end">
+                  <div className="mt-2.5 pt-2.5 border-t border-neutral-100 flex items-center justify-between">
+                    <span className="text-xs font-mono font-medium text-neutral-500">
+                      14 Sovereign Systems
+                    </span>
                     <a
-                      href="#products"
+                      href="/products"
                       onClick={(e) => {
                         e.preventDefault();
                         setDesktopDropdownOpen(false);
-                        onNavigate?.('home', '#products');
+                        onNavigate?.('products');
                       }}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                     >
-                      <span>Explore Full Systems Catalogue</span>
+                      <span>Explore All 14 Products</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
@@ -256,7 +263,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             className="bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-md shadow-red-600/20 cursor-pointer"
           >
-            Request Briefing
+            Contact Us
           </a>
         </div>
 
@@ -360,16 +367,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ))}
                   <div className="pt-2 border-t border-neutral-200">
                     <a
-                      href="#products"
+                      href="/products"
                       onClick={(e) => {
                         e.preventDefault();
                         setMobileMenuOpen(false);
                         setMobileProductsOpen(false);
-                        onNavigate?.('home', '#products');
+                        onNavigate?.('products');
                       }}
-                      className="text-xs font-bold text-red-600 flex items-center gap-1 py-1 cursor-pointer"
+                      className="text-xs font-bold text-red-600 flex items-center justify-between py-1 cursor-pointer"
                     >
-                      <span>Explore Complete Catalogue</span>
+                      <span>Explore All 14 Systems</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
@@ -404,7 +411,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className="block text-center bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold py-3 rounded-xl shadow-md cursor-pointer"
               >
-                Request Briefing
+                Contact Us
               </a>
             </div>
           </div>

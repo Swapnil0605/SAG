@@ -12,12 +12,13 @@ import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
+import ProductsPage from './components/ProductsPage';
 
 export const App: React.FC = () => {
   const [, setAppReady] = useState(false);
 
-  // Detect whether current route should be About, Contact, or Home
-  const getInitialPage = (): 'home' | 'about' | 'contact' => {
+  // Detect whether current route should be About, Contact, Products, or Home
+  const getInitialPage = (): 'home' | 'about' | 'contact' | 'products' => {
     if (typeof window === 'undefined') return 'home';
     const path = window.location.pathname.toLowerCase();
     const hash = window.location.hash.toLowerCase();
@@ -37,10 +38,18 @@ export const App: React.FC = () => {
     ) {
       return 'contact';
     }
+    if (
+      path === '/products' ||
+      path.startsWith('/products/') ||
+      hash === '#products-page' ||
+      hash === '#/products'
+    ) {
+      return 'products';
+    }
     return 'home';
   };
 
-  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'contact'>(getInitialPage);
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'contact' | 'products'>(getInitialPage);
 
   // Sync browser back/forward buttons with page state
   useEffect(() => {
@@ -63,6 +72,14 @@ export const App: React.FC = () => {
       ) {
         setCurrentPage('contact');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (
+        path === '/products' ||
+        path.startsWith('/products/') ||
+        hash === '#products-page' ||
+        hash === '#/products'
+      ) {
+        setCurrentPage('products');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentPage('home');
       }
@@ -76,7 +93,7 @@ export const App: React.FC = () => {
     };
   }, []);
 
-  const handleNavigate = (page: 'home' | 'about' | 'contact', hash?: string) => {
+  const handleNavigate = (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => {
     if (page === 'about') {
       setCurrentPage('about');
       if (window.location.pathname !== '/about') {
@@ -89,9 +106,19 @@ export const App: React.FC = () => {
         window.history.pushState({}, '', '/contact');
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (page === 'products') {
+      setCurrentPage('products');
+      if (window.location.pathname !== '/products') {
+        window.history.pushState({}, '', '/products');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setCurrentPage('home');
-      if (window.location.pathname === '/about' || window.location.pathname === '/contact') {
+      if (
+        window.location.pathname === '/about' ||
+        window.location.pathname === '/contact' ||
+        window.location.pathname === '/products'
+      ) {
         window.history.pushState({}, '', hash ? `/${hash}` : '/');
       }
       if (hash) {
@@ -127,6 +154,12 @@ export const App: React.FC = () => {
         ) : currentPage === 'contact' ? (
           /* Dedicated High-Aesthetic Contact Page */
           <ContactPage onNavigateHome={(hash) => handleNavigate('home', hash)} />
+        ) : currentPage === 'products' ? (
+          /* Dedicated High-Aesthetic Products Page */
+          <ProductsPage
+            onNavigateHome={(hash) => handleNavigate('home', hash)}
+            onNavigate={handleNavigate}
+          />
         ) : (
           /* Main Sovereign Showcase Homepage */
           <>
