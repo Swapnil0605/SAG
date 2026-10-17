@@ -40,7 +40,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello SAG Defence, I would like to request an official technical briefing and demonstration details for the ${product.title}.`
+      `Hello SAG Aerospace and Defence, I would like to request an official technical briefing and demonstration details for the ${product.title}.`
     );
     window.open(`https://wa.me/919113867676?text=${text}`, '_blank');
   };
@@ -318,7 +318,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 &ldquo;{product.mottoQuote}&rdquo;
               </blockquote>
               <p className="text-xs font-mono text-neutral-400 mt-3">
-                SAG Defence and Aerospace · Directorate of Unmanned Systems
+                SAG Aerospace and Defence Pvt Ltd · Directorate of Unmanned Systems
               </p>
             </div>
 

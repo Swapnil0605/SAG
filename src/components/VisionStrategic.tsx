@@ -45,16 +45,16 @@ export const VisionStrategic: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-14 sm:mb-18">
           {[
             {
-              title: 'Drones are used up like ammunition.',
-              desc: 'They are lost every day to crashes, jamming and enemy fire — and their designs must change as fast as the enemy adapts.',
+              title: 'Drones have rewritten the battlefield.',
+              desc: "FPV drones and UAVs now cause more losses than artillery in the Russia–Ukraine war, and they've made even main battle tanks and armoured platforms vulnerable.",
             },
             {
-              title: 'Cheap drones now kill expensive vehicles.',
-              desc: "Fibre-optic FPVs emit no radio signal, so jammers can't stop them, and cages alone don't keep up with the threat.",
+              title: 'New threats arrive in weeks.',
+              desc: 'Jam-resistant fibre-optic drones went from new to everywhere in weeks. Adopting new technology, and neutralising it, has to happen faster than the enemy can adapt.',
             },
             {
-              title: 'Air defences are exposed.',
-              desc: "Costly radars and launchers are being hit by cheap drones — and firing expensive interceptors at them can't last.",
+              title: "Traditional air defence can't keep up.",
+              desc: "It wasn't built for this threat, in volume or in cost. Firing expensive interceptors at cheap drones can't last.",
             },
           ].map((col, idx) => (
             <ScrollReveal

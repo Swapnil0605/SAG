@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Sparkles,
 } from 'lucide-react';
@@ -369,19 +369,51 @@ interface ProductsPageProps {
   onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => void;
 }
 
+const getProductFromHash = (): FullProductItem | null => {
+  if (typeof window === 'undefined') return null;
+  const rawHash = window.location.hash.toLowerCase().replace(/^#\/?/, '');
+  if (!rawHash || rawHash === 'products' || rawHash === 'products-page') return null;
+  return (
+    ALL_PRODUCTS.find(
+      (p) =>
+        p.id === rawHash ||
+        p.id === `sag-${rawHash}` ||
+        rawHash === p.id.replace(/^sag-/, '') ||
+        p.id.replace(/-/g, '') === rawHash.replace(/-/g, '')
+    ) || null
+  );
+};
+
 export const ProductsPage: React.FC<ProductsPageProps> = ({
   onNavigateHome,
   onNavigate,
 }) => {
-  const [selectedProduct, setSelectedProduct] = useState<FullProductItem | null>(() => {
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash.toLowerCase();
-      if (hash === '#net-catcher' || hash === '#sag-net-catcher') {
-        return ALL_PRODUCTS.find((p) => p.id === 'sag-net-catcher') || null;
+  const [selectedProduct, setSelectedProduct] = useState<FullProductItem | null>(getProductFromHash);
+
+  useEffect(() => {
+    const handleHashSync = () => {
+      const match = getProductFromHash();
+      if (match) {
+        setSelectedProduct(match);
+      } else if (!window.location.hash || window.location.hash === '#products') {
+        setSelectedProduct(null);
       }
+    };
+
+    window.addEventListener('hashchange', handleHashSync);
+    window.addEventListener('popstate', handleHashSync);
+    return () => {
+      window.removeEventListener('hashchange', handleHashSync);
+      window.removeEventListener('popstate', handleHashSync);
+    };
+  }, []);
+
+  const handleSelectProduct = (product: FullProductItem) => {
+    setSelectedProduct(product);
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', `/products#${product.id}`);
     }
-    return null;
-  });
+  };
 
   // Dedicated Detailed Product Datasheet View for ANY product
   if (selectedProduct) {
@@ -390,11 +422,16 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
         initialProductId={selectedProduct.id}
         onSelectProduct={(newId) => {
           const match = ALL_PRODUCTS.find((p) => p.id === newId);
-          if (match) setSelectedProduct(match);
+          if (match) {
+            setSelectedProduct(match);
+            if (typeof window !== 'undefined') {
+              window.history.pushState({}, '', `/products#${match.id}`);
+            }
+          }
         }}
         onBack={() => {
           setSelectedProduct(null);
-          if (typeof window !== 'undefined' && window.location.hash) {
+          if (typeof window !== 'undefined') {
             window.history.pushState({}, '', '/products');
           }
         }}
@@ -478,8 +515,8 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
               return (
                 <div
                   key={product.id}
-                  onClick={() => setSelectedProduct(product)}
-                  className="group relative rounded-2xl bg-[#0f1417]/95 border border-neutral-800/80 hover:border-[#030389] transition-all duration-300 p-4 sm:p-5 flex flex-col justify-between cursor-pointer hover:shadow-2xl hover:shadow-[#030389]/20 hover:-translate-y-1 select-none"
+                  onClick={() => handleSelectProduct(product)}
+                  className="group relative rounded-2xl bg-[#0f1417]/95 border border-neutral-800/80 hover:border-red-600/80 transition-all duration-300 p-4 sm:p-5 flex flex-col justify-between cursor-pointer hover:shadow-2xl hover:shadow-red-600/10 hover:-translate-y-1 select-none"
                   style={{
                     backgroundColor: '#0f1417',
                     boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.5)',
@@ -524,11 +561,8 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                       )}
                     </div>
 
-                    {/* Category Label in SAG Logo Blue */}
-                    <div
-                      className="text-xs font-mono font-bold tracking-wider uppercase mb-1.5"
-                      style={{ color: '#030389' }}
-                    >
+                    {/* Category Label in White */}
+                    <div className="text-xs font-mono font-bold tracking-wider uppercase mb-1.5 text-white">
                       {product.category}
                     </div>
 
@@ -576,7 +610,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                       className="w-full py-2.5 px-4 rounded-xl border border-neutral-700/80 hover:border-red-600 bg-white/[0.04] hover:bg-red-600 text-neutral-200 hover:text-white text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg group-hover:shadow-red-600/20 cursor-pointer"
                     >
                       <Sparkles className="w-3.5 h-3.5 text-red-400 group-hover:text-white" />
-                      <span>View Detailed Datasheet</span>
+                      <span>View Product</span>
                     </button>
                   </div>
                 </div>

@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               >
                 <img
                   src="/sag-logo-new.png"
-                  alt="SAG Defence & Aerospace Logo"
+                  alt="SAG Aerospace and Defence Logo"
                   className="h-14 sm:h-16 w-auto object-contain"
                 />
               </a>
@@ -69,74 +69,86 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-2.5 text-[13px] text-neutral-600 font-mono">
               <li>
                 <a
-                  href="#products"
+                  href="/products#yamraj"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigate?.('home', '#products');
+                    onNavigate?.('products', '#yamraj');
                   }}
                   className="hover:text-red-600 transition-colors cursor-pointer"
                 >
-                  SAG RAZOR P1 (FPV)
+                  Project Yamraj
                 </a>
               </li>
               <li>
                 <a
-                  href="#products"
+                  href="/products#doom-mk1"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigate?.('home', '#products');
+                    onNavigate?.('products', '#doom-mk1');
                   }}
                   className="hover:text-red-600 transition-colors cursor-pointer"
                 >
-                  RAZOR OFC (Fiber Optic)
+                  Doom MK-1
                 </a>
               </li>
               <li>
                 <a
-                  href="#products"
+                  href="/products#sag-kavach"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigate?.('home', '#products');
+                    onNavigate?.('products', '#sag-kavach');
                   }}
                   className="hover:text-red-600 transition-colors cursor-pointer"
                 >
-                  SCOUT X (ISR Quad)
+                  SAG Kavach
                 </a>
               </li>
               <li>
                 <a
-                  href="#products"
+                  href="/products#sag-nirman"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigate?.('home', '#products');
+                    onNavigate?.('products', '#sag-nirman');
                   }}
                   className="hover:text-red-600 transition-colors cursor-pointer"
                 >
-                  AERON A1 (VTOL Hybrid)
+                  SAG Nirman
                 </a>
               </li>
               <li>
                 <a
-                  href="#products"
+                  href="/products#sag-vajra-ugv"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigate?.('home', '#products');
+                    onNavigate?.('products', '#sag-vajra-ugv');
                   }}
                   className="hover:text-red-600 transition-colors cursor-pointer"
                 >
-                  DOOM MK1 (SAM / CUAS)
+                  SAG Vajra UGV
                 </a>
               </li>
               <li>
                 <a
-                  href="#products"
+                  href="/products#razor-fpv-series"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigate?.('home', '#products');
+                    onNavigate?.('products', '#razor-fpv-series');
                   }}
                   className="hover:text-red-600 transition-colors cursor-pointer"
                 >
-                  SAG VELOCITY (Interceptor)
+                  Razor FPV Series
+                </a>
+              </li>
+              <li className="pt-1 border-t border-neutral-100">
+                <a
+                  href="/products"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate?.('products');
+                  }}
+                  className="hover:text-red-600 transition-colors cursor-pointer text-red-600 font-semibold flex items-center gap-1"
+                >
+                  View all products &rarr;
                 </a>
               </li>
             </ul>
@@ -218,7 +230,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <div className="space-y-3 text-[13px] text-neutral-600">
               <p className="leading-relaxed">
-                SAG Defence and Aerospace Pvt Ltd<br />
+                SAG Aerospace and Defence Pvt Ltd<br />
                 Ground Floor, 43, above Arvind Book House,<br />
                 near BMTC Bus Stop, BHCS Layout,<br />
                 Chandra Layout, Bengaluru,<br />
@@ -244,7 +256,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom Bar */}
         <div className="pt-8 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] sm:text-[13px] font-mono text-neutral-500">
           <div className="text-center sm:text-left">
-            <span>© {currentYear} SAG Defence and Aerospace Pvt Ltd. All rights reserved.</span>
+            <span>© {currentYear} SAG Aerospace and Defence Pvt Ltd. All rights reserved.</span>
           </div>
           <div className="text-center sm:text-right pr-0 sm:pr-24 lg:pr-28">
             <span>Designed and Developed by </span>

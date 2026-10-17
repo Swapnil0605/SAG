@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <img
             src="/sag-logo-new.png"
-            alt="SAG Defence and Aerospace"
+            alt="SAG Aerospace and Defence Pvt Ltd"
             className="h-14 sm:h-16 md:h-[70px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>

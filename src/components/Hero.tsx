@@ -1,17 +1,14 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from './effects/TextScrollEffects';
-import SlidingTicker from './SlidingTicker';
 
 export const Hero: React.FC = () => {
   return (
-    <>
-      {/* Primary Hero Viewport with Clean White Background */}
-      <section
-        id="home"
-        className="relative h-[100vh] min-h-[100vh] w-full overflow-hidden flex items-center justify-center pt-20 sm:pt-24 pb-8 border-b border-neutral-200"
-        style={{ backgroundColor: '#ffffff' }}
-      >
+    <section
+      id="home"
+      className="relative h-[100vh] min-h-[100vh] w-full overflow-hidden flex items-center justify-center pt-20 sm:pt-24 pb-8 border-b border-neutral-200"
+      style={{ backgroundColor: '#ffffff' }}
+    >
         {/* Main Hero Container */}
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 w-full my-auto">
           {/* Top Status Bar: Clean Kicker line on left */}
@@ -107,10 +104,6 @@ export const Hero: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* 2. Sliding Continuous Capability Ticker */}
-      <SlidingTicker />
-    </>
   );
 };
 

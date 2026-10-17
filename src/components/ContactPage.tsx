@@ -120,7 +120,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
   const handleWhatsAppClick = () => {
     const text = encodeURIComponent(
-      `Hello SAG Defence, my name is ${formData.name || 'an authorized representative'}${
+      `Hello SAG Aerospace and Defence, my name is ${formData.name || 'an authorized representative'}${
         formData.organization ? ` from ${formData.organization}` : ''
       }. I would like to request technical details regarding ${formData.platform}.`
     );
@@ -148,7 +148,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
             {/* Main Title */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-neutral-950 mb-6 leading-[1.08]">
-              CONTACT <span className="text-red-600">SAG DEFENCE</span>
+              CONTACT <span className="text-red-600">SAG AEROSPACE AND DEFENCE</span>
             </h1>
 
             {/* Subtitle */}
@@ -395,12 +395,12 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                       {isSubmitting ? (
                         <>
                           <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>TRANSMITTING BRIEFING...</span>
+                          <span>SUBMITTING...</span>
                         </>
                       ) : (
                         <>
                           <Send className="w-4 h-4" />
-                          <span>SUBMIT BRIEFING REQUEST</span>
+                          <span>SUBMIT</span>
                         </>
                       )}
                     </button>
@@ -438,7 +438,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                 </div>
 
                 <h3 className="text-xl font-bold uppercase text-neutral-950 mb-3">
-                  SAG Defence and Aerospace Pvt Ltd
+                  SAG Aerospace and Defence Pvt Ltd
                 </h3>
 
                 <div className="flex items-start gap-3 text-neutral-600 text-xs sm:text-sm leading-relaxed mb-5">
@@ -485,7 +485,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                 {/* Styled Interactive Map Frame */}
                 <div className="mt-5 rounded-2xl overflow-hidden border border-neutral-200 relative aspect-[16/9] shadow-inner bg-neutral-100">
                   <iframe
-                    title="SAG Defence Headquarters Chandra Layout Bengaluru"
+                    title="SAG Aerospace and Defence Headquarters Chandra Layout Bengaluru"
                     src="https://maps.google.com/maps?q=12.9602,77.5255&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     className="w-full h-full border-0 filter opacity-95 hover:opacity-100 transition-all duration-300"
                     loading="lazy"

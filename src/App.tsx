@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import VisionStrategic from './components/VisionStrategic';
 import ProductsCatalogue from './components/ProductsCatalogue';
-import KpiMetricsSection from './components/KpiMetricsSection';
 import TechnologyRoadmap from './components/TechnologyRoadmap';
 import SloganSection from './components/SloganSection';
 import ContactSection from './components/ContactSection';
@@ -42,7 +41,11 @@ export const App: React.FC = () => {
       path === '/products' ||
       path.startsWith('/products/') ||
       hash === '#products-page' ||
-      hash === '#/products'
+      hash === '#/products' ||
+      hash.startsWith('#yamraj') ||
+      hash.startsWith('#doom-mk1') ||
+      hash.startsWith('#sag-') ||
+      hash.startsWith('#razor-fpv')
     ) {
       return 'products';
     }
@@ -76,7 +79,11 @@ export const App: React.FC = () => {
         path === '/products' ||
         path.startsWith('/products/') ||
         hash === '#products-page' ||
-        hash === '#/products'
+        hash === '#/products' ||
+        hash.startsWith('#yamraj') ||
+        hash.startsWith('#doom-mk1') ||
+        hash.startsWith('#sag-') ||
+        hash.startsWith('#razor-fpv')
       ) {
         setCurrentPage('products');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -108,10 +115,10 @@ export const App: React.FC = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (page === 'products') {
       setCurrentPage('products');
-      if (window.location.pathname !== '/products') {
-        window.history.pushState({}, '', '/products');
-      }
+      const targetUrl = hash ? `/products${hash}` : '/products';
+      window.history.pushState({}, '', targetUrl);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.dispatchEvent(new Event('hashchange'));
     } else {
       setCurrentPage('home');
       if (
@@ -172,10 +179,7 @@ export const App: React.FC = () => {
             {/* 3. Comprehensive Products Systems Catalogue (All 6 platforms with renders) */}
             <ProductsCatalogue />
 
-            {/* 4. Sovereign Mission Performance KPIs (White Background) */}
-            <KpiMetricsSection />
-
-            {/* 5. Technology Development Roadmap (Synapse / Datacore Video Background) */}
+            {/* 4. Technology Development Roadmap (Synapse / Datacore Video Background) */}
             <TechnologyRoadmap />
 
             {/* Who We Serve Section (White Background) */}

@@ -67,7 +67,7 @@ export const products: Product[] = [
     roleBadge: 'SUPERSONIC STRIKE',
     tagline: 'Closing the speed gap — indigenous supersonic loitering munition.',
     description:
-      'Our flagship programme: an indigenous supersonic loitering munition. Mach 1+ class, a rotating detonation engine and an all Indian design — built to reach targets before they can move.',
+      "Our flagship programme: an indigenous supersonic loitering munition. Mach 1+ class, a rotating detonation engine and an all Indian design — built to cut the enemy's time to detect and engage it to a fraction.",
     image: '/images/products/project-yamraj.webp',
     gallery: ['/images/products/project-yamraj.webp'],
     accentTheme: {
@@ -331,7 +331,7 @@ export const products: Product[] = [
     roleBadge: 'SURFACE TO AIR DEFENCE',
     tagline: 'Air defence that moves with the troops.',
     description:
-      'A short-range air-defence missile system on a pickup-mounted, multi-canister launcher. From detection to launch in under 7 seconds — protecting airbases, forward posts, convoys and critical infrastructure from hostile drones.',
+      'A short-range air-defence missile system on a pickup-mounted, multi-canister launcher. From detection to launch in under 7 seconds — protecting airbases, forward posts, convoys and critical infrastructure from hostile unmanned aerial systems (UAS).',
     image: '/images/products/doom-mk1.webp',
     gallery: [
       '/images/products/doom-mk1.webp',
@@ -507,7 +507,7 @@ export const ProductsCatalogue: React.FC = () => {
       title: 'PROJECT YAMRAJ',
       headline: 'Closing the speed gap.',
       description:
-        'Our flagship programme: an indigenous supersonic loitering munition. Mach 1+ class, a rotating detonation engine and an all Indian design — built to reach targets before they can move.',
+        "Our flagship programme: an indigenous supersonic loitering munition. Mach 1+ class, a rotating detonation engine and an all Indian design — built to cut the enemy's time to detect and engage it to a fraction.",
       image: '/images/products/project-yamraj.webp',
       video360: undefined,
       inDevelopment: true,
@@ -530,7 +530,7 @@ export const ProductsCatalogue: React.FC = () => {
       title: 'DOOM MK-1',
       headline: 'Air defence that moves with the troops.',
       description:
-        'A short-range air-defence missile system on a pickup-mounted, multi-canister launcher. From detection to launch in under 7 seconds — protecting airbases, forward posts, convoys and critical infrastructure from hostile drones.',
+        'A short-range air-defence missile system on a pickup-mounted, multi-canister launcher. From detection to launch in under 7 seconds — protecting airbases, forward posts, convoys and critical infrastructure from hostile unmanned aerial systems (UAS).',
       image: '/images/products/doom-mk1.webp',
       video360: undefined,
       inDevelopment: false,
