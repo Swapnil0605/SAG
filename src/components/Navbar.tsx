@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 
 interface NavbarProps {
   currentPage?: 'home' | 'about' | 'contact' | 'products';
@@ -11,51 +11,58 @@ interface ProductDropdownItem {
   category: string;
   tag: string;
   href: string;
+  hash: string;
   image: string;
 }
 
 const PRODUCTS_LIST: ProductDropdownItem[] = [
   {
-    name: 'PROJECT YAMRAJ',
+    name: 'Project Yamraj',
     category: 'Supersonic Loitering Munition',
     tag: 'SUPERSONIC',
-    href: '#products',
+    href: '/products#yamraj',
+    hash: '#yamraj',
     image: '/images/products/project-yamraj.webp',
   },
   {
-    name: 'DOOM MK-1',
+    name: 'Doom MK-1',
     category: 'Short Range Mobile Air Defence',
     tag: 'SHORAD / SAM',
-    href: '#products',
+    href: '/products#doom-mk1',
+    hash: '#doom-mk1',
     image: '/images/products/doom-mk1.webp',
   },
   {
-    name: 'SAG KAVACH',
+    name: 'SAG Kavach',
     category: 'Layered Counter-Drone Shield',
     tag: 'CUAS SHIELD',
-    href: '#products',
+    href: '/products#sag-kavach',
+    hash: '#sag-kavach',
     image: '/images/products/sag-kavach.webp',
   },
   {
-    name: 'SAG RAZOR P1',
-    category: 'Kamikaze FPV Strike Drone',
-    tag: 'STRIKE',
-    href: '#products',
-    image: '/images/products/sag-razor-p1.png',
+    name: 'SAG Nirman',
+    category: 'Battlefield Drone Factory',
+    tag: 'MANUFACTURING',
+    href: '/products#sag-nirman',
+    hash: '#sag-nirman',
+    image: '/images/products/SAG NIRMAN.webp',
   },
   {
-    name: 'SCOUT X',
-    category: 'Persistent Border ISR Quadcopter',
-    tag: 'ISR QUAD',
-    href: '#products',
-    image: '/images/products/scout-x.png',
+    name: 'SAG Vajra UGV',
+    category: 'Autonomous Ground Robot',
+    tag: 'UGV ROBOTICS',
+    href: '/products#sag-vajra-ugv',
+    hash: '#sag-vajra-ugv',
+    image: '/images/products/SAG VAJRA UGV.webp',
   },
   {
-    name: 'AERON A1',
-    category: 'Long Endurance Hybrid VTOL',
-    tag: 'VTOL MALE',
-    href: '#products',
-    image: '/images/products/aeron-a1.png',
+    name: 'Razor FPV Series',
+    category: 'Tactical Strike & ISR Drones',
+    tag: 'FPV STRIKE',
+    href: '/products#razor-fpv-series',
+    hash: '#razor-fpv-series',
+    image: '/images/products/RAZOR FPV SERIES.webp',
   },
 ];
 
@@ -185,11 +192,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                     {PRODUCTS_LIST.map((prod) => (
                       <a
                         key={prod.name}
-                        href="/products"
+                        href={prod.href}
                         onClick={(e) => {
                           e.preventDefault();
                           setDesktopDropdownOpen(false);
-                          onNavigate?.('products');
+                          onNavigate?.('products', prod.hash);
                         }}
                         className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-50 border border-transparent hover:border-neutral-200 transition-all group cursor-pointer"
                       >
@@ -228,8 +235,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       }}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                     >
-                      <span>Explore All 14 Products</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>View all products &rarr;</span>
                     </a>
                   </div>
                 </div>
@@ -344,7 +350,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         e.preventDefault();
                         setMobileMenuOpen(false);
                         setMobileProductsOpen(false);
-                        onNavigate?.('home', '#products');
+                        onNavigate?.('products', prod.hash);
                       }}
                       className="flex items-center gap-2.5 py-1.5 text-neutral-700 hover:text-red-600 transition-colors group cursor-pointer"
                     >
@@ -376,8 +382,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       }}
                       className="text-xs font-bold text-red-600 flex items-center justify-between py-1 cursor-pointer"
                     >
-                      <span>Explore All 14 Systems</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>View all products &rarr;</span>
                     </a>
                   </div>
                 </div>
