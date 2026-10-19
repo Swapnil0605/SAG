@@ -222,10 +222,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </div>
 
                   {/* Dropdown Footer CTA */}
-                  <div className="mt-2.5 pt-2.5 border-t border-neutral-100 flex items-center justify-between">
-                    <span className="text-xs font-mono font-medium text-neutral-500">
-                      14 Sovereign Systems
-                    </span>
+                  <div className="mt-2.5 pt-2.5 border-t border-neutral-100 flex items-center justify-end">
                     <a
                       href="/products"
                       onClick={(e) => {
