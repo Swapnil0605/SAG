@@ -21,9 +21,10 @@ import {
 
 interface AboutPageProps {
   onNavigateHome?: (hash?: string) => void;
+  onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => void;
 }
 
-export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
+export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate }) => {
   const [activeCap, setActiveCap] = useState<number | null>(2);
   const [activeSector, setActiveSector] = useState<number | null>(null);
 
@@ -321,7 +322,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
           <div className="flex items-center gap-2 text-xs font-mono text-neutral-500 mb-6">
             <button
               type="button"
-              onClick={() => onNavigateHome?.('#home')}
+              onClick={() => (onNavigate ? onNavigate('home', '#home') : onNavigateHome?.('#home'))}
               className="hover:text-red-600 transition-colors cursor-pointer"
             >
               HOME
@@ -884,10 +885,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome }) => {
             <button
               type="button"
               onClick={() => {
-                if (onNavigateHome) {
+                if (onNavigate) {
+                  onNavigate('products');
+                } else if (onNavigateHome) {
                   onNavigateHome('#products');
                 } else {
-                  window.location.href = '/#products';
+                  window.location.href = '/products';
                 }
               }}
               className="px-8 py-4 rounded-full bg-[#E5252A] hover:bg-[#c91d22] text-white font-bold text-base sm:text-lg transition-all duration-300 shadow-xl shadow-red-600/30 hover:shadow-red-600/50 hover:scale-[1.02] active:scale-95 cursor-pointer"

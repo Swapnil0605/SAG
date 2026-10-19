@@ -10,7 +10,11 @@ import { ScrollReveal } from './effects/TextScrollEffects';
 // When left empty, clicking the CTA smoothly opens the briefing form modal directly on the page.
 const EXTERNAL_FORM_URL: string = '';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => void;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) => {
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -19,7 +23,7 @@ export const ContactSection: React.FC = () => {
     organization: '',
     email: '',
     phone: '',
-    subject: 'SAG RAZOR OFC (Fiber Optic FPV Drone)',
+    subject: 'Project Yamraj (Mach 1+ Supersonic Loitering Munition)',
     message: '',
   });
 
@@ -62,7 +66,7 @@ export const ContactSection: React.FC = () => {
         organization: '',
         email: '',
         phone: '',
-        subject: 'SAG RAZOR OFC (Fiber Optic FPV Drone)',
+        subject: 'Project Yamraj (Mach 1+ Supersonic Loitering Munition)',
         message: '',
       });
     }, 3500);
@@ -120,7 +124,11 @@ export const ContactSection: React.FC = () => {
             </button>
 
             <a
-              href="tel:+919113867676"
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate?.('contact');
+              }}
               className="bg-neutral-900 hover:bg-neutral-800 text-white font-semibold text-sm sm:text-base px-8 py-3.5 rounded-xl border border-neutral-700 transition-all duration-200 hover:scale-105 shadow-sm cursor-pointer"
             >
               Contact Us
@@ -261,13 +269,20 @@ export const ContactSection: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs cursor-pointer"
                   >
-                    <option value="SAG RAZOR OFC (Fiber Optic FPV Drone)">SAG RAZOR OFC (Fiber Optic FPV Drone)</option>
-                    <option value="SAG RAZOR P1 (FPV Combat Drone)">SAG RAZOR P1 (FPV Combat Drone)</option>
-                    <option value="SCOUT X (Tactical ISR Quadcopter)">SCOUT X (Tactical ISR Quadcopter)</option>
-                    <option value="AERON A1 (VTOL Hybrid ISR Platform)">AERON A1 (VTOL Hybrid ISR Platform)</option>
-                    <option value="DOOM MK1 (Short Range SAM Missile)">DOOM MK1 (Short Range SAM Missile)</option>
-                    <option value="SAG VELOCITY (Counter Drone Interceptor)">SAG VELOCITY (Counter Drone Interceptor)</option>
                     <option value="Project Yamraj (Mach 1+ Supersonic Loitering Munition)">Project Yamraj (Mach 1+ Supersonic Loitering Munition)</option>
+                    <option value="Doom MK-1 (Short Range Mobile Air Defence)">Doom MK-1 (Short Range Mobile Air Defence)</option>
+                    <option value="SAG Kavach (Layered Counter-Drone Shield)">SAG Kavach (Layered Counter-Drone Shield)</option>
+                    <option value="SAG Nirman (Battlefield Drone Factory)">SAG Nirman (Battlefield Drone Factory)</option>
+                    <option value="SAG Vajra UGV (Autonomous Combat & Logistics Ground Robot)">SAG Vajra UGV (Autonomous Combat & Logistics Ground Robot)</option>
+                    <option value="Razor FPV Series (Combat & Strike FPV Drones)">Razor FPV Series (Combat & Strike FPV Drones)</option>
+                    <option value="SAG Razor OFC (Fibre-Optic Strike Drone)">SAG Razor OFC (Fibre-Optic Strike Drone)</option>
+                    <option value="SAG Net Catcher (Pneumatic Kinetic Interceptor)">SAG Net Catcher (Pneumatic Kinetic Interceptor)</option>
+                    <option value="Scout X (Tactical ISR Quadcopter)">Scout X (Tactical ISR Quadcopter)</option>
+                    <option value="Hanuman-100 (Tactical Cargo Logistics UAV)">Hanuman-100 (Tactical Cargo Logistics UAV)</option>
+                    <option value="Swarm Bee (Autonomous AI Swarm Strike)">Swarm Bee (Autonomous AI Swarm Strike)</option>
+                    <option value="SAG VTOL-250 (Long-Endurance Hybrid ISR)">SAG VTOL-250 (Long-Endurance Hybrid ISR)</option>
+                    <option value="SAG Trinetra (Naval Mine Neutralization ROV)">SAG Trinetra (Naval Mine Neutralization ROV)</option>
+                    <option value="SAG Prahari (Autonomous Perimeter Sentry Robot)">SAG Prahari (Autonomous Perimeter Sentry Robot)</option>
                     <option value="Defence Corridor Strategic Partnership">Defence Corridor Strategic Partnership</option>
                   </select>
                 </div>

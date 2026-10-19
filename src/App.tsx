@@ -45,7 +45,13 @@ export const App: React.FC = () => {
       hash.startsWith('#yamraj') ||
       hash.startsWith('#doom-mk1') ||
       hash.startsWith('#sag-') ||
-      hash.startsWith('#razor-fpv')
+      hash.startsWith('#razor') ||
+      hash.startsWith('#scout') ||
+      hash.startsWith('#hanuman') ||
+      hash.startsWith('#swarm') ||
+      hash.startsWith('#kavach') ||
+      hash.startsWith('#nirman') ||
+      hash.startsWith('#net-catcher')
     ) {
       return 'products';
     }
@@ -53,6 +59,7 @@ export const App: React.FC = () => {
   };
 
   const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'contact' | 'products'>(getInitialPage);
+  const [contactPlatform, setContactPlatform] = useState<string | undefined>();
 
   // Sync browser back/forward buttons with page state
   useEffect(() => {
@@ -83,7 +90,13 @@ export const App: React.FC = () => {
         hash.startsWith('#yamraj') ||
         hash.startsWith('#doom-mk1') ||
         hash.startsWith('#sag-') ||
-        hash.startsWith('#razor-fpv')
+        hash.startsWith('#razor') ||
+        hash.startsWith('#scout') ||
+        hash.startsWith('#hanuman') ||
+        hash.startsWith('#swarm') ||
+        hash.startsWith('#kavach') ||
+        hash.startsWith('#nirman') ||
+        hash.startsWith('#net-catcher')
       ) {
         setCurrentPage('products');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -100,7 +113,11 @@ export const App: React.FC = () => {
     };
   }, []);
 
-  const handleNavigate = (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => {
+  const handleNavigate = (
+    page: 'home' | 'about' | 'contact' | 'products',
+    hash?: string,
+    platformName?: string
+  ) => {
     if (page === 'about') {
       setCurrentPage('about');
       if (window.location.pathname !== '/about') {
@@ -108,9 +125,13 @@ export const App: React.FC = () => {
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (page === 'contact') {
+      setContactPlatform(platformName);
       setCurrentPage('contact');
+      const targetUrl = platformName
+        ? `/contact?platform=${encodeURIComponent(platformName)}`
+        : '/contact';
       if (window.location.pathname !== '/contact') {
-        window.history.pushState({}, '', '/contact');
+        window.history.pushState({}, '', targetUrl);
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (page === 'products') {
@@ -130,13 +151,14 @@ export const App: React.FC = () => {
       }
       if (hash) {
         setTimeout(() => {
-          const el = document.querySelector(hash);
+          const id = hash.replace(/^#/, '');
+          const el = document.getElementById(id) || document.querySelector(hash);
           if (el) {
             el.scrollIntoView({ behavior: 'smooth' });
           } else {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }
-        }, 100);
+        }, 120);
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -157,10 +179,17 @@ export const App: React.FC = () => {
       <main className="relative z-10">
         {currentPage === 'about' ? (
           /* Dedicated High-Aesthetic About Page */
-          <AboutPage onNavigateHome={(hash) => handleNavigate('home', hash)} />
+          <AboutPage
+            onNavigateHome={(hash) => handleNavigate('home', hash)}
+            onNavigate={handleNavigate}
+          />
         ) : currentPage === 'contact' ? (
           /* Dedicated High-Aesthetic Contact Page */
-          <ContactPage onNavigateHome={(hash) => handleNavigate('home', hash)} />
+          <ContactPage
+            onNavigateHome={(hash) => handleNavigate('home', hash)}
+            onNavigate={handleNavigate}
+            selectedPlatform={contactPlatform}
+          />
         ) : currentPage === 'products' ? (
           /* Dedicated High-Aesthetic Products Page */
           <ProductsPage
@@ -171,13 +200,13 @@ export const App: React.FC = () => {
           /* Main Sovereign Showcase Homepage */
           <>
             {/* 1. Hero Section with Video Background and Tactical GSAP Entrance */}
-            <Hero />
+            <Hero onNavigate={handleNavigate} />
 
             {/* 2. Strategic Vision & Core Pillars */}
             <VisionStrategic />
 
             {/* 3. Comprehensive Products Systems Catalogue (All 6 platforms with renders) */}
-            <ProductsCatalogue />
+            <ProductsCatalogue onNavigate={handleNavigate} />
 
             {/* 4. Technology Development Roadmap (Synapse / Datacore Video Background) */}
             <TechnologyRoadmap />
@@ -186,7 +215,7 @@ export const App: React.FC = () => {
             <SloganSection onNavigateAbout={() => handleNavigate('about')} />
 
             {/* 6. Official Contact & Technical Briefing Inquiries */}
-            <ContactSection />
+            <ContactSection onNavigate={handleNavigate} />
           </>
         )}
       </main>

@@ -465,7 +465,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
 
 interface ProductsPageProps {
   onNavigateHome?: (hash?: string) => void;
-  onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => void;
+  onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string, platformName?: string) => void;
 }
 
 const getProductFromHash = (): FullProductItem | null => {
@@ -551,9 +551,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             window.history.pushState({}, '', '/products');
           }
         }}
-        onNavigateContact={() => {
+        onNavigateContact={(title) => {
+          const productToFill = title || selectedProduct.title;
           if (onNavigate) {
-            onNavigate('contact');
+            onNavigate('contact', undefined, productToFill);
           } else {
             onNavigateHome?.('contact');
           }
@@ -579,7 +580,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
           <div className="flex items-center gap-2 text-xs font-mono text-neutral-500 mb-6">
             <button
               type="button"
-              onClick={() => onNavigateHome?.('#home')}
+              onClick={() => (onNavigate ? onNavigate('home', '#home') : onNavigateHome?.('#home'))}
               className="hover:text-red-600 transition-colors cursor-pointer"
             >
               HOME

@@ -482,7 +482,11 @@ export const products: Product[] = [
   },
 ];
 
-export const ProductsCatalogue: React.FC = () => {
+interface ProductsCatalogueProps {
+  onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string, platformName?: string) => void;
+}
+
+export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate }) => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [modalActiveImage, setModalActiveImage] = useState<string | null>(null);
   const [activeMediaModes, setActiveMediaModes] = useState<Record<string, 'image' | '360'>>({
@@ -822,14 +826,24 @@ export const ProductsCatalogue: React.FC = () => {
                       )}
                       <button
                         type="button"
-                        onClick={() => handleOpenModal(item.productRef)}
+                        onClick={() => {
+                          if (onNavigate) {
+                            onNavigate('products', `#${item.id}`);
+                          } else {
+                            handleOpenModal(item.productRef);
+                          }
+                        }}
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-mono font-bold text-xs tracking-wider uppercase px-7 py-3.5 transition-all shadow-md shadow-red-600/25 cursor-pointer"
                       >
                         <span>{item.exploreLabel || 'Explore System'}</span>
                         <span>→</span>
                       </button>
                       <a
-                        href="#contact"
+                        href="/contact"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          onNavigate?.('contact', undefined, item.title);
+                        }}
                         className={`inline-flex items-center font-mono font-semibold text-xs tracking-wider uppercase px-7 py-3.5 transition-all border cursor-pointer ${
                           isWhite
                             ? 'border-neutral-300 hover:border-neutral-900 text-neutral-900'
@@ -849,6 +863,10 @@ export const ProductsCatalogue: React.FC = () => {
                   <ScrollReveal delay={0.2} yOffset={20}>
                     <a
                       href="/products"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigate?.('products');
+                      }}
                       className="inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full font-mono text-xs sm:text-sm font-bold tracking-wider uppercase border-2 border-red-500 text-white hover:bg-red-600 bg-neutral-900/90 backdrop-blur-md transition-all duration-300 shadow-md shadow-red-600/20 hover:shadow-lg hover:shadow-red-600/40 hover:scale-105 group cursor-pointer"
                     >
                       <span>Explore More Systems</span>
@@ -1072,9 +1090,24 @@ export const ProductsCatalogue: React.FC = () => {
               </span>
               <div className="flex items-center gap-3">
                 <a
-                  href="#contact"
-                  onClick={() => setSelectedProduct(null)}
-                  className={`text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition-all shadow-md ${selectedProduct.accentTheme.dotBg} hover:opacity-90`}
+                  href={`/products#${selectedProduct.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedProduct(null);
+                    onNavigate?.('products', `#${selectedProduct.id}`);
+                  }}
+                  className="text-xs font-mono font-semibold px-4 py-2.5 rounded-xl border border-neutral-700 hover:border-red-500 text-neutral-200 hover:text-white transition-all cursor-pointer"
+                >
+                  View Full Datasheet &rarr;
+                </a>
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedProduct(null);
+                    onNavigate?.('contact', undefined, selectedProduct.name);
+                  }}
+                  className={`text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition-all shadow-md ${selectedProduct.accentTheme.dotBg} hover:opacity-90 cursor-pointer`}
                 >
                   Request Operational Demonstration
                 </a>

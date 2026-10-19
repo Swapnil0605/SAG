@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   MapPin,
   Phone,
@@ -19,18 +19,28 @@ import {
 
 interface ContactPageProps {
   onNavigateHome?: (hash?: string) => void;
+  onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => void;
+  selectedPlatform?: string;
 }
 
 const PLATFORMS_LIST = [
-  'SAG RAZOR OFC (Fiber Optic FPV Drone)',
   'Project Yamraj (Mach 1+ Supersonic Loitering Munition)',
-  'SAG RAZOR P1 (Kamikaze Strike Drone)',
-  'SCOUT X (Tactical Border ISR Quad)',
-  'AERON A1 (Long-Endurance Hybrid VTOL)',
-  'DOOM MK1 (Short Range SAM / C-UAS)',
-  'SAG VELOCITY (Kinetic Interceptor)',
-  'Sovereign Avionics & Edge AI Payload R&D',
-  'General Procurement / Corporate Inquiry',
+  'Doom MK-1 (Short Range Mobile Air Defence)',
+  'SAG Kavach (Layered Counter-Drone Shield)',
+  'SAG Nirman (Deployable Drone Factory & Spares Workshop)',
+  'SAG Vajra UGV (Autonomous Tactical Ground Robot)',
+  'SAG Razor 10 (10-Inch Multi-Role FPV Quadcopter)',
+  'SAG Razor 15 (15-Inch Multi-Role Strike & C-UAS)',
+  'SAG Razor 18 (18-Inch Heavy-Lift FPV Quadcopter)',
+  'SAG Net Catcher (Handheld Anti-Drone Net Gun)',
+  'SAG Prahari (Body-Worn Squad Drone Detection)',
+  'Scout-X (Persistent Border Reconnaissance Quad)',
+  'SAG VTOL-250 (Long-Endurance Fixed-Wing VTOL)',
+  'Hanuman 100 (High-Altitude Heavy-Lift UAV)',
+  'Razor OFC (Jam-Proof Fibre-Optic Control Module)',
+  'Swarm Bee (Plug-in Swarm Autonomy Architecture)',
+  'SAG Trinetra (Tethered Underwater MCM ROV)',
+  'General Procurement / Defence Corridor Partnership',
 ];
 
 const ENGAGEMENT_TYPES = [
@@ -60,17 +70,85 @@ const FAQS = [
   },
 ];
 
-export const ContactPage: React.FC<ContactPageProps> = () => {
+const findMatchingPlatform = (rawName?: string | null): string => {
+  if (!rawName) return PLATFORMS_LIST[0];
+  const cleaned = rawName.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  const match = PLATFORMS_LIST.find((p) => {
+    const pCleaned = p.toLowerCase().replace(/[^a-z0-9]/g, '');
+    return pCleaned.includes(cleaned) || cleaned.includes(pCleaned.slice(0, 10));
+  });
+
+  if (match) return match;
+
+  if (cleaned.includes('yamraj')) return PLATFORMS_LIST[0];
+  if (cleaned.includes('doom')) return PLATFORMS_LIST[1];
+  if (cleaned.includes('kavach')) return PLATFORMS_LIST[2];
+  if (cleaned.includes('nirman')) return PLATFORMS_LIST[3];
+  if (cleaned.includes('vajra')) return PLATFORMS_LIST[4];
+  if (cleaned.includes('razor10')) return PLATFORMS_LIST[5];
+  if (cleaned.includes('razor15')) return PLATFORMS_LIST[6];
+  if (cleaned.includes('razor18')) return PLATFORMS_LIST[7];
+  if (cleaned.includes('razor')) return PLATFORMS_LIST[5];
+  if (cleaned.includes('netcatcher') || cleaned.includes('cather') || cleaned.includes('catcher')) return PLATFORMS_LIST[8];
+  if (cleaned.includes('prahari')) return PLATFORMS_LIST[9];
+  if (cleaned.includes('scout')) return PLATFORMS_LIST[10];
+  if (cleaned.includes('vtol')) return PLATFORMS_LIST[11];
+  if (cleaned.includes('hanuman')) return PLATFORMS_LIST[12];
+  if (cleaned.includes('ofc') || cleaned.includes('fiber') || cleaned.includes('fibre')) return PLATFORMS_LIST[13];
+  if (cleaned.includes('swarm') || cleaned.includes('bee')) return PLATFORMS_LIST[14];
+  if (cleaned.includes('trinetra')) return PLATFORMS_LIST[15];
+
+  return PLATFORMS_LIST[0];
+};
+
+export const ContactPage: React.FC<ContactPageProps> = ({
+  onNavigateHome,
+  onNavigate,
+  selectedPlatform,
+}) => {
+  const getInitialPlatform = () => {
+    if (selectedPlatform) return findMatchingPlatform(selectedPlatform);
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('platform') || params.get('program');
+      if (q) return findMatchingPlatform(q);
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes('platform=')) {
+        return findMatchingPlatform(hash.split('platform=')[1]);
+      }
+    }
+    return PLATFORMS_LIST[0];
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     rankOrTitle: '',
     organization: '',
     email: '',
     phone: '',
-    platform: PLATFORMS_LIST[0],
+    platform: getInitialPlatform(),
     engagementType: ENGAGEMENT_TYPES[0],
     message: '',
   });
+
+  useEffect(() => {
+    if (selectedPlatform) {
+      setFormData((prev) => ({
+        ...prev,
+        platform: findMatchingPlatform(selectedPlatform),
+      }));
+    } else if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('platform') || params.get('program');
+      if (q) {
+        setFormData((prev) => ({
+          ...prev,
+          platform: findMatchingPlatform(q),
+        }));
+      }
+    }
+  }, [selectedPlatform]);
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -140,6 +218,19 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
       >
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-neutral-900">
           <div className="max-w-4xl mx-auto text-center">
+            {/* Top Breadcrumb */}
+            <div className="flex items-center justify-center gap-2 text-xs font-mono text-neutral-500 mb-6">
+              <button
+                type="button"
+                onClick={() => (onNavigate ? onNavigate('home', '#home') : onNavigateHome?.('#home'))}
+                className="hover:text-red-600 transition-colors cursor-pointer"
+              >
+                HOME
+              </button>
+              <span className="text-neutral-400">/</span>
+              <span className="text-red-600 font-bold">CONTACT</span>
+            </div>
+
             {/* Top Indicator Beacon */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-6">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />

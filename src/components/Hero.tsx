@@ -2,7 +2,11 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from './effects/TextScrollEffects';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onNavigate?: (page: 'home' | 'about' | 'contact' | 'products', hash?: string) => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
       id="home"
@@ -64,13 +68,26 @@ export const Hero: React.FC = () => {
                 <div className="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4">
                   <a
                     href="#products"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById('products');
+                      if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        onNavigate?.('home', '#products');
+                      }
+                    }}
                     className="inline-flex items-center justify-center gap-2 border-2 border-red-600 bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-full transition-all duration-300 shadow-md shadow-red-600/25 hover:shadow-lg hover:scale-105 group cursor-pointer"
                   >
                     <span>SEE WHAT WE&apos;RE BUILDING</span>
                     <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-all" />
                   </a>
                   <a
-                    href="#products"
+                    href="/products"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate?.('products');
+                    }}
                     className="inline-flex items-center justify-center border-2 border-neutral-900 bg-white hover:bg-neutral-900 text-neutral-900 hover:text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-xs hover:shadow-md"
                   >
                     <span>ALL PRODUCTS</span>

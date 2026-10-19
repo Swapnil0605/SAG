@@ -11,7 +11,7 @@ import { CATALOGUE_PRODUCTS, DetailedProduct } from '../data/productCatalogueDat
 interface ProductDetailPageProps {
   initialProductId?: string;
   onBack: () => void;
-  onNavigateContact?: () => void;
+  onNavigateContact?: (productTitle?: string) => void;
   onSelectProduct?: (productId: string) => void;
 }
 
@@ -347,7 +347,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
               <button
                 type="button"
-                onClick={onNavigateContact}
+                onClick={() => onNavigateContact?.(product.title)}
                 className="px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-red-600/30 cursor-pointer"
               >
                 REQUEST TECHNICAL BRIEFING
