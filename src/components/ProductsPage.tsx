@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Sparkles,
+  Shield,
 } from 'lucide-react';
 import { ScrollReveal, Perspective3DReveal } from './effects/TextScrollEffects';
 import ProductDetailPage from './ProductDetailPage';
@@ -725,7 +725,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                       type="button"
                       className="w-full py-2.5 px-4 rounded-xl border border-neutral-700/80 hover:border-red-600 bg-white/[0.04] hover:bg-red-600 text-neutral-200 hover:text-white text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg group-hover:shadow-red-600/20 cursor-pointer"
                     >
-                      <Sparkles className="w-3.5 h-3.5 text-red-400 group-hover:text-white" />
+                      <Shield className="w-3.5 h-3.5 text-red-400 group-hover:text-white" />
                       <span>View Product</span>
                     </button>
                   </div>
