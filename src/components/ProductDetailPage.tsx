@@ -35,7 +35,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   }, [currentId]);
 
   const product: DetailedProduct =
-    CATALOGUE_PRODUCTS[currentId] || CATALOGUE_PRODUCTS['sag-net-catcher'];
+    CATALOGUE_PRODUCTS[currentId] ||
+    CATALOGUE_PRODUCTS[`sag-${currentId}`] ||
+    CATALOGUE_PRODUCTS[currentId.replace(/^sag-/, '')] ||
+    CATALOGUE_PRODUCTS['yamraj'] ||
+    CATALOGUE_PRODUCTS['sag-net-catcher'];
 
 
   const handleWhatsApp = () => {

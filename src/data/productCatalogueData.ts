@@ -1,7 +1,7 @@
 export interface TelemetryBadge {
   title: string;
   subtitle: string;
-  iconName: 'crosshair' | 'zap' | 'feather' | 'database' | 'shield' | 'radio' | 'clock' | 'target' | 'compass' | 'weight' | 'cpu';
+  iconName: string;
 }
 
 export interface OperatingStep {
@@ -173,7 +173,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     leadDescription:
       'A compact 10-inch FPV quadcopter for close-range strike and reconnaissance, with plug-in ISR camera modules and add-on modules for GNSS-denied and jammed environments.',
     pillars: ['FIND', 'FIX', 'FINISH'],
-    heroImage: '/images/products/RAZOR FPV SERIES.webp',
+    heroImage: '/images/products/sag-razor-10.webp',
     heroImagePosition: 'center 38%',
     statusBadge: 'FIELD VALIDATED',
     mottoQuote: 'SMALL DRONE. DECISIVE EDGE.',
@@ -282,7 +282,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     leadDescription:
       'A 15-inch multi-role FPV quadcopter for strike, reconnaissance, counter-drone net capture and cargo delivery, with add-on modules for GNSS-denied and jammed environments.',
     pillars: ['FIND', 'FIX', 'FINISH'],
-    heroImage: '/images/products/RAZOR FPV SERIES.webp',
+    heroImage: '/images/products/sag-razor-15.webp',
     heroImagePosition: 'center 38%',
     statusBadge: 'ACTIVE PRODUCTION',
     mottoQuote: 'ONE PLATFORM. EVERY MISSION.',
@@ -391,7 +391,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     leadDescription:
       'The heavy-lift member of the RAZOR series: an 18-inch FPV quadcopter carrying up to 8 kg for strike, full-sensor ISR, counter-drone net capture and cargo, with add-on modules for GNSS-denied and jammed environments.',
     pillars: ['FIND', 'FIX', 'FINISH'],
-    heroImage: '/images/products/RAZOR FPV SERIES.webp',
+    heroImage: '/images/products/sag-razor-18.webp',
     heroImagePosition: 'center 38%',
     statusBadge: 'HEAVY IMPACT CLASS',
     mottoQuote: 'HEAVY LIFT. HARD HITTING.',
@@ -1555,4 +1555,430 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       },
     ],
   },
+
+  'sag-kavach': {
+    id: 'sag-kavach',
+    num: '03',
+    title: 'SAG KAVACH',
+    category: 'COUNTER-UAS & SITE DEFENCE',
+    categoryDomain: 'cuas',
+    tagline: 'DETECT | DAZZLE | CAPTURE',
+    leadDescription:
+      'A proposed layered counter-drone protection system for military transport convoys and high-value assets. Integrates sensor cueing, electro-optical tracking, optical camera disruption and physical net capture into a unified survivability architecture.',
+    pillars: ['CUE', 'DISRUPT', 'CAPTURE'],
+    heroImage: '/images/products/sag-kavach-hero.webp',
+    heroImagePosition: 'center center',
+    statusBadge: 'IN DEVELOPMENT · MULTI-TIER CUAS',
+    mottoQuote: 'UNCOMPROMISING SHIELD FOR THE MODERN MOVING COLUMN.',
+    telemetryBadges: [
+      { title: '≥2 KM EO', subtitle: 'Day/thermal detection', iconName: 'eye' },
+      { title: 'UP TO 1 KM', subtitle: 'Camera dazzler', iconName: 'zap' },
+      { title: '30–150 M', subtitle: 'Net capture envelope', iconName: 'target' },
+      { title: '12 NETS', subtitle: 'Per launcher canister', iconName: 'shield' },
+    ],
+    howItOperates: [
+      {
+        num: '01',
+        title: 'CUE & ACQUIRE',
+        phase: 'MULTI-SENSOR CUEING',
+        desc: 'External cueing from SAG PRAHARI or convoy network alerts the EO/IR tracking sensor.',
+        details: 'Day and thermal imaging tracks DJI-class quads out to ≥2 km day and ≥1.5 km thermal.',
+      },
+      {
+        num: '02',
+        title: 'OPTICAL DISRUPTION',
+        phase: 'SOFT-KILL DAZZLER',
+        desc: 'Multi-band directional dazzler targets optical sensors on approaching hostile drones.',
+        details: 'Disrupts ISR drone cameras out to 1 km and FPV strike drone guidance cameras at 300–500 m.',
+      },
+      {
+        num: '03',
+        title: 'KINETIC NET LAUNCH',
+        phase: 'HARD-KILL CAPTURE',
+        desc: 'Pneumatic 12-canister net launcher launches high-tensile net matrix at persisting threats.',
+        details: 'Effective capture envelope between 30–150 m nominal, up to 200 m for slow or hovering targets.',
+      },
+      {
+        num: '04',
+        title: 'SURVIVABILITY & SHARE',
+        phase: 'NETWORKED DEFENCE',
+        desc: 'Shares verified threat track across the entire convoy node for automated multi-vehicle protection.',
+        details: 'Operates with zero explosive fragmentation; existing passive armor remains the final layer.',
+      },
+    ],
+    specialSection: {
+      tag: 'MODULAR DEPLOYMENT ARCHITECTURE',
+      title: 'THREE SPECIALIZED CONFIGURATIONS',
+      subtitle: '(CONVOY, TRUCK & SITE DEFENCE)',
+      description:
+        'KAVACH adapts across transport columns, individual logistics trucks, and static air-defence installations.',
+      items: [
+        {
+          title: 'KAVACH-C (Convoy Node)',
+          desc: 'Full sensor-cued tracking, dazzler and net-launcher configuration for lead, tail or escort vehicles, with convoy-wide track sharing.',
+        },
+        {
+          title: 'KAVACH-T (Truck Kit)',
+          desc: 'Compact EO and ranging package with a net launcher, linked to convoy-node tracks for rapid transport-truck retrofit.',
+        },
+        {
+          title: 'KAVACH-S (Site Defence)',
+          desc: 'Mast or pedestal installation for local 360° protection of air-defence batteries, radars, launchers and high-value static command posts.',
+        },
+        {
+          title: 'RF-Silent & Fibre-Optic Resilience',
+          desc: 'Acoustic, optical and physical net capture address RF-silent and fibre-optic drones that traditional RF jammers cannot touch.',
+        },
+      ],
+    },
+    specs: [
+      { label: 'System Type', value: 'Layered counter-drone protection system' },
+      { label: 'EO Detection Range', value: 'DJI-class quad: ≥2 km day / ≥1.5 km thermal' },
+      { label: 'Camera Disruption Range', value: 'ISR drones: up to 1 km; FPV drones: 300–500 m' },
+      { label: 'Net Capture Envelope', value: '30–150 m nominal; up to 200 m for hovering targets' },
+      { label: 'Net Launcher Capacity', value: '12 pneumatic cartridges per launcher unit' },
+      { label: 'Power Requirements', value: '24 V DC; ≤600 W peak electrical draw' },
+      { label: 'Configurations', value: 'KAVACH-C (Convoy), KAVACH-T (Truck), KAVACH-S (Site)' },
+      { label: 'Safety Systems', value: 'Operator arming, no-fire sectors & range-based interlocks' },
+      { label: 'Threat Coverage', value: 'Multi-rotor UAS, FPV strike drones, fibre-optic & RF-silent drones' },
+    ],
+    idealFor: [
+      {
+        name: 'Military Transport Convoys',
+        role: 'Convoy escort and supply column defence',
+        desc: 'Protects logistics trucks, ammunition haulers, and troop transports on frontline highways.',
+      },
+      {
+        name: 'Air Defence Batteries & Radars',
+        role: 'Site defence and radar protection',
+        desc: 'Shields high-value surface-to-air missile radars and launchers from low-cost drone swarms.',
+      },
+      {
+        name: 'Command Posts & Headquarters',
+        role: 'Perimeter top-attack protection',
+        desc: 'Prevents kamikaze drone penetration into forward tactical command and communications posts.',
+      },
+      {
+        name: 'Forward Supply Points',
+        role: 'Ammunition & fuel depot defence',
+        desc: 'Prevents catastrophic drone strikes on fuel bladders and forward ammunition supply areas.',
+      },
+    ],
+  },
+
+  'sag-nirman-army': {
+    id: 'sag-nirman-army',
+    num: '04A',
+    title: 'SAG NIRMAN ARMY',
+    category: 'DEPLOYABLE MANUFACTURING · LAND FORCES',
+    categoryDomain: 'logistics',
+    tagline: 'PRODUCE | REPAIR | SUSTAIN',
+    leadDescription:
+      'Forward-deployed mobile drone factory and field spares workshop. Two 20-ft ISO modules bring rapid drone production, crash airframe repair, and scan-to-part manufacturing directly to forward army formations.',
+    pillars: ['PRODUCE', 'REPAIR', 'SPEED'],
+    heroImage: '/images/products/sag-nirman-army.webp',
+    heroImagePosition: 'center center',
+    statusBadge: 'IN DEVELOPMENT · ARMY MODULES',
+    mottoQuote: 'PRODUCTION AT THE POINT OF NEED. ZERO LATENCY SUPPLY.',
+    telemetryBadges: [
+      { title: '≥30 DRONES/DAY', subtitle: 'FPV/ISR production', iconName: 'cpu' },
+      { title: '2 × 20-FT ISO', subtitle: 'Ruggedized modules', iconName: 'box' },
+      { title: '≤2 HR SETUP', subtitle: 'Operational readiness', iconName: 'clock' },
+      { title: 'SCAN-TO-PART', subtitle: 'CNC & 3D metal spares', iconName: 'wrench' },
+    ],
+    howItOperates: [
+      {
+        num: '01',
+        title: 'DEPLOY & POWER',
+        phase: 'FORWARD MOBILITY',
+        desc: 'Transported via truck, hook-lift or rail to forward formations or EME workshops.',
+        details: 'Connects to a standard 62.5 kVA field generator or grid. First job ready in ≤2 hours.',
+      },
+      {
+        num: '02',
+        title: 'MODULE A: DRONE PRODUCTION',
+        phase: 'AIRFRAME & ASSEMBLY',
+        desc: 'High-speed airframe printing, automated foam cutting, kit assembly, and functional test benches.',
+        details: 'Produces ≥30 FPV/ISR quads or ≥6 fixed-wing ISR drones per day across two 6-person shifts.',
+      },
+      {
+        num: '03',
+        title: 'MODULE B: FIELD SPARES',
+        phase: 'SCAN-TO-PART WORKSHOP',
+        desc: '3D scanning, CAD/CAM, metal deposition, CNC finishing, heat treatment, and QA inspection.',
+        details: 'Manufactures replacement brackets, handles, covers, mounts, and bushings for vehicles and legacy equipment.',
+      },
+      {
+        num: '04',
+        title: 'RAPID REDEPLOYMENT',
+        phase: 'PACK & DISPERSE',
+        desc: 'Full module pack-up and departure readiness in ≤1 hour to evade counter-battery detection.',
+        details: 'Stocked with ≥200 drone kits; operates from -20°C to +50°C at altitudes up to 4,500 m.',
+      },
+    ],
+    specialSection: {
+      tag: 'DUAL-MODULE CAPABILITY',
+      title: 'MODULE A & MODULE B PRODUCTION MATRIX',
+      description: 'Combines full drone lifecycle support with field replacement part manufacturing for army vehicles.',
+      items: [
+        {
+          title: 'Damaged Drone Airframe Recycling',
+          desc: 'Reprint broken carbon/composite airframes on site and immediately reinstall serviceable salvage electronics.',
+        },
+        {
+          title: 'Tactical Design Adaptation in Hours',
+          desc: 'Modify airframe aerodynamics, motor spacing, or payload hardpoints in CAD to counter newly adapted enemy jamming.',
+        },
+        {
+          title: 'Field Spares for Armoured Vehicles',
+          desc: 'On-demand scan-to-part production of high-wear brackets, bushings, fittings, and covers for legacy fighting vehicles.',
+        },
+        {
+          title: 'Independent High-Altitude Operation',
+          desc: 'Climate-controlled ISO shelters certified for -20°C to +50°C and elevations up to 4,500 m above sea level.',
+        },
+      ],
+    },
+    specs: [
+      { label: 'Configuration', value: '2 × 20 ft ISO Ruggedized Modules (≤10 t each)' },
+      { label: 'Module Dimensions', value: '6.06 m × 2.44 m × 2.59 m each' },
+      { label: 'Daily Output (2 Shifts)', value: '≥30 FPV / ISR quadcopters OR ≥6 fixed-wing ISR drones' },
+      { label: 'Setup / Pack Time', value: 'First job ≤2 hr from arrival; packing ≤1 hr' },
+      { label: 'Transport Methods', value: 'Military 6x6 truck / hook-lift, flatbed rail, planned airlift' },
+      { label: 'Power Requirement', value: '62.5 kVA field generator or base grid' },
+      { label: 'Onboard Stock', value: '≥200 complete drone assembly kits + raw filament/powders' },
+      { label: 'Operating Envelope', value: '−20°C to +50°C; up to 4,500 m altitude (derated)' },
+      { label: 'Crew Requirement', value: '6 personnel per shift (3-week operator training)' },
+    ],
+    idealFor: [
+      {
+        name: 'Forward Division & Brigade HQs',
+        role: 'Dispersed frontline drone production',
+        desc: 'Eliminates reliance on fragile 1,000 km supply lines for consumable combat drones.',
+      },
+      {
+        name: 'Corps of EME Workshops',
+        role: 'Rapid vehicle and weapon spares manufacturing',
+        desc: 'Produces obsolete or urgently needed mechanical brackets, bushings, and mounts on-site.',
+      },
+      {
+        name: 'High-Altitude Sectors (Ladakh & Sikkim)',
+        role: 'Winter-isolated formation sustainment',
+        desc: 'Maintains continuous drone and vehicle repair capability during 6-month snowbound isolations.',
+      },
+    ],
+  },
+
+  'sag-nirman-airforce': {
+    id: 'sag-nirman-airforce',
+    num: '04B',
+    title: 'SAG NIRMAN AIR FORCE',
+    category: 'DEPLOYABLE MANUFACTURING · AIR BASES',
+    categoryDomain: 'logistics',
+    tagline: 'AIR-MOBILE | INTERCEPT | SUPPORT',
+    leadDescription:
+      'Air-mobile drone factory and spares workshop for forward air stations. Produces base-defence interceptor drones, ISR quadcopters, low-cost aerial targets, and ground-support equipment (GSE) spares.',
+    pillars: ['AIR-MOBILE', 'DEFEND', 'EXPEDITE'],
+    heroImage: '/images/products/sag-nirman-airforce.webp',
+    heroImagePosition: 'center center',
+    statusBadge: 'IN DEVELOPMENT · AIR FORCE MODULES',
+    mottoQuote: 'KEEPING AIR BASES COMBAT READY. AIR-MOBILE SUSTAINMENT.',
+    telemetryBadges: [
+      { title: '≥30 INTERCEPTORS', subtitle: 'Daily sortie production', iconName: 'cpu' },
+      { title: 'AIRLIFT READY', subtitle: 'C-17 / IL-76 / C-130J', iconName: 'plane' },
+      { title: 'GSE TOOLING', subtitle: 'Flight line support', iconName: 'wrench' },
+      { title: '≤2 HR SETUP', subtitle: 'From drive-off', iconName: 'clock' },
+    ],
+    howItOperates: [
+      {
+        num: '01',
+        title: 'RAPID AIRLIFT',
+        phase: 'STRATEGIC DEPLOYMENT',
+        desc: 'Flown directly into forward airheads aboard C-17, IL-76, or C-130J tactical transports.',
+        details: '2 air-mobile 20 ft modules (≤9 t each) roll off ramps and position on airbase perimeter in minutes.',
+      },
+      {
+        num: '02',
+        title: 'BASE DEFENCE PRODUCTION',
+        phase: 'INTERCEPTORS & TARGETS',
+        desc: 'Module A fabricates CUAS interceptor quads, fixed-wing ISR drones, and aerial target airframes.',
+        details: 'Target designs include radar reflectors and scoring aids for aircrew and SAM crew live-fire drill.',
+      },
+      {
+        num: '03',
+        title: 'GSE & MAINTENANCE PARTS',
+        phase: 'AIRFIELD SUPPORT',
+        desc: 'Module B manufactures flight-line GSE spares, custom brackets, protective caps, and servicing adaptors.',
+        details: 'Eliminates grounding of aircraft for minor ground support components and test fixture shortages.',
+      },
+      {
+        num: '04',
+        title: 'CONTINUOUS SORTIE FLOW',
+        phase: 'TACTICAL SUSTAINMENT',
+        desc: 'Outputs ≥30 interceptor/ISR quads or ≥6 target drones per day to counter saturation drone strikes.',
+        details: 'Operates from −10°C to +50°C across desert, coastal, and forward staging airfields.',
+      },
+    ],
+    specialSection: {
+      tag: 'AIR STATION SUSTAINMENT',
+      title: 'AIRFIELD GSE SPARES & LOW-COST TARGETS',
+      description: 'Supports both runway perimeter defence and active flight-line maintenance operations.',
+      items: [
+        {
+          title: 'Base Defence Interceptor Drones',
+          desc: 'Rapidly produces high-speed kinetic interceptor airframes fitted for forward base CUAS grids.',
+        },
+        {
+          title: 'Low-Cost Disposable Aerial Targets',
+          desc: 'Fabricates radar-augmented targets for air defence missile validation without wasting costly target drones.',
+        },
+        {
+          title: 'Ground Support Equipment (GSE) Parts',
+          desc: 'On-demand production of towbar adaptors, servicing fixtures, brackets, caps, and test cables.',
+        },
+        {
+          title: 'Rapid Strategic Redeployment',
+          desc: 'Full pack-up in under 1 hour for urgent airlift to newly activated emergency landing strips (ELS).',
+        },
+      ],
+    },
+    specs: [
+      { label: 'Configuration', value: '2 × Air-Mobile 20 ft Modules (≤9 t each)' },
+      { label: 'Footprint & Height', value: '6.06 m × 2.44 m footprint; 2.44 m internal height' },
+      { label: 'Transport Compatibility', value: 'C-17 Globemaster III, IL-76, C-130J Super Hercules, road' },
+      { label: 'Daily Output (2 Shifts)', value: '≥30 interceptor / ISR quadcopters OR ≥6 target drones' },
+      { label: 'Readiness Timeline', value: 'First job ≤2 hr from drive-off; packing ≤1 hr' },
+      { label: 'Power & Stock', value: '62.5 kVA generator or station supply; ≥200 drone kits' },
+      { label: 'Environmental Rating', value: '−10°C to +50°C; desert and coastal base operation' },
+    ],
+    idealFor: [
+      {
+        name: 'Frontline Fighter Airbases',
+        role: 'Perimeter defence drone replenishment',
+        desc: 'Sustains a continuous barrage of counter-drone interceptors against saturation swarm attacks.',
+      },
+      {
+        name: 'Forward Staging Bases & ELS',
+        role: 'Self-sufficient airfield sustainment',
+        desc: 'Deploys to highway airstrips and forward airheads without requiring permanent brick-and-mortar depots.',
+      },
+      {
+        name: 'Air Defence Training Centers',
+        role: 'Continuous target drone production',
+        desc: 'Provides low-cost aerial target airframes on demand for daily anti-aircraft artillery and SAM drills.',
+      },
+    ],
+  },
+
+  'sag-nirman-navy': {
+    id: 'sag-nirman-navy',
+    num: '04C',
+    title: 'SAG NIRMAN NAVY',
+    category: 'DEPLOYABLE MANUFACTURING · MARITIME FORCES',
+    categoryDomain: 'logistics',
+    tagline: 'SEA-BORNE | MARINISED | REPLENISH',
+    leadDescription:
+      'Ship-borne drone factory and spares workshop for ship and shore. Three marinised 20-ft ISO modules replenish maritime drones and manufacture critical shipboard replacement parts while warships remain deployed at sea.',
+    pillars: ['MARINISED', 'AT-SEA', 'SUSTAIN'],
+    heroImage: '/images/products/sag-nirman-navy.webp',
+    heroImagePosition: 'center center',
+    statusBadge: 'IN DEVELOPMENT · NAVAL MODULES',
+    mottoQuote: 'REPLENISHMENT AT SEA. COMBAT READINESS ON BLUE WATER.',
+    telemetryBadges: [
+      { title: 'SEA STATE 5', subtitle: 'At-sea production', iconName: 'anchor' },
+      { title: '3 × 20-FT ISO', subtitle: 'Marinised modules', iconName: 'box' },
+      { title: 'INCONEL & 316L', subtitle: 'Marine alloys', iconName: 'wrench' },
+      { title: '≥300 KITS', subtitle: 'Onboard reserve', iconName: 'database' },
+    ],
+    howItOperates: [
+      {
+        num: '01',
+        title: 'SHIPBOARD INTEGRATION',
+        phase: 'FLIGHT DECK / WELL DECK',
+        desc: 'Secured aboard amphibious warfare ships (LPD/LST), fleet replenishment vessels, or naval bases.',
+        details: 'Connects directly to ship 415/440 V 3-phase power through Module C interface console.',
+      },
+      {
+        num: '02',
+        title: 'MODULE A: MARITIME DRONES',
+        phase: 'MARITIME AIRFRAMES',
+        desc: 'Fabricates maritime ISR quadcopters, gunnery target drones, and fleet defence interceptors.',
+        details: 'All airframes receive specialized marine salt-fog conformal coatings and water-resistant seals.',
+      },
+      {
+        num: '03',
+        title: 'MODULE B: SHIP REPLACEMENT PARTS',
+        phase: 'PRECISION METAL FABRICATION',
+        desc: 'Deposits and machines 316L stainless steel, nickel-aluminium bronze, and Inconel 625 spares.',
+        details: 'Manufactures valve handwheels, pump impellers, flanges, pipe brackets, cable glands, and seals.',
+      },
+      {
+        num: '04',
+        title: 'MODULE C: LOGISTICS & COMMAND',
+        phase: 'SECURE PARTS VAULT',
+        desc: 'Houses climate-controlled battery banks, bulk metal powders, and classified parts-library CAD server.',
+        details: 'Operates up to Sea State 5 with shock and vibration isolation mounts protecting precision CNC tools.',
+      },
+    ],
+    specialSection: {
+      tag: 'BLUE-WATER SUSTAINMENT',
+      title: '3-MODULE MARINISED SHIP SET (MODULES A, B & C)',
+      description: 'Engineered with full marine corrosion resistance, vibration damping, and deck lashing interfaces.',
+      items: [
+        {
+          title: 'At-Sea Production Through Sea State 5',
+          desc: 'Specialized gyro-stabilized tool beds allow high-precision additive and subtractive manufacturing in rolling seas.',
+        },
+        {
+          title: 'Marine Grade Alloys (316L & Inconel 625)',
+          desc: 'Produces seawater-contact parts including pump impellers, valve fittings, flanges, and piping brackets.',
+        },
+        {
+          title: 'Rapid Deployment to Island Territories',
+          desc: 'Modules can be craned off to forward island airstrips and naval forward outposts (e.g. Andaman & Nicobar, Lakshadweep).',
+        },
+        {
+          title: 'Shipborne Drone Replenishment',
+          desc: 'Produces replacement maritime surveillance and gunnery target drones without returning to naval dockyards.',
+        },
+      ],
+    },
+    specs: [
+      { label: 'Deployment Package', value: '3 × Marinised 20 ft ISO Modules (≤10 t each)' },
+      { label: 'Daily Output (2 Shifts)', value: '≥30 ISR / interceptor quadcopters OR ≥6 target drones' },
+      { label: 'At-Sea Operational Limit', value: 'Up to Sea State 5; secure-for-sea mode above' },
+      { label: 'Readiness Timeline', value: 'First job ≤2 hr after lashing and ship power connection' },
+      { label: 'Ship Power Draw', value: 'About 65 kVA; 415 / 440 V, 50 / 60 Hz, 3-phase via Module C' },
+      { label: 'Materials Qualified', value: '316L, duplex stainless steel, nickel-aluminium bronze, Inconel 625, polymers' },
+      { label: 'Onboard Stock Reserve', value: '≥300 drone assembly kits + marine alloy powders' },
+      { label: 'Environmental Envelope', value: '0°C to +50°C; extreme marine humidity and salt-spray resistant' },
+    ],
+    idealFor: [
+      {
+        name: 'Landing Platform Docks (LPD) & Aircraft Carriers',
+        role: 'Capital ship forward manufacturing cell',
+        desc: 'Enables extended task-force deployments thousands of miles from home naval dockyards.',
+      },
+      {
+        name: 'Fleet Replenishment Tankers',
+        role: 'Mobile maritime support ship workshop',
+        desc: 'Supplies fabricated spares and drones to accompanying destroyers and frigates during refueling.',
+      },
+      {
+        name: 'Island Territories & Forward Naval Bases',
+        role: 'Expeditionary maritime facility',
+        desc: 'Craned ashore at remote island naval outposts to sustain patrol craft and coastal batteries.',
+      },
+    ],
+  },
 };
+
+// Aliases for clean URL hash navigation across all product IDs
+CATALOGUE_PRODUCTS['sag-kavach-hero'] = CATALOGUE_PRODUCTS['sag-kavach'];
+CATALOGUE_PRODUCTS['kavach'] = CATALOGUE_PRODUCTS['sag-kavach'];
+CATALOGUE_PRODUCTS['sag-nirman'] = CATALOGUE_PRODUCTS['sag-nirman-army'];
+CATALOGUE_PRODUCTS['nirman'] = CATALOGUE_PRODUCTS['sag-nirman-army'];
+CATALOGUE_PRODUCTS['sag-razor-10'] = CATALOGUE_PRODUCTS['razor-10'];
+CATALOGUE_PRODUCTS['sag-razor-15'] = CATALOGUE_PRODUCTS['razor-15'];
+CATALOGUE_PRODUCTS['sag-razor-18'] = CATALOGUE_PRODUCTS['razor-18'];
+CATALOGUE_PRODUCTS['razor-fpv-series'] = CATALOGUE_PRODUCTS['razor-10'];

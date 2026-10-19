@@ -50,7 +50,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     id: 'doom-mk1',
     num: '02',
     title: 'DOOM MK-1',
-    category: 'AIR DEFENCE',
+    category: 'AIR DEFENCE · SHORAD',
     inDevelopment: false,
     desc: 'Short-range air-defence missile on a pickup-mounted launcher.',
     whereUsedTags: [
@@ -77,57 +77,107 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     category: 'COUNTER-UAS · CONVOY & SITE DEFENCE',
     inDevelopment: true,
     developmentBadgeText: 'IN DEVELOPMENT',
-    desc: 'Layered counter-drone shield for convoys and air-defence sites.',
+    desc: 'Layered counter-drone protection for transport convoys, air-defence sites, and critical command nodes.',
     whereUsedTags: [
-      'Convoy protection',
+      'Convoy escorts',
       'Transport truck retrofit',
-      'Air-defence site protection',
-      'Fibre-optic & RF-silent drones',
+      'Air-defence radar defence',
+      'Command post shield',
     ],
-    image: '/images/products/SAG KAVACH.webp',
+    image: '/images/products/sag-kavach-hero.webp',
     categoryDomain: 'cuas',
     specs: [
-      { label: 'SOFT-KILL DAZZLER', value: 'Directional Optical Blinder out to 1 km' },
-      { label: 'HARD-KILL NETS', value: '12 / 24 Canister Pneumatic Net Matrix' },
-      { label: 'THREAT MITIGATION', value: 'Effective against RF-silent and Fibre-Optic FPVs' },
-      { label: 'VEHICLE INTEGRATION', value: 'Retrofit Kit for Army 4x4 & 6x6 Logistics Trucks' },
+      { label: 'OPTICAL DAZZLER', value: '1 km day/thermal camera disruption' },
+      { label: 'NET CAPTURE MATRIX', value: '30–150 m pneumatic capture (12 cartridges)' },
+      { label: 'THREAT MITIGATION', value: 'Defeats RF-silent & fibre-optic drones' },
+      { label: 'CONFIGURATIONS', value: 'Convoy Node, Truck Kit, Site Defence' },
     ],
     detailedOverview:
       'Traditional radio-frequency jammers fail completely against fibre-optic and autonomous optical drones. SAG Kavach provides a decisive dual-tier kinetic and optical countermeasure suite that verifies target neutralization in real time.',
   },
   {
-    id: 'sag-nirman',
+    id: 'sag-nirman-army',
     num: '04',
-    title: 'SAG NIRMAN',
-    category: 'BATTLEFIELD MANUFACTURING',
+    title: 'SAG NIRMAN ARMY',
+    category: 'DEPLOYABLE MANUFACTURING · ARMY',
     inDevelopment: true,
     developmentBadgeText: 'IN DEVELOPMENT',
-    desc: 'A drone factory and spares workshop that moves with the army.',
+    desc: 'Forward-deployed mobile drone factory and field spares workshop in two 20-ft ISO modules.',
     whereUsedTags: [
-      'Forward drone production',
-      'Crash repair',
-      'Spares for legacy vehicles',
-      'Dispersed production',
+      'Forward formations',
+      'EME workshops',
+      'Dispersed combat teams',
+      'Field airframe repair',
     ],
-    image: '/images/products/SAG NIRMAN.webp',
+    image: '/images/products/sag-nirman-army.webp',
     categoryDomain: 'logistics',
     specs: [
-      { label: 'CONTAINER FOOTPRINT', value: '20-ft ISO Ruggedized Deployable Shelter' },
-      { label: 'PRODUCTION CAPACITY', value: '30+ Tactical FPVs assembled/repaired per day' },
-      { label: 'SETUP TIME', value: '<2 hours upon arrival' },
-      { label: 'INDEPENDENT POWER', value: 'On-board Generator & Battery Bank' },
+      { label: 'FOOTPRINT', value: '2 × 20 ft ISO modules (≤10 t each)' },
+      { label: 'DAILY PRODUCTION', value: '≥30 FPV/ISR quads or ≥6 fixed-wing' },
+      { label: 'RAPID READINESS', value: 'First job ≤2 hours from arrival' },
+      { label: 'SPARES MANUFACTURING', value: 'Scanning, CAD/CAM, metal deposition & CNC' },
     ],
     detailedOverview:
-      'Solves the crippling latency of rear-area supply chains. Nirman places automated composite fabrication, carbon-fiber assembly, electronic firmware flashing, and airframe repair directly with forward combat units.',
+      'Reduces reliance on long logistics supply lines. Module A prints airframes and provides kit assembly, while Module B provides scan-to-part manufacturing, metal deposition, CNC finishing, and heat treatment for vehicle and legacy weapon spares.',
+  },
+  {
+    id: 'sag-nirman-airforce',
+    num: '05',
+    title: 'SAG NIRMAN AIR FORCE',
+    category: 'DEPLOYABLE MANUFACTURING · AIR FORCE',
+    inDevelopment: true,
+    developmentBadgeText: 'IN DEVELOPMENT',
+    desc: 'Air-mobile drone factory and spares workshop for base defence drones, aerial targets, and ground equipment spares.',
+    whereUsedTags: [
+      'Forward air bases',
+      'Base perimeter defence',
+      'Aerial target training',
+      'GSE support & tooling',
+    ],
+    image: '/images/products/sag-nirman-airforce.webp',
+    categoryDomain: 'logistics',
+    specs: [
+      { label: 'STRATEGIC AIRLIFT', value: 'C-17, IL-76, C-130J air-mobile footprint' },
+      { label: 'DAILY OUTPUT', value: '≥30 interceptor/ISR quads or ≥6 targets' },
+      { label: 'DEPLOYMENT TIME', value: 'First job ≤2 hours from drive-off' },
+      { label: 'MAINTENANCE SUPPORT', value: 'GSE parts, tooling, brackets, adaptors' },
+    ],
+    detailedOverview:
+      'Solves forward air base logistics bottlenecks. Produces base-defence interceptor drones, ISR quadcopters, and low-cost aerial targets on-station while providing rapid scan-to-part production of ground support equipment (GSE) maintenance spares.',
+  },
+  {
+    id: 'sag-nirman-navy',
+    num: '06',
+    title: 'SAG NIRMAN NAVY',
+    category: 'DEPLOYABLE MANUFACTURING · NAVY',
+    inDevelopment: true,
+    developmentBadgeText: 'IN DEVELOPMENT',
+    desc: 'Ship-borne marinised drone factory and spares workshop for replenishment at sea and island bases.',
+    whereUsedTags: [
+      'Frontline warships',
+      'Carrier battle groups',
+      'Island territory bases',
+      'Naval dockyards',
+    ],
+    image: '/images/products/sag-nirman-navy.webp',
+    categoryDomain: 'logistics',
+    specs: [
+      { label: 'SHIP MODULE SET', value: '3 × marinised 20 ft ISO modules' },
+      { label: 'AT-SEA PRODUCTION', value: 'Operational up to Sea State 5' },
+      { label: 'MARINE MATERIALS', value: '316L, duplex steel, Inconel 625, NAB' },
+      { label: 'FLEET CAPACITY', value: '≥300 drone kits, ship-power interface' },
+    ],
+    detailedOverview:
+      'Enables sovereign naval persistence without returning to port. Replenishes ISR, interceptor, and gunnery-target drones during long-duration sea deployments, and manufactures certified valve handwheels, pump impellers, flanges, and emergency shipboard spares.',
   },
   {
     id: 'sag-vajra-ugv',
-    num: '05',
+    num: '07',
     title: 'SAG VAJRA UGV',
     category: 'UNMANNED GROUND SYSTEMS',
     inDevelopment: true,
     developmentBadgeText: 'AIRBASE MODULES IN DEVELOPMENT',
-    desc: 'Modular autonomous ground robot for the front line and the airbase.',
+    desc: 'Modular autonomous ground robot for tactical front lines and airfield operations.',
     whereUsedTags: [
       'Airbase munitions transfer',
       'Weapon-loading assist',
@@ -146,85 +196,133 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       'Replaces vulnerable personnel in hazardous zones. Vajra accelerates airbase sortie turnaround times through automated munitions carting and patrols high-risk forward perimeters under zero-visibility conditions.',
   },
   {
-    id: 'razor-fpv-series',
-    num: '06',
-    title: 'RAZOR FPV SERIES',
-    category: 'FPV · STRIKE & ISR',
+    id: 'sag-razor-10',
+    num: '08',
+    title: 'SAG RAZOR 10',
+    category: 'FPV PLATFORMS · CLOSE-RANGE STRIKE',
     inDevelopment: false,
-    desc: '10, 15 and 18-inch FPV drones for ISR, kamikaze strike and mortar dropping.',
+    desc: 'A compact 10-inch FPV quadcopter for close-range strike and reconnaissance in jammed environments.',
     whereUsedTags: [
-      'ISR',
-      'Kamikaze strike',
-      'Mortar dropping',
-      'Counter-drone net launch',
+      'Anti-personnel strike',
+      'Trench & bunker clearing',
+      'Tactical reconnaissance',
+      'Hostile vehicle ambush',
     ],
-    image: '/images/products/RAZOR FPV SERIES.webp',
+    image: '/images/products/sag-razor-10.webp',
     categoryDomain: 'strike',
     specs: [
-      { label: 'PROP CHASSIS', value: '10-inch, 15-inch, 18-inch Reinforced Carbon' },
-      { label: 'SPRINT VELOCITY', value: '140+ km/h terminal attack speed' },
-      { label: 'WARHEAD LOAD', value: '1.5 kg to 4.5 kg shaped charges / mortar rounds' },
-      { label: 'COMMAND LINK', value: 'Multi-Band FHSS Anti-Jam RF Transceiver' },
+      { label: 'OPERATIONAL RANGE', value: '10 km combat radius' },
+      { label: 'FLIGHT ENDURANCE', value: 'Up to 50 min' },
+      { label: 'MAXIMUM PAYLOAD', value: '1.5 kg shaped charges / ISR' },
+      { label: 'ANTI-JAM SUITE', value: '4-element CRPA & Frequency Hopping' },
     ],
     detailedOverview:
-      'Field-hardened multi-role FPV strike systems engineered for surgical tactical effect. Capable of penetrating reinforced bunkers, neutralizing armored vehicle engine decks, and conducting precision payload delivery.',
+      'Strike, Observe, Adapt. Rapidly deployed in under 5 minutes with modular snap-on payloads. Features add-on 4-element CRPA antenna and frequency-hopping RF datalinks to overcome intense hostile battlefield electronic warfare.',
+  },
+  {
+    id: 'sag-razor-15',
+    num: '09',
+    title: 'SAG RAZOR 15',
+    category: 'FPV PLATFORMS · MULTI-ROLE & CUAS',
+    inDevelopment: false,
+    desc: '15-inch multi-role FPV quadcopter for precision strike, reconnaissance, counter-drone net capture, and cargo.',
+    whereUsedTags: [
+      'Top-attack anti-armour',
+      'Airborne C-UAS net capture',
+      'Stabilised 4K ISR',
+      'Tactical cargo resupply',
+    ],
+    image: '/images/products/sag-razor-15.webp',
+    categoryDomain: 'strike',
+    specs: [
+      { label: 'OPERATIONAL RANGE', value: '15 km combat radius' },
+      { label: 'FLIGHT ENDURANCE', value: '30+ min' },
+      { label: 'MAXIMUM PAYLOAD', value: '3.0 kg multi-mission payload' },
+      { label: 'MISSION VERSATILITY', value: 'Warheads, C-UAS Net Launcher, Cargo Pod' },
+    ],
+    detailedOverview:
+      'Strike, Intercept, Sustain. The multi-role backbone of tactical drone formations. Fitted with anti-armour top-attack warheads or airborne net launchers to catch hostile drones in flight, with quick re-rigging for rapid cargo deliveries.',
+  },
+  {
+    id: 'sag-razor-18',
+    num: '10',
+    title: 'SAG RAZOR 18',
+    category: 'FPV PLATFORMS · HEAVY-LIFT STRIKE',
+    inDevelopment: false,
+    desc: 'Heavy-lift 18-inch FPV quadcopter carrying up to 8 kg for heavy strike, laser designation, and resupply.',
+    whereUsedTags: [
+      'Heavy bunker defeat',
+      'Armoured column strikes',
+      'Full-sensor laser designation',
+      'High-altitude post resupply',
+    ],
+    image: '/images/products/sag-razor-18.webp',
+    categoryDomain: 'strike',
+    specs: [
+      { label: 'OPERATIONAL RANGE', value: '20 km combat radius' },
+      { label: 'USEFUL PAYLOAD', value: 'Up to 8.0 kg heavy ordnance / sensors' },
+      { label: 'FLIGHT ENDURANCE', value: '30+ min' },
+      { label: 'SENSOR SUITE', value: 'ISR Gimbal with Laser Range Finder' },
+    ],
+    detailedOverview:
+      'Lift, Strike, Designate. Delivers heavy kinetic effect at standoff range. Capable of carrying tandem warheads against main battle tanks, heavy mortar payloads, or full-sensor day/thermal gimbals with laser designators for coordinated air strikes.',
   },
   {
     id: 'sag-net-catcher',
-    num: '07',
+    num: '11',
     title: 'SAG NET CATCHER',
-    category: 'COUNTER-UAS',
+    category: 'COUNTER-UAS · AIR DEFENCE',
     inDevelopment: false,
-    desc: 'Handheld anti-drone net gun.',
+    desc: 'Handheld rapid-response anti-drone net gun firing a 3.5 × 3.5 m capture net against low-altitude aerial threats.',
     whereUsedTags: [
       'Military bases',
       'Critical infrastructure',
-      'Airports',
-      'Public events',
+      'Airports & airfields',
+      'VIP & public events',
     ],
     image: '/images/products/SAG NET CATCHER.webp',
     categoryDomain: 'cuas',
     specs: [
-      { label: 'INTERCEPTION DISTANCE', value: '30 m to 60 m direct line-of-fire' },
-      { label: 'NET SPAN', value: '3.5 m high-tensile Kevlar/polymer mesh' },
-      { label: 'PROPULSION', value: 'Quick-change CO2 high-pressure pneumatic cartridge' },
-      { label: 'TARGET DEPLOYMENT', value: 'Single soldier, point-and-shoot operation' },
+      { label: 'EFFECTIVE RANGE', value: '25 m direct line-of-fire' },
+      { label: 'SYSTEM WEIGHT', value: '365 g ultra-lightweight launcher' },
+      { label: 'DEPLOYMENT TIME', value: '0.2 seconds instant capture' },
+      { label: 'NET SPAN', value: '3.5 m × 3.5 m high-strength mesh' },
     ],
     detailedOverview:
-      'Immediate kinetic capture without explosive fragmentation risk. Captures rogue quadcopters intact for forensic data extraction, preventing debris damage over crowded airfields, ammunition dumps, and command installations.',
+      'Capture, Neutralise, Analyse. Fires a high-strength kinetic net that entangles hostile drone rotors instantly. Completely non-lethal, preventing dangerous explosive collateral damage while preserving the enemy drone intact for tactical intelligence exploitation.',
   },
   {
     id: 'sag-prahari',
-    num: '08',
+    num: '12',
     title: 'SAG PRAHARI',
     category: 'COUNTER-UAS · DETECTION',
     inDevelopment: true,
     developmentBadgeText: 'IN DEVELOPMENT',
-    desc: 'Body-worn drone detection for the squad.',
+    desc: 'Body-worn drone detection and directional early warning for dismounted squads.',
     whereUsedTags: [
       'Counter-terror operations',
-      'Forward posts & pickets',
-      'Patrols & convoys',
-      'Mountain & urban terrain',
+      'Forward pickets & posts',
+      'Infantry foot patrols',
+      'Mountain & urban sectors',
     ],
     image: '/images/products/SAG PRAHARI.webp',
     categoryDomain: 'cuas',
     specs: [
       { label: 'DETECTION RANGE', value: 'Up to 2.5 km early warning horizon' },
-      { label: 'SPECTRUM COVERAGE', value: '400 MHz to 6.0 GHz continuous RF sweep' },
+      { label: 'SPECTRUM SWEEP', value: '400 MHz to 6.0 GHz continuous RF scan' },
       { label: 'OPERATOR WEIGHT', value: '<650 g MOLLE vest mountable' },
-      { label: 'TACTICAL ALERT', value: 'Silent haptic vibration, LED display, headset audio' },
+      { label: 'TACTICAL ALERTS', value: 'Silent haptic vibration, LED display, headset audio' },
     ],
     detailedOverview:
       'Ensures foot patrols and forward observation posts are never ambushed by silent hostile drones. Constantly sniffs ambient radio control frequencies, providing directional azimuth warning to the squad commander.',
   },
   {
     id: 'scout-x',
-    num: '09',
+    num: '13',
     title: 'SCOUT-X',
     category: 'INTELLIGENCE & SURVEILLANCE',
     inDevelopment: false,
-    desc: 'Persistent ISR quadcopter, free or tethered.',
+    desc: 'Persistent ISR quadcopter, switchable between free-flight reconnaissance and continuous 24-hr tethered overwatch.',
     whereUsedTags: [
       'Border surveillance',
       'Counter-infiltration',
@@ -234,25 +332,25 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     image: '/images/products/SCOUT-X.webp',
     categoryDomain: 'isr',
     specs: [
-      { label: 'LOITER TIME', value: '55 min (Untethered) / 24+ Hours (Tethered Micro-Cable)' },
+      { label: 'LOITER TIME', value: '55 min (Free) / 24+ Hours (Tethered Micro-Cable)' },
       { label: 'OPTICAL GIMBAL', value: 'Dual EO/MWIR Thermal Camera with 30x Optical Zoom' },
       { label: 'TELEMETRY RADIUS', value: '15 km Line-of-Sight encrypted datalink' },
-      { label: 'ALL-WEATHER CAPABILITY', value: 'IP55 Certified, withstands 45 km/h gusts' },
+      { label: 'WEATHER RESISTANCE', value: 'IP55 Certified, withstands 45 km/h gusts' },
     ],
     detailedOverview:
       'A versatile multi-domain tactical eyes-in-the-sky platform. Swaps effortlessly between free-roaming reconnaissance missions and permanent tethered high-altitude post overwatch.',
   },
   {
     id: 'sag-vtol-250',
-    num: '10',
+    num: '14',
     title: 'SAG VTOL-250',
-    category: 'INTELLIGENCE & SURVEILLANCE',
+    category: 'INTELLIGENCE & SURVEILLANCE · VTOL',
     inDevelopment: false,
-    desc: '2.5 m electric fixed-wing VTOL for long-endurance ISR.',
+    desc: '2.5 m electric fixed-wing VTOL for runway-independent long-endurance ISR across contested borders.',
     whereUsedTags: [
       'Wide-area border surveillance',
       'Standoff ISR',
-      'Coastal patrol',
+      'Coastal & maritime patrol',
       'Convoy route overwatch',
     ],
     image: '/images/products/SAG VTOL-250.webp',
@@ -260,23 +358,23 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     specs: [
       { label: 'WINGSPAN', value: '2.5 m Aerodynamic Carbon-Composite Airframe' },
       { label: 'FLIGHT DURATION', value: '180 minutes clean all-electric cruise' },
-      { label: 'OPERATIONAL RANGE', value: '60 km radius from Ground Control Station' },
-      { label: 'LAUNCH & RECOVERY', value: '100% Vertical Take-off & Landing (no runway required)' },
+      { label: 'OPERATIONAL RADIUS', value: '60 km from Ground Control Station' },
+      { label: 'LAUNCH & RECOVERY', value: '100% Vertical Take-off & Landing' },
     ],
     detailedOverview:
       'Blends the hovering flexibility of a multi-rotor with the high-speed transit and efficiency of a fixed-wing aircraft. Dispatched directly from unprepared mountain clearings or ship helipads for extensive reconnaissance.',
   },
   {
     id: 'hanuman-100',
-    num: '11',
+    num: '15',
     title: 'HANUMAN 100',
-    category: 'LOGISTICS',
+    category: 'TACTICAL LOGISTICS · HEAVY-LIFT',
     inDevelopment: false,
-    desc: 'Heavy-lift logistics UAV.',
+    desc: 'Heavy-lift logistics UAV engineered for Himalayan high-altitude resupply missions up to 5,500 m.',
     whereUsedTags: [
       'High-altitude post resupply',
       'Forward outpost logistics',
-      'Medical supply',
+      'Ammunition & blood replenishment',
       'Humanitarian relief',
     ],
     image: '/images/products/HANUMAN 100.webp',
@@ -285,23 +383,23 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'USEFUL LOAD', value: 'Up to 100 kg critical cargo' },
       { label: 'SERVICE CEILING', value: '5,500 m Above Sea Level (Himalayan proven)' },
       { label: 'TRANSIT RADIUS', value: '40 km round-trip combat radius' },
-      { label: 'CARGO MECHANISM', value: 'Winch lowering / quick-release secure payload bay' },
+      { label: 'CARGO MECHANISM', value: 'Winch lowering / quick-release payload bay' },
     ],
     detailedOverview:
       'Lifeline logistics for snowbound mountain pickets and forward defence detachments. Keeps mountain troops supplied with ammunition, fresh batteries, blood packs, and critical rations without risking helicopter crews.',
   },
   {
     id: 'razor-ofc',
-    num: '12',
+    num: '16',
     title: 'RAZOR OFC',
-    category: 'MISSION MODULE',
+    category: 'MISSION MODULE · FIBRE-OPTIC GUIDANCE',
     inDevelopment: false,
-    desc: 'Fibre-optic control module with 3–30 km spools.',
+    desc: 'Fibre-optic control module with 3–30 km micro-spools providing 100% jam-proof, zero-RF control.',
     whereUsedTags: [
-      'Counter-EW missions',
-      'Urban reconnaissance',
-      'Tunnel & underground',
-      'Border & perimeter',
+      'Counter-EW strike missions',
+      'High-jamming environments',
+      'Subterranean & tunnel ops',
+      'Zero-emission reconnaissance',
     ],
     image: '/images/products/RAZOR OFC.webp',
     categoryDomain: 'strike',
@@ -309,22 +407,23 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'OPTICAL TETHER', value: 'Ultra-thin 3 km to 30 km high-speed micro-spool' },
       { label: 'ELECTRONIC HARDENING', value: '100% unjammable — zero RF emissions' },
       { label: 'VIDEO LATENCY', value: 'Near-zero millisecond 4K crystal-clear feed' },
-      { label: 'COMPATIBILITY', value: 'Integrates on Razor FPV chassis & specialized rigs' },
+      { label: 'COMPATIBILITY', value: 'Plug-and-play on Razor FPV chassis' },
     ],
     detailedOverview:
       'Eliminates the electromagnetic footprint entirely. Hostile radio frequency jammers and spoofers have zero physical effect on light traveling through glass, guaranteeing full operator command right up to impact.',
   },
   {
     id: 'swarm-bee',
-    num: '13',
+    num: '17',
     title: 'SWARM BEE',
-    category: 'MISSION MODULE',
+    category: 'MISSION MODULE · SWARM AUTONOMY',
     inDevelopment: false,
-    desc: 'Plug-in swarm autonomy for any SAG drone.',
+    desc: 'Plug-in swarm autonomy architecture enabling multi-drone collaborative attacks and distributed AI mesh.',
     whereUsedTags: [
-      'Shared targeting',
-      'Area split',
-      'Multi-direction strike',
+      'Shared targeting networks',
+      'Air defence saturation',
+      'Multi-axis simultaneous strike',
+      'Autonomous area denial',
     ],
     image: '/images/products/SWARM BEE.webp',
     categoryDomain: 'strike',
@@ -332,24 +431,24 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'SWARM DENSITY', value: '8 to 64 coordinated autonomous nodes' },
       { label: 'DISTRIBUTED BRAIN', value: 'Decentralized Edge Mesh AI (no single point of failure)' },
       { label: 'DYNAMIC TASKING', value: 'Automatic threat re-allocation if a node is lost' },
-      { label: 'PROTOCOL INTEGRATION', value: 'Plug-and-play on any SAG sovereign avionics system' },
+      { label: 'INTEGRATION', value: 'Plug-and-play on any SAG sovereign avionics' },
     ],
     detailedOverview:
       'Overwhelms adversary air defence saturation limits. Swarm Bee turns a dispersed cluster of individual drones into a single thinking, self-coordinating tactical organism that attacks simultaneously from multiple directions.',
   },
   {
     id: 'sag-trinetra',
-    num: '14',
+    num: '18',
     title: 'SAG TRINETRA',
     category: 'MARITIME · MINE COUNTERMEASURES',
     inDevelopment: true,
     developmentBadgeText: 'IN DEVELOPMENT',
-    desc: 'Tethered mine-neutralisation ROV.',
+    desc: 'Tethered mine-neutralisation underwater ROV for deep harbor and sea lane clearance down to 300 m.',
     whereUsedTags: [
       'Harbour & port clearance',
       'Sea lane & channel clearance',
       'MCM vessels & USVs',
-      'Coastal security',
+      'Coastal infrastructure security',
     ],
     image: '/images/products/SAG TRINETRA.webp',
     categoryDomain: 'ground-maritime',
@@ -373,13 +472,27 @@ const getProductFromHash = (): FullProductItem | null => {
   if (typeof window === 'undefined') return null;
   const rawHash = window.location.hash.toLowerCase().replace(/^#\/?/, '');
   if (!rawHash || rawHash === 'products' || rawHash === 'products-page') return null;
+
+  const ALIAS_MAP: Record<string, string> = {
+    'sag-nirman': 'sag-nirman-army',
+    'nirman': 'sag-nirman-army',
+    'razor-fpv-series': 'sag-razor-10',
+    'razor-10': 'sag-razor-10',
+    'razor-15': 'sag-razor-15',
+    'razor-18': 'sag-razor-18',
+    'kavach': 'sag-kavach',
+    'net-catcher': 'sag-net-catcher',
+  };
+
+  const targetId = ALIAS_MAP[rawHash] || rawHash;
+
   return (
     ALL_PRODUCTS.find(
       (p) =>
-        p.id === rawHash ||
-        p.id === `sag-${rawHash}` ||
-        rawHash === p.id.replace(/^sag-/, '') ||
-        p.id.replace(/-/g, '') === rawHash.replace(/-/g, '')
+        p.id === targetId ||
+        p.id === `sag-${targetId}` ||
+        targetId === p.id.replace(/^sag-/, '') ||
+        p.id.replace(/-/g, '') === targetId.replace(/-/g, '')
     ) || null
   );
 };
@@ -421,7 +534,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
       <ProductDetailPage
         initialProductId={selectedProduct.id}
         onSelectProduct={(newId) => {
-          const match = ALL_PRODUCTS.find((p) => p.id === newId);
+          const match =
+            ALL_PRODUCTS.find((p) => p.id === newId) ||
+            ALL_PRODUCTS.find((p) => p.id === `sag-${newId}`) ||
+            ALL_PRODUCTS.find((p) => p.id.replace(/^sag-/, '') === newId);
           if (match) {
             setSelectedProduct(match);
             if (typeof window !== 'undefined') {
