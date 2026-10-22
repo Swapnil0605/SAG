@@ -41,7 +41,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #000000;
+  background: radial-gradient(circle at center, #1e293b 0%, #0a0e14 60%, #000000 100%);
   z-index: 1;
 }
 
@@ -83,6 +83,12 @@
   animation: sag-camera-push 3.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
 }
 
+/* Portrait transform-origin adjustment for mobile */
+.loading-screen-container.is-portrait .sag-text-group,
+.loadingscreencontainer.is-portrait .sagtextgroup {
+  transform-origin: 540px 960px;
+}
+
 @keyframes sag-camera-push {
   0% {
     transform: scale(0.88);
@@ -106,6 +112,20 @@
   animation:
     sag-camera-push 3.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards,
     sag-glow-pulse 2.2s ease-in-out infinite alternate;
+}
+
+.loading-screen-container.is-portrait .sag-outline-glow,
+.loadingscreencontainer.is-portrait .sagoutlineglow {
+  transform-origin: 540px 960px;
+}
+
+@media (max-width: 768px), (orientation: portrait) {
+  .sag-text-group,
+  .sag-outline-glow,
+  .sagtextgroup,
+  .sagoutlineglow {
+    transform-origin: 540px 960px;
+  }
 }
 
 @keyframes sag-glow-pulse {
@@ -137,25 +157,29 @@
 /* Skip prompt badge at bottom */
 .loading-skip-hint {
   position: absolute;
-  bottom: 32px;
+  bottom: 28px;
+  bottom: max(24px, env(safe-area-inset-bottom, 24px));
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 9999px;
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
-  color: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 11px;
   font-family: monospace;
-  letter-spacing: 0.15em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   pointer-events: none;
   animation: loading-pulse 2s ease-in-out infinite;
+  white-space: nowrap;
 }
 
 @keyframes loading-pulse {

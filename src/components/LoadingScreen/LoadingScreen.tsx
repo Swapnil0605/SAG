@@ -15,6 +15,10 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
   const [mounted, setMounted] = useState(false);
   const [isSlidingUp, setIsSlidingUp] = useState(false);
   const [isRemoved, setIsRemoved] = useState(false);
+  const [isPortrait, setIsPortrait] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth < 768 || window.innerWidth < window.innerHeight;
+  });
   const videoRef = useRef<HTMLVideoElement>(null);
   const hasTriggeredRef = useRef(false);
 
@@ -23,12 +27,34 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
     setMounted(true);
   }, []);
 
-  // Ensure video attempts to play
+  // Track portrait vs landscape for responsive SVG cutout
+  useEffect(() => {
+    const checkOrientation = () => {
+      setIsPortrait(window.innerWidth < 768 || window.innerWidth < window.innerHeight);
+    };
+    checkOrientation();
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', checkOrientation);
+    return () => {
+      window.removeEventListener('resize', checkOrientation);
+      window.removeEventListener('orientationchange', checkOrientation);
+    };
+  }, []);
+
+  // Ensure video attempts to play with full mobile browser compatibility
   useEffect(() => {
     if (mounted && videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay policy or error, ignore
-      });
+      const v = videoRef.current;
+      v.defaultMuted = true;
+      v.muted = true;
+      v.setAttribute('playsinline', 'true');
+      v.setAttribute('webkit-playsinline', 'true');
+      const playPromise = v.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay policy or low power mode restriction, silent fallback
+        });
+      }
     }
   }, [mounted]);
 
@@ -84,11 +110,20 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
     return null;
   }
 
+  // Dynamic geometry: adapts seamlessly between Mobile Portrait (9:16) and Desktop Landscape (16:9)
+  const viewBox = isPortrait ? '0 0 1080 1920' : '0 0 1920 1080';
+  const cx = isPortrait ? 540 : 960;
+  const cy = isPortrait ? 960 : 540;
+  const fontSize = isPortrait ? 260 : 480;
+  const subY = isPortrait ? 1110 : 780;
+  const subFontSize = isPortrait ? 24 : 30;
+  const transformOrigin = isPortrait ? '540px 960px' : '960px 540px';
+
   return (
     <aside
       aria-label="Aerospace Systems Loading Screen"
       onClick={triggerReveal}
-      className={`loading-screen-container ${isSlidingUp ? 'slide-up' : ''}`}
+      className={`loading-screen-container ${isSlidingUp ? 'slide-up' : ''} ${isPortrait ? 'is-portrait' : 'is-landscape'}`}
     >
       {/* Background Video Layer */}
       <div className="loading-video-wrapper">
@@ -104,28 +139,41 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
         </video>
       </div>
 
-      {/* SVG Cutout Layer — Massive Animated SAG Letters showing video inside */}
+      {/* SVG Cutout Layer — Responsive Animated SAG Letters showing video inside */}
       <svg
         className="loading-cutout-layer"
-        viewBox="0 0 1920 1080"
+        viewBox={viewBox}
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
           <mask id="sagvideocutout">
-            <rect x="-30%" y="-30%" width="160%" height="160%" fill="#ffffff" />
-            <g className="sag-text-group">
+            <rect x="-40%" y="-40%" width="180%" height="180%" fill="#ffffff" />
+            <g className="sag-text-group" style={{ transformOrigin }}>
               <text
-                x="960"
-                y="540"
+                x={cx}
+                y={cy}
                 textAnchor="middle"
                 dominantBaseline="central"
                 fill="#000000"
-                fontSize="480"
+                fontSize={fontSize}
                 fontWeight="900"
-                letterSpacing="0.08em"
+                letterSpacing={isPortrait ? '0.05em' : '0.08em'}
                 fontFamily="Inter, 'Segoe UI', -apple-system, Roboto, 'Arial Black', sans-serif"
               >
                 SAG
+              </text>
+              <text
+                x={cx}
+                y={subY}
+                textAnchor="middle"
+                dominantBaseline="central"
+                fill="#000000"
+                fontSize={subFontSize}
+                fontWeight="800"
+                letterSpacing={isPortrait ? '0.22em' : '0.32em'}
+                fontFamily="Inter, 'Segoe UI', -apple-system, Roboto, 'Arial Black', sans-serif"
+              >
+                AEROSPACE &amp; DEFENCE
               </text>
             </g>
           </mask>
@@ -133,32 +181,52 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
 
         {/* Solid black screen with cutout SAG letters */}
         <rect
-          x="-30%"
-          y="-30%"
-          width="160%"
-          height="160%"
+          x="-40%"
+          y="-40%"
+          width="180%"
+          height="180%"
           fill="#000000"
           mask="url(#sagvideocutout)"
         />
 
         {/* Animated glowing letter contour outline */}
-        <g className="sag-outline-glow">
+        <g className="sag-outline-glow" style={{ transformOrigin }}>
           <text
-            x="960"
-            y="540"
+            x={cx}
+            y={cy}
             textAnchor="middle"
             dominantBaseline="central"
             fill="none"
-            strokeWidth="3"
-            fontSize="480"
+            strokeWidth={isPortrait ? '2.5' : '3.5'}
+            fontSize={fontSize}
             fontWeight="900"
-            letterSpacing="0.08em"
+            letterSpacing={isPortrait ? '0.05em' : '0.08em'}
             fontFamily="Inter, 'Segoe UI', -apple-system, Roboto, 'Arial Black', sans-serif"
           >
             SAG
           </text>
+          <text
+            x={cx}
+            y={subY}
+            textAnchor="middle"
+            dominantBaseline="central"
+            fill="none"
+            strokeWidth="1.2"
+            fontSize={subFontSize}
+            fontWeight="800"
+            letterSpacing={isPortrait ? '0.22em' : '0.32em'}
+            fontFamily="Inter, 'Segoe UI', -apple-system, Roboto, 'Arial Black', sans-serif"
+          >
+            AEROSPACE &amp; DEFENCE
+          </text>
         </g>
       </svg>
+
+      {/* Tap anywhere to skip prompt badge at bottom */}
+      <div className="loading-skip-hint">
+        <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+        <span>TAP TO ENTER</span>
+      </div>
     </aside>
   );
 };
