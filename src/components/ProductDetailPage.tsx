@@ -23,8 +23,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
-    if (initialProductId && CATALOGUE_PRODUCTS[initialProductId]) {
-      setCurrentId(initialProductId);
+    if (initialProductId) {
+      if (CATALOGUE_PRODUCTS[initialProductId]) {
+        setCurrentId(initialProductId);
+      } else if (CATALOGUE_PRODUCTS[`sag-${initialProductId}`]) {
+        setCurrentId(`sag-${initialProductId}`);
+      } else if (CATALOGUE_PRODUCTS[initialProductId.replace(/^sag-/, '')]) {
+        setCurrentId(initialProductId.replace(/^sag-/, ''));
+      }
     }
   }, [initialProductId]);
 
@@ -40,7 +46,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     CATALOGUE_PRODUCTS['yamraj'] ||
     CATALOGUE_PRODUCTS['sag-net-catcher'];
 
-
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
       `Hello SAG Aerospace and Defence, I would like to request an official technical briefing and demonstration details for the ${product.title}.`
@@ -51,11 +56,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   return (
     <div className="min-h-screen text-slate-100 font-sans selection:bg-red-600 selection:text-white bg-[#07090b] relative pb-28">
       {/* =========================================================================
-          1. HERO SECTION (100% FULL-WIDTH EDGE-TO-EDGE IMMERSIVE ARTWORK HERO - NOT A CARD)
+          1. HERO SECTION (100% FULL-WIDTH IMMERSIVE ARTWORK HERO ON DESKTOP; DEDICATED VISIBLE SHOWCASE ON MOBILE)
           ========================================================================= */}
       <section className="relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex flex-col justify-center border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
-        {/* Full-Bleed Artwork Image Background across 100% viewport width */}
-        <div className="absolute inset-0 z-0">
+        {/* Desktop: Exact Full-Bleed Artwork Image Background across 100% viewport width */}
+        <div className="hidden lg:block absolute inset-0 z-0">
           <img
             src={product.heroImage}
             alt={product.title}
@@ -69,7 +74,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-[#07090b] via-transparent to-black/25" />
         </div>
 
-        {/* Center Content: Status Badge, Title, Tagline & Lead Description */}
+        {/* Center Content: Status Badge, Title, Tagline, Mobile Showcase & Lead Description */}
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 sm:py-28 pt-28 sm:pt-36">
           <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-4">
             {/* Status Badge */}
@@ -87,6 +92,33 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               <p className="text-sm sm:text-xl font-mono font-bold tracking-[0.22em] text-neutral-200 mt-3 uppercase drop-shadow">
                 {product.tagline}
               </p>
+            </div>
+
+            {/* Mobile View: Dedicated Visible Product Showcase Frame (Hidden on desktop lg:) */}
+            <div className="block lg:hidden my-4 sm:my-6">
+              <div className="relative w-full aspect-[4/3] xs:aspect-[16/10] sm:aspect-[16/9] max-h-[320px] rounded-2xl border border-neutral-700/80 bg-gradient-to-b from-[#141920]/95 via-[#0c1015]/90 to-[#07090c]/95 backdrop-blur-md p-3 sm:p-4 shadow-xl overflow-hidden flex items-center justify-center">
+                {/* Tactical Reticles */}
+                <span className="absolute top-2 left-2 text-red-500/70 font-mono text-[10px] select-none pointer-events-none">+</span>
+                <span className="absolute top-2 right-2 text-red-500/70 font-mono text-[10px] select-none pointer-events-none">+</span>
+                <span className="absolute bottom-2 left-2 text-red-500/70 font-mono text-[10px] select-none pointer-events-none">+</span>
+                <span className="absolute bottom-2 right-2 text-red-500/70 font-mono text-[10px] select-none pointer-events-none">+</span>
+
+                {/* Radial spotlight behind product */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.22)_0%,rgba(15,23,42,0.45)_50%,transparent_75%)] pointer-events-none" />
+
+                {/* Product Image - Crisp and 100% visible on mobile */}
+                <img
+                  src={product.heroImage}
+                  alt={product.title}
+                  className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)] contrast-105 brightness-105 select-none"
+                  loading="eager"
+                />
+
+                {/* Bottom HUD Tag */}
+                <div className="absolute bottom-1.5 right-3 text-[9px] font-mono text-neutral-400 tracking-wider uppercase">
+                  SOVEREIGN IP // HD
+                </div>
+              </div>
             </div>
 
             <p className="text-xs sm:text-base md:text-lg text-neutral-200 leading-relaxed font-normal max-w-xl drop-shadow">

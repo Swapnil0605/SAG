@@ -1483,8 +1483,8 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     leadDescription:
       'Indigenous supersonic loitering munition — our flagship programme. Mach 1+ class, rotating detonation engine, and all-Indian sovereign aerospace design engineered to decisively reach tactical targets before they can relocate.',
     pillars: ['DEFEND', 'DETER', 'LEAD'],
-    heroImage: '/images/products/PROJECT YAMRAJ.webp',
-    heroImagePosition: '70% center',
+    heroImage: '/images/hero/hero-yamraj.webp',
+    heroImagePosition: 'center center',
     statusBadge: 'FLAGSHIP PROGRAMME · IN DEVELOPMENT',
     mottoQuote: 'CLOSING THE SPEED GAP. STRIKING WITHOUT WARNING.',
     telemetryBadges: [
