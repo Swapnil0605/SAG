@@ -239,7 +239,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
             {/* Main Title */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-neutral-950 mb-6 leading-[1.08]">
-              CONTACT <span className="text-red-600">SAG AEROSPACE AND DEFENCE</span>
+              CONTACT <span className="text-red-600">SAG AEROSPACE AND DEFENCE PVT LTD</span>
             </h1>
 
             {/* Subtitle */}
