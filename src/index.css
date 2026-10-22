@@ -8,7 +8,14 @@
   *,
   ::before,
   ::after {
+    box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -16,6 +23,8 @@
     color: #f8fafc;
     margin: 0;
     padding: 0;
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -36,7 +45,13 @@
 .text-outline-ink {
   color: rgb(255, 255, 255);
   paint-order: stroke;
-  -webkit-text-stroke: 2.5px rgba(9, 14, 19, 0.65);
+  -webkit-text-stroke: 1.5px rgba(9, 14, 19, 0.65);
+}
+
+@media (min-width: 640px) {
+  .text-outline-ink {
+    -webkit-text-stroke: 2.5px rgba(9, 14, 19, 0.65);
+  }
 }
 
 /* Aerospace Technical Blueprint Grid */

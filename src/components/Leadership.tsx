@@ -40,7 +40,7 @@ export const Leadership: React.FC = () => {
             {/* Perspective 3D Flip Reveal */}
             <Perspective3DReveal
               tag="h2"
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight"
             >
               Military Discipline. Aeronautical Rigor.
             </Perspective3DReveal>
@@ -54,11 +54,11 @@ export const Leadership: React.FC = () => {
         </div>
 
         {/* 2 Co-Founder Profiles with Scroll Reveal & Text Stretch */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-16">
           {/* Arun Yamanappa Chimmalagi */}
           <ScrollReveal delay={0.1} yOffset={35} className="h-full">
-            <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-neutral-700 hover:shadow-xl transition-all duration-300 shadow-md backdrop-blur-md h-full">
-              <div className="w-32 sm:w-40 flex-shrink-0">
+            <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col sm:flex-row gap-5 sm:gap-6 items-start hover:border-neutral-700 hover:shadow-xl transition-all duration-300 shadow-md backdrop-blur-md h-full">
+              <div className="w-28 xs:w-32 sm:w-40 flex-shrink-0">
                 <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 shadow-inner">
                   <img
                     src="/images/team/arun-chimmalagi.png"
@@ -79,7 +79,7 @@ export const Leadership: React.FC = () => {
 
                   {/* Text Stretch along Y-axis */}
                   <ScaleStretchText scaleYFrom={1.25} scaleYTo={1.0}>
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                       Arun Yamanappa Chimmalagi
                     </h3>
                   </ScaleStretchText>
@@ -118,8 +118,8 @@ export const Leadership: React.FC = () => {
 
           {/* Rahul G */}
           <ScrollReveal delay={0.25} yOffset={35} className="h-full">
-            <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-neutral-700 hover:shadow-xl transition-all duration-300 shadow-md backdrop-blur-md h-full">
-              <div className="w-32 sm:w-40 flex-shrink-0">
+            <div className="bg-[#0d0d10]/95 border border-neutral-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col sm:flex-row gap-5 sm:gap-6 items-start hover:border-neutral-700 hover:shadow-xl transition-all duration-300 shadow-md backdrop-blur-md h-full">
+              <div className="w-28 xs:w-32 sm:w-40 flex-shrink-0">
                 <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 shadow-inner">
                   <img
                     src="/images/team/rahul-g.png"

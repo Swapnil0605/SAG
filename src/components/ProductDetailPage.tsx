@@ -54,7 +54,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
       {/* =========================================================================
           1. HERO SECTION (100% FULL-WIDTH EDGE-TO-EDGE IMMERSIVE ARTWORK HERO - NOT A CARD)
           ========================================================================= */}
-      <section className="relative w-full h-screen min-h-screen flex flex-col justify-between border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
+      <section className="relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex flex-col justify-between border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
         {/* Full-Bleed Artwork Image Background across 100% viewport width */}
         <div className="absolute inset-0 z-0">
           <img
@@ -107,18 +107,18 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         </div>
 
         {/* Center Content: Title, Tagline & Lead Description */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24 my-auto">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-20 my-auto">
           <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-4">
             <div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none drop-shadow-2xl">
+              <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-tight drop-shadow-2xl">
                 {product.title}
               </h1>
-              <p className="text-base sm:text-xl font-mono font-bold tracking-[0.22em] text-neutral-200 mt-3 uppercase drop-shadow">
+              <p className="text-sm sm:text-xl font-mono font-bold tracking-[0.22em] text-neutral-200 mt-3 uppercase drop-shadow">
                 {product.tagline}
               </p>
             </div>
 
-            <p className="text-sm sm:text-base md:text-lg text-neutral-200 leading-relaxed font-normal max-w-xl drop-shadow">
+            <p className="text-xs sm:text-base md:text-lg text-neutral-200 leading-relaxed font-normal max-w-xl drop-shadow">
               {product.leadDescription}
             </p>
           </div>
@@ -344,18 +344,18 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               Direct technical liaisons available for armed forces command headquarters, paramilitary forces, homeland security departments, and authorized international partners.
             </p>
 
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">
               <button
                 type="button"
                 onClick={() => onNavigateContact?.(product.title)}
-                className="px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-red-600/30 cursor-pointer"
+                className="w-full sm:w-auto text-center justify-center px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-red-600/30 cursor-pointer"
               >
                 REQUEST TECHNICAL BRIEFING
               </button>
               <button
                 type="button"
                 onClick={handleWhatsApp}
-                className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors cursor-pointer"
+                className="w-full sm:w-auto text-center justify-center px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors cursor-pointer"
               >
                 WHATSAPP COMMAND CHANNEL
               </button>

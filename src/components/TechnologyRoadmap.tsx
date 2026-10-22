@@ -85,11 +85,11 @@ export const TechnologyRoadmap: React.FC = () => {
 
             {/* Exactly 2-Line Bold Uppercase Section Heading */}
             <ScrollReveal delay={0.1} yOffset={20}>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-6xl font-black uppercase tracking-tight leading-[1.02]">
-                <span className="text-white block drop-shadow-sm whitespace-nowrap">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-6xl font-black uppercase tracking-tight leading-[1.05]">
+                <span className="text-white block drop-shadow-sm sm:whitespace-nowrap">
                   A STARTUP&apos;S SPEED.
                 </span>
-                <span className="text-white block drop-shadow-sm mt-1 sm:mt-1.5 whitespace-nowrap">
+                <span className="text-white block drop-shadow-sm mt-1 sm:mt-1.5 sm:whitespace-nowrap">
                   A SOLDIER&apos;S STANDARDS.
                 </span>
               </h2>
@@ -104,7 +104,7 @@ export const TechnologyRoadmap: React.FC = () => {
         </div>
 
         {/* 4 Phases Timeline Grid with Staggered Scroll Reveal & Parallax Numbers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {phases.map((phase, idx) => {
             return (
               <ScrollReveal
@@ -114,7 +114,7 @@ export const TechnologyRoadmap: React.FC = () => {
                 className="h-full"
               >
                 <div
-                  className="border border-neutral-800/80 rounded-3xl p-7 flex flex-col justify-between hover:border-neutral-700 hover:shadow-xl transition-all duration-300 relative group shadow-md backdrop-blur-md h-full"
+                  className="border border-neutral-800/80 rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex flex-col justify-between hover:border-neutral-700 hover:shadow-xl transition-all duration-300 relative group shadow-md backdrop-blur-md h-full"
                   style={{ backgroundColor: 'rgba(10, 13, 14, 0.85)' }}
                 >
                   <div>

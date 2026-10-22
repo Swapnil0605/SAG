@@ -232,33 +232,33 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </div>
 
             {/* Top Indicator Beacon */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>COMMAND CHANNELS // DEFENCE PROCUREMENT</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-6 max-w-full">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+              <span className="truncate">COMMAND CHANNELS // DEFENCE PROCUREMENT</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-neutral-950 mb-6 leading-[1.08]">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-neutral-950 mb-6 leading-[1.12]">
               CONTACT <span className="text-red-600">SAG AEROSPACE AND DEFENCE PVT LTD</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl mx-auto font-normal">
+            <p className="text-sm sm:text-base md:text-lg text-neutral-600 leading-relaxed max-w-2xl mx-auto font-normal">
               Direct mission liaison for armed forces directorates, security agencies, global allies, and aerospace technology partners.
             </p>
 
             {/* Telemetry Pills */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono">
-              <div className="px-3.5 py-1.5 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-800 font-semibold flex items-center gap-2">
-                <Building className="w-3.5 h-3.5 text-neutral-500" />
+            <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 text-[11px] sm:text-xs font-mono">
+              <div className="px-3 py-1.5 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-800 font-semibold flex items-center gap-1.5 sm:gap-2">
+                <Building className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
                 <span>HQ: BENGALURU, INDIA</span>
               </div>
-              <div className="px-3.5 py-1.5 rounded-lg bg-red-50 border border-red-200 text-red-700 font-semibold flex items-center gap-2">
-                <Lock className="w-3.5 h-3.5 text-red-600" />
+              <div className="px-3 py-1.5 rounded-lg bg-red-50 border border-red-200 text-red-700 font-semibold flex items-center gap-1.5 sm:gap-2">
+                <Lock className="w-3.5 h-3.5 text-red-600 shrink-0" />
                 <span>ENCRYPTED DIRECT LIAISON</span>
               </div>
-              <div className="px-3.5 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold flex items-center gap-2">
-                <Shield className="w-3.5 h-3.5 text-emerald-600" />
+              <div className="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold flex items-center gap-1.5 sm:gap-2">
+                <Shield className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>IDDM / ATMANIRBHAR BHARAT</span>
               </div>
             </div>
@@ -269,17 +269,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       {/* =========================================================================
           2. PRIMARY INTERACTIVE BRIEFING FORM & DIRECT CHANNELS GRID (WHITE BACKGROUND)
           ========================================================================= */}
-      <section className="relative w-full bg-white border-b border-neutral-200 py-16 sm:py-20 select-none">
+      <section className="relative w-full bg-white border-b border-neutral-200 py-12 sm:py-20 select-none">
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
             {/* Left Column (7 cols): Formal Technical Briefing Form */}
-            <div className="lg:col-span-7 bg-white border border-neutral-200 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
-              <div className="mb-8">
+            <div className="lg:col-span-7 bg-white border border-neutral-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl relative overflow-hidden">
+              <div className="mb-6 sm:mb-8">
                 <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-red-600 block mb-2">
                   OFFICIAL ENGAGEMENT
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-black uppercase text-neutral-950 tracking-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-black uppercase text-neutral-950 tracking-tight">
                   REQUEST TECHNICAL BRIEFING
                 </h2>
                 <p className="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
@@ -518,7 +518,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             <div className="lg:col-span-5 space-y-6">
 
               {/* Card 1: Registered Headquarters & Map */}
-              <div className="bg-white border border-neutral-200 rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+              <div className="bg-white border border-neutral-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-xl relative overflow-hidden">
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-[11px] font-mono font-bold tracking-widest uppercase text-red-600">
                     HEADQUARTERS &amp; R&amp;D
@@ -590,7 +590,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </div>
 
               {/* Card 2: Direct Communications */}
-              <div className="bg-white border border-neutral-200 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
+              <div className="bg-white border border-neutral-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-xl space-y-4">
                 <span className="text-[11px] font-mono font-bold tracking-widest uppercase text-emerald-700 block mb-1">
                   SECURE COMMUNICATIONS
                 </span>

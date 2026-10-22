@@ -51,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Creating world class defence and aerospace products from Bharat for the world through indigenous engineering, disciplined innovation, and uncompromising reliability.
             </p>
 
-            <div className="pt-2 flex items-center gap-3 text-[12px] font-mono">
+            <div className="pt-2 flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] font-mono">
               <span className="px-3 py-1 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-800 shadow-xs font-semibold">
                 MAKE IN INDIA
               </span>

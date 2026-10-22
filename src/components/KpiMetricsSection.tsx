@@ -40,14 +40,14 @@ export const KpiMetricsSection: React.FC = () => {
   return (
     <section className="relative w-full bg-white text-neutral-900 border-y border-neutral-200 py-12 sm:py-16 md:py-20 overflow-hidden select-none">
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10 lg:gap-12 items-center">
           {KPI_DATA.map((kpi, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.08} yOffset={20}>
               <div className="flex flex-col group">
                 {/* Metric Value & Badges */}
-                <div className="flex items-center flex-wrap gap-2 sm:gap-2.5">
+                <div className="flex items-center flex-wrap gap-1.5 sm:gap-2.5">
                   <span
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black tracking-tight leading-none group-hover:text-red-600 transition-colors duration-300"
+                    className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black tracking-tight leading-none group-hover:text-red-600 transition-colors duration-300"
                     style={{ color: '#030389' }}
                   >
                     {kpi.value}

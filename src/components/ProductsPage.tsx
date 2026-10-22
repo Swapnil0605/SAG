@@ -607,7 +607,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             {/* Massive Bold Heading in Caps */}
             <Perspective3DReveal
               tag="h1"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black uppercase tracking-tight text-neutral-950 leading-[1.08] mb-6"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black uppercase tracking-tight text-neutral-950 leading-[1.12] mb-6"
             >
               BUILT FOR THE MISSION.
             </Perspective3DReveal>

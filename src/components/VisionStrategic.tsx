@@ -7,7 +7,7 @@ export const VisionStrategic: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative text-slate-100 py-24 md:py-32 overflow-hidden"
+      className="relative text-slate-100 py-16 sm:py-24 md:py-32 overflow-hidden"
       style={{ backgroundColor: 'rgb(10, 13, 14)' }}
     >
       <div id="vision" className="absolute top-24 pointer-events-none" />
@@ -17,7 +17,6 @@ export const VisionStrategic: React.FC = () => {
           className="w-full h-full bg-cover bg-center bg-no-repeat opacity-95 filter contrast-110 brightness-105"
           style={{
             backgroundImage: "url('/images/bg/altitude-contrail.jpg')",
-            backgroundAttachment: 'fixed',
           }}
         />
         {/* Soft RGB(10, 13, 14) overlay so contrail is clearly visible */}
@@ -27,7 +26,7 @@ export const VisionStrategic: React.FC = () => {
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6">
         {/* Top Tag */}
         <ScrollReveal direction="left" distance={30} blur={4}>
-          <div className="mb-4">
+          <div className="mb-3 sm:mb-4">
             <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-sky-400 block">
               WHY WE EXIST
             </span>
@@ -36,13 +35,13 @@ export const VisionStrategic: React.FC = () => {
 
         {/* Section Headline */}
         <ScrollReveal delay={0.1} direction="left" distance={40}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-tight leading-[1.08] text-white max-w-4xl mb-14 sm:mb-20">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-tight leading-[1.1] sm:leading-[1.08] text-white max-w-4xl mb-10 sm:mb-16 md:mb-20">
             The battlefield changes in weeks. Defence technology still takes years.
           </h2>
         </ScrollReveal>
 
         {/* 3 Columns with blue top dividing lines */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-14 sm:mb-18">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mb-10 sm:mb-18">
           {[
             {
               title: 'Drones have rewritten the battlefield.',

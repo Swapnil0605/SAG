@@ -117,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <img
             src="/sag-logo-new.png"
             alt="SAG Aerospace and Defence Pvt Ltd"
-            className="h-14 sm:h-16 md:h-[70px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-11 sm:h-14 md:h-[65px] lg:h-[70px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
@@ -183,8 +183,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Desktop Dropdown Flyout Panel */}
             {desktopDropdownOpen && (
               <div
-                className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
-                style={{ width: '560px' }}
+                className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200 w-[560px] max-w-[calc(100vw-2rem)]"
               >
                 <div className="bg-white rounded-2xl border border-neutral-200 shadow-2xl p-4 overflow-hidden">
                   {/* 2-Column Grid of Products */}
@@ -284,7 +283,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden absolute top-full left-0 w-full border-b border-neutral-200 px-6 py-6 z-50 shadow-lg max-h-[85vh] overflow-y-auto"
+          className="md:hidden absolute top-full left-0 w-full border-b border-neutral-200 px-4 sm:px-6 py-5 sm:py-6 z-50 shadow-lg max-h-[85vh] overflow-y-auto"
           style={{ backgroundColor: 'rgb(255, 255, 255)' }}
         >
           <div className="flex flex-col space-y-3">

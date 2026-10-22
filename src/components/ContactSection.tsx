@@ -103,22 +103,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
           </div>
 
           {/* Main Title */}
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-tight mb-5">
+          <h2 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-tight mb-5">
             <span className="text-white drop-shadow-sm">GET IN </span>
             <span className="text-white drop-shadow-sm">TOUCH</span>
           </h2>
 
           {/* Subtitle Description */}
-          <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed mb-10">
+          <p className="text-sm sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed mb-8 sm:mb-10">
             Have questions, partnership proposals, or product enquiries? Reach out to our team directly.
           </p>
 
           {/* Two CTA Action Buttons with matching brand colors */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 mb-10 sm:mb-12 w-full max-w-xs sm:max-w-none mx-auto">
             <button
               type="button"
               onClick={handleCtaClick}
-              className="bg-red-600 hover:bg-red-500 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-xl shadow-red-600/30 hover:shadow-red-600/50 transition-all duration-200 hover:scale-105 cursor-pointer"
+              className="w-full sm:w-auto text-center justify-center bg-red-600 hover:bg-red-500 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-xl shadow-red-600/30 hover:shadow-red-600/50 transition-all duration-200 hover:scale-105 cursor-pointer"
             >
               Enquire Now
             </button>
@@ -129,7 +129,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                 e.preventDefault();
                 onNavigate?.('contact');
               }}
-              className="bg-neutral-900 hover:bg-neutral-800 text-white font-semibold text-sm sm:text-base px-8 py-3.5 rounded-xl border border-neutral-700 transition-all duration-200 hover:scale-105 shadow-sm cursor-pointer"
+              className="w-full sm:w-auto text-center justify-center bg-neutral-900 hover:bg-neutral-800 text-white font-semibold text-sm sm:text-base px-8 py-3.5 rounded-xl border border-neutral-700 transition-all duration-200 hover:scale-105 shadow-sm cursor-pointer"
             >
               Contact Us
             </a>
@@ -137,7 +137,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
 
           {/* Sovereign Motto Accent */}
           <div className="flex items-center justify-center">
-            <span className="text-sm sm:text-base text-red-500 font-bold tracking-military uppercase">
+            <span className="text-xs sm:text-base text-red-500 font-bold tracking-military uppercase">
               DEFEND • DETER • LEAD
             </span>
           </div>
@@ -146,7 +146,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
 
       {/* Briefing Request Modal Popup */}
       {isFormModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md">
           {/* Backdrop click to close */}
           <div
             className="fixed inset-0"
@@ -154,24 +154,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             aria-hidden="true"
           />
 
-          <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0d0d10] border border-neutral-800 rounded-3xl p-6 sm:p-10 shadow-2xl text-slate-100">
+          <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0d0d10] border border-neutral-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-2xl text-slate-100">
             {/* Modal Header */}
-            <div className="flex items-center justify-between pb-5 mb-6 border-b border-neutral-800">
-              <div>
+            <div className="flex items-center justify-between pb-4 sm:pb-5 mb-5 sm:mb-6 border-b border-neutral-800">
+              <div className="pr-3">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                  <span className="text-xs font-mono uppercase text-slate-300 font-semibold tracking-wider">
+                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse shrink-0" />
+                  <span className="text-[10px] sm:text-xs font-mono uppercase text-slate-300 font-semibold tracking-wider">
                     TECHNICAL BRIEFING FORM
                   </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                <h3 className="text-lg sm:text-2xl font-bold text-white">
                   Request Platform Dossier &amp; Trials
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsFormModalOpen(false)}
-                className="p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                className="p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-slate-400 hover:text-white transition-colors cursor-pointer shrink-0"
                 aria-label="Close form modal"
               >
                 <X className="w-5 h-5" />
@@ -179,10 +179,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
 
             {submitted ? (
-              <div className="py-12 text-center">
-                <CheckCircle className="w-14 h-14 text-emerald-400 mx-auto mb-4" />
-                <h4 className="text-xl font-bold text-white mb-2">Briefing Request Transmitted</h4>
-                <p className="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed">
+              <div className="py-10 sm:py-12 text-center">
+                <CheckCircle className="w-12 h-12 sm:w-14 sm:h-14 text-emerald-400 mx-auto mb-4" />
+                <h4 className="text-lg sm:text-xl font-bold text-white mb-2">Briefing Request Transmitted</h4>
+                <p className="text-xs sm:text-sm text-slate-300 max-w-sm mx-auto leading-relaxed">
                   Thank you. Our defense liaison unit will review your transmission and initiate contact via verified secure channels.
                 </p>
               </div>
@@ -300,17 +300,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                   />
                 </div>
 
-                <div className="pt-2 flex items-center justify-end gap-3">
+                <div className="pt-2 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-3">
                   <button
                     type="button"
                     onClick={() => setIsFormModalOpen(false)}
-                    className="px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-slate-300 text-xs font-semibold border border-neutral-800 transition-colors cursor-pointer"
+                    className="px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-slate-300 text-xs font-semibold border border-neutral-800 transition-colors cursor-pointer text-center"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 bg-red-600 hover:bg-red-500 text-white font-semibold text-xs py-3 rounded-xl transition-all duration-200 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 cursor-pointer"
+                    className="flex-1 sm:flex-none px-6 bg-red-600 hover:bg-red-500 text-white font-semibold text-xs py-3 rounded-xl transition-all duration-200 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-3.5 h-3.5 text-white" />
                     <span>Transmit Briefing Request</span>

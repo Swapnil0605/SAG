@@ -27,6 +27,8 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate }) => {
   const [activeCap, setActiveCap] = useState<number | null>(2);
   const [activeSector, setActiveSector] = useState<number | null>(null);
+  const [mobileMissionOpen, setMobileMissionOpen] = useState(false);
+  const [mobileVisionOpen, setMobileVisionOpen] = useState(false);
 
   // Join the Team Modal State
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
@@ -346,17 +348,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
               </div>
             </ScrollReveal>
 
-            {/* Massive Bold Heading in Caps & Slightly Smaller */}
+            {/* Massive Bold Heading in Caps & Scaled for Mobile */}
             <Perspective3DReveal
               tag="h1"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black uppercase tracking-tight text-neutral-950 leading-[1.08] mb-6"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black uppercase tracking-tight text-neutral-950 leading-[1.12] mb-6"
             >
               WE EXIST SO INDIA&apos;S FORCES NEVER WAIT FOR TECHNOLOGY.
             </Perspective3DReveal>
 
             {/* Subtitle / Tagline matching Home Page Tagline */}
             <ScrollReveal delay={0.15} yOffset={20}>
-              <p className="text-base sm:text-lg md:text-xl text-neutral-600 font-medium leading-relaxed max-w-3xl mb-8">
+              <p className="text-sm sm:text-lg md:text-xl text-neutral-600 font-medium leading-relaxed max-w-3xl mb-8">
                 Warfare now changes in weeks. We build the systems that keep up — supersonic
                 strike, rapid air defence and layered counter-drone shields. Designed, built
                 and improved in India, at startup speed.
@@ -380,13 +382,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
       </section>
 
       {/* Main Content Body */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-20 sm:pb-32">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-24 pb-16 sm:pb-32">
 
         {/* =========================================================================
-            2. STRATEGIC MISSION & VISION (INTERACTIVE HOVER-REVEAL DISPLAY)
+            2. STRATEGIC MISSION & VISION (INTERACTIVE HOVER/TAP DISPLAY)
             ========================================================================= */}
         <section className="relative">
-          <div className="mb-10">
+          <div className="mb-8 sm:mb-10">
             <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-red-500 block mb-2">
               FOUNDATIONAL PURPOSE
             </span>
@@ -395,51 +397,52 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
             {/* 1. OUR MISSION CARD */}
             <ScrollReveal delay={0.1} yOffset={30} className="h-full">
               <div
                 tabIndex={0}
-                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-orange-500/70 rounded-3xl p-7 sm:p-10 shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer select-none focus:outline-none"
+                onClick={() => setMobileMissionOpen((prev) => !prev)}
+                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-orange-500/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer select-none focus:outline-none"
               >
                 {/* Ambient glow accent */}
                 <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full pointer-events-none blur-3xl opacity-20 bg-orange-500 group-hover:opacity-35 transition-opacity duration-500" />
 
                 {/* Animated Masthead: Moves upward and scales down on hover */}
-                <div className="flex items-center gap-5 sm:gap-6 transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2 group-hover:scale-[0.88] origin-top-left">
+                <div className="flex items-center gap-4 sm:gap-6 transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2 group-hover:scale-[0.88] origin-top-left">
                   {/* Vertical Orange Icon Block with Target/Bullseye */}
-                  <div className="w-14 sm:w-16 h-24 sm:h-28 rounded-2xl bg-[#ea580c] flex items-center justify-center p-3 text-white shadow-xl shadow-orange-950/60 flex-shrink-0 group-hover:shadow-orange-500/40 transition-shadow">
-                    <Target className="w-8 sm:w-9 h-8 sm:h-9 stroke-[2.3]" />
+                  <div className="w-12 sm:w-16 h-20 sm:h-28 rounded-xl sm:rounded-2xl bg-[#ea580c] flex items-center justify-center p-2.5 sm:p-3 text-white shadow-xl shadow-orange-950/60 flex-shrink-0 group-hover:shadow-orange-500/40 transition-shadow">
+                    <Target className="w-6 sm:w-9 h-6 sm:h-9 stroke-[2.3]" />
                   </div>
 
                   {/* Typography: "OUR" on top, "MISSION" below */}
                   <div className="flex flex-col justify-center">
-                    <span className="font-mono text-sm sm:text-base font-bold tracking-[0.28em] uppercase text-amber-200/90 mb-1">
+                    <span className="font-mono text-xs sm:text-base font-bold tracking-[0.28em] uppercase text-amber-200/90 mb-1">
                       OUR
                     </span>
-                    <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-[#fffffa] tracking-tight leading-none">
+                    <h3 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-[#fffffa] tracking-tight leading-none">
                       MISSION
                     </h3>
                   </div>
                 </div>
 
                 {/* Resting indicator hint */}
-                <div className="mt-5 flex items-center gap-2 text-[11px] font-mono text-emerald-400/60 group-hover:opacity-0 group-hover:max-h-0 transition-all duration-300">
+                <div className="mt-4 sm:mt-5 flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/75 group-hover:opacity-0 transition-opacity duration-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
-                  <span>HOVER TO REVEAL MANDATE</span>
+                  <span>TAP OR HOVER TO REVEAL MANDATE</span>
                 </div>
 
-                {/* Hidden content that smoothly reveals on hover */}
-                <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden">
+                {/* Content smoothly reveals on hover or tap */}
+                <div className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${mobileMissionOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] group-hover:grid-rows-[1fr]'}`}>
                   <div className="overflow-hidden min-h-0">
-                    <div className="pt-6 mt-4 border-t border-emerald-800/50 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100 ease-out space-y-4">
-                      <blockquote className="text-base sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-orange-500/80 pl-4">
+                    <div className={`pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 transition-all duration-500 delay-100 ease-out space-y-3 sm:space-y-4 ${mobileMissionOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0'}`}>
+                      <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-orange-500/80 pl-3 sm:pl-4">
                         “Build indigenous systems that soldiers can trust, adapt and even produce close to where they fight — from supersonic strike and air defence to drone factories, ground robots and counter-drone shields.”
                       </blockquote>
                       <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
                         We bridge the critical gap between conceptual defence R&amp;D and battlefield deployment. Combining rapid prototyping, sovereign software iteration, and frontline operational feedback, every system is engineered for decisive battlefield superiority.
                       </p>
-                      <div className="pt-3 flex items-center justify-between text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
+                      <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
                         <span>STANDARD: MIL-STD RIGOR</span>
                         <span className="font-bold text-amber-400">UNCOMPROMISING RELIABILITY</span>
                       </div>
@@ -453,46 +456,47 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             <ScrollReveal delay={0.2} yOffset={30} className="h-full">
               <div
                 tabIndex={0}
-                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-sky-400/70 rounded-3xl p-7 sm:p-10 shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer select-none focus:outline-none"
+                onClick={() => setMobileVisionOpen((prev) => !prev)}
+                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-sky-400/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer select-none focus:outline-none"
               >
                 {/* Ambient glow accent */}
                 <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full pointer-events-none blur-3xl opacity-20 bg-sky-500 group-hover:opacity-35 transition-opacity duration-500" />
 
                 {/* Animated Masthead: Moves upward and scales down on hover */}
-                <div className="flex items-center gap-5 sm:gap-6 transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2 group-hover:scale-[0.88] origin-top-left">
+                <div className="flex items-center gap-4 sm:gap-6 transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2 group-hover:scale-[0.88] origin-top-left">
                   {/* Vertical Sky Blue Icon Block with Lightbulb/Idea */}
-                  <div className="w-14 sm:w-16 h-24 sm:h-28 rounded-2xl bg-[#0284c7] flex items-center justify-center p-3 text-white shadow-xl shadow-sky-950/60 flex-shrink-0 group-hover:shadow-sky-400/40 transition-shadow">
-                    <Lightbulb className="w-8 sm:w-9 h-8 sm:h-9 stroke-[2.3]" />
+                  <div className="w-12 sm:w-16 h-20 sm:h-28 rounded-xl sm:rounded-2xl bg-[#0284c7] flex items-center justify-center p-2.5 sm:p-3 text-white shadow-xl shadow-sky-950/60 flex-shrink-0 group-hover:shadow-sky-400/40 transition-shadow">
+                    <Lightbulb className="w-6 sm:w-9 h-6 sm:h-9 stroke-[2.3]" />
                   </div>
 
                   {/* Typography: "OUR" on top, "VISION" below */}
                   <div className="flex flex-col justify-center">
-                    <span className="font-mono text-sm sm:text-base font-bold tracking-[0.28em] uppercase text-sky-200/90 mb-1">
+                    <span className="font-mono text-xs sm:text-base font-bold tracking-[0.28em] uppercase text-sky-200/90 mb-1">
                       OUR
                     </span>
-                    <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-[#fffffa] tracking-tight leading-none">
+                    <h3 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-[#fffffa] tracking-tight leading-none">
                       VISION
                     </h3>
                   </div>
                 </div>
 
                 {/* Resting indicator hint */}
-                <div className="mt-5 flex items-center gap-2 text-[11px] font-mono text-emerald-400/60 group-hover:opacity-0 group-hover:max-h-0 transition-all duration-300">
+                <div className="mt-4 sm:mt-5 flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/75 group-hover:opacity-0 transition-opacity duration-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-                  <span>HOVER TO REVEAL MANDATE</span>
+                  <span>TAP OR HOVER TO REVEAL MANDATE</span>
                 </div>
 
-                {/* Hidden content that smoothly reveals on hover */}
-                <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden">
+                {/* Content smoothly reveals on hover or tap */}
+                <div className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${mobileVisionOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] group-hover:grid-rows-[1fr]'}`}>
                   <div className="overflow-hidden min-h-0">
-                    <div className="pt-6 mt-4 border-t border-emerald-800/50 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100 ease-out space-y-4">
-                      <blockquote className="text-base sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-sky-400/80 pl-4">
+                    <div className={`pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 transition-all duration-500 delay-100 ease-out space-y-3 sm:space-y-4 ${mobileVisionOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0'}`}>
+                      <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-sky-400/80 pl-3 sm:pl-4">
                         “To make Bharat the place where the world's most adaptive defence technology is designed, built and improved — as fast as the battlefield changes.”
                       </blockquote>
                       <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
                         Closing the speed gap that traditional procurement cycles face. We envision a self-reliant, agile defence ecosystem where Indian armed forces wield unmatched sovereign technology at startup speed.
                       </p>
-                      <div className="pt-3 flex items-center justify-between text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
+                      <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
                         <span>DOCTRINE: ATMANIRBHAR BHARAT</span>
                         <span className="font-bold text-sky-400">SOVEREIGNTY FIRST</span>
                       </div>
@@ -725,7 +729,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                           setActiveSector(isActive ? null : idx);
                         }
                       }}
-                      className={`group relative h-[460px] sm:h-[500px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 flex flex-col justify-end p-6 sm:p-7 select-none border-2 ${
+                      className={`group relative h-[420px] xs:h-[460px] sm:h-[500px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 flex flex-col justify-end p-5 sm:p-7 select-none border-2 ${
                         isActive
                           ? 'border-[#030389] shadow-2xl shadow-[#030389]/25 scale-[1.01]'
                           : 'border-transparent hover:border-[#030389] shadow-lg hover:shadow-2xl'
@@ -881,7 +885,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
           </div>
 
           {/* Action CTA Buttons matching reference image */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-5">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-5 w-full max-w-xs sm:max-w-none">
             <button
               type="button"
               onClick={() => {
@@ -893,7 +897,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                   window.location.href = '/products';
                 }
               }}
-              className="px-8 py-4 rounded-full bg-[#E5252A] hover:bg-[#c91d22] text-white font-bold text-base sm:text-lg transition-all duration-300 shadow-xl shadow-red-600/30 hover:shadow-red-600/50 hover:scale-[1.02] active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto text-center justify-center px-8 py-3.5 sm:py-4 rounded-full bg-[#E5252A] hover:bg-[#c91d22] text-white font-bold text-base sm:text-lg transition-all duration-300 shadow-xl shadow-red-600/30 hover:shadow-red-600/50 hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               See Our Products
             </button>
@@ -901,7 +905,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             <button
               type="button"
               onClick={() => setIsJoinModalOpen(true)}
-              className="px-8 py-4 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-bold text-base sm:text-lg border border-white/30 hover:border-white/60 transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer shadow-lg"
+              className="w-full sm:w-auto text-center justify-center px-8 py-3.5 sm:py-4 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-bold text-base sm:text-lg border border-white/30 hover:border-white/60 transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer shadow-lg"
             >
               Join the Team
             </button>
@@ -911,14 +915,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
 
       {/* Join the Team / Careers Modal */}
       {isJoinModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-          <div className="relative w-full max-w-lg bg-[#0a1322] border border-red-600/40 rounded-3xl p-6 sm:p-8 text-white shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3.5 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+          <div className="relative w-full max-w-lg bg-[#0a1322] border border-red-600/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
             <button
               type="button"
               onClick={() => setIsJoinModalOpen(false)}
-              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-slate-300 hover:text-white transition-colors cursor-pointer"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-slate-300 hover:text-white transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             <div className="mb-6">

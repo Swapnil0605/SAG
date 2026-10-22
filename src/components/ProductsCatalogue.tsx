@@ -597,7 +597,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
             <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
               {/* Section Header on First Product */}
               {index === 0 && (
-                <div className="mb-14 sm:mb-20">
+                <div className="mb-10 sm:mb-16 md:mb-20">
                   <ScrollReveal yOffset={15} blur={4}>
                     <div className="mb-3">
                       <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-red-500 block">
@@ -607,7 +607,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                   </ScrollReveal>
 
                   <ScrollReveal delay={0.1} yOffset={20}>
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.95]">
+                    <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.96]">
                       <span className="text-white block drop-shadow-sm">Three systems that change</span>
                       <span className="text-white block drop-shadow-sm mt-1">how India defends itself.</span>
                     </h2>
@@ -747,9 +747,9 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                     </div>
 
                     {/* Massive Bold Platform Title + Hindi Script */}
-                    <div className="flex items-baseline gap-3 sm:gap-4 flex-wrap">
+                    <div className="flex items-baseline gap-2.5 sm:gap-4 flex-wrap">
                       <h3
-                        className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-none ${
+                        className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-none ${
                           isWhite ? '' : 'text-white'
                         }`}
                         style={isWhite ? { color: '#030389' } : undefined}
@@ -757,7 +757,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                         {item.title}
                       </h3>
                       <span
-                        className={`text-xl sm:text-2xl font-sans font-medium ${
+                        className={`text-lg sm:text-2xl font-sans font-medium ${
                           isWhite ? 'text-red-600' : 'text-red-500'
                         }`}
                       >
@@ -818,9 +818,9 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-wrap items-center gap-4 mt-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mt-6 sm:mt-8">
                       {item.inDevelopment && (
-                        <span className="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase border border-sky-400/80 text-sky-400 bg-sky-950/20">
+                        <span className="inline-flex items-center justify-center px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase border border-sky-400/80 text-sky-400 bg-sky-950/20 w-fit">
                           IN DEVELOPMENT
                         </span>
                       )}
@@ -833,7 +833,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                             handleOpenModal(item.productRef);
                           }
                         }}
-                        className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-mono font-bold text-xs tracking-wider uppercase px-7 py-3.5 transition-all shadow-md shadow-red-600/25 cursor-pointer"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white font-mono font-bold text-xs tracking-wider uppercase px-5 sm:px-7 py-3 sm:py-3.5 transition-all shadow-md shadow-red-600/25 cursor-pointer text-center"
                       >
                         <span>{item.exploreLabel || 'Explore System'}</span>
                         <span>→</span>
@@ -844,7 +844,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                           e.preventDefault();
                           onNavigate?.('contact', undefined, item.title);
                         }}
-                        className={`inline-flex items-center font-mono font-semibold text-xs tracking-wider uppercase px-7 py-3.5 transition-all border cursor-pointer ${
+                        className={`w-full sm:w-auto inline-flex items-center justify-center font-mono font-semibold text-xs tracking-wider uppercase px-5 sm:px-7 py-3 sm:py-3.5 transition-all border cursor-pointer text-center ${
                           isWhite
                             ? 'border-neutral-300 hover:border-neutral-900 text-neutral-900'
                             : 'border-neutral-700 hover:border-white text-white'
@@ -859,7 +859,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
 
               {/* Bottom Explore More CTA on Last Product */}
               {index === showcaseProducts.length - 1 && (
-                <div className="flex justify-end mt-12 sm:mt-16">
+                <div className="flex justify-center sm:justify-end mt-10 sm:mt-16">
                   <ScrollReveal delay={0.2} yOffset={20}>
                     <a
                       href="/products"
@@ -867,7 +867,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                         e.preventDefault();
                         onNavigate?.('products');
                       }}
-                      className="inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full font-mono text-xs sm:text-sm font-bold tracking-wider uppercase border-2 border-red-500 text-white hover:bg-red-600 bg-neutral-900/90 backdrop-blur-md transition-all duration-300 shadow-md shadow-red-600/20 hover:shadow-lg hover:shadow-red-600/40 hover:scale-105 group cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 rounded-full font-mono text-xs sm:text-sm font-bold tracking-wider uppercase border-2 border-red-500 text-white hover:bg-red-600 bg-neutral-900/90 backdrop-blur-md transition-all duration-300 shadow-md shadow-red-600/20 hover:shadow-lg hover:shadow-red-600/40 hover:scale-105 group cursor-pointer text-center"
                     >
                       <span>Explore More Systems</span>
                       <ArrowRight className="w-4 h-4 text-red-400 group-hover:text-white group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -882,17 +882,17 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
 
       {/* Technical Datasheet Modal (High-Tech, Clean, Tactical Dark) */}
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
-          <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#0d0d10] rounded-3xl shadow-2xl border border-neutral-800 overflow-hidden flex flex-col text-slate-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md">
+          <div className="relative w-full max-w-4xl max-h-[92vh] sm:max-h-[90vh] bg-[#0d0d10] rounded-2xl sm:rounded-3xl shadow-2xl border border-neutral-800 overflow-hidden flex flex-col text-slate-100">
             {/* Modal Header */}
-            <div className="px-6 py-4 border-b border-neutral-800 flex items-center justify-between bg-[#121217]">
-              <div className="flex items-center gap-3">
-                <span className={`w-2.5 h-2.5 rounded-full ${selectedProduct.accentTheme.dotBg} animate-pulse`} />
-                <div>
-                  <span className={`text-[10px] font-mono uppercase tracking-wider block font-bold ${selectedProduct.accentTheme.tagColor}`}>
+            <div className="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-neutral-800 flex items-center justify-between bg-[#121217]">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 pr-2">
+                <span className={`w-2.5 h-2.5 rounded-full ${selectedProduct.accentTheme.dotBg} animate-pulse flex-shrink-0`} />
+                <div className="min-w-0">
+                  <span className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-wider block font-bold truncate ${selectedProduct.accentTheme.tagColor}`}>
                     {selectedProduct.categoryLabel} // TECHNICAL SPECIFICATION
                   </span>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-base sm:text-xl font-bold text-white truncate">
                     {selectedProduct.name}
                   </h3>
                 </div>
@@ -900,7 +900,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
               <button
                 type="button"
                 onClick={() => setSelectedProduct(null)}
-                className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-neutral-800 transition-colors cursor-pointer"
+                className="p-1.5 sm:p-2 rounded-xl text-slate-400 hover:text-white hover:bg-neutral-800 transition-colors cursor-pointer flex-shrink-0"
                 aria-label="Close Modal"
               >
                 <X className="w-5 h-5" />
@@ -908,7 +908,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 overflow-y-auto space-y-6">
+            <div className="p-4 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6">
               {/* Product Gallery Switcher */}
               <div>
                 {/* 360 View / Photo Tab Toggle if video360 exists */}
@@ -1084,11 +1084,11 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
             </div>
 
             {/* Modal Footer */}
-            <div className="px-6 py-4 border-t border-neutral-800 bg-[#121217] flex flex-wrap items-center justify-between gap-3">
-              <span className="text-xs font-mono text-slate-400">
+            <div className="px-4 sm:px-6 py-3.5 sm:py-4 border-t border-neutral-800 bg-[#121217] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <span className="text-[11px] sm:text-xs font-mono text-slate-400">
                 SOVEREIGN INDIGENOUS PLATFORM // CLASSIFIED BRIEFINGS ON DEMAND
               </span>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                 <a
                   href={`/products#${selectedProduct.id}`}
                   onClick={(e) => {
@@ -1096,7 +1096,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                     setSelectedProduct(null);
                     onNavigate?.('products', `#${selectedProduct.id}`);
                   }}
-                  className="text-xs font-mono font-semibold px-4 py-2.5 rounded-xl border border-neutral-700 hover:border-red-500 text-neutral-200 hover:text-white transition-all cursor-pointer"
+                  className="w-full sm:w-auto text-center text-xs font-mono font-semibold px-4 py-2.5 rounded-xl border border-neutral-700 hover:border-red-500 text-neutral-200 hover:text-white transition-all cursor-pointer"
                 >
                   View Full Datasheet &rarr;
                 </a>
@@ -1107,7 +1107,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                     setSelectedProduct(null);
                     onNavigate?.('contact', undefined, selectedProduct.name);
                   }}
-                  className={`text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition-all shadow-md ${selectedProduct.accentTheme.dotBg} hover:opacity-90 cursor-pointer`}
+                  className={`w-full sm:w-auto text-center text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition-all shadow-md ${selectedProduct.accentTheme.dotBg} hover:opacity-90 cursor-pointer`}
                 >
                   Request Operational Demonstration
                 </a>
