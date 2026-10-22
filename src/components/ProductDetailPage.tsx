@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  ArrowLeft,
   CheckCircle2,
   Lock,
   Building2,
@@ -10,14 +9,14 @@ import { CATALOGUE_PRODUCTS, DetailedProduct } from '../data/productCatalogueDat
 
 interface ProductDetailPageProps {
   initialProductId?: string;
-  onBack: () => void;
+  onBack?: () => void;
   onNavigateContact?: (productTitle?: string) => void;
   onSelectProduct?: (productId: string) => void;
 }
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   initialProductId = 'sag-net-catcher',
-  onBack,
+  onBack: _onBack,
   onNavigateContact,
 }) => {
   const [currentId, setCurrentId] = useState<string>(initialProductId);
@@ -54,7 +53,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
       {/* =========================================================================
           1. HERO SECTION (100% FULL-WIDTH EDGE-TO-EDGE IMMERSIVE ARTWORK HERO - NOT A CARD)
           ========================================================================= */}
-      <section className="relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex flex-col justify-between border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
+      <section className="relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex flex-col justify-center border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
         {/* Full-Bleed Artwork Image Background across 100% viewport width */}
         <div className="absolute inset-0 z-0">
           <img
@@ -66,49 +65,21 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             }}
           />
           {/* Directional gradient on the left so the product on the center-right is fully uncovered and visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07090b] via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07090b] via-transparent to-black/25" />
         </div>
 
-        {/* Top Breadcrumb & Quick Switch Bar (Integrated smoothly inside Hero) */}
-        <div className="relative z-10 w-full border-b border-white/10 bg-black/40 backdrop-blur-md pt-24 sm:pt-28 pb-4">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-2.5 text-xs font-mono">
-                <button
-                  type="button"
-                  onClick={onBack}
-                  className="inline-flex items-center gap-1.5 text-neutral-300 hover:text-white transition-colors cursor-pointer group"
-                >
-                  <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
-                  <span>ALL PRODUCTS</span>
-                </button>
-                <span className="text-neutral-500">/</span>
-                <span className="text-neutral-300 uppercase">{product.category}</span>
-                <span className="text-neutral-500">/</span>
-                <span className="text-red-500 font-bold">{product.title}</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="px-3 py-1 rounded-full bg-emerald-950/70 border border-emerald-600/60 text-emerald-400 text-[11px] font-mono font-bold flex items-center gap-1.5 backdrop-blur-sm">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>{product.statusBadge}</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={onBack}
-                  className="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-neutral-200 hover:text-white transition-colors cursor-pointer backdrop-blur-sm"
-                >
-                  Return to Grid
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Center Content: Title, Tagline & Lead Description */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-20 my-auto">
+        {/* Center Content: Status Badge, Title, Tagline & Lead Description */}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 sm:py-28 pt-28 sm:pt-36">
           <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-4">
+            {/* Status Badge */}
+            {product.statusBadge && (
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-emerald-400 text-xs font-mono font-bold backdrop-blur-md mb-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>{product.statusBadge}</span>
+              </div>
+            )}
+
             <div>
               <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-tight drop-shadow-2xl">
                 {product.title}
