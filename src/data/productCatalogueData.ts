@@ -100,7 +100,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         title: 'RECOVER',
         phase: 'FORENSIC EXPLOITATION',
         desc: 'The captured drone falls safely to the ground for forensic analysis and exploitation.',
-        details: 'No blast shockwave. Onboard flight logs, SD cards, and firmware are recovered 100% intact.',
+        details: 'No blast shockwave. Onboard flight logs, SD cards and firmware are recovered 100% intact.',
       },
     ],
     specialSection: {
@@ -116,15 +116,15 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         },
         {
           title: 'Effective Against Multi-Rotor UAVs',
-          desc: 'Tested against fast-moving racing quads, commercial drones, and custom improvised multi-rotors.',
+          desc: 'Tested against fast-moving racing quads, commercial drones and custom improvised multi-rotors.',
         },
         {
           title: 'Non-Explosive Solution',
-          desc: 'Clean kinetic entwinement eliminates risks to nearby personnel, structures, and critical equipment.',
+          desc: 'Clean kinetic entwinement eliminates risks to nearby personnel, structures and critical equipment.',
         },
         {
           title: 'Enables Intelligence Recovery',
-          desc: 'Intact recovery preserves flight controller logs, GPS waypoints, and launch coordinate forensics.',
+          desc: 'Intact recovery preserves flight controller logs, GPS waypoints and launch coordinate forensics.',
         },
       ],
     },
@@ -143,7 +143,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       {
         name: 'Military Bases & Outposts',
         role: 'Perimeter defence & guard posts',
-        desc: 'Safeguards forward operating bases, vehicle parking bays, and arms stores from low-altitude snooping.',
+        desc: 'Safeguards forward operating bases, vehicle parking bays and arms stores from low-altitude snooping.',
       },
       {
         name: 'Critical Infrastructure',
@@ -220,7 +220,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       items: [
         {
           title: 'Anti-Personnel Precision Strike',
-          desc: 'Direct surgical engagement of fortified enemy positions, trenches, and defensive pillboxes.',
+          desc: 'Direct surgical engagement of fortified enemy positions, trenches and defensive pillboxes.',
         },
         {
           title: 'Anti-Armour Top Attack',
@@ -337,7 +337,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         },
         {
           title: 'Tactical Cargo Delivery',
-          desc: 'Rapid resupply of ammunition, blood units, and encrypted batteries to isolated frontline posts.',
+          desc: 'Rapid resupply of ammunition, blood units and encrypted batteries to isolated frontline posts.',
         },
         {
           title: 'Stabilised Day/Night ISR',
@@ -446,7 +446,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         },
         {
           title: 'Extreme High-Altitude Post Resupply',
-          desc: 'Carries heavy batteries, ammunition crates, and radio relays to snow-bound Himalayan outposts.',
+          desc: 'Carries heavy batteries, ammunition crates and radio relays to snow-bound Himalayan outposts.',
         },
         {
           title: 'Multi-Drone Net Launcher',
@@ -547,11 +547,11 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       items: [
         {
           title: 'Close-Quarter Urban Recon (3 km - 7 km)',
-          desc: 'Lightweight spools for building-to-building flight, tunnel penetration, and trench surveillance.',
+          desc: 'Lightweight spools for building-to-building flight, tunnel penetration and trench surveillance.',
         },
         {
           title: 'Frontline EW Contested Strike (10 km - 15 km)',
-          desc: 'Standard tactical strike perimeter against high-value jammers, radar arrays, and mobile headquarters.',
+          desc: 'Standard tactical strike perimeter against high-value jammers, radar arrays and mobile headquarters.',
         },
         {
           title: 'Deep Battlefield Interdiction (20 km - 30 km)',
@@ -582,7 +582,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       {
         name: 'Tunnel & Underground Reconnaissance',
         role: 'Subterranean exploration',
-        desc: 'Flies into concrete bunkers, cave systems, and drainage canals where radio waves cannot penetrate.',
+        desc: 'Flies into concrete bunkers, cave systems and drainage canals where radio waves cannot penetrate.',
       },
       {
         name: 'Covert Border Security',
@@ -623,7 +623,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         title: 'DEPLOY',
         phase: 'INSTANT LAUNCH',
         desc: 'VTOL launch; ready to fly in under 5 minutes from transport hardcase.',
-        details: 'Ruggedized all-weather carbon construction operates in rain, snow, and dense desert dust storms.',
+        details: 'Ruggedized all-weather carbon construction operates in rain, snow and dense desert dust storms.',
       },
       {
         num: '02',
@@ -764,7 +764,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       items: [
         {
           title: 'High-Altitude Forward Post Resupply',
-          desc: 'Delivers daily food rations, kerosene fuel containers, and artillery shells to snow-bound Himalayan posts.',
+          desc: 'Delivers daily food rations, kerosene fuel containers and artillery shells to snow-bound Himalayan posts.',
         },
         {
           title: 'Combat Casualty Medical Evacuation',
@@ -856,7 +856,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         num: '03',
         title: 'ASSIGN',
         phase: 'DISTRIBUTED AI TASKING',
-        desc: 'Onboard edge AI dynamically allocates search grids, target priority, and attack trajectories across the swarm.',
+        desc: 'Onboard edge AI dynamically allocates search grids, target priority and attack trajectories across the swarm.',
         details: 'No central ground control vulnerability; computation is distributed equally across all flying nodes.',
       },
       {
@@ -886,7 +886,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         },
         {
           title: 'Self-Organizing Formations',
-          desc: 'Adaptive V-shape, circular containment perimeter, and linear sweeping patterns managed automatically.',
+          desc: 'Adaptive V-shape, circular containment perimeter and linear sweeping patterns managed automatically.',
         },
       ],
     },
@@ -895,7 +895,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       { label: 'Compatible Platforms', value: 'RAZOR 10, RAZOR 15, RAZOR 18, SCOUT-X, SAG VTOL-250' },
       { label: 'Swarm Intelligence Architecture', value: 'Centralised, distributed, or hybrid edge AI' },
       { label: 'Autonomy Level', value: 'Assisted / semi-autonomous / fully autonomous operation' },
-      { label: 'Formation Modes', value: 'V-shape, line, circular, and adaptive dynamic clustering' },
+      { label: 'Formation Modes', value: 'V-shape, line, circular and adaptive dynamic clustering' },
       { label: 'Collision Avoidance', value: 'Microsecond inter-drone and obstacle avoidance algorithms' },
       { label: 'Task Allocation', value: 'Dynamic mission re-assignment in real-time' },
       { label: 'Strike Geometry', value: 'Simultaneous multi-directional: front, back, left, right, top' },
@@ -911,7 +911,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       {
         name: 'Armored Column Interdiction',
         role: 'Simultaneous multi-vehicle neutralisation',
-        desc: 'Destroys command vehicles, air defence radars, and supply tankers in a coordinated 10-second strike.',
+        desc: 'Destroys command vehicles, air defence radars and supply tankers in a coordinated 10-second strike.',
       },
       {
         name: 'Wide-Area Sector Reconnaissance',
@@ -952,7 +952,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         title: 'PLAN',
         phase: 'MISSION INITIALISATION',
         desc: 'Operator sets the mission parameters; onboard AI plans and optimizes route across rough terrain.',
-        details: 'Considers gradient slope, ground soil firmness, and terrain cover to minimize visual detection.',
+        details: 'Considers gradient slope, ground soil firmness and terrain cover to minimize visual detection.',
       },
       {
         num: '02',
@@ -1031,7 +1031,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       {
         name: 'Forward Infantry Platoon Resupply',
         role: 'Autonomous robotic mule',
-        desc: 'Carries heavy mortar ammunition, anti-tank missiles, and tactical water packs behind foot soldiers.',
+        desc: 'Carries heavy mortar ammunition, anti-tank missiles and tactical water packs behind foot soldiers.',
       },
     ],
   },
@@ -1061,7 +1061,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         num: '01',
         title: 'DETECT',
         phase: 'RADAR & OPTICAL CUE',
-        desc: 'A hostile loitering munition or strike drone is detected, classified, and tracked by tracking radar.',
+        desc: 'A hostile loitering munition or strike drone is detected, classified and tracked by tracking radar.',
         details: 'Multi-target search radar detects micro-RCS radar cross-section threats at ranges beyond 10 km.',
       },
       {
@@ -1083,7 +1083,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         title: 'INTERCEPT',
         phase: 'KINETIC FRAGMENTATION',
         desc: 'Radio-frequency proximity fuze detonates the pre-fragmented high-explosive warhead at intercept point.',
-        details: 'High-density tungsten fragment cloud ensures complete destruction of hostile wings, motors, and explosives.',
+        details: 'High-density tungsten fragment cloud ensures complete destruction of hostile wings, motors and explosives.',
       },
     ],
     specialSection: {
@@ -1105,7 +1105,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         },
         {
           title: 'Strategic Energy & Command Infrastructure',
-          desc: 'Forms an impenetrable close-in kinetic shield around refineries, government secretariats, and dams.',
+          desc: 'Forms an impenetrable close-in kinetic shield around refineries, government secretariats and dams.',
         },
       ],
     },
@@ -1134,7 +1134,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       {
         name: 'High-Risk Armored Convoys',
         role: 'Motorized column air escort',
-        desc: 'Protects fuel tankers, ammunition transports, and troop carriers from ambushes.',
+        desc: 'Protects fuel tankers, ammunition transports and troop carriers from ambushes.',
       },
       {
         name: 'Nuclear & Hydroelectric Plants',
@@ -1354,7 +1354,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       {
         name: 'Offshore Energy & Pipeline Protection',
         role: 'Subsea asset inspection',
-        desc: 'Inspects deepwater gas pipelines, internet cables, and drilling platforms for limpet mines.',
+        desc: 'Inspects deepwater gas pipelines, internet cables and drilling platforms for limpet mines.',
       },
       {
         name: 'Coast Guard Security Divisions',
@@ -1396,8 +1396,8 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         num: '02',
         title: 'SHARE',
         phase: 'LORA SQUAD MESH',
-        desc: 'Threat type, azimuth bearing, and GPS position are shared automatically across the squad mesh.',
-        details: 'Sub-gigahertz tactical LoRa mesh operates reliably in dense jungles, ravines, and concrete urban rubble.',
+        desc: 'Threat type, azimuth bearing and GPS position are shared automatically across the squad mesh.',
+        details: 'Sub-gigahertz tactical LoRa mesh operates reliably in dense jungles, ravines and concrete urban rubble.',
       },
       {
         num: '03',
@@ -1421,7 +1421,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       items: [
         {
           title: 'Continuous Wideband Spectrum (30 MHz - 6 GHz)',
-          desc: 'Catches non-standard frequencies, frequency-hopping controllers, and improvised analogue video signals.',
+          desc: 'Catches non-standard frequencies, frequency-hopping controllers and improvised analogue video signals.',
         },
         {
           title: 'Acoustic Harmonics Catch RF-Silent & Fibre Drones',
@@ -1481,10 +1481,10 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     categoryDomain: 'strike',
     tagline: 'PENETRATE | STRIKE | DOMINATE',
     leadDescription:
-      'Indigenous supersonic loitering munition — our flagship programme. Mach 1+ class, rotating detonation engine, and all-Indian sovereign aerospace design engineered to decisively reach tactical targets before they can relocate.',
+      'Indigenous supersonic loitering munition — our flagship programme. Mach 1+ class, rotating detonation engine and all-Indian sovereign aerospace design engineered to decisively reach tactical targets before they can relocate.',
     pillars: ['DEFEND', 'DETER', 'LEAD'],
-    heroImage: '/images/hero/hero-yamraj.webp',
-    heroImagePosition: 'center center',
+    heroImage: '/images/products/PROJECT YAMRAJ.webp',
+    heroImagePosition: '70% center',
     statusBadge: 'FLAGSHIP PROGRAMME · IN DEVELOPMENT',
     mottoQuote: 'CLOSING THE SPEED GAP. STRIKING WITHOUT WARNING.',
     telemetryBadges: [
@@ -1512,7 +1512,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         num: '03',
         title: 'AUTONOMOUS TERMINAL LOCK',
         phase: 'PRECISION SEEKER',
-        desc: 'Multispectral autonomous seeker acquires target even through smoke, camouflage, and jamming.',
+        desc: 'Multispectral autonomous seeker acquires target even through smoke, camouflage and jamming.',
         details: 'Onboard neural processor verifies target identity against stored 3D CAD military models.',
       },
       {
@@ -1611,7 +1611,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       title: 'THREE SPECIALIZED CONFIGURATIONS',
       subtitle: '(CONVOY, TRUCK & SITE DEFENCE)',
       description:
-        'KAVACH adapts across transport columns, individual logistics trucks, and static air-defence installations.',
+        'KAVACH adapts across transport columns, individual logistics trucks and static air-defence installations.',
       items: [
         {
           title: 'KAVACH-C (Convoy Node)',
@@ -1646,7 +1646,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       {
         name: 'Military Transport Convoys',
         role: 'Convoy escort and supply column defence',
-        desc: 'Protects logistics trucks, ammunition haulers, and troop transports on frontline highways.',
+        desc: 'Protects logistics trucks, ammunition haulers and troop transports on frontline highways.',
       },
       {
         name: 'Air Defence Batteries & Radars',
@@ -1674,7 +1674,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     categoryDomain: 'logistics',
     tagline: 'PRODUCE | REPAIR | SUSTAIN',
     leadDescription:
-      'Forward-deployed mobile drone factory and field spares workshop. Two 20-ft ISO modules bring rapid drone production, crash airframe repair, and scan-to-part manufacturing directly to forward army formations.',
+      'Forward-deployed mobile drone factory and field spares workshop. Two 20-ft ISO modules bring rapid drone production, crash airframe repair and scan-to-part manufacturing directly to forward army formations.',
     pillars: ['PRODUCE', 'REPAIR', 'SPEED'],
     heroImage: '/images/products/sag-nirman-army.webp',
     heroImagePosition: 'center center',
@@ -1698,15 +1698,15 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         num: '02',
         title: 'MODULE A: DRONE PRODUCTION',
         phase: 'AIRFRAME & ASSEMBLY',
-        desc: 'High-speed airframe printing, automated foam cutting, kit assembly, and functional test benches.',
+        desc: 'High-speed airframe printing, automated foam cutting, kit assembly and functional test benches.',
         details: 'Produces ≥30 FPV/ISR quads or ≥6 fixed-wing ISR drones per day across two 6-person shifts.',
       },
       {
         num: '03',
         title: 'MODULE B: FIELD SPARES',
         phase: 'SCAN-TO-PART WORKSHOP',
-        desc: '3D scanning, CAD/CAM, metal deposition, CNC finishing, heat treatment, and QA inspection.',
-        details: 'Manufactures replacement brackets, handles, covers, mounts, and bushings for vehicles and legacy equipment.',
+        desc: '3D scanning, CAD/CAM, metal deposition, CNC finishing, heat treatment and QA inspection.',
+        details: 'Manufactures replacement brackets, handles, covers, mounts and bushings for vehicles and legacy equipment.',
       },
       {
         num: '04',
@@ -1731,7 +1731,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         },
         {
           title: 'Field Spares for Armoured Vehicles',
-          desc: 'On-demand scan-to-part production of high-wear brackets, bushings, fittings, and covers for legacy fighting vehicles.',
+          desc: 'On-demand scan-to-part production of high-wear brackets, bushings, fittings and covers for legacy fighting vehicles.',
         },
         {
           title: 'Independent High-Altitude Operation',
@@ -1759,7 +1759,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       {
         name: 'Corps of EME Workshops',
         role: 'Rapid vehicle and weapon spares manufacturing',
-        desc: 'Produces obsolete or urgently needed mechanical brackets, bushings, and mounts on-site.',
+        desc: 'Produces obsolete or urgently needed mechanical brackets, bushings and mounts on-site.',
       },
       {
         name: 'High-Altitude Sectors (Ladakh & Sikkim)',
@@ -1777,7 +1777,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     categoryDomain: 'logistics',
     tagline: 'AIR-MOBILE | INTERCEPT | SUPPORT',
     leadDescription:
-      'Air-mobile drone factory and spares workshop for forward air stations. Produces base-defence interceptor drones, ISR quadcopters, low-cost aerial targets, and ground-support equipment (GSE) spares.',
+      'Air-mobile drone factory and spares workshop for forward air stations. Produces base-defence interceptor drones, ISR quadcopters, low-cost aerial targets and ground-support equipment (GSE) spares.',
     pillars: ['AIR-MOBILE', 'DEFEND', 'EXPEDITE'],
     heroImage: '/images/products/sag-nirman-airforce.webp',
     heroImagePosition: 'center center',
@@ -1801,14 +1801,14 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         num: '02',
         title: 'BASE DEFENCE PRODUCTION',
         phase: 'INTERCEPTORS & TARGETS',
-        desc: 'Module A fabricates CUAS interceptor quads, fixed-wing ISR drones, and aerial target airframes.',
+        desc: 'Module A fabricates CUAS interceptor quads, fixed-wing ISR drones and aerial target airframes.',
         details: 'Target designs include radar reflectors and scoring aids for aircrew and SAM crew live-fire drill.',
       },
       {
         num: '03',
         title: 'GSE & MAINTENANCE PARTS',
         phase: 'AIRFIELD SUPPORT',
-        desc: 'Module B manufactures flight-line GSE spares, custom brackets, protective caps, and servicing adaptors.',
+        desc: 'Module B manufactures flight-line GSE spares, custom brackets, protective caps and servicing adaptors.',
         details: 'Eliminates grounding of aircraft for minor ground support components and test fixture shortages.',
       },
       {
@@ -1816,7 +1816,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         title: 'CONTINUOUS SORTIE FLOW',
         phase: 'TACTICAL SUSTAINMENT',
         desc: 'Outputs ≥30 interceptor/ISR quads or ≥6 target drones per day to counter saturation drone strikes.',
-        details: 'Operates from −10°C to +50°C across desert, coastal, and forward staging airfields.',
+        details: 'Operates from −10°C to +50°C across desert, coastal and forward staging airfields.',
       },
     ],
     specialSection: {
@@ -1834,7 +1834,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         },
         {
           title: 'Ground Support Equipment (GSE) Parts',
-          desc: 'On-demand production of towbar adaptors, servicing fixtures, brackets, caps, and test cables.',
+          desc: 'On-demand production of towbar adaptors, servicing fixtures, brackets, caps and test cables.',
         },
         {
           title: 'Rapid Strategic Redeployment',
@@ -1902,28 +1902,28 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         num: '02',
         title: 'MODULE A: MARITIME DRONES',
         phase: 'MARITIME AIRFRAMES',
-        desc: 'Fabricates maritime ISR quadcopters, gunnery target drones, and fleet defence interceptors.',
+        desc: 'Fabricates maritime ISR quadcopters, gunnery target drones and fleet defence interceptors.',
         details: 'All airframes receive specialized marine salt-fog conformal coatings and water-resistant seals.',
       },
       {
         num: '03',
         title: 'MODULE B: SHIP REPLACEMENT PARTS',
         phase: 'PRECISION METAL FABRICATION',
-        desc: 'Deposits and machines 316L stainless steel, nickel-aluminium bronze, and Inconel 625 spares.',
-        details: 'Manufactures valve handwheels, pump impellers, flanges, pipe brackets, cable glands, and seals.',
+        desc: 'Deposits and machines 316L stainless steel, nickel-aluminium bronze and Inconel 625 spares.',
+        details: 'Manufactures valve handwheels, pump impellers, flanges, pipe brackets, cable glands and seals.',
       },
       {
         num: '04',
         title: 'MODULE C: LOGISTICS & COMMAND',
         phase: 'SECURE PARTS VAULT',
-        desc: 'Houses climate-controlled battery banks, bulk metal powders, and classified parts-library CAD server.',
+        desc: 'Houses climate-controlled battery banks, bulk metal powders and classified parts-library CAD server.',
         details: 'Operates up to Sea State 5 with shock and vibration isolation mounts protecting precision CNC tools.',
       },
     ],
     specialSection: {
       tag: 'BLUE-WATER SUSTAINMENT',
       title: '3-MODULE MARINISED SHIP SET (MODULES A, B & C)',
-      description: 'Engineered with full marine corrosion resistance, vibration damping, and deck lashing interfaces.',
+      description: 'Engineered with full marine corrosion resistance, vibration damping and deck lashing interfaces.',
       items: [
         {
           title: 'At-Sea Production Through Sea State 5',
@@ -1931,7 +1931,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         },
         {
           title: 'Marine Grade Alloys (316L & Inconel 625)',
-          desc: 'Produces seawater-contact parts including pump impellers, valve fittings, flanges, and piping brackets.',
+          desc: 'Produces seawater-contact parts including pump impellers, valve fittings, flanges and piping brackets.',
         },
         {
           title: 'Rapid Deployment to Island Territories',

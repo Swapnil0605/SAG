@@ -4,7 +4,7 @@ export const WhatsAppButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const phoneNumber = '919113867676';
   const defaultMessage = encodeURIComponent(
-    'Hello SAG Aerospace and Defence, I would like to enquire about your defence platforms and systems.'
+    'Hello SAG Aerospace and Defence Pvt Ltd, I would like to enquire about your defence platforms and systems.'
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
@@ -34,7 +34,7 @@ export const WhatsAppButton: React.FC = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="pointer-events-auto relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-xl shadow-[#25D366]/30 hover:shadow-[#25D366]/60 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
-        aria-label="Chat with SAG Aerospace and Defence on WhatsApp"
+        aria-label="Chat with SAG Aerospace and Defence Pvt Ltd on WhatsApp"
       >
         {/* Subtle Ambient Pulse Ring */}
         <span className="absolute inset-1 rounded-full bg-[#25D366]/30 animate-ping pointer-events-none opacity-75" />

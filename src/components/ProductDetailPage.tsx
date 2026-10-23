@@ -23,14 +23,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
-    if (initialProductId) {
-      if (CATALOGUE_PRODUCTS[initialProductId]) {
-        setCurrentId(initialProductId);
-      } else if (CATALOGUE_PRODUCTS[`sag-${initialProductId}`]) {
-        setCurrentId(`sag-${initialProductId}`);
-      } else if (CATALOGUE_PRODUCTS[initialProductId.replace(/^sag-/, '')]) {
-        setCurrentId(initialProductId.replace(/^sag-/, ''));
-      }
+    if (initialProductId && CATALOGUE_PRODUCTS[initialProductId]) {
+      setCurrentId(initialProductId);
     }
   }, [initialProductId]);
 
@@ -46,9 +40,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     CATALOGUE_PRODUCTS['yamraj'] ||
     CATALOGUE_PRODUCTS['sag-net-catcher'];
 
+
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello SAG Aerospace and Defence, I would like to request an official technical briefing and demonstration details for the ${product.title}.`
+      `Hello SAG Aerospace and Defence Pvt Ltd, I would like to request an official technical briefing and demonstration details for the ${product.title}.`
     );
     window.open(`https://wa.me/919113867676?text=${text}`, '_blank');
   };
@@ -56,11 +51,15 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   return (
     <div className="min-h-screen text-slate-100 font-sans selection:bg-red-600 selection:text-white bg-[#07090b] relative pb-28">
       {/* =========================================================================
-          1. HERO SECTION (100% FULL-WIDTH IMMERSIVE ARTWORK HERO ON DESKTOP; DEDICATED VISIBLE SHOWCASE ON MOBILE)
+          1. HERO SECTION
+             - Desktop/Tablet (md and above): 100% full-width edge-to-edge immersive background artwork hero
+             - Mobile (< md): Product text description first, with dedicated product image card below it
           ========================================================================= */}
-      <section className="relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex flex-col justify-center border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
-        {/* Desktop: Exact Full-Bleed Artwork Image Background across 100% viewport width */}
-        <div className="hidden lg:block absolute inset-0 z-0">
+
+      {/* --- DESKTOP HERO (md and above) --- */}
+      <section className="hidden md:flex relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex-col justify-center border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
+        {/* Full-Bleed Artwork Image Background across 100% viewport width */}
+        <div className="absolute inset-0 z-0">
           <img
             src={product.heroImage}
             alt={product.title}
@@ -74,8 +73,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-[#07090b] via-transparent to-black/25" />
         </div>
 
-        {/* Center Content: Status Badge, Title, Tagline, Mobile Showcase & Lead Description */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 sm:py-28 pt-28 sm:pt-36">
+        {/* Center Content: Status Badge, Title, Tagline & Lead Description */}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8 w-full py-28 pt-36">
           <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-4">
             {/* Status Badge */}
             {product.statusBadge && (
@@ -86,44 +85,70 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             )}
 
             <div>
-              <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-tight drop-shadow-2xl">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-tight drop-shadow-2xl">
                 {product.title}
               </h1>
-              <p className="text-sm sm:text-xl font-mono font-bold tracking-[0.22em] text-neutral-200 mt-3 uppercase drop-shadow">
+              <p className="text-lg sm:text-xl font-mono font-bold tracking-[0.22em] text-neutral-200 mt-3 uppercase drop-shadow">
                 {product.tagline}
               </p>
             </div>
 
-            {/* Mobile View: Dedicated Visible Product Showcase Frame (Hidden on desktop lg:) */}
-            <div className="block lg:hidden my-4 sm:my-6">
-              <div className="relative w-full aspect-[4/3] xs:aspect-[16/10] sm:aspect-[16/9] max-h-[320px] rounded-2xl border border-neutral-700/80 bg-gradient-to-b from-[#141920]/95 via-[#0c1015]/90 to-[#07090c]/95 backdrop-blur-md p-3 sm:p-4 shadow-xl overflow-hidden flex items-center justify-center">
-                {/* Tactical Reticles */}
-                <span className="absolute top-2 left-2 text-red-500/70 font-mono text-[10px] select-none pointer-events-none">+</span>
-                <span className="absolute top-2 right-2 text-red-500/70 font-mono text-[10px] select-none pointer-events-none">+</span>
-                <span className="absolute bottom-2 left-2 text-red-500/70 font-mono text-[10px] select-none pointer-events-none">+</span>
-                <span className="absolute bottom-2 right-2 text-red-500/70 font-mono text-[10px] select-none pointer-events-none">+</span>
-
-                {/* Radial spotlight behind product */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.22)_0%,rgba(15,23,42,0.45)_50%,transparent_75%)] pointer-events-none" />
-
-                {/* Product Image - Crisp and 100% visible on mobile */}
-                <img
-                  src={product.heroImage}
-                  alt={product.title}
-                  className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)] contrast-105 brightness-105 select-none"
-                  loading="eager"
-                />
-
-                {/* Bottom HUD Tag */}
-                <div className="absolute bottom-1.5 right-3 text-[9px] font-mono text-neutral-400 tracking-wider uppercase">
-                  SOVEREIGN IP // HD
-                </div>
-              </div>
-            </div>
-
-            <p className="text-xs sm:text-base md:text-lg text-neutral-200 leading-relaxed font-normal max-w-xl drop-shadow">
+            <p className="text-base md:text-lg text-neutral-200 leading-relaxed font-normal max-w-xl drop-shadow">
               {product.leadDescription}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* --- MOBILE HERO (< md) --- */}
+      <section className="block md:hidden w-full border-b border-neutral-800/80 bg-[#07090b] pt-24 pb-8 px-4">
+        <div className="max-w-md mx-auto space-y-5">
+          {/* Product Text Description on Top */}
+          <div className="space-y-3">
+            {/* Status Badge */}
+            {product.statusBadge && (
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-emerald-400 text-[11px] font-mono font-bold">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span>{product.statusBadge}</span>
+              </div>
+            )}
+
+            <div>
+              <h1 className="text-2xl xs:text-3xl font-black uppercase tracking-tight text-white leading-tight">
+                {product.title}
+              </h1>
+              <p className="text-xs font-mono font-bold tracking-[0.2em] text-neutral-300 mt-1.5 uppercase">
+                {product.tagline}
+              </p>
+            </div>
+
+            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
+              {product.leadDescription}
+            </p>
+          </div>
+
+          {/* Product Image Card Below Description */}
+          <div className="rounded-2xl overflow-hidden border border-neutral-800 bg-[#0d1117] shadow-2xl relative">
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/60 flex items-center justify-center">
+              <img
+                src={product.heroImage}
+                alt={product.title}
+                className="w-full h-full object-cover"
+                style={{
+                  objectPosition: product.heroImagePosition || 'center center',
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            {/* Tactical Card Footer */}
+            <div className="px-3.5 py-2.5 bg-[#0d1117] border-t border-neutral-800/80 flex items-center justify-between text-[10px] font-mono text-neutral-400">
+              <span className="flex items-center gap-1.5 text-neutral-300 font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
+                SOVEREIGN SYSTEM
+              </span>
+              <span className="text-neutral-500 uppercase tracking-wider">{product.num} // {product.categoryDomain || 'DEFENCE'}</span>
+            </div>
           </div>
         </div>
       </section>
@@ -131,7 +156,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
       {/* =========================================================================
           MAIN CONTENT AREA (SUBSEQUENT SECTIONS)
           ========================================================================= */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16 sm:space-y-24">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 md:py-24 space-y-10 sm:space-y-16 md:space-y-24">
 
         {/* =========================================================================
             2. HOW IT OPERATES - 4-STEP TACTICAL ENGAGEMENT SEQUENCE
@@ -344,7 +369,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               SCHEDULE A FIELD EVALUATION TRIAL
             </h2>
             <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
-              Direct technical liaisons available for armed forces command headquarters, paramilitary forces, homeland security departments, and authorized international partners.
+              Direct technical liaisons available for armed forces command headquarters, paramilitary forces, homeland security departments and authorized international partners.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">

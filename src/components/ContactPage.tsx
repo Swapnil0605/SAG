@@ -58,15 +58,15 @@ const FAQS = [
   },
   {
     q: 'Are all SAG platforms compliant with Make-in-India and IDDM guidelines?',
-    a: 'Yes. All SAG platforms, including airframes, encrypted avionics, flight-control firmware, and autonomous algorithms, are 100% indigenously designed, engineered, and fabricated in India under IDDM (Indigenously Designed, Developed, and Manufactured) provisions.',
+    a: 'Yes. All SAG platforms, including airframes, encrypted avionics, flight-control firmware and autonomous algorithms, are 100% indigenously designed, engineered and fabricated in India under IDDM (Indigenously Designed, Developed and Manufactured) provisions.',
   },
   {
     q: 'Can SAG customize payload mounts and optical sensors for specific operational requirements?',
-    a: 'Absolutely. We provide modular, customizable sensor and warhead interfaces (thermal/MWIR, daylight EO/IR, laser rangefinders, RF sniffers, and custom payloads) with rapid hardware-in-the-loop turnaround.',
+    a: 'Absolutely. We provide modular, customizable sensor and warhead interfaces (thermal/MWIR, daylight EO/IR, laser rangefinders, RF sniffers and custom payloads) with rapid hardware-in-the-loop turnaround.',
   },
   {
     q: 'What data security and non-disclosure protocols are maintained during briefings?',
-    a: 'All technical interactions, performance data sharing, and engineering exchanges are safeguarded under strict bilateral non-disclosure agreements (NDAs) and sovereign cryptographic compliance.',
+    a: 'All technical interactions, performance data sharing and engineering exchanges are safeguarded under strict bilateral non-disclosure agreements (NDAs) and sovereign cryptographic compliance.',
   },
 ];
 
@@ -152,6 +152,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [referenceId, setReferenceId] = useState('');
   const [copiedAddress, setCopiedAddress] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -173,13 +175,44 @@ export const ContactPage: React.FC<ContactPageProps> = ({
     setTimeout(() => setCopied(false), 2200);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    setTimeout(() => {
+    const generatedRefId = `SAG-LIAISON-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/contactus@sagdefaero.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          rank_or_designation: formData.rankOrTitle || 'N/A',
+          organization: formData.organization,
+          email: formData.email,
+          phone: formData.phone,
+          platform_of_interest: formData.platform,
+          nature_of_engagement: formData.engagementType,
+          operational_requirements: formData.message || 'No additional notes provided.',
+          reference_id: generatedRefId,
+          _subject: `New Technical Briefing Request: ${formData.platform} - ${formData.name}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server returned status ${response.status}`);
+      }
+
+      setReferenceId(generatedRefId);
       setIsSubmitting(false);
       setSubmitted(true);
+
       setTimeout(() => {
         setSubmitted(false);
         setFormData({
@@ -192,13 +225,19 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           engagementType: ENGAGEMENT_TYPES[0],
           message: '',
         });
-      }, 5000);
-    }, 1200);
+      }, 7000);
+    } catch (err: any) {
+      console.error('Form submission failed:', err);
+      setIsSubmitting(false);
+      setSubmitError(
+        'Submission temporarily unavailable over network. Please send directly to contactus@sagdefaero.com or contact us on WhatsApp.'
+      );
+    }
   };
 
   const handleWhatsAppClick = () => {
     const text = encodeURIComponent(
-      `Hello SAG Aerospace and Defence, my name is ${formData.name || 'an authorized representative'}${
+      `Hello SAG Aerospace and Defence Pvt Ltd, my name is ${formData.name || 'an authorized representative'}${
         formData.organization ? ` from ${formData.organization}` : ''
       }. I would like to request technical details regarding ${formData.platform}.`
     );
@@ -244,7 +283,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
             {/* Subtitle */}
             <p className="text-sm sm:text-base md:text-lg text-neutral-600 leading-relaxed max-w-2xl mx-auto font-normal">
-              Direct mission liaison for armed forces directorates, security agencies, global allies, and aerospace technology partners.
+              Direct mission liaison for armed forces directorates, security agencies, global allies and aerospace technology partners.
             </p>
 
             {/* Telemetry Pills */}
@@ -274,7 +313,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
             {/* Left Column (7 cols): Formal Technical Briefing Form */}
-            <div className="lg:col-span-7 bg-white border border-neutral-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl relative overflow-hidden">
+            <div className="lg:col-span-7 bg-white border border-neutral-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl relative overflow-hidden contact-right">
               <div className="mb-6 sm:mb-8">
                 <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-red-600 block mb-2">
                   OFFICIAL ENGAGEMENT
@@ -296,14 +335,49 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     TRANSMISSION RECEIVED
                   </h3>
                   <p className="text-xs sm:text-sm text-emerald-900/90 max-w-md mx-auto leading-relaxed mb-6 font-mono">
-                    Your briefing request has been logged into our secure command registry. A technical director will contact you through your verified channels.
+                    Your briefing request has been logged into our secure command registry and dispatched to <span className="font-bold underline text-emerald-950">contactus@sagdefaero.com</span>. A technical director will contact you through your verified channels.
                   </p>
                   <div className="text-[11px] font-mono text-neutral-600">
-                    REFERENCE ID: <span className="text-emerald-700 font-bold">SAG-LIAISON-{Math.floor(100000 + Math.random() * 900000)}</span>
+                    REFERENCE ID: <span className="text-emerald-700 font-bold">{referenceId || 'SAG-LIAISON-CONFIRMED'}</span>
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form
+                  id="contactForm"
+                  action="https://formsubmit.co/contactus@sagdefaero.com"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="space-y-5"
+                >
+                  {/* FormSubmit Configuration */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value={`Technical Briefing Request: ${formData.platform} - ${formData.name || 'New Request'}`}
+                  />
+                  <input type="hidden" name="reference_id" value={referenceId || 'SAG-LIAISON'} />
+                  <input type="hidden" name="nature_of_engagement" value={formData.engagementType} />
+
+                  {/* Submission Error Banner */}
+                  {submitError && (
+                    <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm font-sans flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-red-600 shrink-0 mt-1.5" />
+                      <div className="flex-1">
+                        <p className="font-bold mb-1">Transmission Alert</p>
+                        <p className="text-red-700 leading-relaxed mb-2">{submitError}</p>
+                        <a
+                          href={`mailto:contactus@sagdefaero.com?subject=Technical Briefing: ${encodeURIComponent(formData.platform)}&body=${encodeURIComponent(`Name: ${formData.name}\nOrganization: ${formData.organization}\nPhone: ${formData.phone}\nMessage: ${formData.message}`)}`}
+                          className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-red-700 underline hover:text-red-900"
+                        >
+                          <Mail className="w-3.5 h-3.5" />
+                          <span>Dispatch directly via mail client to contactus@sagdefaero.com</span>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Name & Title */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -313,6 +387,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       <div className="relative">
                         <input
                           type="text"
+                          name="name"
                           required
                           value={formData.name}
                           onChange={(e) =>
@@ -331,6 +406,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       </label>
                       <input
                         type="text"
+                        name="rank_or_designation"
                         value={formData.rankOrTitle}
                         onChange={(e) =>
                           setFormData({ ...formData, rankOrTitle: e.target.value })
@@ -350,6 +426,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       <div className="relative">
                         <input
                           type="text"
+                          name="organization"
                           required
                           value={formData.organization}
                           onChange={(e) =>
@@ -372,6 +449,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       <div className="relative">
                         <input
                           type="email"
+                          name="email"
                           required
                           value={formData.email}
                           onChange={(e) =>
@@ -393,6 +471,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <div className="relative">
                       <input
                         type="tel"
+                        name="phone"
                         required
                         value={formData.phone}
                         onChange={(e) =>
@@ -412,6 +491,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     </label>
                     <div className="relative">
                       <select
+                        name="platform_of_interest"
                         value={formData.platform}
                         onChange={(e) =>
                           setFormData({ ...formData, platform: e.target.value })
@@ -466,6 +546,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       Operational Requirements / Scope Brief
                     </label>
                     <textarea
+                      name="operational_requirements"
                       rows={4}
                       value={formData.message}
                       onChange={(e) =>
@@ -486,12 +567,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       {isSubmitting ? (
                         <>
                           <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>SUBMITTING...</span>
+                          <span>TRANSMITTING TO DISPATCH...</span>
                         </>
                       ) : (
                         <>
                           <Send className="w-4 h-4" />
-                          <span>SUBMIT</span>
+                          <span>TRANSMIT BRIEFING REQUEST</span>
                         </>
                       )}
                     </button>
@@ -508,7 +589,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
                   <div className="pt-2 text-[11px] font-mono text-neutral-500 flex items-center gap-2 justify-center">
                     <Lock className="w-3 h-3 text-neutral-400" />
-                    <span>All communications safeguarded under strict NDA &amp; sovereign defence protocols.</span>
+                    <span>Dispatched directly to contactus@sagdefaero.com under strict NDA &amp; sovereign defence protocols.</span>
                   </div>
                 </form>
               )}

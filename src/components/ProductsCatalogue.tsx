@@ -117,7 +117,7 @@ export const products: Product[] = [
     roleBadge: 'LAYERED CUAS PROTECTION',
     tagline: 'A shield that sees, acts and checks.',
     description:
-      'Layered counter-drone protection for Army convoys and air-defence sites. It spots the drone, blinds its camera with a laser out to 1 km, checks the result — and catches anything still coming with a net. It works even against fibre-optic drones that jammers can\'t touch.',
+      'Layered counter-drone protection for Army convoys and air-defence sites. It spots the drone, blinds its camera with a laser out to 1 km, checks the result and catches anything still coming with a net. It works even against fibre-optic drones that jammers can\'t touch.',
     image: '/images/products/sag-kavach.webp',
     gallery: ['/images/products/sag-kavach.webp'],
     accentTheme: {
@@ -153,7 +153,7 @@ export const products: Product[] = [
       'Blinds hostile drone optical cameras and seekers out to 1 km with laser dazzler',
       'Pneumatic 24-net launcher catches drones between 200–300 m with zero explosives',
       'Defeats fibre-optic FPV drones that bypass conventional radio jammers',
-      'Modular 3 configurations: Army convoy, logistics truck, and critical sites',
+      'Modular 3 configurations: Army convoy, logistics truck and critical sites',
     ],
   },
   {
@@ -167,7 +167,7 @@ export const products: Product[] = [
     roleBadge: 'KAMIKAZE STRIKE',
     tagline: 'Precision strike drone for contested electromagnetic zones.',
     description:
-      'Indigenous FPV combat drone engineered for terminal precision strike missions, delivering rapid response, high-impact kinetic defeat of armored targets, and battlefield dominance.',
+      'Indigenous FPV combat drone engineered for terminal precision strike missions, delivering rapid response, high-impact kinetic defeat of armored targets and battlefield dominance.',
     image: '/images/products/sag-razor-p1.png',
     gallery: [
       '/images/products/sag-razor-p1.png',
@@ -221,7 +221,7 @@ export const products: Product[] = [
     roleBadge: 'PERSISTENT BORDER ISR',
     tagline: 'GNSS denied multi mission border surveillance and route reconnaissance.',
     description:
-      'A persistent quadcopter platform delivering real time border surveillance, route reconnaissance, and counter infiltration intelligence with dual mode free flight and tethered power station operations.',
+      'A persistent quadcopter platform delivering real time border surveillance, route reconnaissance and counter infiltration intelligence with dual mode free flight and tethered power station operations.',
     image: '/images/products/scout-x.png',
     video360: '/video/products/scout-x-360.mp4',
     gallery: [
@@ -262,7 +262,7 @@ export const products: Product[] = [
       'Dual mode free flight & continuous 24-hour tethered station',
       '30× optical zoom with real time target coordinate geotagging',
       'Autonomous patrol grids with dynamic obstacle avoidance',
-      'IP67 rated for harsh rain, desert sand, and high altitude border snow',
+      'IP67 rated for harsh rain, desert sand and high altitude border snow',
     ],
   },
   {
@@ -276,7 +276,7 @@ export const products: Product[] = [
     roleBadge: 'LONG ENDURANCE VTOL',
     tagline: 'Runway independent strategic surveillance and tactical communications relay.',
     description:
-      'Heavy-duty hybrid-electric VTOL aircraft designed for high altitude border surveillance, tactical communications relay, and persistent multi sensor intelligence without requiring runways.',
+      'Heavy-duty hybrid-electric VTOL aircraft designed for high altitude border surveillance, tactical communications relay and persistent multi sensor intelligence without requiring runways.',
     image: '/images/products/aeron-a1.png',
     video360: '/video/products/aeron-360.mp4',
     gallery: [
@@ -366,7 +366,7 @@ export const products: Product[] = [
     },
     highlights: [
       'Under 7 seconds reaction time from detection to missile launch',
-      '2–5 km engagement range protecting convoys, airbases, and forward posts',
+      '2–5 km engagement range protecting convoys, airbases and forward posts',
       'Solid-propellant rapid ignition rocket motor with instant boost',
       'High-mobility pickup truck mounting keeps up with moving troop formations',
     ],
@@ -382,7 +382,7 @@ export const products: Product[] = [
     roleBadge: '100% UNJAMMABLE TETHER',
     tagline: 'Zero RF emission physical fiber datalink for contested EW environments.',
     description:
-      'Engineered for absolute survivability against hostile electronic warfare. Deploying a high tensile microfiber cable spool during flight completely eliminates RF jamming, spoofing, and direction finding while streaming uncompressed lossless 1080p video.',
+      'Engineered for absolute survivability against hostile electronic warfare. Deploying a high tensile microfiber cable spool during flight completely eliminates RF jamming, spoofing and direction finding while streaming uncompressed lossless 1080p video.',
     image: '/images/products/razor-ofc-1.png',
     gallery: [
       '/images/products/razor-ofc-1.png',
@@ -439,7 +439,7 @@ export const products: Product[] = [
     roleBadge: 'KINETIC CUAS INTERCEPTOR',
     tagline: 'High speed autonomous VTOL interceptor designed to hunt and neutralize hostile drones.',
     description:
-      'Counter Drone Interceptor UAV technology for mission-critical security. Designed to launch instantly and neutralize incoming enemy loitering munitions, FPV strikers, and reconnaissance UAVs through AI-based optical tracking and proximity detonation.',
+      'Counter Drone Interceptor UAV technology for mission-critical security. Designed to launch instantly and neutralize incoming enemy loitering munitions, FPV strikers and reconnaissance UAVs through AI-based optical tracking and proximity detonation.',
     image: '/images/products/sag-velocity.png',
     gallery: [
       '/images/products/sag-velocity.png',
@@ -557,7 +557,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
       title: 'SAG KAVACH',
       headline: 'A shield that sees, acts and checks.',
       description:
-        'Layered counter-drone protection for Army convoys and air-defence sites. It spots the drone, blinds its camera with a laser out to 1 km, checks the result — and catches anything still coming with a net. It works even against fibre-optic drones that jammers can\'t touch.',
+        'Layered counter-drone protection for Army convoys and air-defence sites. It spots the drone, blinds its camera with a laser out to 1 km, checks the result and catches anything still coming with a net. It works even against fibre-optic drones that jammers can\'t touch.',
       image: '/images/products/sag-kavach.webp',
       video360: undefined,
       inDevelopment: true,

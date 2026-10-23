@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 
 interface NavbarProps {
   currentPage?: 'home' | 'about' | 'contact' | 'products';
@@ -75,6 +75,25 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Lock background scrolling and attach ESC listener when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setMobileMenuOpen(false);
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = '';
+      };
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -272,21 +291,60 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Mobile Menu Button */}
         <button
           type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => setMobileMenuOpen(true)}
           className="md:hidden p-2 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-800 hover:text-red-600 hover:bg-neutral-200 focus:outline-none cursor-pointer transition-colors"
-          aria-label="Toggle Navigation"
+          aria-label="Open Navigation"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <Menu className="w-6 h-6" />
         </button>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
-      {mobileMenuOpen && (
+      {/* Mobile Off-Canvas Drawer matching reference screenshot */}
+      <div
+        className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
+          mobileMenuOpen ? 'pointer-events-auto opacity-100 visible' : 'pointer-events-none opacity-0 invisible'
+        }`}
+      >
+        {/* Backdrop Overlay */}
         <div
-          className="md:hidden absolute top-full left-0 w-full border-b border-neutral-200 px-4 sm:px-6 py-5 sm:py-6 z-50 shadow-lg max-h-[85vh] overflow-y-auto"
-          style={{ backgroundColor: 'rgb(255, 255, 255)' }}
+          className={`absolute inset-0 bg-neutral-950/60 backdrop-blur-xs transition-opacity duration-300 ${
+            mobileMenuOpen ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+
+        {/* Drawer Panel */}
+        <aside
+          className={`absolute inset-y-0 left-0 w-[84%] max-w-[340px] bg-white h-full flex flex-col justify-between shadow-2xl transition-transform duration-300 ease-out transform ${
+            mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
         >
-          <div className="flex flex-col space-y-3">
+          {/* Top Header: Brand Name + Circular Close Button */}
+          <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/sag-logo-new.png"
+                alt="SAG Aerospace and Defence Pvt Ltd"
+                className="h-8 w-auto object-contain"
+              />
+              <span className="font-extrabold text-neutral-900 tracking-wider uppercase text-xs sm:text-[13px] leading-tight">
+                SAG AEROSPACE &amp; DEFENCE
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer flex-shrink-0"
+              aria-label="Close navigation"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Navigation Links with dividers */}
+          <div className="flex-1 overflow-y-auto divide-y divide-slate-100">
+            {/* HOME */}
             <a
               href="/"
               onClick={(e) => {
@@ -294,16 +352,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onNavigate?.('home', '#home');
               }}
-              className={`text-[16px] transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100 ${
+              className={`block px-5 py-4 text-xs sm:text-[13px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
                 currentPage === 'home'
-                  ? 'font-bold text-red-600'
-                  : 'font-semibold text-neutral-800 hover:text-red-600'
+                  ? 'bg-red-50/80 text-red-600'
+                  : 'text-neutral-900 hover:bg-slate-50 hover:text-red-600'
               }`}
             >
-              <span>Home</span>
-              <ChevronRight className="w-4 h-4 text-neutral-400" />
+              HOME
             </a>
 
+            {/* ABOUT US */}
             <a
               href="/about"
               onClick={(e) => {
@@ -311,33 +369,35 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onNavigate?.('about');
               }}
-              className={`text-[16px] transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100 ${
+              className={`block px-5 py-4 text-xs sm:text-[13px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
                 currentPage === 'about'
-                  ? 'font-bold text-red-600'
-                  : 'font-semibold text-neutral-800 hover:text-red-600'
+                  ? 'bg-red-50/80 text-red-600'
+                  : 'text-neutral-900 hover:bg-slate-50 hover:text-red-600'
               }`}
             >
-              <span>About Us</span>
-              <ChevronRight className="w-4 h-4 text-neutral-400" />
+              ABOUT US
             </a>
 
-            {/* Mobile Products Accordion */}
-            <div className="border-b border-neutral-100 pb-1.5">
+            {/* PRODUCTS Accordion */}
+            <div>
               <button
                 type="button"
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                className="w-full text-[16px] font-semibold text-neutral-800 hover:text-red-600 transition-colors py-1.5 flex items-center justify-between cursor-pointer"
+                className={`w-full flex items-center justify-between px-5 py-4 text-xs sm:text-[13px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
+                  currentPage === 'products'
+                    ? 'text-red-600'
+                    : 'text-neutral-900 hover:bg-slate-50 hover:text-red-600'
+                }`}
               >
-                <span>Products &amp; Systems</span>
+                <span>PRODUCTS</span>
                 <ChevronDown
-                  className={`w-4 h-4 text-neutral-400 transition-transform duration-200 ${
+                  className={`w-4 h-4 text-neutral-500 transition-transform duration-200 ${
                     mobileProductsOpen ? 'rotate-180 text-red-600' : ''
                   }`}
                 />
               </button>
-
               {mobileProductsOpen && (
-                <div className="pl-3 pr-1 pt-2 pb-1 space-y-2 bg-neutral-50 rounded-xl my-1 border border-neutral-100">
+                <div className="bg-slate-50/80 px-4 py-2.5 space-y-2 border-t border-slate-100">
                   {PRODUCTS_LIST.map((prod) => (
                     <a
                       key={prod.name}
@@ -348,7 +408,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         setMobileProductsOpen(false);
                         onNavigate?.('products', prod.hash);
                       }}
-                      className="flex items-center gap-2.5 py-1.5 text-neutral-700 hover:text-red-600 transition-colors group cursor-pointer"
+                      className="flex items-center gap-2.5 py-1 text-neutral-700 hover:text-red-600 group cursor-pointer"
                     >
                       <div className="w-8 h-8 rounded bg-white border border-neutral-200 p-0.5 flex-shrink-0 flex items-center justify-center">
                         <img
@@ -358,7 +418,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <span className="text-[13px] font-bold text-neutral-900 group-hover:text-red-600 block truncate">
+                        <span className="text-xs font-bold text-neutral-900 group-hover:text-red-600 block truncate">
                           {prod.name}
                         </span>
                         <span className="text-[10px] text-neutral-500 block truncate">
@@ -385,6 +445,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
+            {/* CONTACT */}
             <a
               href="/contact"
               onClick={(e) => {
@@ -392,32 +453,33 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onNavigate?.('contact');
               }}
-              className={`text-[16px] transition-colors py-1.5 flex items-center justify-between border-b border-neutral-100 cursor-pointer ${
+              className={`block px-5 py-4 text-xs sm:text-[13px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
                 currentPage === 'contact'
-                  ? 'font-bold text-red-600'
-                  : 'font-semibold text-neutral-800 hover:text-red-600'
+                  ? 'bg-red-50/80 text-red-600'
+                  : 'text-neutral-900 hover:bg-slate-50 hover:text-red-600'
               }`}
             >
-              <span>Contact</span>
-              <ChevronRight className="w-4 h-4 text-neutral-400" />
+              CONTACT
             </a>
-
-            <div className="pt-3 flex flex-col gap-3">
-              <a
-                href="/contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false);
-                  onNavigate?.('contact');
-                }}
-                className="block text-center bg-red-600 hover:bg-red-700 text-white text-[16px] font-semibold py-3 rounded-xl shadow-md cursor-pointer"
-              >
-                Contact Us
-              </a>
-            </div>
           </div>
-        </div>
-      )}
+
+          {/* Bottom CTA Button */}
+          <div className="p-5 border-t border-slate-100 bg-white">
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                onNavigate?.('contact');
+              }}
+              className="w-full bg-[#E5252A] hover:bg-red-700 active:scale-[0.98] text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-1.5 uppercase text-xs sm:text-sm tracking-wide transition-all cursor-pointer"
+            >
+              <span>Contact Us</span>
+              <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+            </a>
+          </div>
+        </aside>
+      </div>
     </header>
   );
 };

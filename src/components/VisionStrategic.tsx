@@ -14,9 +14,10 @@ export const VisionStrategic: React.FC = () => {
       {/* High-Altitude Supersonic Contrail Background – Fixed Parallax */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ backgroundColor: 'rgb(10, 13, 14)' }}>
         <div
-          className="w-full h-full bg-cover bg-center bg-no-repeat opacity-95 filter contrast-110 brightness-105"
+          className="w-full h-full bg-cover bg-center bg-no-repeat bg-fixed opacity-95 filter contrast-110 brightness-105"
           style={{
             backgroundImage: "url('/images/bg/altitude-contrail.jpg')",
+            backgroundAttachment: 'fixed',
           }}
         />
         {/* Soft RGB(10, 13, 14) overlay so contrail is clearly visible */}
@@ -45,11 +46,11 @@ export const VisionStrategic: React.FC = () => {
           {[
             {
               title: 'Drones have rewritten the battlefield.',
-              desc: "FPV drones and UAVs now cause more losses than artillery in the Russia–Ukraine war, and they've made even main battle tanks and armoured platforms vulnerable.",
+              desc: "FPV drones and UAVs now cause more losses than artillery in the Russia–Ukraine war and they've made even main battle tanks and armoured platforms vulnerable.",
             },
             {
               title: 'New threats arrive in weeks.',
-              desc: 'Jam-resistant fibre-optic drones went from new to everywhere in weeks. Adopting new technology, and neutralising it, has to happen faster than the enemy can adapt.',
+              desc: 'Jam-resistant fibre-optic drones went from new to everywhere in weeks. Adopting new technology and neutralising it, has to happen faster than the enemy can adapt.',
             },
             {
               title: "Traditional air defence can't keep up.",

@@ -33,16 +33,48 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
   // Join the Team Modal State
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
   const [joinSubmitted, setJoinSubmitted] = useState(false);
+  const [isJoinSubmitting, setIsJoinSubmitting] = useState(false);
+  const [joinError, setJoinError] = useState<string | null>(null);
   const [joinForm, setJoinForm] = useState({ name: '', email: '', message: '' });
 
-  const handleJoinSubmit = (e: React.FormEvent) => {
+  const handleJoinSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setJoinSubmitted(true);
-    setTimeout(() => {
-      setJoinSubmitted(false);
-      setIsJoinModalOpen(false);
-      setJoinForm({ name: '', email: '', message: '' });
-    }, 2800);
+    setIsJoinSubmitting(true);
+    setJoinError(null);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/contactus@sagdefaero.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: joinForm.name,
+          email: joinForm.email,
+          role_or_expertise: joinForm.message,
+          _subject: `Careers & Collaboration Application: ${joinForm.name}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server returned status ${response.status}`);
+      }
+
+      setIsJoinSubmitting(false);
+      setJoinSubmitted(true);
+      setTimeout(() => {
+        setJoinSubmitted(false);
+        setIsJoinModalOpen(false);
+        setJoinForm({ name: '', email: '', message: '' });
+      }, 3500);
+    } catch (err: any) {
+      console.error('Join submit failed:', err);
+      setIsJoinSubmitting(false);
+      setJoinError('Submission failed over current network. Please email us directly at contactus@sagdefaero.com.');
+    }
   };
 
   // Infinite Carousel State for Sectors
@@ -94,7 +126,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
     {
       id: '01',
       title: 'Indian Army',
-      desc: 'FPV strike and ISR at the front, drone production in the field, and protection for convoys on mountain roads.',
+      desc: 'FPV strike and ISR at the front, drone production in the field and protection for convoys on mountain roads.',
       systems: 'Razor FPV • Nirman • Kavach • Vajra • Prahari',
       image: '/images/sectors/indian-army.webp',
       icon: Shield,
@@ -102,7 +134,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
     {
       id: '02',
       title: 'Indian Air Force',
-      desc: 'Faster, safer sortie generation on the airbase, and last-ditch protection for air-defence sites and airfields.',
+      desc: 'Faster, safer sortie generation on the airbase and last-ditch protection for air-defence sites and airfields.',
       systems: 'Vajra • Kavach • Doom MK-1 • Yamraj',
       image: '/images/sectors/indian-air-force.webp',
       icon: Plane,
@@ -110,7 +142,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
     {
       id: '03',
       title: 'Navy & Coast Guard',
-      desc: 'Mine clearance for harbours and sea lanes, and long-endurance watch over coastlines and creeks.',
+      desc: 'Mine clearance for harbours and sea lanes and long-endurance watch over coastlines and creeks.',
       systems: 'Trinetra • VTOL-250',
       image: '/images/sectors/navy-coast-guard.webp',
       icon: Anchor,
@@ -134,7 +166,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
     {
       id: '06',
       title: 'Disaster Relief',
-      desc: 'Delivering aid where roads are cut off, and producing parts on site for remote infrastructure.',
+      desc: 'Delivering aid where roads are cut off and producing parts on site for remote infrastructure.',
       systems: 'Hanuman 100 • Nirman',
       image: '/images/sectors/disaster-relief.webp',
       icon: LifeBuoy,
@@ -440,7 +472,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                         “Build indigenous systems that soldiers can trust, adapt and even produce close to where they fight — from supersonic strike and air defence to drone factories, ground robots and counter-drone shields.”
                       </blockquote>
                       <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
-                        We bridge the critical gap between conceptual defence R&amp;D and battlefield deployment. Combining rapid prototyping, sovereign software iteration, and frontline operational feedback, every system is engineered for decisive battlefield superiority.
+                        We bridge the critical gap between conceptual defence R&amp;D and battlefield deployment. Combining rapid prototyping, sovereign software iteration and frontline operational feedback, every system is engineered for decisive battlefield superiority.
                       </p>
                       <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
                         <span>STANDARD: MIL-STD RIGOR</span>
@@ -549,7 +581,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                 index: '03',
                 category: 'SOVEREIGNTY & IMPORT DEPENDENCY',
                 title: 'Too much is imported',
-                desc: 'Many systems in service are imported or single-role. India needs its own adaptable, multi-mission platforms — and the know-how behind them.',
+                desc: 'Many systems in service are imported or single-role. India needs its own adaptable, multi-mission platforms and the know-how behind them.',
                 tags: ['Import Dependence', 'Single-Role Systems', 'Multi-Mission Architecture', 'Indigenous Know-How'],
               },
               {
@@ -940,17 +972,48 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             {joinSubmitted ? (
               <div className="py-8 text-center flex flex-col items-center">
                 <CheckCircle className="w-12 h-12 text-emerald-400 mb-3" />
-                <h4 className="text-xl font-bold text-white mb-1">Message Received</h4>
-                <p className="text-sm text-slate-300">Our engineering command team will connect with you shortly.</p>
+                <h4 className="text-xl font-bold text-white mb-1">Application Transmitted</h4>
+                <p className="text-sm text-slate-300">
+                  Your profile has been forwarded to <span className="text-emerald-400 font-mono font-bold">contactus@sagdefaero.com</span>. Our engineering command team will connect with you shortly.
+                </p>
               </div>
             ) : (
-              <form onSubmit={handleJoinSubmit} className="space-y-4">
+              <form
+                id="careersForm"
+                action="https://formsubmit.co/contactus@sagdefaero.com"
+                method="POST"
+                onSubmit={handleJoinSubmit}
+                className="space-y-4"
+              >
+                {/* FormSubmit Config */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value={`Careers & Collaboration Application: ${joinForm.name || 'New Candidate'}`}
+                />
+
+                {joinError && (
+                  <div className="p-3.5 rounded-xl bg-red-950/70 border border-red-700/60 text-red-300 text-xs leading-relaxed">
+                    <p className="font-bold text-red-200 mb-1">Transmission Notice</p>
+                    <p className="mb-2">{joinError}</p>
+                    <a
+                      href="mailto:contactus@sagdefaero.com?subject=Join the Team Application"
+                      className="text-red-400 underline font-mono hover:text-white"
+                    >
+                      Click here to email your resume directly to contactus@sagdefaero.com
+                    </a>
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5">
-                    Your Name
+                    Your Name *
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     value={joinForm.name}
                     onChange={(e) => setJoinForm({ ...joinForm, name: e.target.value })}
@@ -960,10 +1023,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                 </div>
                 <div>
                   <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5">
-                    Email Address
+                    Email Address *
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     value={joinForm.email}
                     onChange={(e) => setJoinForm({ ...joinForm, email: e.target.value })}
@@ -973,9 +1037,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                 </div>
                 <div>
                   <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5">
-                    Role / Expertise or Message
+                    Role / Expertise or Message *
                   </label>
                   <textarea
+                    name="role_or_expertise"
                     rows={3}
                     required
                     value={joinForm.message}
@@ -988,9 +1053,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                 <div className="pt-2 flex flex-col sm:flex-row gap-3">
                   <button
                     type="submit"
-                    className="flex-1 py-3.5 px-6 rounded-xl bg-[#E5252A] hover:bg-[#c91d22] text-white font-bold transition-all duration-200 cursor-pointer shadow-lg shadow-red-600/30 text-sm"
+                    disabled={isJoinSubmitting}
+                    className="flex-1 py-3.5 px-6 rounded-xl bg-[#E5252A] hover:bg-[#c91d22] active:scale-[0.98] text-white font-bold transition-all duration-200 cursor-pointer shadow-lg shadow-red-600/30 text-sm flex items-center justify-center gap-2 disabled:opacity-50"
                   >
-                    Submit Application
+                    {isJoinSubmitting ? (
+                      <>
+                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Transmitting...</span>
+                      </>
+                    ) : (
+                      <span>Submit Application</span>
+                    )}
                   </button>
                   <a
                     href="mailto:contactus@sagdefaero.com?subject=Join the Team Application"

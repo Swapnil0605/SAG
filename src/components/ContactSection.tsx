@@ -17,6 +17,8 @@ interface ContactSectionProps {
 export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) => {
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     designation: '',
@@ -54,22 +56,58 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setIsFormModalOpen(false);
-      setFormData({
-        name: '',
-        designation: '',
-        organization: '',
-        email: '',
-        phone: '',
-        subject: 'Project Yamraj (Mach 1+ Supersonic Loitering Munition)',
-        message: '',
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/contactus@sagdefaero.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          designation_or_rank: formData.designation,
+          organization: formData.organization,
+          email: formData.email,
+          phone: formData.phone,
+          platform_of_interest: formData.subject,
+          operational_requirements: formData.message || 'No additional notes provided.',
+          _subject: `New Inquiry via Home Page: ${formData.subject} - ${formData.name}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
       });
-    }, 3500);
+
+      if (!response.ok) {
+        throw new Error(`Server returned status ${response.status}`);
+      }
+
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setIsFormModalOpen(false);
+        setFormData({
+          name: '',
+          designation: '',
+          organization: '',
+          email: '',
+          phone: '',
+          subject: 'Project Yamraj (Mach 1+ Supersonic Loitering Munition)',
+          message: '',
+        });
+      }, 4000);
+    } catch (err: any) {
+      console.error('Submission failed:', err);
+      setIsSubmitting(false);
+      setSubmitError(
+        'Submission failed over current network. Please write directly to contactus@sagdefaero.com.'
+      );
+    }
   };
 
   return (
@@ -183,11 +221,39 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                 <CheckCircle className="w-12 h-12 sm:w-14 sm:h-14 text-emerald-400 mx-auto mb-4" />
                 <h4 className="text-lg sm:text-xl font-bold text-white mb-2">Briefing Request Transmitted</h4>
                 <p className="text-xs sm:text-sm text-slate-300 max-w-sm mx-auto leading-relaxed">
-                  Thank you. Our defense liaison unit will review your transmission and initiate contact via verified secure channels.
+                  Thank you. Your dossier request has been dispatched to <span className="text-emerald-400 font-mono font-bold">contactus@sagdefaero.com</span>. Our defense liaison unit will initiate contact via verified secure channels.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form
+                id="contactFormModal"
+                action="https://formsubmit.co/contactus@sagdefaero.com"
+                method="POST"
+                onSubmit={handleSubmit}
+                className="space-y-4"
+              >
+                {/* FormSubmit Config */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value={`New Inquiry via Home Page: ${formData.subject} - ${formData.name || 'New Lead'}`}
+                />
+
+                {submitError && (
+                  <div className="p-3.5 rounded-xl bg-red-950/70 border border-red-700/60 text-red-300 text-xs leading-relaxed">
+                    <p className="font-bold text-red-200 mb-1">Transmission Alert</p>
+                    <p className="mb-2">{submitError}</p>
+                    <a
+                      href="mailto:contactus@sagdefaero.com"
+                      className="text-red-400 underline font-mono hover:text-white"
+                    >
+                      Click here to email contactus@sagdefaero.com directly
+                    </a>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-mono uppercase text-slate-300 mb-1.5 font-semibold">
@@ -195,6 +261,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                     </label>
                     <input
                       type="text"
+                      name="name"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -208,6 +275,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                     </label>
                     <input
                       type="text"
+                      name="designation_or_rank"
                       required
                       value={formData.designation}
                       onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
@@ -224,6 +292,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -237,6 +306,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                     </label>
                     <input
                       type="tel"
+                      name="phone"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -252,6 +322,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                   </label>
                   <input
                     type="text"
+                    name="organization"
                     required
                     value={formData.organization}
                     onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
@@ -265,6 +336,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                     Platform of Interest / Inquiry Scope
                   </label>
                   <select
+                    name="platform_of_interest"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full bg-neutral-900/90 border border-neutral-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors shadow-xs cursor-pointer"
@@ -292,6 +364,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                     Operational Context / Requirements
                   </label>
                   <textarea
+                    name="operational_requirements"
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -310,10 +383,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 sm:flex-none px-6 bg-red-600 hover:bg-red-500 text-white font-semibold text-xs py-3 rounded-xl transition-all duration-200 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="flex-1 sm:flex-none px-6 bg-red-600 hover:bg-red-500 active:scale-[0.98] text-white font-semibold text-xs py-3 rounded-xl transition-all duration-200 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
-                    <Send className="w-3.5 h-3.5 text-white" />
-                    <span>Transmit Briefing Request</span>
+                    {isSubmitting ? (
+                      <>
+                        <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Transmitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5 text-white" />
+                        <span>Transmit Briefing Request</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

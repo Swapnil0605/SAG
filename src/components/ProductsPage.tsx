@@ -44,7 +44,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'MISSION PROFILE', value: 'Rapid Standoff Penetration & Strike' },
     ],
     detailedOverview:
-      'Engineered to decisively outpace battlefield counter-manoeuvres. Project Yamraj combines sovereign aerostructures, autonomous terminal homing, and groundbreaking propulsion to reach tactical high-value targets before they can relocate.',
+      'Engineered to decisively outpace battlefield counter-manoeuvres. Project Yamraj combines sovereign aerostructures, autonomous terminal homing and groundbreaking propulsion to reach tactical high-value targets before they can relocate.',
   },
   {
     id: 'doom-mk1',
@@ -68,7 +68,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'PLATFORM MOBILITY', value: 'Pickup-Mounted Multi-Canister' },
     ],
     detailedOverview:
-      'A rapidly deployable tactical air-defence missile system designed for frontline motorized columns and isolated airbases. Defends against hostile loitering munitions, cruise missiles, and low-flying strike drones with sub-7-second salvo firing.',
+      'A rapidly deployable tactical air-defence missile system designed for frontline motorized columns and isolated airbases. Defends against hostile loitering munitions, cruise missiles and low-flying strike drones with sub-7-second salvo firing.',
   },
   {
     id: 'sag-kavach',
@@ -77,7 +77,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     category: 'COUNTER-UAS · CONVOY & SITE DEFENCE',
     inDevelopment: true,
     developmentBadgeText: 'IN DEVELOPMENT',
-    desc: 'Layered counter-drone protection for transport convoys, air-defence sites, and critical command nodes.',
+    desc: 'Layered counter-drone protection for transport convoys, air-defence sites and critical command nodes.',
     whereUsedTags: [
       'Convoy escorts',
       'Transport truck retrofit',
@@ -118,7 +118,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'SPARES MANUFACTURING', value: 'Scanning, CAD/CAM, metal deposition & CNC' },
     ],
     detailedOverview:
-      'Reduces reliance on long logistics supply lines. Module A prints airframes and provides kit assembly, while Module B provides scan-to-part manufacturing, metal deposition, CNC finishing, and heat treatment for vehicle and legacy weapon spares.',
+      'Reduces reliance on long logistics supply lines. Module A prints airframes and provides kit assembly, while Module B provides scan-to-part manufacturing, metal deposition, CNC finishing and heat treatment for vehicle and legacy weapon spares.',
   },
   {
     id: 'sag-nirman-airforce',
@@ -127,7 +127,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     category: 'DEPLOYABLE MANUFACTURING · AIR FORCE',
     inDevelopment: true,
     developmentBadgeText: 'IN DEVELOPMENT',
-    desc: 'Air-mobile drone factory and spares workshop for base defence drones, aerial targets, and ground equipment spares.',
+    desc: 'Air-mobile drone factory and spares workshop for base defence drones, aerial targets and ground equipment spares.',
     whereUsedTags: [
       'Forward air bases',
       'Base perimeter defence',
@@ -143,7 +143,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'MAINTENANCE SUPPORT', value: 'GSE parts, tooling, brackets, adaptors' },
     ],
     detailedOverview:
-      'Solves forward air base logistics bottlenecks. Produces base-defence interceptor drones, ISR quadcopters, and low-cost aerial targets on-station while providing rapid scan-to-part production of ground support equipment (GSE) maintenance spares.',
+      'Solves forward air base logistics bottlenecks. Produces base-defence interceptor drones, ISR quadcopters and low-cost aerial targets on-station while providing rapid scan-to-part production of ground support equipment (GSE) maintenance spares.',
   },
   {
     id: 'sag-nirman-navy',
@@ -168,7 +168,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'FLEET CAPACITY', value: '≥300 drone kits, ship-power interface' },
     ],
     detailedOverview:
-      'Enables sovereign naval persistence without returning to port. Replenishes ISR, interceptor, and gunnery-target drones during long-duration sea deployments, and manufactures certified valve handwheels, pump impellers, flanges, and emergency shipboard spares.',
+      'Enables sovereign naval persistence without returning to port. Replenishes ISR, interceptor and gunnery-target drones during long-duration sea deployments and manufactures certified valve handwheels, pump impellers, flanges and emergency shipboard spares.',
   },
   {
     id: 'sag-vajra-ugv',
@@ -225,7 +225,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     title: 'SAG RAZOR 15',
     category: 'FPV PLATFORMS · MULTI-ROLE & CUAS',
     inDevelopment: false,
-    desc: '15-inch multi-role FPV quadcopter for precision strike, reconnaissance, counter-drone net capture, and cargo.',
+    desc: '15-inch multi-role FPV quadcopter for precision strike, reconnaissance, counter-drone net capture and cargo.',
     whereUsedTags: [
       'Top-attack anti-armour',
       'Airborne C-UAS net capture',
@@ -249,7 +249,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     title: 'SAG RAZOR 18',
     category: 'FPV PLATFORMS · HEAVY-LIFT STRIKE',
     inDevelopment: false,
-    desc: 'Heavy-lift 18-inch FPV quadcopter carrying up to 8 kg for heavy strike, laser designation, and resupply.',
+    desc: 'Heavy-lift 18-inch FPV quadcopter carrying up to 8 kg for heavy strike, laser designation and resupply.',
     whereUsedTags: [
       'Heavy bunker defeat',
       'Armoured column strikes',
@@ -386,7 +386,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'CARGO MECHANISM', value: 'Winch lowering / quick-release payload bay' },
     ],
     detailedOverview:
-      'Lifeline logistics for snowbound mountain pickets and forward defence detachments. Keeps mountain troops supplied with ammunition, fresh batteries, blood packs, and critical rations without risking helicopter crews.',
+      'Lifeline logistics for snowbound mountain pickets and forward defence detachments. Keeps mountain troops supplied with ammunition, fresh batteries, blood packs and critical rations without risking helicopter crews.',
   },
   {
     id: 'razor-ofc',
@@ -459,7 +459,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'DISPOSAL CHARGE', value: 'Relocatable high-yield shaped mine disruptor' },
     ],
     detailedOverview:
-      'Protects critical sea lines of communication and naval anchorages. Trinetra inspects underwater threats, confirms naval mine signatures, and neutralizes them remotely without placing human clearance divers in jeopardy.',
+      'Protects critical sea lines of communication and naval anchorages. Trinetra inspects underwater threats, confirms naval mine signatures and neutralizes them remotely without placing human clearance divers in jeopardy.',
   },
 ];
 

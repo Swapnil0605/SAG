@@ -283,7 +283,7 @@ export const HorizontalStreamHeading: React.FC<HorizontalStreamHeadingProps> = (
 /* =========================================================================
    5. LEADERSHIP: Perspective 3D Flip Reveal
    Words snap into focus with isometric 3D perspective rotation, symbolizing
-   military precision, structural fortitude, and discipline.
+   military precision, structural fortitude and discipline.
    ========================================================================= */
 interface Perspective3DRevealProps {
   children: string;

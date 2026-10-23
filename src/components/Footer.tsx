@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
 
             <p className="text-[13px] text-neutral-600 leading-relaxed max-w-sm pt-1">
-              Creating world class defence and aerospace products from Bharat for the world through indigenous engineering, disciplined innovation, and uncompromising reliability.
+              Creating world class defence and aerospace products from Bharat for the world through indigenous engineering, disciplined innovation and uncompromising reliability.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-[12px] font-mono">
@@ -194,18 +194,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="hover:text-red-600 transition-colors cursor-pointer"
                 >
                   Products &amp; Catalogue
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#roadmap"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavigate?.('home', '#roadmap');
-                  }}
-                  className="hover:text-red-600 transition-colors cursor-pointer"
-                >
-                  Technology Roadmap
                 </a>
               </li>
               <li>

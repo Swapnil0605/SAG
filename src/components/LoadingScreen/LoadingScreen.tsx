@@ -114,9 +114,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
   const viewBox = isPortrait ? '0 0 1080 1920' : '0 0 1920 1080';
   const cx = isPortrait ? 540 : 960;
   const cy = isPortrait ? 960 : 540;
-  const fontSize = isPortrait ? 260 : 480;
-  const subY = isPortrait ? 1110 : 780;
-  const subFontSize = isPortrait ? 24 : 30;
+  const fontSize = isPortrait ? 290 : 520;
   const transformOrigin = isPortrait ? '540px 960px' : '960px 540px';
 
   return (
@@ -157,23 +155,10 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
                 fill="#000000"
                 fontSize={fontSize}
                 fontWeight="900"
-                letterSpacing={isPortrait ? '0.05em' : '0.08em'}
+                letterSpacing={isPortrait ? '0.06em' : '0.08em'}
                 fontFamily="Inter, 'Segoe UI', -apple-system, Roboto, 'Arial Black', sans-serif"
               >
                 SAG
-              </text>
-              <text
-                x={cx}
-                y={subY}
-                textAnchor="middle"
-                dominantBaseline="central"
-                fill="#000000"
-                fontSize={subFontSize}
-                fontWeight="800"
-                letterSpacing={isPortrait ? '0.22em' : '0.32em'}
-                fontFamily="Inter, 'Segoe UI', -apple-system, Roboto, 'Arial Black', sans-serif"
-              >
-                AEROSPACE &amp; DEFENCE
               </text>
             </g>
           </mask>
@@ -200,24 +185,10 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
             strokeWidth={isPortrait ? '2.5' : '3.5'}
             fontSize={fontSize}
             fontWeight="900"
-            letterSpacing={isPortrait ? '0.05em' : '0.08em'}
+            letterSpacing={isPortrait ? '0.06em' : '0.08em'}
             fontFamily="Inter, 'Segoe UI', -apple-system, Roboto, 'Arial Black', sans-serif"
           >
             SAG
-          </text>
-          <text
-            x={cx}
-            y={subY}
-            textAnchor="middle"
-            dominantBaseline="central"
-            fill="none"
-            strokeWidth="1.2"
-            fontSize={subFontSize}
-            fontWeight="800"
-            letterSpacing={isPortrait ? '0.22em' : '0.32em'}
-            fontFamily="Inter, 'Segoe UI', -apple-system, Roboto, 'Arial Black', sans-serif"
-          >
-            AEROSPACE &amp; DEFENCE
           </text>
         </g>
       </svg>
