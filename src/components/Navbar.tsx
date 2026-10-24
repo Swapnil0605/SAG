@@ -321,7 +321,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           }`}
         >
           {/* Top Header: Brand Name + Circular Close Button */}
-          <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+          <div className="flex items-center justify-between px-6 py-4 sm:py-5 border-b border-slate-100">
             <div className="flex items-center gap-2.5">
               <img
                 src="/sag-logo-new.png"
@@ -352,13 +352,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onNavigate?.('home', '#home');
               }}
-              className={`block px-5 py-4 text-xs sm:text-[13px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
+              className={`mobile-drawer-nav-item transition-colors cursor-pointer ${
                 currentPage === 'home'
                   ? 'bg-red-50/80 text-red-600'
                   : 'text-neutral-900 hover:bg-slate-50 hover:text-red-600'
               }`}
             >
-              HOME
+              <span>HOME</span>
             </a>
 
             {/* ABOUT US */}
@@ -369,13 +369,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onNavigate?.('about');
               }}
-              className={`block px-5 py-4 text-xs sm:text-[13px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
+              className={`mobile-drawer-nav-item transition-colors cursor-pointer ${
                 currentPage === 'about'
                   ? 'bg-red-50/80 text-red-600'
                   : 'text-neutral-900 hover:bg-slate-50 hover:text-red-600'
               }`}
             >
-              ABOUT US
+              <span>ABOUT US</span>
             </a>
 
             {/* PRODUCTS Accordion */}
@@ -383,7 +383,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                className={`w-full flex items-center justify-between px-5 py-4 text-xs sm:text-[13px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
+                className={`mobile-drawer-nav-item transition-colors cursor-pointer ${
                   currentPage === 'products'
                     ? 'text-red-600'
                     : 'text-neutral-900 hover:bg-slate-50 hover:text-red-600'
@@ -397,7 +397,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 />
               </button>
               {mobileProductsOpen && (
-                <div className="bg-slate-50/80 px-4 py-2.5 space-y-2 border-t border-slate-100">
+                <div className="bg-slate-50/80 px-4 py-3 space-y-2 border-t border-slate-100">
                   {PRODUCTS_LIST.map((prod) => (
                     <a
                       key={prod.name}
@@ -408,9 +408,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                         setMobileProductsOpen(false);
                         onNavigate?.('products', prod.hash);
                       }}
-                      className="flex items-center gap-2.5 py-1 text-neutral-700 hover:text-red-600 group cursor-pointer"
+                      className="flex items-center gap-3 py-2 px-2 rounded-lg hover:bg-white text-neutral-700 hover:text-red-600 group cursor-pointer transition-colors"
                     >
-                      <div className="w-8 h-8 rounded bg-white border border-neutral-200 p-0.5 flex-shrink-0 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded bg-white border border-neutral-200 p-0.5 flex-shrink-0 flex items-center justify-center">
                         <img
                           src={prod.image}
                           alt={prod.name}
@@ -436,7 +436,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         setMobileProductsOpen(false);
                         onNavigate?.('products');
                       }}
-                      className="text-xs font-bold text-red-600 flex items-center justify-between py-1 cursor-pointer"
+                      className="text-xs font-bold text-red-600 flex items-center justify-between py-1.5 px-2 cursor-pointer"
                     >
                       <span>View all products &rarr;</span>
                     </a>
@@ -453,18 +453,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onNavigate?.('contact');
               }}
-              className={`block px-5 py-4 text-xs sm:text-[13px] font-black uppercase tracking-wider transition-colors cursor-pointer ${
+              className={`mobile-drawer-nav-item transition-colors cursor-pointer ${
                 currentPage === 'contact'
                   ? 'bg-red-50/80 text-red-600'
                   : 'text-neutral-900 hover:bg-slate-50 hover:text-red-600'
               }`}
             >
-              CONTACT
+              <span>CONTACT</span>
             </a>
           </div>
 
           {/* Bottom CTA Button */}
-          <div className="p-5 border-t border-slate-100 bg-white">
+          <div className="mobile-drawer-cta-container border-t border-slate-100 bg-white">
             <a
               href="/contact"
               onClick={(e) => {
@@ -472,7 +472,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onNavigate?.('contact');
               }}
-              className="w-full bg-[#E5252A] hover:bg-red-700 active:scale-[0.98] text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-1.5 uppercase text-xs sm:text-sm tracking-wide transition-all cursor-pointer"
+              className="w-full bg-[#E5252A] hover:bg-red-700 active:scale-[0.98] text-white font-bold py-4 px-5 rounded-xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-1.5 uppercase text-xs sm:text-sm tracking-wide transition-all cursor-pointer"
             >
               <span>Contact Us</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />

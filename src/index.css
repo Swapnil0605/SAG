@@ -173,3 +173,36 @@
   animation: 60s linear infinite ticker;
   will-change: transform;
 }
+
+/* Mobile menu drawer navigation styling (consistent iPhone SE style padding across all devices) */
+.mobile-drawer-nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 900;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-drawer-cta-container {
+  padding: 1.25rem 1.5rem;
+}
+
+/* Landscape / Ultra-short screens fallback (height <= 480px) */
+@media (max-height: 480px) {
+  .mobile-drawer-nav-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 13px;
+  }
+  .mobile-drawer-cta-container {
+    padding: 0.75rem 1rem;
+  }
+}
