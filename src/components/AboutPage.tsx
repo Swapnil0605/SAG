@@ -871,7 +871,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             playsInline
             className="w-full h-full object-cover opacity-90 filter brightness-100"
           >
-            <source src="/video/background1.mp4" type="video/mp4" />
+            <source src="/video/background1.webm" type="video/webm" />
           </video>
           {/* Very light black overlay so the video is clearly visible */}
           <div className="absolute inset-0 bg-black/35" />

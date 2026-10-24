@@ -133,7 +133,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
           onEnded={triggerReveal}
           className="loading-video-element"
         >
-          <source src="/video/loader.mp4" type="video/mp4" />
+          <source src="/video/loader.webm" type="video/webm" />
         </video>
       </div>
 

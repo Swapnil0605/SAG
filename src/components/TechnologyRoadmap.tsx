@@ -60,8 +60,7 @@ export const TechnologyRoadmap: React.FC = () => {
             playsInline
             className="w-full h-full object-cover opacity-70 filter brightness-105"
           >
-            <source src="/video/synapse.mp4" type="video/mp4" />
-            <source src="/video/datacore.mp4" type="video/mp4" />
+            <source src="/video/synapse.webm" type="video/webm" />
           </video>
           {/* Soft RGB(10, 13, 14) overlay so video is clearly visible */}
           <div

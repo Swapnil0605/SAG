@@ -125,7 +125,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
           playsInline
           className="w-full h-full object-cover opacity-80 filter brightness-105"
         >
-          <source src="/video/background1.mp4" type="video/mp4" />
+          <source src="/video/background1.webm" type="video/webm" />
         </video>
         {/* Soft RGB(10, 13, 14) overlay so background video is clearly visible */}
         <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10, 13, 14, 0.45)' }} />

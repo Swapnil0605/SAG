@@ -223,7 +223,6 @@ export const products: Product[] = [
     description:
       'A persistent quadcopter platform delivering real time border surveillance, route reconnaissance and counter infiltration intelligence with dual mode free flight and tethered power station operations.',
     image: '/images/products/scout-x.png',
-    video360: '/video/products/scout-x-360.mp4',
     gallery: [
       '/images/products/scout-x.png',
     ],
@@ -278,7 +277,6 @@ export const products: Product[] = [
     description:
       'Heavy-duty hybrid-electric VTOL aircraft designed for high altitude border surveillance, tactical communications relay and persistent multi sensor intelligence without requiring runways.',
     image: '/images/products/aeron-a1.png',
-    video360: '/video/products/aeron-360.mp4',
     gallery: [
       '/images/products/aeron-a1.png',
     ],
