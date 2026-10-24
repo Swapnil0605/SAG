@@ -97,7 +97,7 @@ export const TechnologyRoadmap: React.FC = () => {
 
           <ScrollReveal delay={0.2} yOffset={20}>
             <p className="text-sm sm:text-base text-slate-300 max-w-md leading-relaxed">
-              Engineering sovereign defence platforms with agile software speed and uncompromising military reliability.
+              Engineering advanced defence platforms with agile software speed and uncompromising military reliability.
             </p>
           </ScrollReveal>
         </div>

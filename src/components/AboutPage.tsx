@@ -27,8 +27,6 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate }) => {
   const [activeCap, setActiveCap] = useState<number | null>(2);
   const [activeSector, setActiveSector] = useState<number | null>(null);
-  const [mobileMissionOpen, setMobileMissionOpen] = useState(false);
-  const [mobileVisionOpen, setMobileVisionOpen] = useState(false);
 
   // Join the Team Modal State
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
@@ -363,10 +361,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             </button>
             <span className="text-neutral-400">/</span>
             <span className="text-red-600 font-bold">ABOUT US</span>
-            <span className="text-neutral-400">/</span>
-            <span className="text-neutral-400 hidden sm:inline">
-              SOVEREIGN DEFENCE DOCTRINE
-            </span>
           </div>
 
           <div className="max-w-4xl">
@@ -433,9 +427,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             {/* 1. OUR MISSION CARD */}
             <ScrollReveal delay={0.1} yOffset={30} className="h-full">
               <div
-                tabIndex={0}
-                onClick={() => setMobileMissionOpen((prev) => !prev)}
-                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-orange-500/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer select-none focus:outline-none"
+                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-orange-500/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden select-none focus:outline-none"
               >
                 {/* Ambient glow accent */}
                 <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full pointer-events-none blur-3xl opacity-20 bg-orange-500 group-hover:opacity-35 transition-opacity duration-500" />
@@ -458,27 +450,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                   </div>
                 </div>
 
-                {/* Resting indicator hint */}
-                <div className="mt-4 sm:mt-5 flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/75 group-hover:opacity-0 transition-opacity duration-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
-                  <span>TAP OR HOVER TO REVEAL MANDATE</span>
-                </div>
-
-                {/* Content smoothly reveals on hover or tap */}
-                <div className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${mobileMissionOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] group-hover:grid-rows-[1fr]'}`}>
-                  <div className="overflow-hidden min-h-0">
-                    <div className={`pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 transition-all duration-500 delay-100 ease-out space-y-3 sm:space-y-4 ${mobileMissionOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0'}`}>
-                      <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-orange-500/80 pl-3 sm:pl-4">
-                        “Build indigenous systems that soldiers can trust, adapt and even produce close to where they fight — from supersonic strike and air defence to drone factories, ground robots and counter-drone shields.”
-                      </blockquote>
-                      <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
-                        We bridge the critical gap between conceptual defence R&amp;D and battlefield deployment. Combining rapid prototyping, sovereign software iteration and frontline operational feedback, every system is engineered for decisive battlefield superiority.
-                      </p>
-                      <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
-                        <span>STANDARD: MIL-STD RIGOR</span>
-                        <span className="font-bold text-amber-400">UNCOMPROMISING RELIABILITY</span>
-                      </div>
-                    </div>
+                {/* Content shown directly */}
+                <div className="pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 space-y-3 sm:space-y-4">
+                  <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-orange-500/80 pl-3 sm:pl-4">
+                    “Build indigenous systems that soldiers can trust, adapt and even produce close to where they fight — from supersonic strike and air defence to drone factories, ground robots and counter-drone shields.”
+                  </blockquote>
+                  <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
+                    We bridge the critical gap between conceptual defence R&amp;D and battlefield deployment. Combining rapid prototyping, agile software iteration and frontline operational feedback, every system is engineered for reliable mission performance.
+                  </p>
+                  <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-end gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
+                    <span className="font-bold text-amber-400">UNCOMPROMISING RELIABILITY</span>
                   </div>
                 </div>
               </div>
@@ -487,9 +468,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             {/* 2. OUR VISION CARD */}
             <ScrollReveal delay={0.2} yOffset={30} className="h-full">
               <div
-                tabIndex={0}
-                onClick={() => setMobileVisionOpen((prev) => !prev)}
-                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-sky-400/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer select-none focus:outline-none"
+                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-sky-400/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden select-none focus:outline-none"
               >
                 {/* Ambient glow accent */}
                 <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full pointer-events-none blur-3xl opacity-20 bg-sky-500 group-hover:opacity-35 transition-opacity duration-500" />
@@ -512,28 +491,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                   </div>
                 </div>
 
-                {/* Resting indicator hint */}
-                <div className="mt-4 sm:mt-5 flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/75 group-hover:opacity-0 transition-opacity duration-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-                  <span>TAP OR HOVER TO REVEAL MANDATE</span>
-                </div>
-
-                {/* Content smoothly reveals on hover or tap */}
-                <div className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${mobileVisionOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] group-hover:grid-rows-[1fr]'}`}>
-                  <div className="overflow-hidden min-h-0">
-                    <div className={`pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 transition-all duration-500 delay-100 ease-out space-y-3 sm:space-y-4 ${mobileVisionOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0'}`}>
-                      <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-sky-400/80 pl-3 sm:pl-4">
-                        “To make Bharat the place where the world's most adaptive defence technology is designed, built and improved — as fast as the battlefield changes.”
-                      </blockquote>
-                      <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
-                        Closing the speed gap that traditional procurement cycles face. We envision a self-reliant, agile defence ecosystem where Indian armed forces wield unmatched sovereign technology at startup speed.
-                      </p>
-                      <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
-                        <span>DOCTRINE: ATMANIRBHAR BHARAT</span>
-                        <span className="font-bold text-sky-400">SOVEREIGNTY FIRST</span>
-                      </div>
-                    </div>
-                  </div>
+                {/* Content shown directly */}
+                <div className="pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 space-y-3 sm:space-y-4">
+                  <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-sky-400/80 pl-3 sm:pl-4">
+                    “To make Bharat the place where the world's most adaptive defence technology is designed, built and improved — as fast as the battlefield changes.”
+                  </blockquote>
+                  <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
+                    Closing the speed gap that traditional procurement cycles face. We envision a self-reliant, agile defence ecosystem where Indian armed forces wield unmatched indigenous technology at startup speed.
+                  </p>
                 </div>
               </div>
             </ScrollReveal>
@@ -573,13 +538,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
               {
                 index: '02',
                 category: 'SUPPLY CHAIN & ITERATION SPEED',
-                title: 'Help arrives too slowly',
+                title: 'Long supply chains delay capability',
                 desc: 'Drones and spare parts come from factories far in the rear. A design change asked for by troops can take months to reach them.',
                 tags: ['Rear Factories', 'Slow Iteration Cycles', 'Months-Long Lead Times', 'Frontline Logistics Delay'],
               },
               {
                 index: '03',
-                category: 'SOVEREIGNTY & IMPORT DEPENDENCY',
+                category: 'STRATEGIC SELF-RELIANCE & IMPORT DEPENDENCY',
                 title: 'Too much is imported',
                 desc: 'Many systems in service are imported or single-role. India needs its own adaptable, multi-mission platforms and the know-how behind them.',
                 tags: ['Import Dependence', 'Single-Role Systems', 'Multi-Mission Architecture', 'Indigenous Know-How'],
@@ -880,7 +845,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
         <div className="relative z-10 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading matching reference image */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-black uppercase tracking-tight text-white leading-[1.1] mb-10 sm:mb-14 drop-shadow-md">
-            WHAT WE BELIEVE
+            OUR PRINCIPLES
           </h2>
 
           {/* 4 Pillars / Beliefs Grid matching reference image */}
@@ -939,7 +904,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
               onClick={() => setIsJoinModalOpen(true)}
               className="w-full sm:w-auto text-center justify-center px-8 py-3.5 sm:py-4 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-bold text-base sm:text-lg border border-white/30 hover:border-white/60 transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer shadow-lg"
             >
-              Join the Team
+              Careers
             </button>
           </div>
         </div>
@@ -962,10 +927,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                 CAREERS &amp; COLLABORATION
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                Join the Team
+                Careers
               </h3>
               <p className="text-sm text-slate-300 mt-2">
-                Help build sovereign defence technologies for Bharat. Submit your details below or connect via direct mail.
+                Help build advanced defence technologies for Bharat. Submit your details below or connect via direct mail.
               </p>
             </div>
 

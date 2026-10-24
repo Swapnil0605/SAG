@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                     }}
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-red-600 bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition-all duration-300 shadow-md shadow-red-600/25 hover:shadow-lg hover:scale-105 group cursor-pointer text-center"
                   >
-                    <span>SEE WHAT WE&apos;RE BUILDING</span>
+                    <span>OUR SYSTEMS</span>
                     <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-all" />
                   </a>
                   <a
@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                     }}
                     className="w-full sm:w-auto inline-flex items-center justify-center border-2 border-neutral-900 bg-white hover:bg-neutral-900 text-neutral-900 hover:text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-xs hover:shadow-md text-center"
                   >
-                    <span>ALL PRODUCTS</span>
+                    <span>PRODUCT PORTFOLIO</span>
                   </a>
                 </div>
               </ScrollReveal>

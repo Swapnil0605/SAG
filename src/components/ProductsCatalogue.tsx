@@ -83,7 +83,7 @@ export const products: Product[] = [
     keySpecs: [
       { label: 'SPEED CLASS', value: 'Mach 1+ Class' },
       { label: 'PROPULSION', value: 'Rotating Detonation Engine' },
-      { label: 'DESIGN', value: '100% Indian Sovereign' },
+      { label: 'DESIGN', value: '100% Indian Indigenous' },
       { label: 'STATUS', value: 'In Development' },
     ],
     specs: {
@@ -102,7 +102,7 @@ export const products: Product[] = [
     highlights: [
       'Mach 1+ supersonic dash capability to reach targets before they can move',
       'Advanced rotating detonation engine for revolutionary thrust efficiency',
-      '100% indigenous Indian sovereign design and intellectual property',
+      '100% indigenous Indian design and intellectual property',
       'Engineered to defeat heavily defended time-sensitive targets',
     ],
   },
@@ -132,13 +132,13 @@ export const products: Product[] = [
     },
     keySpecs: [
       { label: 'LASER DAZZLE', value: '1 km reach' },
-      { label: 'NET CATCH ZONE', value: '200–300 m' },
+      { label: 'NET CATCH ZONE', value: '30–200 m' },
       { label: 'CONFIGURATIONS', value: '3 (Convoy, Truck, Site)' },
-      { label: 'EW IMMUNITY', value: 'Fibre-Optic & RF Immune' },
+      { label: 'EW IMMUNITY', value: 'Effective against fibre-optic and RF-silent UAS' },
     ],
     specs: {
       platformType: 'Vehicle & Site Layered Counter-Drone Protection Kit',
-      range: '1 km optical laser dazzle • 200–300 m kinetic net capture zone',
+      range: '1 km optical laser dazzle • 30–200 m kinetic net capture zone',
       speed: 'Instantaneous 360° turret slewing & millisecond net launch',
       endurance: 'Continuous 24/7 operating cycle via vehicle power',
       payload: 'EO/IR laser dazzler turret + 24 pneumatic net cartridges',
@@ -151,7 +151,7 @@ export const products: Product[] = [
     },
     highlights: [
       'Blinds hostile drone optical cameras and seekers out to 1 km with laser dazzler',
-      'Pneumatic 24-net launcher catches drones between 200–300 m with zero explosives',
+      'Pneumatic 24-net launcher catches drones between 30–200 m with zero explosives',
       'Defeats fibre-optic FPV drones that bypass conventional radio jammers',
       'Modular 3 configurations: Army convoy, logistics truck and critical sites',
     ],
@@ -517,7 +517,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
       specsGrid: [
         { label: 'SPEED CLASS', value: 'Mach 1+ Class' },
         { label: 'PROPULSION', value: 'Rotating Detonation Engine' },
-        { label: 'DESIGN ARCHITECTURE', value: 'All-Indian Sovereign Design' },
+        { label: 'DESIGN ARCHITECTURE', value: 'All-Indian Indigenous Design' },
         { label: 'ROLE / MISSION', value: 'Supersonic Loitering Strike' },
       ],
       bgTheme: 'black' as const,
@@ -562,9 +562,9 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
       exploreLabel: 'Explore Kavach',
       specsGrid: [
         { label: 'LASER DAZZLE REACH', value: '1 km' },
-        { label: 'NET CATCH ZONE', value: '200–300 m' },
+        { label: 'NET CATCH ZONE', value: '30–200 m' },
         { label: 'CONFIGS', value: '3 (Convoy, Truck, Site)' },
-        { label: 'PROTECTION', value: 'Fibre-Optic & RF Immune' },
+        { label: 'PROTECTION', value: 'Effective against fibre-optic and RF-silent UAS' },
       ],
       bgTheme: 'black' as const,
       imagePosition: 'left' as const,
@@ -599,7 +599,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
                   <ScrollReveal yOffset={15} blur={4}>
                     <div className="mb-3">
                       <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-red-500 block">
-                        WHAT WE&apos;RE BUILDING
+                        OUR SYSTEMS
                       </span>
                     </div>
                   </ScrollReveal>
@@ -1084,7 +1084,7 @@ export const ProductsCatalogue: React.FC<ProductsCatalogueProps> = ({ onNavigate
             {/* Modal Footer */}
             <div className="px-4 sm:px-6 py-3.5 sm:py-4 border-t border-neutral-800 bg-[#121217] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <span className="text-[11px] sm:text-xs font-mono text-slate-400">
-                SOVEREIGN INDIGENOUS PLATFORM // CLASSIFIED BRIEFINGS ON DEMAND
+                INDIGENOUS DEFENCE PLATFORM // CLASSIFIED BRIEFINGS ON DEMAND
               </span>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                 <a

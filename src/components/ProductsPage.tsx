@@ -40,11 +40,11 @@ export const ALL_PRODUCTS: FullProductItem[] = [
     specs: [
       { label: 'SPEED CLASS', value: 'Mach 1+ Supersonic' },
       { label: 'PROPULSION', value: 'Rotating Detonation Engine (RDE)' },
-      { label: 'DESIGN ARCHITECTURE', value: 'All-Indian Sovereign IP' },
+      { label: 'DESIGN ARCHITECTURE', value: 'All-Indian Indigenous IP' },
       { label: 'MISSION PROFILE', value: 'Rapid Standoff Penetration & Strike' },
     ],
     detailedOverview:
-      'Engineered to decisively outpace battlefield counter-manoeuvres. Project Yamraj combines sovereign aerostructures, autonomous terminal homing and groundbreaking propulsion to reach tactical high-value targets before they can relocate.',
+      "Engineered to decisively outpace battlefield counter-manoeuvres. Project Yamraj combines advanced aerostructures, autonomous terminal homing and groundbreaking propulsion — built to cut the adversary's detection and engagement time to a fraction.",
   },
   {
     id: 'doom-mk1',
@@ -168,7 +168,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'FLEET CAPACITY', value: '≥300 drone kits, ship-power interface' },
     ],
     detailedOverview:
-      'Enables sovereign naval persistence without returning to port. Replenishes ISR, interceptor and gunnery-target drones during long-duration sea deployments and manufactures certified valve handwheels, pump impellers, flanges and emergency shipboard spares.',
+      'Enables persistent naval deployment without returning to port. Replenishes ISR, interceptor and gunnery-target drones during long-duration sea deployments and manufactures certified valve handwheels, pump impellers, flanges and emergency shipboard spares.',
   },
   {
     id: 'sag-vajra-ugv',
@@ -431,7 +431,7 @@ export const ALL_PRODUCTS: FullProductItem[] = [
       { label: 'SWARM DENSITY', value: '8 to 64 coordinated autonomous nodes' },
       { label: 'DISTRIBUTED BRAIN', value: 'Decentralized Edge Mesh AI (no single point of failure)' },
       { label: 'DYNAMIC TASKING', value: 'Automatic threat re-allocation if a node is lost' },
-      { label: 'INTEGRATION', value: 'Plug-and-play on any SAG sovereign avionics' },
+      { label: 'INTEGRATION', value: 'Plug-and-play on any SAG indigenous avionics' },
     ],
     detailedOverview:
       'Overwhelms adversary air defence saturation limits. Swarm Bee turns a dispersed cluster of individual drones into a single thinking, self-coordinating tactical organism that attacks simultaneously from multiple directions.',
@@ -587,10 +587,6 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             </button>
             <span className="text-neutral-400">/</span>
             <span className="text-red-600 font-bold">PRODUCTS</span>
-            <span className="text-neutral-400">/</span>
-            <span className="text-neutral-400 hidden sm:inline">
-              SOVEREIGN ARSENAL
-            </span>
           </div>
 
           <div className="max-w-4xl">
@@ -615,7 +611,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             {/* Subtitle matching reference */}
             <ScrollReveal delay={0.15} yOffset={20}>
               <p className="text-base sm:text-lg md:text-xl text-neutral-600 font-medium leading-relaxed max-w-3xl mb-4">
-                Pick a system to see where it&apos;s used, how it works and what it can do.
+                Select a system to view its operational employment, concept of operations and key technical parameters.
               </p>
             </ScrollReveal>
           </div>
@@ -727,7 +723,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                       className="w-full py-2.5 px-4 rounded-xl border border-neutral-700/80 hover:border-red-600 bg-white/[0.04] hover:bg-red-600 text-neutral-200 hover:text-white text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-lg group-hover:shadow-red-600/20 cursor-pointer"
                     >
                       <Shield className="w-3.5 h-3.5 text-red-400 group-hover:text-white" />
-                      <span>View Product</span>
+                      <span>View Technical Details</span>
                     </button>
                   </div>
                 </div>

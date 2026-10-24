@@ -137,7 +137,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       { label: 'Primary Use Case', value: 'Close-range rogue UAS neutralisation' },
       { label: 'Operational Scope', value: 'Static security / tactical response / force protection' },
       { label: 'Target Compatibility', value: 'Class-1 micro & mini multi-rotor drones' },
-      { label: 'Indigenisation Level', value: '100% Indian Sovereign IP (IDDM Compliant)' },
+      { label: 'Indigenisation Level', value: '100% Indian IP (IDDM Compliant)' },
     ],
     idealFor: [
       {
@@ -196,7 +196,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
         title: 'NAVIGATE',
         phase: 'RESILIENT GUIDANCE',
         desc: 'Add-on 4-element CRPA antenna module keeps GPS/GNSS lock in jammed environments.',
-        details: 'Filters multi-directional electronic warfare noise while tracking sovereign NavIC signals.',
+        details: 'Filters multi-directional electronic warfare noise while tracking secure NavIC signals.',
       },
       {
         num: '03',
@@ -758,7 +758,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       },
     ],
     specialSection: {
-      tag: 'SOVEREIGN LOGISTICAL ARTERY',
+      tag: 'STRATEGIC LOGISTICAL ARTERY',
       title: 'EXPEDITIONARY LOGISTICS USE CASES',
       description: 'Replaces dangerous mule trains and high-risk helicopter sorties in extreme alpine and island terrains.',
       items: [
@@ -1479,9 +1479,9 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     title: 'PROJECT YAMRAJ',
     category: 'FLAGSHIP PROGRAMME · SUPERSONIC STRIKE',
     categoryDomain: 'strike',
-    tagline: 'PENETRATE | STRIKE | DOMINATE',
+    tagline: 'Closing the Speed Gap',
     leadDescription:
-      'Indigenous supersonic loitering munition — our flagship programme. Mach 1+ class, rotating detonation engine and all-Indian sovereign aerospace design engineered to decisively reach tactical targets before they can relocate.',
+      "Indigenous supersonic loitering munition — our flagship programme. Mach 1+ class, rotating detonation engine and all-Indian aerospace design built to cut the adversary's detection and engagement time to a fraction.",
     pillars: ['DEFEND', 'DETER', 'LEAD'],
     heroImage: '/images/products/PROJECT YAMRAJ.webp',
     heroImagePosition: '70% center',
@@ -1490,7 +1490,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     telemetryBadges: [
       { title: 'MACH 1+', subtitle: 'Supersonic sprint', iconName: 'zap' },
       { title: 'RDE ENGINE', subtitle: 'Rotating detonation', iconName: 'cpu' },
-      { title: 'SOVEREIGN IP', subtitle: '100% Indian design', iconName: 'shield' },
+      { title: 'INDIGENOUS IP', subtitle: '100% Indian design', iconName: 'shield' },
       { title: 'STANDOFF', subtitle: 'Penetration strike', iconName: 'crosshair' },
     ],
     howItOperates: [
@@ -1527,7 +1527,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
       { label: 'System Class', value: 'Supersonic Loitering Munition' },
       { label: 'Speed Class', value: 'Mach 1+ Supersonic Intercept Sprint' },
       { label: 'Propulsion Mechanism', value: 'Rotating Detonation Engine (RDE)' },
-      { label: 'Design Architecture', value: '100% Indian Sovereign IP' },
+      { label: 'Design Architecture', value: '100% Indian Indigenous IP' },
       { label: 'Mission Profile', value: 'Rapid Standoff Deep Penetration & Precision Strike' },
       { label: 'Guidance Suite', value: 'Multi-mode autonomous seeker & anti-jam GPS/NavIC/INS' },
       { label: 'Development Status', value: 'Programme in Development' },
@@ -1564,7 +1564,7 @@ export const CATALOGUE_PRODUCTS: Record<string, DetailedProduct> = {
     categoryDomain: 'cuas',
     tagline: 'DETECT | DAZZLE | CAPTURE',
     leadDescription:
-      'A proposed layered counter-drone protection system for military transport convoys and high-value assets. Integrates sensor cueing, electro-optical tracking, optical camera disruption and physical net capture into a unified survivability architecture.',
+      'A layered counter-drone protection system for military transport convoys and high-value assets. Integrates sensor cueing, electro-optical tracking, optical camera disruption and physical net capture into a unified survivability architecture.',
     pillars: ['CUE', 'DISRUPT', 'CAPTURE'],
     heroImage: '/images/products/sag-kavach-hero.webp',
     heroImagePosition: 'center center',

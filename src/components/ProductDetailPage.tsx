@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
   CheckCircle2,
-  Lock,
   Building2,
   Sparkles,
 } from 'lucide-react';
@@ -145,7 +144,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             <div className="px-3.5 py-2.5 bg-[#0d1117] border-t border-neutral-800/80 flex items-center justify-between text-[10px] font-mono text-neutral-400">
               <span className="flex items-center gap-1.5 text-neutral-300 font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
-                SOVEREIGN SYSTEM
+                INDIGENOUS SYSTEM
               </span>
               <span className="text-neutral-500 uppercase tracking-wider">{product.num} // {product.categoryDomain || 'DEFENCE'}</span>
             </div>
@@ -169,12 +168,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 OPERATIONAL TIMELINE
               </span>
               <h2 className="text-2xl sm:text-4xl font-black uppercase text-white tracking-tight">
-                HOW IT OPERATES
+                CONCEPT OF OPERATIONS
               </h2>
             </div>
-            <p className="text-xs sm:text-sm text-neutral-400 font-mono max-w-md">
-              A 4-step sequence designed for seamless frontline execution and rapid tactical effectiveness.
-            </p>
           </div>
 
           {/* Stepper Grid (4 Cards) */}
@@ -278,12 +274,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   TECHNICAL DATASHEET
                 </span>
                 <h3 className="text-2xl font-black uppercase text-white tracking-tight">
-                  KEY SPECIFICATIONS
+                  KEY TECHNICAL PARAMETERS
                 </h3>
               </div>
-              <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-neutral-900 border border-neutral-700 text-neutral-400 font-semibold">
-                VERIFIED METRICS
-              </span>
             </div>
 
             <div className="divide-y divide-neutral-800/80">
@@ -308,10 +301,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             
             <div className="bg-[#0c1013] border border-neutral-800 rounded-3xl p-6 sm:p-8 shadow-xl">
               <span className="text-xs font-mono font-bold tracking-[0.25em] text-red-500 uppercase block mb-1">
-                DEPLOYMENT PROFILES
+                OPERATIONAL EMPLOYMENT
               </span>
               <h3 className="text-2xl font-black uppercase text-white tracking-tight mb-5">
-                IDEAL FOR
+                OPERATIONAL EMPLOYMENT
               </h3>
 
               <div className="space-y-3">
@@ -339,21 +332,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               </div>
             </div>
 
-            {/* Official Tactical Motto Card */}
-            <div className="rounded-3xl bg-gradient-to-r from-red-950/60 via-[#120a0d] to-black border border-red-900/60 p-6 sm:p-8 text-center shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-full blur-2xl pointer-events-none" />
-              
-              <span className="text-[10px] font-mono font-bold tracking-[0.3em] uppercase text-red-400 block mb-2">
-                MISSION DOCTRINE
-              </span>
-              <blockquote className="text-lg sm:text-xl font-bold uppercase tracking-wide text-white leading-snug">
-                &ldquo;{product.mottoQuote}&rdquo;
-              </blockquote>
-              <p className="text-xs font-mono text-neutral-400 mt-3">
-                SAG Aerospace and Defence Pvt Ltd · Directorate of Unmanned Systems
-              </p>
-            </div>
-
           </div>
         </section>
 
@@ -363,13 +341,13 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         <section className="rounded-3xl bg-gradient-to-b from-[#131920] to-[#090d10] border border-neutral-700/80 p-8 sm:p-12 text-center shadow-2xl relative overflow-hidden">
           <div className="max-w-2xl mx-auto space-y-4">
             <span className="text-xs font-mono font-bold tracking-[0.25em] text-red-500 uppercase block">
-              OFFICIAL ENGAGEMENT
+              TECHNICAL ENQUIRIES
             </span>
             <h2 className="text-2xl sm:text-4xl font-black uppercase text-white tracking-tight">
-              SCHEDULE A FIELD EVALUATION TRIAL
+              TECHNICAL ENQUIRIES
             </h2>
             <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
-              Direct technical liaisons available for armed forces command headquarters, paramilitary forces, homeland security departments and authorized international partners.
+              For technical presentations, demonstrations and trial requests, contact our team.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">
@@ -385,13 +363,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 onClick={handleWhatsApp}
                 className="w-full sm:w-auto text-center justify-center px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors cursor-pointer"
               >
-                WHATSAPP COMMAND CHANNEL
+                WHATSAPP
               </button>
-            </div>
-
-            <div className="pt-4 flex items-center justify-center gap-2 text-[11px] font-mono text-neutral-500">
-              <Lock className="w-3.5 h-3.5 text-neutral-400" />
-              <span>All communications and trial logistics protected under sovereign defence protocols.</span>
             </div>
           </div>
         </section>

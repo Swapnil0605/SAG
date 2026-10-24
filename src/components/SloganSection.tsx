@@ -22,7 +22,7 @@ export const SloganSection: React.FC<SloganSectionProps> = ({ onNavigateAbout })
   return (
     <section
       id="sectors"
-      aria-label="Who We Serve"
+      aria-label="Users and Operational Domains"
       className="relative w-full border-y border-neutral-200 py-20 sm:py-24 lg:py-28 overflow-hidden bg-white select-none"
     >
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,7 +32,7 @@ export const SloganSection: React.FC<SloganSectionProps> = ({ onNavigateAbout })
             <ScrollReveal direction="left" distance={30} blur={4}>
               <div>
                 <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] uppercase text-red-600 block mb-3">
-                  WHO WE SERVE
+                  USERS AND OPERATIONAL DOMAINS
                 </span>
               </div>
             </ScrollReveal>

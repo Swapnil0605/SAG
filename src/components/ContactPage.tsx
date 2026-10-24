@@ -66,7 +66,7 @@ const FAQS = [
   },
   {
     q: 'What data security and non-disclosure protocols are maintained during briefings?',
-    a: 'All technical interactions, performance data sharing and engineering exchanges are safeguarded under strict bilateral non-disclosure agreements (NDAs) and sovereign cryptographic compliance.',
+    a: 'All technical interactions, performance data sharing and engineering exchanges are safeguarded under strict bilateral non-disclosure agreements (NDAs) and advanced cryptographic compliance.',
   },
 ];
 
@@ -273,7 +273,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             {/* Top Indicator Beacon */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-6 max-w-full">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <span className="truncate">COMMAND CHANNELS // DEFENCE PROCUREMENT</span>
+              <span className="truncate">CONTACT US</span>
             </div>
 
             {/* Main Title */}
@@ -291,10 +291,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               <div className="px-3 py-1.5 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-800 font-semibold flex items-center gap-1.5 sm:gap-2">
                 <Building className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
                 <span>HQ: BENGALURU, INDIA</span>
-              </div>
-              <div className="px-3 py-1.5 rounded-lg bg-red-50 border border-red-200 text-red-700 font-semibold flex items-center gap-1.5 sm:gap-2">
-                <Lock className="w-3.5 h-3.5 text-red-600 shrink-0" />
-                <span>ENCRYPTED DIRECT LIAISON</span>
               </div>
               <div className="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold flex items-center gap-1.5 sm:gap-2">
                 <Shield className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
@@ -322,7 +318,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   REQUEST TECHNICAL BRIEFING
                 </h2>
                 <p className="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
-                  Provide your requirements below. Our technical directorate will review your mission parameters and respond within 24 operational hours.
+                  Provide your requirements below. Our team will review your requirement and respond within two working days.
                 </p>
               </div>
 

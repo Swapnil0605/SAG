@@ -142,13 +142,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
 
           {/* Main Title */}
           <h2 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-tight mb-5">
-            <span className="text-white drop-shadow-sm">GET IN </span>
-            <span className="text-white drop-shadow-sm">TOUCH</span>
+            <span className="text-white drop-shadow-sm">ENQUIRIES</span>
           </h2>
 
           {/* Subtitle Description */}
           <p className="text-sm sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed mb-8 sm:mb-10">
-            Have questions, partnership proposals, or product enquiries? Reach out to our team directly.
+            For technical presentations, trials, partnerships and procurement enquiries, contact our team.
           </p>
 
           {/* Two CTA Action Buttons with matching brand colors */}
