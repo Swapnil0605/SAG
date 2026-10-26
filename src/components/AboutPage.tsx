@@ -423,11 +423,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
             {/* 1. OUR MISSION CARD */}
-            <ScrollReveal delay={0.1} yOffset={30} className="h-full">
+            <ScrollReveal delay={0.1} yOffset={30} className="h-full flex flex-col">
               <div
-                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-orange-500/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden select-none focus:outline-none"
+                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-orange-500/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden select-none focus:outline-none h-full flex flex-col justify-between"
               >
                 {/* Ambient glow accent */}
                 <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full pointer-events-none blur-3xl opacity-20 bg-orange-500 group-hover:opacity-35 transition-opacity duration-500" />
@@ -451,14 +451,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                 </div>
 
                 {/* Content shown directly */}
-                <div className="pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 space-y-3 sm:space-y-4">
-                  <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-orange-500/80 pl-3 sm:pl-4">
-                    “Build indigenous systems that soldiers can trust, adapt and even produce close to where they fight — from supersonic strike and air defence to drone factories, ground robots and counter-drone shields.”
-                  </blockquote>
-                  <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
-                    We bridge the critical gap between conceptual defence R&amp;D and battlefield deployment. Combining rapid prototyping, agile software iteration and frontline operational feedback, every system is engineered for reliable mission performance.
-                  </p>
-                  <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-end gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40">
+                <div className="pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
+                    <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-orange-500/80 pl-3 sm:pl-4">
+                      “Build indigenous systems that soldiers can trust, adapt and even produce close to where they fight — from supersonic strike and air defence to drone factories, ground robots and counter-drone shields.”
+                    </blockquote>
+                    <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
+                      We bridge the critical gap between conceptual defence R&amp;D and battlefield deployment. Combining rapid prototyping, agile software iteration and frontline operational feedback, every system is engineered for reliable mission performance.
+                    </p>
+                  </div>
+                  <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-end gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40 mt-auto">
                     <span className="font-bold text-amber-400">UNCOMPROMISING RELIABILITY</span>
                   </div>
                 </div>
@@ -466,9 +468,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
             </ScrollReveal>
 
             {/* 2. OUR VISION CARD */}
-            <ScrollReveal delay={0.2} yOffset={30} className="h-full">
+            <ScrollReveal delay={0.2} yOffset={30} className="h-full flex flex-col">
               <div
-                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-sky-400/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden select-none focus:outline-none"
+                className="group relative bg-gradient-to-b from-[#06331e] via-[#042617] to-[#02180e] border border-emerald-700/50 hover:border-sky-400/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl transition-all duration-500 overflow-hidden select-none focus:outline-none h-full flex flex-col justify-between"
               >
                 {/* Ambient glow accent */}
                 <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full pointer-events-none blur-3xl opacity-20 bg-sky-500 group-hover:opacity-35 transition-opacity duration-500" />
@@ -492,13 +494,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigate
                 </div>
 
                 {/* Content shown directly */}
-                <div className="pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 space-y-3 sm:space-y-4">
-                  <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-sky-400/80 pl-3 sm:pl-4">
-                    “To make Bharat the place where the world's most adaptive defence technology is designed, built and improved — as fast as the battlefield changes.”
-                  </blockquote>
-                  <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
-                    Closing the speed gap that traditional procurement cycles face. We envision a self-reliant, agile defence ecosystem where Indian armed forces wield unmatched indigenous technology at startup speed.
-                  </p>
+                <div className="pt-5 sm:pt-6 mt-3 sm:mt-4 border-t border-emerald-800/50 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
+                    <blockquote className="text-sm sm:text-lg font-medium text-emerald-100/95 leading-relaxed italic border-l-2 border-sky-400/80 pl-3 sm:pl-4">
+                      “To make Bharat the place where the world's most adaptive defence technology is designed, built and improved — as fast as the battlefield changes.”
+                    </blockquote>
+                    <p className="text-xs sm:text-sm text-emerald-200/70 leading-relaxed font-normal">
+                      Closing the speed gap that traditional procurement cycles face. We envision a self-reliant, agile defence ecosystem where Indian armed forces wield unmatched indigenous technology at startup speed.
+                    </p>
+                  </div>
+                  <div className="pt-2 sm:pt-3 flex flex-wrap items-center justify-end gap-2 text-[10px] sm:text-[11px] font-mono text-emerald-400/80 border-t border-emerald-900/40 mt-auto">
+                    <span className="font-bold text-sky-400">ADAPTIVE DEFENCE TECHNOLOGY</span>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>

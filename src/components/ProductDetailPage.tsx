@@ -40,6 +40,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     CATALOGUE_PRODUCTS['sag-net-catcher'];
 
 
+  const isYamraj = product.id === 'yamraj' || product.title.toUpperCase().includes('YAMRAJ');
+
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
       `Hello SAG Aerospace and Defence Pvt Ltd, I would like to request an official technical briefing and demonstration details for the ${product.title}.`
@@ -51,53 +53,116 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     <div className="min-h-screen text-slate-100 font-sans selection:bg-red-600 selection:text-white bg-[#07090b] relative pb-28">
       {/* =========================================================================
           1. HERO SECTION
-             - Desktop/Tablet (md and above): 100% full-width edge-to-edge immersive background artwork hero
+             - Desktop/Tablet (md and above):
+               * For Yamraj: 2-column split with centered, uncropped munition on right (similar to Home page)
+               * Other products: 100% full-width edge-to-edge immersive background artwork hero
              - Mobile (< md): Product text description first, with dedicated product image card below it
           ========================================================================= */}
 
       {/* --- DESKTOP HERO (md and above) --- */}
-      <section className="hidden md:flex relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex-col justify-center border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
-        {/* Full-Bleed Artwork Image Background across 100% viewport width */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={product.heroImage}
-            alt={product.title}
-            className="w-full h-full object-cover filter contrast-105 brightness-100 transition-all duration-700"
-            style={{
-              objectPosition: product.heroImagePosition || 'center center',
-            }}
-          />
-          {/* Directional gradient on the left so the product on the center-right is fully uncovered and visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07090b] via-transparent to-black/25" />
-        </div>
+      {isYamraj ? (
+        <section className="hidden md:flex relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex-col justify-center border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
+          {/* Subtle Atmosphere Ambient Glow */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute w-[500px] h-[500px] rounded-full bg-red-600/10 blur-[130px] -top-20 -left-20 pointer-events-none" />
+            <div className="absolute w-[600px] h-[600px] rounded-full bg-red-600/5 blur-[150px] top-1/3 -right-20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#07090b]/40 to-[#07090b]" />
+          </div>
 
-        {/* Center Content: Status Badge, Title, Tagline & Lead Description */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8 w-full py-28 pt-36">
-          <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-4">
-            {/* Status Badge */}
-            {product.statusBadge && (
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-emerald-400 text-xs font-mono font-bold backdrop-blur-md mb-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>{product.statusBadge}</span>
+          {/* Two-Column Split: Content on Left, Hero Image on Right (similar to Home Page) */}
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8 w-full py-28 pt-36">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Column: Status Badge, Title, Tagline & Lead Description */}
+              <div className="md:col-span-6 xl:col-span-6 space-y-4">
+                {/* Status Badge */}
+                {product.statusBadge && (
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900/80 border border-neutral-700/60 text-emerald-400 text-xs font-mono font-bold backdrop-blur-md mb-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>{product.statusBadge}</span>
+                  </div>
+                )}
+
+                <div>
+                  <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-tight drop-shadow-2xl">
+                    {product.title}
+                  </h1>
+                  <p className="text-lg sm:text-xl font-mono font-bold tracking-[0.22em] text-neutral-200 mt-3 uppercase drop-shadow">
+                    {product.tagline}
+                  </p>
+                </div>
+
+                <p className="text-base md:text-lg text-neutral-200 leading-relaxed font-normal max-w-xl drop-shadow">
+                  {product.leadDescription}
+                </p>
               </div>
-            )}
 
-            <div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-tight drop-shadow-2xl">
-                {product.title}
-              </h1>
-              <p className="text-lg sm:text-xl font-mono font-bold tracking-[0.22em] text-neutral-200 mt-3 uppercase drop-shadow">
-                {product.tagline}
+              {/* Right Column: Yamraj Hero Image with positioning identical to Home Page */}
+              <div className="md:col-span-6 xl:col-span-6 relative flex flex-col items-center justify-center pt-6 md:pt-0">
+                <div className="relative w-full flex flex-col items-center justify-center group">
+                  {/* Atmosphere Accent Glow */}
+                  <div className="absolute w-60 h-60 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-red-600/10 blur-3xl pointer-events-none -z-10 group-hover:bg-red-600/20 transition-all duration-700" />
+
+                  {/* Supersonic Munition Hero Image */}
+                  <div className="relative w-full flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.03]">
+                    <picture className="w-full flex items-center justify-center">
+                      <source srcSet="/images/hero/hero-yamraj.webp" type="image/webp" />
+                      <img
+                        src="/images/hero/hero-yamraj.png"
+                        alt={product.title}
+                        className="w-full max-w-[320px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-[700px] xl:max-w-[780px] h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.50)] select-none"
+                        loading="eager"
+                      />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section className="hidden md:flex relative w-full min-h-[100svh] lg:h-screen lg:min-h-screen flex-col justify-center border-b border-neutral-800/80 overflow-hidden bg-[#07090b]">
+          {/* Full-Bleed Artwork Image Background across 100% viewport width */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={product.heroImage}
+              alt={product.title}
+              className="w-full h-full object-cover filter contrast-105 brightness-100 transition-all duration-700"
+              style={{
+                objectPosition: product.heroImagePosition || 'center center',
+              }}
+            />
+            {/* Directional gradient on the left so the product on the center-right is fully uncovered and visible */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#07090b] via-transparent to-black/25" />
+          </div>
+
+          {/* Center Content: Status Badge, Title, Tagline & Lead Description */}
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8 w-full py-28 pt-36">
+            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-4">
+              {/* Status Badge */}
+              {product.statusBadge && (
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-emerald-400 text-xs font-mono font-bold backdrop-blur-md mb-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>{product.statusBadge}</span>
+                </div>
+              )}
+
+              <div>
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-tight drop-shadow-2xl">
+                  {product.title}
+                </h1>
+                <p className="text-lg sm:text-xl font-mono font-bold tracking-[0.22em] text-neutral-200 mt-3 uppercase drop-shadow">
+                  {product.tagline}
+                </p>
+              </div>
+
+              <p className="text-base md:text-lg text-neutral-200 leading-relaxed font-normal max-w-xl drop-shadow">
+                {product.leadDescription}
               </p>
             </div>
-
-            <p className="text-base md:text-lg text-neutral-200 leading-relaxed font-normal max-w-xl drop-shadow">
-              {product.leadDescription}
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* --- MOBILE HERO (< md) --- */}
       <section className="block md:hidden w-full border-b border-neutral-800/80 bg-[#07090b] pt-24 pb-8 px-4">
@@ -128,16 +193,18 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
           {/* Product Image Card Below Description */}
           <div className="rounded-2xl overflow-hidden border border-neutral-800 bg-[#0d1117] shadow-2xl relative">
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/60 flex items-center justify-center">
+            <div className={`relative ${isYamraj ? 'aspect-[16/9] p-4 flex items-center justify-center bg-[#07090b]' : 'aspect-[16/10] bg-black/60'} w-full overflow-hidden flex items-center justify-center`}>
               <img
-                src={product.heroImage}
+                src={isYamraj ? '/images/hero/hero-yamraj.webp' : product.heroImage}
                 alt={product.title}
-                className="w-full h-full object-cover"
+                className={isYamraj ? 'w-full h-auto max-h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]' : 'w-full h-full object-cover'}
                 style={{
-                  objectPosition: product.heroImagePosition || 'center center',
+                  objectPosition: isYamraj ? 'center center' : (product.heroImagePosition || 'center center'),
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117]/60 via-transparent to-transparent pointer-events-none" />
+              {!isYamraj && (
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117]/60 via-transparent to-transparent pointer-events-none" />
+              )}
             </div>
 
             {/* Tactical Card Footer */}
